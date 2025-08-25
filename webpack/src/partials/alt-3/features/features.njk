@@ -1,0 +1,53 @@
+<!-- Powerful Features -->
+<section class="section alter3-features">
+    <div class="shapes-container">
+        <div class="shape shape-ring shape-ring-1">
+            <div class="animation animation--rotating"></div>
+        </div>
+        <div class="shape shape-ring shape-ring-2">
+            <div class="animation animation--rotating"></div>
+        </div>
+        <div class="shape shape-circle animation--clockwise">
+            <div></div>
+        </div>
+
+        <div class="shape background-shape-main"></div>
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 order-lg-last">
+                <div class="section-heading">
+                    <p class="px-2 text-alternate text-uppercase bold">Powerful features await for you</p>
+                    <h2 class="heading-line">A complete feature stack ready to help you</h2>
+
+                    <p class="lead text-muted my-4 semi-bold">Laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscig elit, sed do eiusmod tempor incididunt ut labore aliqua. Ut enim adi minim veniam, quis nostrud exercitation </p>
+
+                    <a href="#!" class="more-link btn btn-primary text-contrast bold">Know More</a>
+                </div>
+            </div>
+
+            <div class="col-lg-7 pr-lg-6">
+                <div class="row">
+                    <div class="col-lg-6 rotated-cards">
+                        {% set cards = [
+                            { class: "mt-6 mt-6 mx-lg-auto", icon: "paint-bucket", title: "Customizable", animation: { effect: "fade-down", delay: "0" }, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit" },
+                            { class: "mr-lg-auto", icon: "diamond", title: "Powerful Design", animation: { effect: "fade-down", delay: "500" }, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit" }
+                        ] %}
+                        {% include "~alt3/features/_card.njk" %}
+                    </div>
+
+                    <div class="col-lg-6 rotated-cards">
+                        {% set cards = [
+                            { class: "mx-lg-auto", icon: "light", title: "Creative", animation: { effect: "fade-down", delay: "800" }, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit" },
+                            { class: "mt-6n mr-lg-auto", icon: "cash", title: "Affordable", animation: { effect: "fade-down", delay: "1200" }, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit" }
+                        ] %}
+                        {% include "~alt3/features/_card.njk" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

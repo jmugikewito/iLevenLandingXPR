@@ -1,0 +1,9 @@
+<div class="callout-block callout-{{ callout.type}}">
+    <div class="icon-holder">
+        <i class="fas fa-{{ "exclamation-triangle" if callout.type === "warning" else "info-circle" }}"></i>
+    </div>
+    <div class="content">
+        <h4 class="callout-title">{{ callout.title }}</h4>
+        <p class="scrollto">{{ callout.description | safe }}</p>
+    </div>
+</div>

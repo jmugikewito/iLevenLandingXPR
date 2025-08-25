@@ -1,0 +1,12 @@
+{% extends "~layout/docs.njk" %}
+
+{% block sidebar %}
+    {% include "~docs/_sidebar.njk" %}
+{% endblock %}
+
+{% block content %}
+    {% include "~docs/thanks.njk" %}
+    {% include "~docs/quick-start.njk" %}
+    {% include "~docs/deploy.njk" %}
+    {% include "~docs/credits.njk" %}
+{% endblock %}

@@ -1,0 +1,16 @@
+<section class="section" id="demos">
+    <div class="container-fluid bring-to-front">
+        <div class="section-heading text-center">
+            <h2 class="heading-line">Pick a Demo</h2>
+            <p class="lead text-muted">{{ app.name }} comes with multiple demos, choose the one you want to give a try.</p>
+        </div>
+
+        <div class="row gap-y">
+            {% for demo in range(1, 4) -%}
+                <div class="col-sm-6 col-md-4">
+                    {% include "~demo/_demo.njk" %}
+                </div>
+            {%- endfor %}
+        </div>
+    </div>
+</section>
