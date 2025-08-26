@@ -153,7 +153,7 @@
                 <nav class="nav my-5">
                    <a href="#!" class="btn btn-rounded btn-alternate mr-2 mr-md-5"
    style="background:#053F5C;border:1px solid #053F5C;color:#fff;box-shadow:0 8px 20px rgba(5,63,92,0.12);">
-  Descargar la app <i class="fas fa-long-arrow-alt-right ml-2"></i>
+  Descargar ahora <i class="fas fa-long-arrow-alt-right ml-2"></i>
 </a>
 
                 </nav>
@@ -521,7 +521,7 @@
       <div class="accent-line" aria-hidden="true"></div>
 
       <p class="lead" style="color:#000;">
-Xpressate nació para ayudar a empleados, ex empleados y clientes a expresar experiencias con respaldo verificable, mientras las empresas reciben insights y gestionan su reputación de manera estructurada.
+Somos una app creada para darte un espacio seguro donde puedas expresar tus ideas, resolver conflictos y transformar problemas en oportunidades de cambio.
 
 </p>
 
@@ -569,9 +569,10 @@ Xpressate nació para ayudar a empleados, ex empleados y clientes a expresar exp
               Usuarios
             </h3>
             <ul class="xp-list" aria-label="Beneficios para usuarios">
-              <li><span class="xp-check"></span> Publica experiencias de forma segura y anónima o pública.</li>
+              <li><span class="xp-check"></span> Exprésate libremente en un entorno seguro.</li>
               <li><span class="xp-check"></span> Accede a ofertas laborales adaptadas a tus intereses.</li>
-              <li><span class="xp-check"></span> Haz seguimiento a tus publicaciones y recibe respuestas reales.</li>
+              <li><span class="xp-check"></span> Convierte los conflictos en aprendizajes.</li>
+              <li><span class="xp-check"></span> Forma parte de una comunidad positiva.</li>
             </ul>
           </div>
 
@@ -1545,7 +1546,7 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
         <small class="error" data-for="terms" aria-live="polite"></small>
 
         <button type="submit" class="btn">
-          <span class="btn-label">Enviar</span>
+          <span class="btn-label">Enviar mensaje </span>
           <span class="btn-shine" aria-hidden="true"></span>
           <span class="spinner" aria-hidden="true"></span>
         </button>
@@ -1944,8 +1945,7 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
 
 </main>
 
-
-   <footer class="site-footer section bg-dark text-contrast edge top-left">
+<footer class="site-footer section bg-dark text-contrast edge top-left">
   <div class="container py-3">
     <div class="row gap-y text-center text-md-left">
       <div class="col-md-4 mr-auto">
@@ -1955,7 +1955,7 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
 
       <div class="col-md-2">
         <nav class="nav flex-column">
-          <a class="nav-item py-2 text-contrast" href="#"><i> <i>Inicio</i></i></a>
+          <a class="nav-item py-2 text-contrast" href="#"><i>Inicio</i></a>
           <a class="nav-item py-2 text-contrast" href="#">Sobre nosotros</a>
           <a class="nav-item py-2 text-contrast" href="#">Beneficios</a>
         </nav>
@@ -1971,7 +1971,7 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
 
       <div class="col-md-2">
         <nav class="nav flex-column">
-          <a class="nav-item py-2 text-contrast" href="#">Politicas de privacidad</a>
+          <a class="nav-item py-2 text-contrast" href="#">Políticas de privacidad</a>
         </nav>
       </div>
 
@@ -2000,12 +2000,18 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
               </a>
             </li>
 
-            <!-- X (antes Twitter) -->
+            <!-- Instagram -->
             <li>
-              <a href="https://x.com/5studios" target="_blank" rel="noopener noreferrer"
-                 class="social-btn brand-x" aria-label="X (antes Twitter) de 5studios" title="X">
+              <a href="https://instagram.com/5studios" target="_blank" rel="noopener noreferrer"
+                 class="social-btn brand-instagram" aria-label="Instagram de 5studios" title="Instagram">
                 <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path fill="currentColor" d="M18.244 2H21.5l-7.5 8.57L22 22h-6.828l-5.335-6.27L3.9 22H.64l8.028-9.18L2 2h6.953l4.84 5.585L18.244 2zm-2.406 18h2.123L8.415 4H6.179l9.659 16z"/>
+                  <path fill="currentColor" d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 
+                  5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 
+                  1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 
+                  1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 
+                  000-10zm0 2a3 3 0 110 6 3 3 0 
+                  010-6zm4.75-2.75a1.25 1.25 0 100 
+                  2.5 1.25 1.25 0 000-2.5z"/>
                 </svg>
               </a>
             </li>
@@ -2014,7 +2020,16 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
 
         <style>
           .social-nav{ display:flex; justify-content:center; }
-          .social-list{ list-style:none; margin:0; padding:0; display:flex; gap:12px; }
+          .social-list{
+            list-style:none;
+            margin:0;
+            padding:0;
+            display:flex;
+            gap:12px;
+          }
+          .social-list li::marker {
+            content:none; /* quita los puntos de lista (::marker) */
+          }
           .social-btn{
             display:inline-flex; align-items:center; justify-content:center;
             width:48px; height:48px; border-radius:50%; font-size:18px;
@@ -2029,7 +2044,12 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
           /* Colores de marca */
           .brand-facebook{ background:#1877F2; }
           .brand-linkedin{ background:#0A66C2; }
-          .brand-x{ background:#000000; }
+          .brand-instagram{
+            background: radial-gradient(circle at 30% 107%, 
+              #fdf497 0%, #fdf497 5%, 
+              #fd5949 45%, #d6249f 60%, 
+              #285AEB 90%);
+          }
         </style>
       </div>
     </div>
@@ -2037,11 +2057,12 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
     <hr class="mt-5 op-5" />
     <div class="row small">
       <div class="col-md-4">
-        <p class="mt-2 mb-0 text-center text-md-left">© 2019 <a href="https://5studios.net">5studios</a>. All Rights Reserved</p>
+        <p class="mt-2 mb-0 text-center text-md-left">© 2025 XPRESSATE <a href="https://5studios.net">Hecho para que tu voz cuente</a></p>
       </div>
     </div>
   </div>
 </footer>
+
 
 <script src="js/jquery.js"></script>
 <script src="js/popper.js"></script>
