@@ -5989,10 +5989,15 @@ a.badge-contrast:focus, a.badge-contrast.focus {
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
   background-size: 1rem 1rem;
 }
 
@@ -13803,10 +13808,16 @@ select[multiple].form-control.form-control-rounded, textarea.form-control.form-c
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
+
  position: relative;
   padding-top: 2em;
   border-radius: .4em;
@@ -13844,10 +13855,20 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
+
+
+
+
+
   bottom: -25px;
   content: "";
   display: block;
@@ -13865,10 +13886,14 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 
 
 }
@@ -13877,10 +13902,14 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 
 
 }
@@ -13889,10 +13918,16 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
+
 
 
 
@@ -13903,10 +13938,16 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
+
 
 
 }
@@ -13915,10 +13956,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 }
 
@@ -13926,20 +13972,30 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 }
 
 .gradient.gradient-alternate-light {
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 
 }
@@ -13948,10 +14004,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 
 
@@ -13961,10 +14022,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 
 
@@ -13974,10 +14040,16 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
+
 
 
 }
@@ -13986,10 +14058,14 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 
 
 }
@@ -13998,20 +14074,30 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 }
 
 .gradient.gradient-warning-light {
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 }
 
@@ -14019,10 +14105,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 
 }
@@ -14031,20 +14122,28 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 }
 
 .gradient.gradient-danger-dark {
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 
 
 }
@@ -14053,10 +14152,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 }
 
@@ -14064,10 +14168,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 }
 
@@ -14075,10 +14184,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 
 
@@ -14088,10 +14202,14 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 
 
 
@@ -14101,10 +14219,13 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
 
 
 }
@@ -18597,10 +18718,15 @@ section.shadow, .section.shadow {
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 
   text-align: left;
@@ -18809,10 +18935,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 
   text-align: left;
@@ -18958,10 +19089,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 }
 
 @media (min-width: 768px) {
@@ -19118,10 +19254,14 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 }
 
 @media (min-width: 768px) {
@@ -19378,10 +19518,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 
 
@@ -19399,10 +19544,14 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 
 
 
@@ -19420,10 +19569,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 }
 
@@ -19439,10 +19593,14 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 
 }
 
@@ -19462,10 +19620,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 
 
@@ -19487,10 +19650,14 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 
 }
 
@@ -19510,10 +19677,14 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
 
 }
 
@@ -19533,10 +19704,15 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 18%,
+  #a0e5f2 35%,
+  #007BFF 40%,  /* empieza pronto */
+  #007BFF 100%  /* ocupa todo el final */
 );
+
+
+
+
 
 .alter2-header .shape:nth-child(9) {
   top: 72%;
@@ -19859,10 +20035,13 @@ background-image: linear-gradient(
 background-image: linear-gradient(
   45deg,
   #428dc6 0%,
-  #53b2d4 40%,
-  #a0e5f2 70%,
-  #a0e5f2 100%
+  #53b2d4 20%,
+  #a0e5f2 40%,
+  #007BFF 50%,
+  #007BFF 100%
 );
+
+
 
 
 

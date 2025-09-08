@@ -203,12 +203,12 @@
 
              <h1 class="text-contrast display-4 display-md-3"3">
 <span class="bold" style="color:#000">
-  ¡<span style="color:#053F5C">Xpressate,</span><br> tu voz ,nuestro impulso!
+  ¡<span style="color:#000">Xpressate,</span><br> tu voz ,nuestro impulso!
 </span>
 
 </h1>
 
-                <p class="bold" style="color:#000000;">Gestiona experiencias. Resuelve conflictos. Abre oportunidades.</p>
+                <p class="bold" style="color:#000000;">Gestiona experiencias,resuelve conflictos y abre oportunidades.</p>
                   <!-- app buttons -->
           <!-- Badges tipo "App Store / Google Play" con borde púrpura y en una línea -->
 <style>
@@ -280,23 +280,99 @@
   }
 </style>
 
-<div class="badges-row" aria-label="Descargar la app">
-  <a class="badge-card badge-1" href="#" aria-label="Disponible en App Store" role="link">
-    <img src="img/AS.png" alt="Disponible en App Store">
-  </a>
+ <!-- app buttons -->
+          <!-- Inicio: Botones de descarga (solo la parte solicitada) -->
+<style>
+  :root {
+    --app-btn-blue: #007BFF;   /* color azul solicitado (cámbialo si prefieres otro) */
+    --app-btn-gap: 18px;       /* separación entre botones (un poquito más) */
+    --app-btn-radius: 10px;
+    --app-btn-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    --app-btn-padding: 8px 14px;
+    --btn-img-maxh: 40px;
+  }
 
-  <a class="badge-card badge-2" href="#" aria-label="Disponible en Google Play" role="link">
-    <img src="img/asw.png" alt="Disponible en Google Play">
-  </a>
-</div>
+  /* Contenedor de los botones (lista horizontal) */
+  .app_btn {
+    display: flex;
+    gap: var(--app-btn-gap);
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .app_btn li { margin: 0; }
+
+  /* Estilo del enlace-botón */
+  .app-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-btn-blue);
+    padding: var(--app-btn-padding);
+    border-radius: var(--app-btn-radius);
+    box-shadow: var(--app-btn-shadow);
+    border: 1px solid rgba(255,255,255,0.08);
+    text-decoration: none;
+    transition: transform 150ms ease, box-shadow 150ms ease, opacity 120ms ease;
+  }
+
+  .app-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.16);
+  }
+
+  .app-btn:active { transform: translateY(-1px); }
+  .app-btn:focus-visible {
+    outline: 3px solid rgba(0,123,255,0.18);
+    outline-offset: 2px;
+  }
+
+  /* Imagen dentro del botón */
+  .app-btn .btn-img {
+    display: block;
+    max-height: var(--btn-img-maxh);
+    width: auto;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+
+  /* Si la imagen blanca necesita un contraste sutil, se puede aplicar un filtro */
+  .app-btn .white_img {
+    /* filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12)); */
+  }
+
+  /* Responsive: reducir tamaños en pantallas muy pequeñas */
+  @media (max-width: 480px) {
+    :root { --app-btn-gap: 12px; --btn-img-maxh: 36px; --app-btn-padding: 6px 10px; }
+    .app_btn { gap: var(--app-btn-gap); }
+  }
+</style>
+
+<ul class="app_btn" aria-label="Botones de descarga de la app">
+  <li>
+    <a class="app-btn" href="#" aria-label="Descargar en App Store">
+      <img class="btn-img blue_img" src="img/ASS.png" alt="App Store" loading="lazy">
+    </a>
+  </li>
+
+  <li>
+    <a class="app-btn" href="#" aria-label="Descargar en Google Play">
+      <img class="btn-img white_img" src="img/GPY.png" alt="Google Play" loading="lazy">
+    </a>
+  </li>
+</ul>
+<!-- Fin: Botones de descarga -->
+
 
                 <nav class="nav my-5">
-                   <a href="#!" class="btn btn-rounded btn-alternate mr-2 mr-md-5"
-   style="background:#053F5C;border:1px solid #053F5C;color:#fff;box-shadow:0 8px 20px rgba(5,63,92,0.12);">
-  Descargar ahora <i class="fas fa-long-arrow-alt-right ml-2"></i>
-</a>
+  <a href="#!" class="btn btn-rounded btn-alternate mr-2 mr-md-5"
+     style="background:#004DFF !important; border:1px solid #004DFF !important;
+            color:#ffffff !important; box-shadow:0 8px 20px rgba(0,77,255,0.12) !important;">
+    Descargar ahora <i class="fas fa-long-arrow-alt-right ml-2"></i>
+  </a>
 
-                </nav>
             </div>
 
            <!-- Coloca esto dentro de tu grid (ej. dentro de .row) -->
@@ -317,13 +393,18 @@
   }
 </style>
 
-<div class="col-lg-6 col-md-12"  data-aos="fade-in" data-aos-duration="1500">
-<div class="iphone light">
-                    <div class="screen shadow-box">
-                        <img src="img/XPR.jpg" alt="...">
-                    </div>
-                    <div class="notch"></div>
-                </div>
+<div class="col-lg-6 col-md-12" data-aos="fade-in" data-aos-duration="1500">
+  <div class="screen shadow-box">
+    <img src="img/MOCKUP.png" alt="..."
+         style="display:block;
+                width: clamp(260px, 40vw, 520px);
+                height: auto;
+                max-width: 100%;
+                object-fit: contain;" />
+  </div>
+  <div class="notch"></div>
+</div>
+
         <!-- row end -->
       </div>
       <!-- container end -->
@@ -720,10 +801,17 @@ Somos una app creada para darte un espacio seguro donde puedas expresar tus idea
         </div>
 
         <!-- Botón principal -->
-        <div class="xp-ctas">
-          <a href="#" class="xp-btn primary" aria-label="Solicitar demo">Descubre lo que puedes ganar con Xpressate</a>
-        </div>
-      </div>
+     <div class="xp-ctas">
+  <a href="#!"
+     class="btn btn-rounded btn-alternate mr-2 mr-md-5 xp-btn primary"
+     aria-label="Solicitar demo"
+     style="background:#004DFF !important; border:1px solid #004DFF !important;
+            color:#ffffff !important; box-shadow:0 8px 20px rgba(0,77,255,0.12) !important;">
+    Descubre lo que puedes ganar con Xpressate
+  </a>
+</div>
+</div>
+
 
       <!-- RIGHT: Imagen/mockup -->
       <div class="xp-right" aria-hidden="true">
@@ -1051,7 +1139,7 @@ Somos una app creada para darte un espacio seguro donde puedas expresar tus idea
 
                 <div class="iphone light">
                     <div class="screen shadow-box">
-                        <img src="img/XPR.jpg" alt="...">
+                        <img src="img/MOCKUP.png" alt="...">
                     </div>
                     <div class="notch"></div>
                 </div>
@@ -1146,11 +1234,9 @@ Somos una app creada para darte un espacio seguro donde puedas expresar tus idea
                 <p>Agrega Administradores y Representantes; define roles y niveles de acceso desde el módulo <em>Representantes</em>.</p>
               </li>
               <li>
-                <div class="step-head"><span class="step-num">4</span><strong>Onboarding y políticas</strong></div>
-                <p>Completa el onboarding: política de respuesta, SLAs y plantillas de respuestas para tu equipo.</p>
-              </li>
+              
               <li>
-                <div class="step-head"><span class="step-num">5</span><strong>Dialoga y resuelve</strong></div>
+                <div class="step-head"><span class="step-num">4</span><strong>Dialoga y resuelve</strong></div>
                 <p> Conecta, conversa, llega a acuerdos y accede a oportunidades.</p>
               </li>
             </ol>
@@ -2147,7 +2233,7 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
     <div class="row gap-y text-center text-md-left">
       <div class="col-md-4 mr-auto">
         <img src="img/XPR.svg" alt="Logo" class="logo" width="200" height="300" loading="lazy">
-        <p style="margin-top:.6rem;"><strong style="color:var(--footer-text);">la app que gestiona experiencias, resuelve conflictos y abre oportunidades de cambio.</strong></p>
+        <p style="margin-top:.6rem;"><strong style="color:var(--footer-text);">la app que gestiona experiencias,resuelve conflictos y abre oportunidades de cambio.</strong></p>
       </div>
 
       <div class="col-md-2">
