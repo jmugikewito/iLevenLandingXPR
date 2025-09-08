@@ -19,14 +19,20 @@
     <link rel="stylesheet" href="css/odometer-theme-minimal.css">
     <link rel="stylesheet" href="css/swiper.css">
     <link rel="stylesheet" href="css/laapp.css">
+
+    <!-- Smooth scroll + offset for fixed navbar -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* ajusta a la altura real de tu navbar fijo si hace falta */
+      }
+    </style>
 </head>
 <body>
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-
-    
     <!-- Main Navigation -->
 <nav class="navbar navbar-expand-md main-nav navigation fixed-top sidebar-left">
     <div class="container">
@@ -37,9 +43,7 @@
     </button>
 
     <a href="#main" class="navbar-brand">
-        
             <img src="img/XPR.svg" alt="Laapp" class="logo logo-sticky "width="200" height="300">
-        
     </a>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -50,25 +54,22 @@
         </div>
 
         <ul class="nav navbar-nav ml-auto">
+            <!-- Links actualizados para apuntar a las secciones solicitadas -->
             <li class="nav-item"><a class="nav-link scrollto" href="#home" style="color:#000 !important;">Inicio</a></li>
-<li class="nav-item"><a class="nav-link scrollto" href="#features" style="color:#000 !important;">Sobre nosotros</a></li>
-<li class="nav-item"><a class="nav-link scrollto" href="#product" style="color:#000 !important;">Beneficios</a></li>
-<li class="nav-item"><a class="nav-link scrollto" href="#pricing" style="color:#000 !important;">Unirme a Xpressate</a></li>
-<li class="nav-item"><a class="nav-link scrollto" href="#trial" style="color:#000 !important;">Testimonios</a></li>
-<li class="nav-item">
-<a class="btn btn-rounded" href="#contact" style="background-color:#F7AD19; color:#fff; padding:8px 20px; border-radius:30px; font-weight:600; text-decoration:none;">
-    Contacto
-  </a>
-</li>
-
-
+            <li class="nav-item"><a class="nav-link scrollto" href="#about" style="color:#000 !important;">Sobre nosotros</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#beneficios" style="color:#000 !important;">Beneficios</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#testimonios" style="color:#000 !important;">Testimonios</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#unirme" style="color:#000 !important;">Unirme a Xpressate</a></li>
+            <li class="nav-item">
+              <a class="btn btn-rounded scrollto" href="#contacto" style="background-color:#F7AD19; color:#fff; padding:8px 20px; border-radius:30px; font-weight:600; text-decoration:none;">
+                Contacto
+              </a>
+            </li>
         </ul>
     </div>
 </div>
 
 </nav>
-
-
 
 <main >
     
@@ -77,25 +78,15 @@
 <header class="header alter2-header section" id="home">
     <div class="shapes-container">
         <!-- diagonal shapes -->
-        
             <div class="shape shape-animated" data-aos="fade-down-right" data-aos-duration="1500" data-aos-delay="100"></div>
-        
             <div class="shape shape-animated" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
-        
             <div class="shape shape-animated" data-aos="fade-up-left" data-aos-duration="500" data-aos-delay="200"></div>
-        
             <div class="shape shape-animated" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"></div>
-        
             <div class="shape shape-animated" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
-        
             <div class="shape shape-animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
-        
             <div class="shape shape-animated" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
-        
             <div class="shape shape-animated" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
-        
             <div class="shape shape-animated" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
-        
 
         <!-- animated shapes -->
         <div class="animation-shape shape-ring animation--clockwise"></div>
@@ -143,10 +134,7 @@
   ¡<span style="color:#053F5C">Xpressate,</span><br> tu voz ,nuestro impulso!
 </span>
 
-
-
 </h1>
-
 
                 <p class="bold" style="color:#000000;">Gestiona experiencias. Resuelve conflictos. Abre oportunidades.</p>
 
@@ -243,7 +231,6 @@
     .container.py-5 { padding-left: 1rem; padding-right: 1rem; }
   }
 </style>
-
 
     
 <!-- .Premium Features -->
@@ -510,7 +497,6 @@ Somos una app creada para darte un espacio seguro donde puedas expresar tus idea
 
 </p>
 
-
       <div class="cta-row" role="group" aria-label="Acciones">
       </div>
     </div>
@@ -526,12 +512,9 @@ Somos una app creada para darte un espacio seguro donde puedas expresar tus idea
 
 </section>
 
-
-
-
     <!-- Powered Design Blocks -->
 <!-- XPRESSATE - Sección "Beneficios" mejorada -->
-<section class="xp-section" aria-labelledby="xp-benefits-title">
+<section id="beneficios" class="xp-section" aria-labelledby="xp-benefits-title">
   <div class="xp-container">
     <div class="xp-grid">
 
@@ -756,7 +739,6 @@ Somos una app creada para darte un espacio seguro donde puedas expresar tus idea
 .xp-dot{ display:inline-block; width:10px; height:10px; background:var(--xp-accent-2); border-radius:50%; box-shadow:0 6px 18px #79b4e6; margin-right:10px; }
 .xp-ring{ display:inline-block; width:48px; height:48px; border-radius:50%; border:2px solid var(--xp-accent-3); margin-left:8px; transform:rotate(22deg); }
 
-/* RESPONSIVE */
 @media (max-width:1100px){
   .xp-grid{ grid-template-columns: 1fr 340px; }
   .xp-right{ height:320px; }
@@ -777,9 +759,8 @@ Somos una app creada para darte un espacio seguro donde puedas expresar tus idea
 }
 </style>
 
-
     <!-- Features you can't miss -->
-<section class="section features-cant-miss">
+<section id="testimonios" class="section features-cant-miss">
     <div class="shapes-container overflow-clear">
         <div class="shape shape-circle shape-circle-1">
             <div data-aos="fade-up-left"></div>
@@ -922,12 +903,11 @@ Somos una app creada para darte un espacio seguro donde puedas expresar tus idea
     </div>
 </section>
 
-
     <!-- Pricing -->
 <<!-- XPRESSATE — Sección: Crear cuenta (Instrucciones para Usuarios y Empresas) -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-<section id="xp-create-account" class="xp-create" aria-labelledby="xp-create-title" role="region">
+<section id="unirme" class="xp-create" aria-labelledby="xp-create-title" role="region">
   <div class="xp-decor" aria-hidden="true">
     <span class="xp-dot xp-dot-1"></span>
     <span class="xp-dot xp-dot-2"></span>
@@ -1397,7 +1377,6 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
   </div>
 </section>
 
-
     
 <!-- FAQs -->
 <section class="section faqs-dd bg-light edge top-left">
@@ -1470,21 +1449,10 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
 
     <!-- Start For Free -->
 
-
-
-
-
-
-
-
-
-
-
-    
 <!-- Formulario Landing Xpressate -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-<section id="lp-contact" aria-labelledby="lpContactTitle">
+<section id="contacto" aria-labelledby="lpContactTitle">
   <div class="lp-wrap">
     <header class="lp-header">
       <h2 id="bold">¿Listo para hablar con Xpressate?</h2>
@@ -1924,7 +1892,6 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
     });
   })();
 </script>
-
 
     <!-- Contact Channels -->
 <section class="section ">
