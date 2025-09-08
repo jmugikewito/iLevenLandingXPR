@@ -209,6 +209,86 @@
 </h1>
 
                 <p class="bold" style="color:#000000;">Gestiona experiencias. Resuelve conflictos. Abre oportunidades.</p>
+                  <!-- app buttons -->
+          <!-- Badges tipo "App Store / Google Play" con borde púrpura y en una línea -->
+<style>
+  :root{
+    --badge-gap: 28px;         /* espacio entre badges */
+    --purple: #6e40ff;        /* color del borde (ajusta si quieres) */
+    --border-size: 3px;       /* grosor del borde */
+    --card-radius: 18px;      /* radio de las esquinas */
+    --card-padding: 12px 36px;/* padding dentro del rectángulo */
+    --badge-height: 46px;     /* altura visual del logo dentro del rectángulo */
+    --card-bg: #ffffff;
+    --card-shadow: 0 8px 18px rgba(16,12,60,0.06);
+  }
+
+  .badges-row {
+    display:flex;
+    gap: var(--badge-gap);
+    align-items:center;
+    justify-content:flex-start; /* o center */
+    flex-wrap: nowrap;
+    padding: 12px 0;
+    background: transparent;
+  }
+
+  .badge-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    padding: var(--card-padding);
+    border-radius: var(--card-radius);
+    border: var(--border-size) solid var(--purple);
+    box-shadow: var(--card-shadow);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+
+  .badge-card:focus,
+  .badge-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(16,12,60,0.10);
+    outline: none;
+  }
+
+  /* Las imágenes deben mantener proporción y adaptarse por altura */
+  .badge-card img {
+    display:block;
+    height: var(--badge-height);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+
+  /* Si quieres dos anchos distintos (opcional), controla con clases */
+  .badge-1 img { height: 46px; } /* App Store */
+  .badge-2 img { height: 46px; } /* Google Play */
+
+  /* Responsive: en pantallas muy pequeñas se apilan pero centradas */
+  @media (max-width:420px){
+    .badges-row{
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content:center;
+    }
+    .badge-card { width: calc(50% - 12px); box-sizing:border-box; padding:10px 18px; }
+    .badge-card img { height: 36px; }
+  }
+</style>
+
+<div class="badges-row" aria-label="Descargar la app">
+  <a class="badge-card badge-1" href="#" aria-label="Disponible en App Store" role="link">
+    <img src="img/AS.png" alt="Disponible en App Store">
+  </a>
+
+  <a class="badge-card badge-2" href="#" aria-label="Disponible en Google Play" role="link">
+    <img src="img/asw.png" alt="Disponible en Google Play">
+  </a>
+</div>
 
                 <nav class="nav my-5">
                    <a href="#!" class="btn btn-rounded btn-alternate mr-2 mr-md-5"
@@ -247,7 +327,7 @@
         <!-- row end -->
       </div>
       <!-- container end -->
-  >
+  
 </div>
 
 </div>
