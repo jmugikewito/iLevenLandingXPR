@@ -2177,39 +2177,124 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
 
         <nav class="social-nav" aria-label="Redes sociales">
           <ul class="social-list" role="list">
-            <!-- Facebook -->
-            <li>
-              <a href="https://facebook.com/5studios.net" target="_blank" rel="noopener noreferrer"
-                 class="social-btn brand-facebook" aria-label="Facebook" title="Facebook">
-                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
-                  <path d="M22 12A10 10 0 1 0 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.9h-2.3V22C18.34 21.12 22 16.99 22 12z"/>
-                </svg>
-              </a>
-            </li>
+           <style>
+/* Wrapper */
+.socials { display:flex; gap:10px; align-items:center; padding:0; margin:0; list-style:none; }
 
-            <!-- LinkedIn -->
-            <li>
-              <a href="https://linkedin.com/company/5studios" target="_blank" rel="noopener noreferrer"
-                 class="social-btn brand-linkedin" aria-label="LinkedIn" title="LinkedIn">
-                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
-                  <path d="M22.225 0H1.771C.792 0 0 .774 0 1.728v20.543C0 23.226.792 24 1.771 24h20.454C23.2 24 24 23.226 24 22.271V1.728C24 .774 23.2 0 22.225 0zM6.813 20.452H3.861V9h2.952v11.452zM5.337 7.433a1.804 1.804 0 110-3.607 1.804 1.804 0 010 3.607zM20.447 20.452h-3.237V14.83c0-1.342-.027-3.07-1.871-3.07-1.872 0-2.159 1.46-2.159 2.969v5.723H9.003V9h3.105v1.561h.045c.434-.82 1.494-1.687 3.073-1.687 3.29 0 3.896 2.165 3.896 4.982v6.596z"/>
-                </svg>
-              </a>
-            </li>
+/* Botón */
+.social-btn{
+  --size:48px;
+  width:var(--size);
+  height:var(--size);
+  display:inline-grid;
+  place-items:center;
+  border-radius:10px;
+  text-decoration:none;
+  color: #ffffff;                    /* asegura currentColor blanco */
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 20px rgba(2,18,27,0.35);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  position:relative;
+  overflow:visible;
+}
 
-            <!-- Instagram -->
-            <li>
-              <a href="https://instagram.com/5studios" target="_blank" rel="noopener noreferrer"
-                 class="social-btn brand-instagram" aria-label="Instagram" title="Instagram">
-                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
-                  <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 
-                  5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 
-                  1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 
-                  1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 
-                  000-10zm0 2a3 3 0 110 6 3 3 0 
-                  010-6zm4.75-2.75a1.25 1.25 0 100 
-                  2.5 1.25 1.25 0 000-2.5z"/>
-                </svg>
+/* Forzar iconos SVG inline a blanco (funciona aunque el SVG no use currentColor) */
+.social-btn svg,
+.social-btn svg * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: none !important;
+  width:18px;
+  height:18px;
+  display:block;
+}
+
+/* Para iconos en <img> (raster/svg externo) */
+.social-btn img { 
+  width:18px; height:18px; display:block;
+  filter: brightness(0) invert(1); /* convierte iconos oscuros a blanco */
+}
+
+/* Hover / focus — el icono se mantiene blanco, sólo cambia el fondo */
+.social-btn:hover,
+.social-btn:focus{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(2,18,27,0.45);
+  outline: none;
+}
+
+/* Sutiles variantes de fondo al pasar (manteniendo icono blanco) */
+.brand-facebook:hover{ background: linear-gradient(135deg, rgba(59,89,152,0.14), rgba(59,89,152,0.06)); }
+.brand-linkedin:hover{ background: linear-gradient(135deg, rgba(10,102,153,0.14), rgba(10,102,153,0.06)); }
+.brand-instagram:hover{ background: conic-gradient(from 90deg, #fccc63, #f56040, #c13584, #405de6); background-blend-mode: overlay; }
+
+/* Focus visible accesible */
+.social-btn:focus-visible{
+  outline: 3px solid rgba(247,173,25,0.18);
+  outline-offset: 4px;
+}
+
+/* Small shadow under button for contrast on dark backgrounds */
+.social-btn::after{
+  content:"";
+  position:absolute;
+  bottom:-8px;
+  width:60%;
+  height:6px;
+  border-radius:50%;
+  background: rgba(2,18,27,0.25);
+  filter: blur(6px);
+  opacity: .8;
+  transform: translateY(6px);
+  pointer-events:none;
+}
+
+/* Responsive */
+@media (max-width:480px){
+  .social-btn{ --size:44px; }
+  .social-btn svg, .social-btn img { width:16px; height:16px; }
+}
+</style>
+
+<ul class="socials" aria-label="Redes sociales">
+  <!-- Facebook -->
+  <li>
+    <a href="https://facebook.com/5studios.net" target="_blank" rel="noopener noreferrer"
+       class="social-btn brand-facebook" aria-label="Facebook" title="Facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M22 12A10 10 0 1 0 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.9h-2.3V22C18.34 21.12 22 16.99 22 12z"/>
+      </svg>
+    </a>
+  </li>
+
+  <!-- LinkedIn -->
+  <li>
+    <a href="https://linkedin.com/company/5studios" target="_blank" rel="noopener noreferrer"
+       class="social-btn brand-linkedin" aria-label="LinkedIn" title="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M22.225 0H1.771C.792 0 0 .774 0 1.728v20.543C0 23.226.792 24 1.771 24h20.454C23.2 24 24 23.226 24 22.271V1.728C24 .774 23.2 0 22.225 0zM6.813 20.452H3.861V9h2.952v11.452zM5.337 7.433a1.804 1.804 0 110-3.607 1.804 1.804 0 010 3.607zM20.447 20.452h-3.237V14.83c0-1.342-.027-3.07-1.871-3.07-1.872 0-2.159 1.46-2.159 2.969v5.723H9.003V9h3.105v1.561h.045c.434-.82 1.494-1.687 3.073-1.687 3.29 0 3.896 2.165 3.896 4.982v6.596z"/>
+      </svg>
+    </a>
+  </li>
+
+  <!-- Instagram -->
+  <li>
+    <a href="https://instagram.com/5studios" target="_blank" rel="noopener noreferrer"
+       class="social-btn brand-instagram" aria-label="Instagram" title="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 
+        5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 
+        1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 
+        1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 
+        000-10zm0 2a3 3 0 110 6 3 3 0 
+        010-6zm4.75-2.75a1.25 1.25 0 100 
+        2.5 1.25 1.25 0 000-2.5z"/>
+      </svg>
+    </a>
+  </li>
+</ul>
+
               </a>
             </li>
           </ul>
