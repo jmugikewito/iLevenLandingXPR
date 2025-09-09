@@ -2,188 +2,2302 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!--[if IE]>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <![endif]-->
-    <title>Laapp - App Landing Page</title>
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+    <title>XPRESSATE</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Place favicon.ico in the root directory -->
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="img/XPR.svg">
+
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,600,700,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/laapp.min.css">
-    <link rel="stylesheet" href="css/demo.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="css/odometer-theme-minimal.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/laapp.css">
+
+    <!-- Smooth scroll + offset for fixed navbar -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* ajusta a la altura real de tu navbar fijo si hace falta */
+      }
+    </style>
+
+    <!-- === OVERRIDES: aplicar color #89D0E5 a botones (dentro de main) y footer ===
+         NOTE: No se modifica el navbar (queda fuera de main). -->
+    <style>
+      :root{
+        --landing-accent: #89D0E5;       /* color solicitado */
+        --landing-accent-dark: #6fb7c9;  /* variante para gradiente */
+        --landing-contrast: #042f34;     /* texto oscuro para contraste */
+      }
+
+      /* Aplicar sólo a botones ubicados dentro de <main> (no afecta al navbar) */
+      main .btn,
+      main .btn-rounded,
+      main .btn-primary,
+      main .btn-alternate,
+      main .xp-btn,
+      main .xp-primary,
+      main .xp-brand,
+      main .btn.btn-rounded.btn-alternate,
+      main .xp-ctas .btn,
+      main .about-card .btn
+      {
+        background: linear-gradient(90deg, var(--landing-accent), var(--landing-accent-dark)) !important;
+        color: #ffffff !important;
+        border-color: transparent !important;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.12) !important;
+        text-decoration: none !important;
+      }
+
+      /* Variantes secundarias dentro de main */
+      main .btn.secondary,
+      main .btn.secondary:hover,
+      main .btn.secondary:focus {
+        background: transparent !important;
+        color: var(--landing-accent) !important;
+        border-color: rgba(4,47,52,0.08) !important;
+        box-shadow: none !important;
+      }
+
+      /* Chip de marca (xp-brand) */
+      main .xp-brand {
+        background: linear-gradient(90deg, var(--landing-accent), var(--landing-accent-dark)) !important;
+        color: #fff !important;
+      }
+
+      /* Botón del formulario de contacto dentro de main */
+      main #lpForm .btn {
+        background: linear-gradient(90deg, var(--landing-accent), var(--landing-accent-dark)) !important;
+        box-shadow: 0 10px 26px rgba(137,208,229,0.18) !important;
+        color: #fff !important;
+      }
+
+      /* Footer: asegurar que use el color y contraste */
+      .site-footer{
+        background-color: var(--landing-accent) !important;
+        color: var(--landing-contrast) !important;
+      }
+      .site-footer a, .site-footer .tagline {
+        color: var(--landing-contrast) !important;
+      }
+      .site-footer .nav a {
+        color: rgba(4,47,52,0.78) !important;
+      }
+      .site-footer .small { color: rgba(4,47,52,0.78) !important; }
+
+      /* Ajustes en los botones sociales para que se lean sobre el footer */
+      .site-footer .social-btn { box-shadow: 0 6px 16px rgba(0,0,0,0.08) !important; }
+
+      /* Accesibilidad / motion reduction */
+      @media (prefers-reduced-motion: reduce){ *{ transition:none!important; animation:none!important; } }
+    </style>
+
 </head>
 <body>
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
-<main>
-    <!-- Demo Header -->
-    <header class="header demo-header section gradient gradient-primary-light text-contrast">
-        <div class="container pb-7">
-            <div class="row">
-                <div class="col-lg-6">
-                    <img src="img/logo-light.png" class="logo d-block mb-5" alt="Laapp"> <span class="rounded-pill shadow-box bg-contrast text-dark bold py-2 px-4"><i class="far fa-lightbulb text-primary mr-2"></i> <span class="text-primary">Awesome</span> Landing Page</span>
-                    <h1 class="text-contrast display-4 display-md-3"><span class="bold">Laapp</span></h1>
-                    <p class="lead bold">Premium Startup & App Landing Page</p>
-                    <p class="lead">Besides its beautiful design. Laapp is an incredibly rich core framework for you to showcase your App.</p>
-                    <nav class="nav my-5"><a href="#!" class="btn btn-rounded btn-alternate mr-2 mr-md-5">Buy now <i class="fas fa-long-arrow-alt-right ml-2"></i></a> <a href="#demos" class="btn btn-rounded btn-contrast scrollto">Explore demos</a></nav>
-                </div>
-            </div>
-        </div>
-        <div class="bubbles-wrapper">
-            <div class="animations m-0">
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-md"><img src="img/demo/header/apx.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-xxl"><img src="img/demo/header/bs.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-lg"><img src="img/demo/header/cordova.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-xl"><img src="img/demo/header/css.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-md"><img src="img/demo/header/fa.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-lg"><img src="img/demo/header/html.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-md"><img src="img/demo/header/js.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-xl"><img src="img/demo/header/npm.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-lg"><img src="img/demo/header/sass.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-xxl"><img src="img/demo/header/apx.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-md"><img src="img/demo/header/bs.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-xl"><img src="img/demo/header/cordova.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-md"><img src="img/demo/header/css.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-xxl"><img src="img/demo/header/fa.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-lg"><img src="img/demo/header/html.svg" alt="" class="img-responsive"></div>
-                <div class="bubble bg-contrast rounded-circle p-2 shadow icon icon-xl"><img src="img/demo/header/js.svg" alt="" class="img-responsive"></div>
-            </div>
-        </div>
-    </header>
-    <section class="section mt-6n">
-        <div class="container py-0">
-            <a href="https://www.pantone.com/color-intelligence/color-of-the-year/color-of-the-year-2019" target="_blank" class="shadow-hover">
-                <div class="card shadow-lg mb-5 align-items-center">
-                    <div class="card-body media align-items-center">
-                        <img src="img/PCI-coy-2019-living-coral-16-1546-logo.jpg" class="mr-3" alt="Pantone - Living Coral">
-                        <div class="media-body">
-                            <h5 class="mb-0"><span class="text-uppercase bold">pantone 16-1564</span> Living Coral</h5>
-                            <p class="bold accent mt-0">Color of the year 2019</p>
-                            <p>Click here to know more</p>
-                        </div>
-                    </div>
-                </div>
+
+    <!-- Main Navigation -->
+<nav class="navbar navbar-expand-md main-nav navigation fixed-top sidebar-left">
+    <div class="container">
+    <button class="navbar-toggler" type="button">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+
+    <a href="#main" class="navbar-brand">
+            <img src="img/XPR.svg" alt="Laapp" class="logo logo-sticky "width="200" height="300">
+    </a>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+        <div class="sidebar-brand">
+            <a href="index.html">
+                <img src="img/XPR.svg" alt="Laapp Template" class="image">
             </a>
         </div>
-    </section>
-    <section class="section" id="demos">
-        <div class="container-fluid bring-to-front">
-            <div class="section-heading text-center">
-                <h2 class="heading-line">Pick a Demo</h2>
-                <p class="lead text-muted">Laapp comes with multiple demos, choose the one you want to give a try.</p>
+
+        <ul class="nav navbar-nav ml-auto">
+            <!-- Links actualizados para apuntar a las secciones solicitadas -->
+            <li class="nav-item"><a class="nav-link scrollto" href="#home" style="color:#000 !important;">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#about" style="color:#000 !important;">Sobre nosotros</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#beneficios" style="color:#000 !important;">Beneficios</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#testimonios" style="color:#000 !important;">Testimonios</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#unirme" style="color:#000 !important;">Unirme a Xpressate</a></li>
+            <li class="nav-item">
+              <a class="btn btn-rounded scrollto" href="#contacto" style="background-color:#F7AD19; color:#fff; padding:8px 20px; border-radius:30px; font-weight:600; text-decoration:none;">
+                Contacto
+              </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</nav>
+
+<main >
+    
+    
+<!-- Alternative 2 Heading -->
+<header class="header alter2-header section" id="home">
+    <div class="shapes-container">
+        <!-- diagonal shapes -->
+            <div class="shape shape-animated" data-aos="fade-down-right" data-aos-duration="1500" data-aos-delay="100"></div>
+            <div class="shape shape-animated" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
+            <div class="shape shape-animated" data-aos="fade-up-left" data-aos-duration="500" data-aos-delay="200"></div>
+            <div class="shape shape-animated" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"></div>
+            <div class="shape shape-animated" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
+            <div class="shape shape-animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
+            <div class="shape shape-animated" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+            <div class="shape shape-animated" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+            <div class="shape shape-animated" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
+
+        <!-- animated shapes -->
+        <div class="animation-shape shape-ring animation--clockwise"></div>
+        <div class="animation-shape shape-circle shape-circle-1 animation--anti-clockwise"></div>
+        <div class="animation-shape shape-circle shape-circle-2 animation--clockwise"></div>
+        <div class="animation-shape shape-heart animation--clockwise">
+            <div class="animation--rotating"></div>
+        </div>
+
+        <div class="animation-shape shape-triangle animation--rotating-diagonal">
+            <div class="animation--rotating"></div>
+        </div>
+        <div class="animation-shape shape-diamond animation--anti-clockwise">
+            <div class="animation--rotating"></div>
+        </div>
+
+        <!-- static shapes -->
+        <div class="static-shape shape-ring-1"></div>
+        <div class="static-shape shape-ring-2"></div>
+
+        <div class="static-shape shape-circle shape-circle-1">
+            <div data-aos="fade-down-left"></div>
+        </div>
+
+        <div class="static-shape shape-circle shape-circle-2">
+            <div data-aos="fade-down-left" data-aos-delay="500"></div>
+        </div>
+
+        <div class="static-shape pattern-dots-1"></div>
+        <div class="static-shape pattern-dots-2"></div>
+
+        <!-- main shape -->
+        <div class="static-shape background-shape-main"></div>
+
+        <!-- ghost shapes -->
+        <div class="static-shape ghost-shape ghost-shape-1"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+             <h1 class="text-contrast display-4 display-md-3"3">
+<span class="bold" style="color:#000">
+  ¡<span style="color:#000">Xpressate,</span><br> tu voz ,nuestro impulso!
+</span>
+
+</h1>
+
+                <p class="bold" style="color:#000000;">Tu voz registrada, tus problemas atendidos, tus soluciones reales.</p>
+                  <!-- app buttons -->
+          <!-- Badges tipo "App Store / Google Play" con borde púrpura y en una línea -->
+<style>
+  :root{
+    --badge-gap: 28px;         /* espacio entre badges */
+    --purple: #6e40ff;        /* color del borde (ajusta si quieres) */
+    --border-size: 3px;       /* grosor del borde */
+    --card-radius: 18px;      /* radio de las esquinas */
+    --card-padding: 12px 36px;/* padding dentro del rectángulo */
+    --badge-height: 46px;     /* altura visual del logo dentro del rectángulo */
+    --card-bg: #ffffff;
+    --card-shadow: 0 8px 18px rgba(16,12,60,0.06);
+  }
+
+  .badges-row {
+    display:flex;
+    gap: var(--badge-gap);
+    align-items:center;
+    justify-content:flex-start; /* o center */
+    flex-wrap: nowrap;
+    padding: 12px 0;
+    background: transparent;
+  }
+
+  .badge-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    padding: var(--card-padding);
+    border-radius: var(--card-radius);
+    border: var(--border-size) solid var(--purple);
+    box-shadow: var(--card-shadow);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+
+  .badge-card:focus,
+  .badge-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(16,12,60,0.10);
+    outline: none;
+  }
+
+  /* Las imágenes deben mantener proporción y adaptarse por altura */
+  .badge-card img {
+    display:block;
+    height: var(--badge-height);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+
+  /* Si quieres dos anchos distintos (opcional), controla con clases */
+  .badge-1 img { height: 46px; } /* App Store */
+  .badge-2 img { height: 46px; } /* Google Play */
+
+  /* Responsive: en pantallas muy pequeñas se apilan pero centradas */
+  @media (max-width:420px){
+    .badges-row{
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content:center;
+    }
+    .badge-card { width: calc(50% - 12px); box-sizing:border-box; padding:10px 18px; }
+    .badge-card img { height: 36px; }
+  }
+</style>
+
+ <!-- app buttons -->
+          <!-- Inicio: Botones de descarga (solo la parte solicitada) -->
+<style>
+  :root {
+    --app-btn-blue: #007BFF;   /* color azul solicitado (cámbialo si prefieres otro) */
+    --app-btn-gap: 18px;       /* separación entre botones (un poquito más) */
+    --app-btn-radius: 10px;
+    --app-btn-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    --app-btn-padding: 8px 14px;
+    --btn-img-maxh: 40px;
+  }
+
+  /* Contenedor de los botones (lista horizontal) */
+  .app_btn {
+    display: flex;
+    gap: var(--app-btn-gap);
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .app_btn li { margin: 0; }
+
+  /* Estilo del enlace-botón */
+  .app-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-btn-blue);
+    padding: var(--app-btn-padding);
+    border-radius: var(--app-btn-radius);
+    box-shadow: var(--app-btn-shadow);
+    border: 1px solid rgba(255,255,255,0.08);
+    text-decoration: none;
+    transition: transform 150ms ease, box-shadow 150ms ease, opacity 120ms ease;
+  }
+
+  .app-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.16);
+  }
+
+  .app-btn:active { transform: translateY(-1px); }
+  .app-btn:focus-visible {
+    outline: 3px solid rgba(0,123,255,0.18);
+    outline-offset: 2px;
+  }
+
+  /* Imagen dentro del botón */
+  .app-btn .btn-img {
+    display: block;
+    max-height: var(--btn-img-maxh);
+    width: auto;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+
+  /* Si la imagen blanca necesita un contraste sutil, se puede aplicar un filtro */
+  .app-btn .white_img {
+    /* filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12)); */
+  }
+
+  /* Responsive: reducir tamaños en pantallas muy pequeñas */
+  @media (max-width: 480px) {
+    :root { --app-btn-gap: 12px; --btn-img-maxh: 36px; --app-btn-padding: 6px 10px; }
+    .app_btn { gap: var(--app-btn-gap); }
+  }
+</style>
+
+<ul class="app_btn" aria-label="Botones de descarga de la app">
+  <li>
+    <a class="app-btn" href="#" aria-label="Descargar en App Store">
+      <img class="btn-img blue_img" src="img/ASS.png" alt="App Store" loading="lazy">
+    </a>
+  </li>
+
+  <li>
+    <a class="app-btn" href="#" aria-label="Descargar en Google Play">
+      <img class="btn-img white_img" src="img/GPY.png" alt="Google Play" loading="lazy">
+    </a>
+  </li>
+</ul>
+<!-- Fin: Botones de descarga -->
+
+
+                <nav class="nav my-5">
+
+
             </div>
-            <div class="row gap-y">
-                <div class="col-sm-6 col-md-4">
-                    <div class="card card-demo card--blog shadow-box border-0">
-                        <div class="card-body d-flex flex-column flex-lg-row align-items-center">
-                            <h4 class="card-title mb-3 mb-lg-0 text-capitalize">Alternative 1</h4>
-                            <nav class="btn-group ml-lg-auto"><a href="alter-1.html" target="_blank" class="btn btn-alternate btn-rounded px-3 shadow-none"><i class="icon fas fa-desktop"></i> <span class="demo-link-text">Demo</span></a></nav>
-                        </div>
-                        <figure class="preview-overlay m-0">
-                            <div class="preview-pane">
-                                <div class="preview-page"><img class="card-img-bottom img-responsive" src="img/demo/screen/1.png" alt=""></div>
-                            </div>
-                        </figure>
+
+           <!-- Coloca esto dentro de tu grid (ej. dentro de .row) -->
+<!-- HTML + CSS juntos -->
+<style>
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+  /* Respeta la preferencia del usuario por menos movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float { animation: none; }
+  }
+</style>
+
+<div class="col-lg-6 col-md-12" data-aos="fade-in" data-aos-duration="1500">
+
+   <img src="img/MOCKUP.png" alt="Pantalla XPRESSATE" width="750">
+
+
+  </div>
+  <div class="notch"></div>
+</div>
+
+        <!-- row end -->
+      </div>
+      <!-- container end -->
+  
+</div>
+
+</div>
+</header>
+
+    <!-- Partners Slider -->
+<section class="section">
+  <div class="container py-5 border-bottom">
+    <!-- Encabezado principal -->
+    <div class="text-center mb-4">
+     <h2 id="xp-benefits-title" class="xp-title">¿Cansado de que tus quejas no sean escuchadas?</h2>
+      <p class="text-center mb-4">
+        En XPRESSATE tu voz cuenta: comparte opiniones reales, hazte escuchar y ayuda a que las empresas mejoren.
+
+      </p>
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Estilos mínimos para mantener diseño e integración responsiva -->
+<style>
+  :root { --azul: #053F5C; --mostaza: #F7AD19; --negro: #000; }
+
+  .section { background: transparent; } /* no altera color de bloque externo */
+  .container.py-5 { padding-top: 2rem; padding-bottom: 2rem; }
+
+  .bold { font-weight:700; letter-spacing: -0.2px; color: inherit; }
+  .text-center { text-align: center; }
+
+  /* Carrusel / fallback si no hay Swiper JS */
+  .company-logos { overflow: hidden; }
+  .company-logos .swiper-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+  .company-logos .swiper-slide {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+  }
+  .company-logos img {
+    display: block;
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* Si usas Swiper, las clases se mantendrán; si no, el contenido quedará centrado y horizontal */
+  @media (max-width: 768px) {
+    .company-logos .swiper-wrapper { gap: 18px; padding: 8px 6px; }
+    .company-logos img { max-height: 48px; }
+    .container.py-5 { padding-left: 1rem; padding-right: 1rem; }
+  }
+</style>
+
+    
+<!-- .Premium Features -->
+<!-- Sección "Sobre nosotros" con imagen al lado derecho -->
+<section id="about" aria-labelledby="about-title">
+  <style>
+    :root{
+      --accent-line: #c24acb;
+      --text: #222;
+      --muted: #666;
+      --max-width: 1100px;
+      --gap: 28px;
+    }
+
+    /* Contenedor principal */
+    .about-card{
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 18px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      gap: var(--gap);
+    }
+
+    /* Columna izquierda (texto) */
+    .about-left{
+      flex: 1 1 60%;
+      min-width: 260px;
+    }
+
+    .title{
+      font-size: 26px;
+      margin: 0 0 8px 0;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .accent-line{
+      width: 70px;
+      height: 6px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--accent-line), #9a3aa9);
+      margin: 12px 0 18px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+    }
+
+    .lead{
+      margin: 0 0 20px 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .cta-row{
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    /* Columna derecha (mockup / imagen) */
+    .xp-right{
+      flex: 0 0 380px; /* ancho fijo recomendable para mantener la composición */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .xp-mockup{
+      width: 100%;
+      max-width: 380px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      background: linear-gradient(180deg, #fff, #fafafa);
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .xp-mockup img{
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* Focus util para botones (incluiste esta regla) */
+    .btn:focus { 
+      outline: none; 
+      box-shadow: 0 0 0 6px rgba(143,179,226,0.16); 
+      border-radius:10px; 
+    }
+
+    /* Responsive: apilar en pantallas pequeñas */
+    @media (max-width: 900px){
+      .about-card{
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .xp-right{
+        width: 100%;
+        order: 2; /* si quieres la imagen debajo del texto */
+        margin-top: 18px;
+      }
+      .about-left{
+        order: 1;
+      }
+      .xp-mockup{ max-width: 100%; }
+    }
+
+    /* Si prefieres la imagen encima del texto en móvil, cambia order: 2 -> order: 0 */
+  </style>
+
+  <!-- Sección "Sobre nosotros" (color principal: #0f2c47) -->
+<section id="about" aria-labelledby="about-title">
+  <style>
+    :root{
+      --accent-line: #0f2c47;   /* color solicitado */
+      --accent-line-2: #153b56; /* variante para gradiente */
+      --text: #111827;
+      --muted: #4b5563;
+      --max-width: 1100px;
+      --gap: 28px;
+      --radius: 12px;
+    }
+
+    /* Contenedor principal */
+    .about-card{
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 18px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      gap: var(--gap);
+    }
+
+    /* Columna izquierda (texto) */
+    .about-left{
+      flex: 1 1 60%;
+      min-width: 260px;
+    }
+
+    .title{
+      font-size: 26px;
+      margin: 0 0 8px 0;
+      color: var(--text);
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .accent-line{
+      width: 84px;
+      height: 6px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--accent-line), var(--accent-line-2));
+      margin: 12px 0 18px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+    }
+
+    .lead{
+      margin: 0 0 20px 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .cta-row{
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    /* Estilos básicos de botones (puedes ajustarlos) */
+    .btn{
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+      border: 1px solid transparent;
+      color: white;
+      background: linear-gradient(180deg, var(--accent-line), var(--accent-line-2));
+      box-shadow: 0 6px 20px rgba(15,44,71,0.14);
+    }
+
+    .btn.secondary{
+      background: transparent;
+      color: var(--accent-line);
+      border: 1px solid rgba(15,44,71,0.12);
+      box-shadow: none;
+    }
+
+    .btn:hover{ transform: translateY(-2px); }
+    .btn:active{ transform: translateY(0); opacity: .95; }
+
+    /* Focus util (tu regla original adaptada) */
+    .btn:focus {
+      outline: none;
+      box-shadow: 0 0 0 6px rgba(15,44,71,0.12);
+      border-radius: 10px;
+    }
+
+    /* Columna derecha (mockup / imagen) */
+    .xp-right{
+      flex: 0 0 380px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .xp-mockup{
+      width: 100%;
+      max-width: 380px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(2,6,23,0.12);
+      background: linear-gradient(180deg, #ffffff, #fbfdff);
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid rgba(15,44,71,0.04);
+    }
+
+    .xp-mockup img{
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: calc(var(--radius) - 4px);
+    }
+
+    /* Responsive: apilar en pantallas pequeñas */
+    @media (max-width: 900px){
+      .about-card{
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .xp-right{
+        width: 100%;
+        order: 2;
+        margin-top: 18px;
+      }
+      .about-left{
+        order: 1;
+      }
+      .xp-mockup{ max-width: 100%; }
+    }
+  </style>
+
+  <div class="about-card" role="region" aria-label="Sobre Xpressate">
+    <div class="about-left">
+     <h2 id="xp-benefits-title" class="xp-title">¿Qué es Xpressate?</h2>
+      <div class="accent-line" aria-hidden="true"></div>
+
+      <p class="lead" style="color:#000;">
+XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere soluciones reales. Publica con nombre o en forma anónima, adjunta pruebas (fotos, documentos) y sigue el avance en tiempo real con notificaciones automáticas. Negocia y cierra acuerdos dentro de la plataforma; todo queda registrado y verificable, garantizando privacidad y trazabilidad.
+
+</p>
+
+      <div class="cta-row" role="group" aria-label="Acciones">
+      </div>
+    </div>
+
+    <!-- Imagen / mockup a la derecha -->
+    <div class="xp-right" aria-hidden="true">
+      <div class="xp-mockup xp-mockup-2">
+        <img src="img/2.1.png" alt="Pantalla XPRESSATE - 2" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+    <!-- Powered Design Blocks -->
+<!-- XPRESSATE - Sección "Beneficios" mejorada -->
+<section id="beneficios" class="xp-section" aria-labelledby="xp-benefits-title">
+  <div class="xp-container">
+    <div class="xp-grid">
+
+      <!-- LEFT: Texto, titulares, beneficios y CTA -->
+      <div class="xp-left">
+        <h2 id="xp-benefits-title" class="xp-title">Beneficios</h2>
+        <p class="xp-sub">
+          Nuestra plataforma potencia usuarios y empresas con una experiencia segura, transparente y eficiente.
+        </p>
+
+        <div class="xp-benefits">
+
+          <!-- USUARIOS -->
+          <div class="xp-benefit-group">
+            <h3 class="xp-group-title">
+              <!-- user icon -->
+              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#428dc6" d="M12 12a5 5 0 1 0-0.001-10.001A5 5 0 0 0 12 12zm0 2c-5.33 0-8 2.667-8 6v2h16v-2c0-3.333-2.67-6-8-6z"/>
+              </svg>
+              Usuarios
+            </h3>
+            <ul class="xp-list" aria-label="Beneficios para usuarios">
+              <li><span class="xp-check"></span> Exprésate libremente en un entorno seguro.</li>
+              <li><span class="xp-check"></span> Accede a ofertas laborales adaptadas a tus intereses.</li>
+              <li><span class="xp-check"></span> Convierte los conflictos en aprendizajes.</li>
+              <li><span class="xp-check"></span> Forma parte de una comunidad positiva.</li>
+            </ul>
+          </div>
+
+          <!-- EMPRESAS -->
+          <div class="xp-benefit-group">
+            <h3 class="xp-group-title">
+              <!-- briefcase icon -->
+              <svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="#53b2d4" d="M20 6h-4V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zM10 4h4v2h-4V4z"/>
+              </svg>
+              Empresas
+            </h3>
+            <ul class="xp-list" aria-label="Beneficios para empresas">
+              <li><span class="xp-check"></span> Panel de control con métricas y reportes de reputación.</li>
+              <li><span class="xp-check"></span> Gestión de representantes y control de respuestas.</li>
+              <li><span class="xp-check"></span> Herramienta de diálogo directo con trazabilidad legal.</li>
+              <li><span class="xp-check"></span> Reclutamiento inteligente: acceso a usuarios y talento desde la misma plataforma.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Botón principal -->
+     <div class="xp-ctas">
+  <a href="#!"
+     class="btn btn-rounded btn-alternate mr-2 mr-md-5 xp-btn primary"
+     aria-label="Solicitar demo"
+     style="background:#004DFF !important; border:1px solid #004DFF !important;
+            color:#ffffff !important; box-shadow:0 8px 20px rgba(0,77,255,0.12) !important;">
+    Descubre lo que puedes ganar con Xpressate
+  </a>
+</div>
+</div>
+
+
+      <!-- RIGHT: Imagen/mockup -->
+      <div class="xp-right" aria-hidden="true">
+          <img src="img/emprendedr.png" alt="Pantalla XPRESSATE" width="400">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative shapes -->
+  <div class="xp-shapes" aria-hidden="true">
+    <span class="xp-dot"></span>
+    <span class="xp-ring"></span>
+  </div>
+</section>
+
+<style>
+:root{
+  /* Paleta azul actualizada */
+  --xp-accent: #428dc6;      /* Summer */
+  --xp-accent-2: #53b2d4;    /* Just Vibe */
+  --xp-accent-3: #a0e5f2;    /* Cloro */
+  --xp-ink: #1e2a36;         /* Texto oscuro */
+  --xp-muted: #6b7280;
+  --xp-shadow: 66,141,198;   /* rgb para box-shadow */
+  --max-w: 1200px;
+}
+
+.xp-section {
+  padding: 56px 20px;
+  background: linear-gradient(135deg, #a0e5f2 0%, #53b2d4 55%, #428dc6 100%);
+  position:relative;
+  overflow:visible;
+}
+
+.xp-container { max-width:var(--max-w); margin:0 auto; }
+.xp-grid {
+  display:grid;
+  grid-template-columns: 1fr 420px;
+  gap:36px;
+  align-items:center;
+}
+
+.xp-title {
+  font-size:30px;
+  margin:0 0 10px;
+  color: var(--xp-accent);
+  font-weight:900;
+  line-height:1.08;
+  letter-spacing: -0.02em;
+}
+
+.xp-sub {
+  color:var(--xp-ink);
+  margin:0 0 22px;
+  line-height:1.5;
+  font-size:16px;
+}
+
+.xp-benefits {
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+  margin-bottom:28px;
+}
+
+.xp-benefit-group {
+  flex:1 1 260px;
+  background: #fff;
+  border-radius:14px;
+  padding:18px 18px 10px 18px;
+  box-shadow:0 8px 32px rgba(var(--xp-shadow),0.12);
+  border: 1px solid #e9f4fb;
+  transition: box-shadow .22s, transform .22s;
+}
+.xp-benefit-group:hover {
+  box-shadow:0 14px 48px 0 rgba(var(--xp-shadow),0.18);
+  transform:translateY(-3px) scale(1.025);
+}
+
+.xp-group-title {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:15.5px;
+  margin:0 0 10px;
+  color:var(--xp-accent);
+  font-weight:700;
+  letter-spacing:0.05em;
+}
+.xp-group-title svg { display:inline; vertical-align:middle; }
+
+.xp-list {
+  margin:0;
+  padding-left:0;
+  list-style:none;
+}
+.xp-list li {
+  margin:10px 0 0 0;
+  font-size:15px;
+  position:relative;
+  color:var(--xp-ink);
+  padding-left:24px;
+  font-weight:520;
+  line-height:1.4;
+}
+
+/* Icono check personalizado */
+.xp-check {
+  position:absolute;
+  left:0;
+  top:3px;
+  width:19px;
+  height:19px;
+  background: linear-gradient(135deg, var(--xp-accent-2) 50%, var(--xp-accent-3) 100%);
+  border-radius: 7px;
+  display:inline-block;
+}
+.xp-check:after {
+  content:'';
+  display:block;
+  width: 6px; height: 11px;
+  border: solid #fff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+  position:absolute;
+  top: 2px;
+  left: 6px;
+}
+
+.xp-ctas { margin-top:18px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+.xp-btn {
+  display:inline-block;
+  padding:13px 28px 13px 28px;
+  border-radius:12px;
+  font-weight:600;
+  font-size: 16px;
+  text-decoration:none;
+  cursor:pointer;
+  transition: transform .13s, box-shadow .15s, background .12s;
+  box-shadow: 0px 9px 22px rgba(var(--xp-shadow),.10);
+  border:none;
+  outline:none;
+}
+.xp-btn.primary {
+  background: linear-gradient(90deg, var(--xp-accent), var(--xp-accent-2));
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(82, 138, 217, 0.14);
+}
+.xp-btn.primary:active, .xp-btn.primary:focus {
+  background: var(--xp-accent-2);
+  color: #fff;
+  outline:2px solid var(--xp-accent-3);
+  outline-offset:2px;
+}
+.xp-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 2px 12px rgba(70,170,235,0.14);
+  background: linear-gradient(90deg, var(--xp-accent-2), var(--xp-accent-3));
+}
+
+/* Imagen/derecha */
+.xp-right { position:relative; height:420px; display:flex; align-items:center; justify-content:center;}
+.xp-mockup { border-radius:18px; overflow:hidden; box-shadow:0 18px 56px rgba(66,141,198,0.13); background:#fff; }
+.xp-mockup img { display:block; width:320px; height:auto; max-width:100%; }
+
+.xp-mockup-2 { /* una sola imagen principal */ }
+
+.xp-shapes { position:absolute; right:8%; top:7%; pointer-events:none; z-index:5; }
+.xp-dot{ display:inline-block; width:10px; height:10px; background:var(--xp-accent-2); border-radius:50%; box-shadow:0 6px 18px #79b4e6; margin-right:10px; }
+.xp-ring{ display:inline-block; width:48px; height:48px; border-radius:50%; border:2px solid var(--xp-accent-3); margin-left:8px; transform:rotate(22deg); }
+
+@media (max-width:1100px){
+  .xp-grid{ grid-template-columns: 1fr 340px; }
+  .xp-right{ height:320px; }
+  .xp-mockup img{ width:260px }
+}
+@media (max-width:880px){
+  .xp-grid{ grid-template-columns: 1fr; }
+  .xp-right{ order: -1; height:220px; margin-bottom:18px; }
+  .xp-mockup img{ width:150px; }
+  .xp-benefits{ flex-direction:column; gap:15px; }
+  .xp-benefit-group{ min-width:0; }
+}
+@media (max-width:600px){
+  .xp-title { font-size: 22px;}
+  .xp-sub { font-size: 14px;}
+  .xp-mockup img{ width:110px; }
+  .xp-benefit-group{padding:13px 9px;}
+}
+</style>
+
+    <!-- Features you can't miss -->
+<section id="testimonios" class="section features-cant-miss">
+    <div class="shapes-container overflow-clear">
+        <div class="shape shape-circle shape-circle-1">
+            <div data-aos="fade-up-left"></div>
+        </div>
+        <div class="shape shape-circle shape-circle-2">
+            <div data-aos="fade-up-right" data-aos-delay="200"></div>
+        </div>
+        <div class="shape shape-circle shape-circle-3">
+            <div data-aos="fade-up-left" data-aos-delay="400"></div>
+        </div>
+        <div class="shape shape-circle shape-circle-4">
+            <div data-aos="fade-up-left" data-aos-delay="600"></div>
+        </div>
+
+        <div class="shape shape-triangle shape-animated">
+            <div class="animation--rotating"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row gap-y">
+           <div class="col-md-6 order-md-last">
+  <div class="section-heading">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    <h2 id="xp-benefits-title" class="xp-title">Lo que dicen sobre XPRESSATE</h2>
+
+    <!-- Decorative bar under the heading -->
+    <div class="xp-heading-bar" role="presentation" aria-hidden="true"></div>
+  </div>
+
+  <ul class="list-unstyled xp-testimonials-list">
+    <li class="media flex-column flex-md-row text-center text-md-left">
+      <i class="mx-auto mr-md-3 accent pe pe-7s-users pe-3x" aria-hidden="true"></i>
+      <div class="media-body mt-3 mt-md-0">
+        <h5 class="bold mt-0 mb-1">Antonio Ruiz Piedra-RR.HH </h5>
+        <p class="m-0">“Publiqué en XPRESSATE un problema con la atención en mi oficina. En 48 horas la empresa presentó un plan de acción y, mediante el chat, cerramos el caso. La trazabilidad de XPRESSATE dejó constancia de cada paso hasta la resolución.”</p>
+      </div>
+    </li>
+
+    <li class="media flex-column flex-md-row text-center text-md-left mt-4">
+      <i class="mx-auto mr-md-3 accent pe pe-7s-users pe-3x" aria-hidden="true"></i>
+      <div class="media-body mt-3 mt-md-0">
+        <h5 class="bold mt-0 mb-1">María C.Comunicadora</h5>
+        <p class="m-0">Gracias a Xpressate, logré dialogar de forma segura y conseguir una solución efectiva con la empresa X.</p>
+      </div>
+    </li>
+
+    <li class="media flex-column flex-md-row text-center text-md-left mt-4">
+      <i class="mx-auto mr-md-3 accent pe pe-7s-users pe-3x" aria-hidden="true"></i>
+      <div class="media-body mt-3 mt-md-0">
+        <h5 class="bold mt-0 mb-1">Luis V., Gerente RRHH (Startup Tech).</h5>
+        <p class="m-0">“La app Xpressate, nos permitió mejorar procesos internos y fortalecer nuestra reputación al responder formalmente.</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<style>
+  /* Paleta */
+  :root {
+    --xp-accent: #0f2c47;     /* color solicitado */
+    --xp-accent-2: #153b56;   /* variante para degradados */
+    --xp-ink: #0b2030;
+    --xp-muted: #6b7280;
+  }
+
+  /* Heading */
+  .xp-heading {
+    font-family: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-weight: 700;
+    color: var(--xp-accent);
+    margin: 0 0 12px;
+    line-height: 1.06;
+    font-size: clamp(1.375rem, 2.2vw + 0.4rem, 2rem);
+    letter-spacing: -0.02em;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    padding-bottom: 6px;
+  }
+
+  /* Highlight chip next to heading */
+  .xp-highlight {
+    color: var(--xp-accent);
+    background: linear-gradient(90deg, rgba(15,44,71,0.08), rgba(15,44,71,0));
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  /* Decorative bar */
+  .xp-heading-bar {
+    width: clamp(56px, 7vw, 90px);
+    height: 6px;
+    margin-top: 10px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--xp-accent), var(--xp-accent-2));
+    opacity: 0.95;
+  }
+
+  /* Testimonials list */
+  .xp-testimonials-list .media { align-items: flex-start; }
+  .xp-testimonials-list .media .media-body { text-align: left; }
+  .xp-testimonials-list .media h5 { margin-bottom: 6px; font-weight: 700; color: var(--xp-ink); }
+  .xp-testimonials-list .media p { color: var(--xp-muted); margin: 0; }
+
+  /* Accent icons (uses the same color) */
+  .accent { color: var(--xp-accent); font-size: 36px; line-height: 1; }
+
+  /* Small tweak for center-on-mobile (keeps original bootstrap utility classes working) */
+  @media (max-width: 767.98px) {
+    .xp-testimonials-list .media { text-align: center; }
+    .xp-testimonials-list .media .media-body { text-align: center; }
+    .accent { margin-bottom: 8px; }
+  }
+</style>
+
+
+            <div class="col-md-6">
+                <div class="bubble bubble-left center-x-md">
+                    <figure class="rounded overflow-hidden shadow" data-aos="zoom-in">
+                        <img src="img/IMAGEN1.jpg" class="img-responsive" alt="">
+                    </figure>
+                </div>
+
+                <figure class="bubble bubble-right rounded overflow-hidden shadow">
+                    <img src="img/XPR.png" class="img-responsive" alt="" data-aos="fade-left">
+                </figure>
+
+                <div class="iphone light">
+                    <div class="screen shadow-box">
+                        <img src="img/XPR.jpg" alt="...">
                     </div>
+                    <div class="notch"></div>
                 </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="card card-demo card--blog shadow-box border-0">
-                        <div class="card-body d-flex flex-column flex-lg-row align-items-center">
-                            <h4 class="card-title mb-3 mb-lg-0 text-capitalize">Alternative 2</h4>
-                            <nav class="btn-group ml-lg-auto"><a href="alter-2.html" target="_blank" class="btn btn-alternate btn-rounded px-3 shadow-none"><i class="icon fas fa-desktop"></i> <span class="demo-link-text">Demo</span></a></nav>
-                        </div>
-                        <figure class="preview-overlay m-0">
-                            <div class="preview-pane">
-                                <div class="preview-page"><img class="card-img-bottom img-responsive" src="img/demo/screen/2.png" alt=""></div>
-                            </div>
-                        </figure>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="card card-demo card--blog shadow-box border-0">
-                        <div class="card-body d-flex flex-column flex-lg-row align-items-center">
-                            <h4 class="card-title mb-3 mb-lg-0 text-capitalize">Alternative 3</h4>
-                            <nav class="btn-group ml-lg-auto"><a href="alter-3.html" target="_blank" class="btn btn-alternate btn-rounded px-3 shadow-none"><i class="icon fas fa-desktop"></i> <span class="demo-link-text">Demo</span></a></nav>
-                        </div>
-                        <figure class="preview-overlay m-0">
-                            <div class="preview-pane">
-                                <div class="preview-page"><img class="card-img-bottom img-responsive" src="img/demo/screen/3.png" alt=""></div>
-                            </div>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section bg-light edge top-left">
-        <div class="container">
-            <div class="section-heading text-center w-75 mx-auto">
-                <h2 class="heading-line">Ease Themeable</h2>
-                <p class="lead text-alternate">We've made easy to design and themefy our template, the use of SASS files allows designers to easily use the perfect color scheme to fit their needs. Besides, Laapp comes with an extraordinary organized file structure to allow the maximum flexibility when customizing</p>
-            </div>
-            <div class="row gap-y">
-                <div class="col-lg-6 mx-auto">
-                    <figure class="px-2"><img src="img/screens/designer.png" class="img-responsive" alt="..."></figure>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section bg-light">
-        <div class="container bring-to-front py-md-0">
-            <div class="shadow bg-contrast p-5 rounded">
-                <i class="fas fa-exclamation-circle fa-3x accent"></i>
-                <a href="#!" class="mt-4 accent d-flex align-items-center">
-                    <h4 class="mr-3">Not what you need ?</h4>
-                </a>
-                <p class="mt-4">Our commitment is with our customers and providing you with the tool you really need is ur goal. If this template is lacking a feature you really need, we are here to help you, just drop us a line and we'll get it done for you and it wil part of the template.</p>
-                <hr class="mt-5">
-                <p class="small bold">If you want your feature to be unique and not being part of the theme, well we have a solution as well, <span class="accent">just contact us at <a href="mailto:support@5studios.net">support@5studios.net</a></span>.</p>
-            </div>
-        </div>
-    </section>
-    <section class="section bg-contrast edge top-left">
-        <div class="container">
-            <div class="d-flex align-items-center flex-column flex-lg-row">
-                <div class="text-center text-lg-left">
-                    <p class="light mb-0 accent lead">Ready to get started?</p>
-                    <h2 class="mt-0">Get the theme on themeforest</h2>
-                </div>
-                <nav class="nav mt-3 mt-lg-0 ml-lg-auto"><a href="#demos" class="btn btn-alternate btn-rounded mr-3 scrollto">Check Demos <i class="fas long-arrow-alt-right"></i></a> <a href="#!" class="btn btn-primary text-contrast btn-rounded"><i class="fas fa-cash-register icon"></i>Buy it</a></nav>
-            </div>
-        </div>
-    </section>
-</main>
-<footer class="site-footer section border-top">
-    <div class="container pb-3">
-        <div class="row gap-y text-center text-md-left">
-            <div class="col-md-6 col-lg-4 mr-auto">
-                <img src="img/logo.png" alt="" class="logo">
-                <p class="lead"><span class="bold">Laapp</span>, a premium yet ease to customize App Landing Page</p>
-            </div>
-            <div class="col-md-3 col-lg-4">
-                <h6 class="py-2 bold">Find us</h6>
-                <p>We are improving our social presence, please like us or follow us to know all the news about products, releases and services</p>
-                <nav class="nav justify-content-center justify-content-md-start"><a href="https://www.facebook.com/5studios.net" target="_blank" class="btn btn-circle btn-sm brand-facebook"><i class="fab fa-facebook"></i></a></nav>
-            </div>
-            <div class="col-md-3">
-                <h6 class="py-2 bold">Other Products</h6>
-                <nav class="nav flex-column"><a class="nav-item py-2" href="https://themeforest.net/item/dashcore-saas-startup-software-template/22397137" target="_blank">DashCore</a> <a class="nav-item py-2" href="https://themeforest.net/item/cronos-softwarestartup-html-template/21411634" target="_blank">Cronos</a> <a class="nav-item py-2" href="https://themeforest.net/user/5studiosnet/portfolio" target="_blank">More ...</a></nav>
-            </div>
-        </div>
-        <hr class="mt-5">
-        <div class="row small align-items-center">
-            <div class="col-md-4">
-                <p class="mt-2 mb-md-0 text-muted text-center text-md-left">© 2019 <a href="https://5studios.net" target="_blank">5studios</a>. All Rights Reserved</p>
             </div>
         </div>
     </div>
+</section>
+
+    <!-- Pricing -->
+<<!-- XPRESSATE — Sección: Crear cuenta (Instrucciones para Usuarios y Empresas) -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600,700&display=swap" rel="stylesheet">
+
+<section id="unirme" class="xp-create" aria-labelledby="xp-create-title" role="region">
+  <div class="xp-decor" aria-hidden="true">
+    <span class="xp-dot xp-dot-1"></span>
+    <span class="xp-dot xp-dot-2"></span>
+    <span class="xp-blob xp-blob-1"></span>
+  </div>
+
+  <div class="xp-wrap">
+    <header class="xp-head">
+      <h2 id="xp-create-title" class="xp-title">Crear cuenta enXPRESSATE</span></h2>
+      <p class="xp-lead">Sigue las instrucciones según tu tipo de cuenta. Fácil, seguro y en pocos pasos.</p>
+    </header>
+
+    <div class="xp-tabs" role="tablist" aria-label="Seleccione tipo de cuenta">
+      <button class="xp-tab xp-tab-active" role="tab" aria-selected="true" data-target="xp-user">Usuario</button>
+      <button class="xp-tab" role="tab" aria-selected="false" data-target="xp-company">Empresa</button>
+    </div>
+
+    <div class="xp-content">
+      <!-- INSTRUCCIONES USUARIO -->
+      <div id="xp-user" class="xp-panel" role="tabpanel">
+        <div class="xp-grid">
+          <div class="xp-steps">
+            <ol class="xp-ol">
+              <li>
+                <div class="step-head"><span class="step-num">1</span><strong>Descarga la app de tu plataforma favorita</strong></div>
+                <p>Busca la app Xpressate, desde tu plataforma favorita.</p>
+              </li>
+              <li>
+                <div class="step-head"><span class="step-num">2</span><strong>Abrir la app</strong></div>
+                <p>Ingresa tu número de celular y confirma con el código SMS que recibirás.</p>
+              </li>
+              <li>
+                <div class="step-head"><span class="step-num">3</span><strong>Completa tu perfil</strong></div>
+                <p>Rellena nombre (opcional correo) y crea una contraseña segura.</p>
+              </li>
+              <li>
+
+                <div class="step-head"><span class="step-num">4</span><strong>¡Xpressate!</strong></div>
+                <p>Publica tu primera experiencia, agrega hashtags y menciona empresas si aplica.</p>
+              </li>
+            </ol>
+
+            <div class="xp-ctas">
+            </div>
+          </div>
+
+          <aside class="xp-preview" aria-hidden="true">
+            <div class="xp-card-preview">
+              <h4>Consejos rápidos</h4>
+              <ul>
+                <li>Si eliges anonimato, tu nombre no se mostrará públicamente.</li>
+                <li>Fotos y videos pasan por revisión automática antes de publicarse.</li>
+                <li>Usa hashtags para aumentar visibilidad.</li>
+              </ul>
+              <div class="xp-mini">
+                <strong>Notificación sugerida:</strong>
+                <p class="small">Activa push para recibir respuestas y cambios de estado.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- INSTRUCCIONES EMPRESA -->
+      <div id="xp-company" class="xp-panel xp-hidden" role="tabpanel" aria-hidden="true">
+        <div class="xp-grid">
+          <div class="xp-steps">
+            <ol class="xp-ol">
+              <li>
+                <div class="step-head"><span class="step-num">1</span><strong>Descarga la app desde tu plataforma favorita</strong></div>
+                <p>Busca la app Xpressate, desde tu plataforma favorita.</p>
+              </li>
+              <li>
+                <div class="step-head"><span class="step-num">2</span><strong>Verificación de la empresa</strong></div>
+                <p>Proporciona email corporativo y RUC / identificación; recibirás un enlace de verificación al correo corporativo.</p>
+              </li>
+              <li>
+                <div class="step-head"><span class="step-num">3</span><strong>Configura administradores</strong></div>
+                <p>Agrega Administradores y Representantes; define roles y niveles de acceso desde el módulo <em>Representantes</em>.</p>
+              </li>
+              <li>
+              
+              <li>
+                <div class="step-head"><span class="step-num">4</span><strong>Dialoga y resuelve</strong></div>
+                <p> Conecta, conversa, llega a acuerdos y accede a oportunidades.</p>
+              </li>
+            </ol>
+
+            <div class="xp-ctas">
+            </div>
+          </div>
+
+          <aside class="xp-preview" aria-hidden="true">
+            <div class="xp-card-preview">
+              <h4>Lo que obtienes</h4>
+              <ul>
+                <li>Dashboards y reportes</li>
+                <li>Gestión de representantes y trazabilidad</li>
+                <li>Integraciones y soporte prioritario</li>
+              </ul>
+              <div class="xp-mini">
+                <strong>SLA sugerido:</strong>
+                <p class="small">Define tu tiempo medio a primera respuesta para medir desempeño.</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <footer class="xp-foot">
+            </footer>
+  </div>
+
+  <style>
+    :root{
+      --bg:#f6f9fc;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#0f2c47;       /* <-- color solicitado aplicado aquí */
+      --accent-2:#153b56;     /* variante para degradado */
+      --shadow: 0 18px 36px rgba(15,44,71,0.06);
+      --radius:14px;
+      --maxw:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+
+    .xp-create{ background:var(--bg); padding:56px 18px; position:relative; }
+    .xp-decor{ position:absolute; inset:0; pointer-events:none; z-index:0; }
+
+    /* decorative dots / blobs tuned to accent */
+    .xp-dot{ position:absolute; border-radius:50%; opacity:.08; }
+    .xp-dot-1{ width:220px;height:220px; background: rgba(15,44,71,0.06); left:-30px; top:6%; }
+    .xp-dot-2{ width:160px;height:160px; background: rgba(15,44,71,0.10); right:6%; top:12%; }
+    .xp-blob-1{ width:220px;height:120px; background:linear-gradient(90deg,var(--accent), var(--accent-2)); left:6%; bottom:6%; border-radius:20px; opacity:.06; transform:rotate(-12deg); }
+
+    .xp-wrap{ max-width:var(--maxw); margin:0 auto; position:relative; z-index:2; }
+
+    .xp-head{ text-align:center; margin-bottom:18px; }
+    .xp-title{ font-family:'Poppins', Inter, sans-serif; color:var(--accent); font-size:clamp(1.6rem, 2.8vw, 2.4rem); margin:0; line-height:1.04; }
+    /* brand chip (uses accent as background subtle) */
+    .xp-brand{
+      color: #fff;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      padding:6px 10px;
+      border-radius:8px;
+      display:inline-block;
+      margin-left:8px;
+      font-weight:700;
+      font-size:0.95em;
+    }
+    .xp-lead{ color:var(--muted); margin:10px 0 0; }
+
+    .xp-tabs{ display:flex; gap:8px; justify-content:center; margin:20px 0; }
+    .xp-tab{
+      background:var(--card);
+      border-radius:999px;
+      padding:10px 18px;
+      border:1px solid rgba(15,44,71,0.06);
+      cursor:pointer;
+      font-weight:700;
+      color:var(--muted);
+      box-shadow:var(--shadow);
+    }
+    .xp-tab:focus { outline: none; box-shadow: 0 0 0 6px rgba(15,44,71,0.08); }
+    .xp-tab-active{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #ffffff;
+      border-color: transparent;
+    }
+
+    .xp-content{ margin-top:12px; }
+    .xp-panel{ padding:18px 0; }
+    .xp-hidden{ display:none; }
+
+    .xp-grid{ display:grid; grid-template-columns:1fr 360px; gap:20px; align-items:start; }
+    .xp-steps{ background:var(--card); padding:20px; border-radius:12px; box-shadow:var(--shadow); }
+    .xp-preview{ }
+
+    .xp-card-preview{ background:var(--card); padding:18px; border-radius:12px; box-shadow:var(--shadow); }
+    .xp-card-preview h4{ margin:0 0 8px; color:var(--accent); }
+    .xp-card-preview ul{ margin:0; padding-left:16px; color:var(--muted); }
+    .xp-mini .small{ color:var(--muted); font-size:13px; margin:6px 0 0; }
+
+    .xp-ol{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
+    .xp-ol li{ display:block; }
+    .step-head{ display:flex; gap:12px; align-items:center; margin-bottom:6px; }
+    .step-num{
+      width:36px; height:36px;
+      border-radius:8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color:#fff;
+      display:inline-grid;
+      place-items:center;
+      font-weight:800;
+    }
+    .xp-ol p{ margin:0; color:var(--muted); }
+
+    .xp-ctas{ margin-top:16px; display:flex; gap:12px; align-items:center; }
+    .xp-btn{ padding:10px 14px; border-radius:10px; font-weight:800; text-decoration:none; cursor:pointer; display:inline-block; }
+
+    /* primary uses the requested accent */
+    .xp-primary{
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color:#fff;
+      box-shadow: 0 10px 26px rgba(15,44,71,0.12);
+      border: 0;
+    }
+
+    .xp-link{ color:var(--accent); font-weight:700; text-decoration:none; background:transparent; border:none; }
+    .xp-details{ margin-top:14px; background:transparent; border:0; color:var(--accent); font-weight:700; cursor:pointer; }
+
+    .xp-foot{ margin-top:18px; text-align:center; color:var(--muted); }
+    .xp-note a{ color:var(--accent); font-weight:700; text-decoration:none; }
+
+    @media (max-width:980px){
+      .xp-grid{ grid-template-columns:1fr; }
+      .xp-preview{ order:2; }
+    }
+
+    @media (prefers-reduced-motion: reduce){ *{ transition:none!important; animation:none!important; } }
+  </style>
+
+  <script>
+    (function(){
+      const tabs = document.querySelectorAll('.xp-tab');
+      const panels = document.querySelectorAll('.xp-panel');
+
+      function activate(targetId){
+        panels.forEach(p => {
+          if(p.id === targetId){
+            p.classList.remove('xp-hidden');
+            p.setAttribute('aria-hidden','false');
+          } else {
+            p.classList.add('xp-hidden');
+            p.setAttribute('aria-hidden','true');
+          }
+        });
+        tabs.forEach(t => t.classList.toggle('xp-tab-active', t.dataset.target === targetId));
+      }
+
+      tabs.forEach(t => {
+        t.addEventListener('click', () => activate(t.dataset.target));
+        t.addEventListener('keydown', (e) => {
+          if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+            const idx = Array.from(tabs).indexOf(t);
+            const next = e.key === 'ArrowRight' ? tabs[(idx+1)%tabs.length] : tabs[(idx-1+tabs.length)%tabs.length];
+            next.focus();
+            next.click();
+          }
+        });
+      });
+
+      // init
+      activate('xp-user');
+    })();
+  </script>
+</section>
+
+</section>
+    <!-- Why Choose Us -->
+<style>
+  :root{
+    --brand: #0F2C47;       /* color principal */
+    --brand-dark: #0d273f;  /* variante para hover */
+    --brand-contrast: #fff;
+    --muted: #6c6c6c;
+    --icon-bg: rgba(15,44,71,0.08);
+  }
+
+  /* Sección why-choose-us */
+  .why-choose-us {
+    padding: 3rem 0;
+  }
+
+  .why-choose-us .section-heading .heading-line{
+    color: var(--brand);
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    display: inline-block;
+    position: relative;
+    font-size: 1.9rem;
+  }
+  .why-choose-us .section-heading .heading-line::after{
+    content: "";
+    display: block;
+    height: 4px;
+    width: 60px;
+    background: var(--brand);
+    margin-top: 8px;
+    border-radius: 4px;
+  }
+
+  .why-choose-us .text-muted.lead{
+    color: var(--muted);
+    max-width: 640px;
+  }
+
+  /* Lista y iconos */
+  .why-icon-list{ padding: 0; margin: 0; list-style: none; }
+  .why-icon-list .list-item{ margin-bottom: 1.25rem; }
+  .why-icon-list .icon-shape{
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--icon-bg);
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+
+  .why-icon-list .icon.text-alternate{
+    color: var(--brand);
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .why-icon-list .media-body h5.bold{
+    color: #0b1220;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    font-size: 1.05rem;
+  }
+  .why-icon-list .media-body p{
+    margin: 0;
+    color: #4b4b4b;
+    line-height: 1.45;
+    font-size: 0.98rem;
+  }
+
+  hr.my-5{
+    border: none;
+    height: 1px;
+    background: rgba(15,44,71,0.06);
+    margin: 1.75rem 0;
+  }
+
+  /* Botón principal */
+  .btn-primary{
+    background-color: var(--brand);
+    border: 1px solid var(--brand);
+    color: var(--brand-contrast);
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color .18s ease, border-color .18s ease, transform .08s ease;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus{
+    background-color: var(--brand-dark);
+    border-color: var(--brand-dark);
+    transform: translateY(-2px);
+    color: var(--brand-contrast);
+    text-decoration: none;
+  }
+
+  .text-contrast{ color: var(--brand-contrast) !important; }
+
+  /* Mockups */
+  .rotated-mockups .browser,
+  .rotated-mockups .front.iphone.light .notch{
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 767px){
+    .why-icon-list .icon-shape{ width: 56px; height:56px; border-radius:10px; }
+    .why-choose-us .section-heading .heading-line{ font-size: 1.5rem; }
+  }
+</style>
+
+<section class="section why-choose-us" id="features">
+  <div class="shapes-container">
+    <div class="pattern pattern-dots" aria-hidden="true"></div>
+  </div>
+
+  <div class="container pb-8 bring-to-front">
+    <div class="section-heading text-center">
+      <h2 id="xp-benefits-title" class="xp-title">Resolviendo Problemas Clave</h2>
+
+<p class="aria-label" style="color: black;">
+    XPRESSATE aborda estos desafíos ofreciendo una plataforma intuitiva y completa que beneficia tanto a usuarios como a empresas, promoviendo la equidad y la mejora constante.</p>
+    </div>
+
+    <div class="row gap-y align-items-center">
+      <div class="col-md-6">
+        <ul class="list-unstyled why-icon-list">
+          <li class="list-item">
+            <div class="media align-items-center">
+              <div class="icon-shape mr-3" aria-hidden="true">
+                <i class="icon text-alternate fas fa-heart fa-2x" aria-hidden="true"></i>
+              </div>
+              <div class="media-body">
+                <h5 class="bold">Canales Ineficaces</h5>
+                <p class="my-0">Superamos la falta de canales transparentes para exponer y seguir experiencias con empresas.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-item">
+            <div class="media align-items-center">
+              <div class="icon-shape mr-3" aria-hidden="true">
+                <i class="icon text-alternate fas fa-heart fa-2x" aria-hidden="true"></i>
+              </div>
+
+              <div class="media-body">
+                <h5 class="bold">Gestión de reputación</h5>
+                <p class="my-0">Gestión de reputación
+
+Facilitamos a las empresas la gestión de su reputación y respuesta digital de manera eficaz.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="list-item">
+            <div class="media align-items-center">
+              <div class="icon-shape mr-3" aria-hidden="true">
+                <i class="icon text-alternate fas fa-heart fa-2x" aria-hidden="true"></i>
+              </div>
+
+              <div class="media-body">
+                <h5 class="bold">Anonimato Seguro</h5>
+                <p class="my-0">Ofrecemos la posibilidad de un anonimato seguro para que los usuarios puedan expresarse sin temor.</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-item">
+            <div class="media align-items-center">
+              <div class="icon-shape mr-3" aria-hidden="true">
+                <i class="icon text-alternate fas fa-heart fa-2x" aria-hidden="true"></i>
+              </div>
+
+              <div class="media-body">
+                <h5 class="bold">Resolución Formal</h5>
+                <p class="my-0">Proporcionamos mecanismos claros para acuerdos y la resolución formal de casos.</p>
+              </div>
+            </div>
+        </ul>
+
+        <hr class="my-5">
+        <div class="text-center text-md-left">
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="rotated-mockups device-twin">
+          <div class="browser absolute shadow-lg" aria-hidden="true">
+            <img src="img/screens/tablet/1.png" alt="mockup tablet" style="max-width:100%;">
+          </div>
+
+          <div class="front iphone light" aria-hidden="true" style="margin-top: 2rem;">
+            <div class="screen">
+              <img src="img/emprendedr.png" alt="mockup celular" style="max-width:100%;">
+            </div>
+
+            <div class="notch"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+<!-- FAQs -->
+<section class="section faqs-dd bg-light edge top-left">
+    <div class="shapes-container">
+        <div class="absolute icon" data-aos="fade-down-left">
+            <i class="fas fa-question"></i>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-heading text-center">
+            <h2 id="xp-benefits-title" class="xp-title">Preguntas frecuentes</h2>
+            <p class="lead">Encuentra las respuestas a tus preguntas aquí: </p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 mx-lg-auto">
+                
+                    <div data-aos="fade-up">
+                        <div class="card shadow-box shadow-hover mb-3">
+                            <div class="card-header py-3">
+                                <a href="#" class="card-title collapsed" data-toggle="collapse" data-target="#v1-q1">¿Qué significan los estados (Sin respuesta / En proceso / Resuelto)?</a>
+                            </div>
+
+                            <div id="v1-q1" class="collapse card-body">
+                               Indicadores del avance de la gestión por parte de la(s) empresa(s) mencionada(s).
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div data-aos="fade-up">
+                        <div class="card shadow-box shadow-hover mb-3">
+                            <div class="card-header py-3">
+                                <a href="#" class="card-title collapsed" data-toggle="collapse" data-target="#v1-q2">¿Cómo publico una experiencia?</a>
+                            </div>
+
+                            <div id="v1-q2" class="collapse card-body">
+                               La guía interactiva te acompaña la primera vez. Puedes agregar fotos/videos (sujetos a revisión) y etiquetas para mejorar alcance.
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div data-aos="fade-up">
+                        <div class="card shadow-box shadow-hover mb-3">
+                            <div class="card-header py-3">
+                                <a href="#" class="card-title collapsed" data-toggle="collapse" data-target="#v1-q3">¿Puedo configurar notificaciones para mi equipo?</a>
+                            </div>
+
+                            <div id="v1-q3" class="collapse card-body">
+                               los Admins pueden definir quién recibe alertas por nuevas menciones, urgencias o SLA incumplidos y agrupar notificaciones para evitar saturación.
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div data-aos="fade-up">
+                        <div class="card shadow-box shadow-hover mb-3">
+                            <div class="card-header py-3">
+                                <a href="#" class="card-title collapsed" data-toggle="collapse" data-target="#v1-q4">¿Qué hago si veo contenido ofensivo o fraudulento?</a>
+                            </div>
+
+                            <div id="v1-q4" class="collapse card-body">
+                    </span>Los reportes priorizados (violencia explícita, amenazas, fraude) reciben atención urgente. También puedes bloquear o silenciar usuarios desde su perfil.
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Start For Free -->
+
+<!-- Formulario Landing Xpressate -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<section id="contacto" aria-labelledby="lpContactTitle">
+ <div class="container">
+        <div class="section-heading text-center">
+            <h2 id="xp-benefits-title" class="xp-title">¿Listo para hablar con Xpressate?</h2>
+            <p class="lead">Cuéntanos tu duda y te contactamos en breve. </p>
+        </div>
+
+    <div class="form-card" role="form" aria-describedby="lpIntro">
+      <form id="lpForm" novalidate data-endpoint="/api/contact">
+        <!-- Honeypot anti-spam -->
+        <div class="visually-hidden" aria-hidden="true">
+          <label for="website">No completar</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <span class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5Z" fill="currentColor"/></svg>
+            </span>
+            <input id="name" name="name" type="text" placeholder=" " autocomplete="name" required minlength="2" maxlength="80">
+            <label for="name">Nombre</label>
+            <small class="error" data-for="name" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <span class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 4H4a2 2 0 0 0-2 2v.5l10 6.5 10-6.5V6a2 2 0 0 0-2-2Zm0 4.5-8 5.2-8-5.2V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5Z" fill="currentColor"/></svg>
+            </span>
+            <input id="email" name="email" type="email" placeholder=" " autocomplete="email" inputmode="email" spellcheck="false" required>
+            <label for="email">Correo</label>
+            <small class="error" data-for="email" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <span class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a15.53 15.53 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1.02-.24 11.3 11.3 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.47a1 1 0 0 1 1 1 11.3 11.3 0 0 0 .57 3.56 1 1 0 0 1-.24 1.02L6.6 10.8Z" fill="currentColor"/></svg>
+            </span>
+            <input id="phone" name="phone" type="tel" placeholder=" " autocomplete="tel" inputmode="tel" pattern="^[0-9+()\\s-]{6,}$">
+            <label for="phone">Teléfono </label>
+            <small class="error" data-for="phone" aria-live="polite"></small>
+          </div>
+
+          <div class="field field-textarea">
+            <span class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8l-4 4V6Z" fill="currentColor"/></svg>
+            </span>
+            <textarea id="message" name="message" rows="5" placeholder=" " required minlength="10" maxlength="1000"></textarea>
+            <label for="message">Mensaje</label>
+            <div class="meta">
+              <small class="error" data-for="message" aria-live="polite"></small>
+              <small id="msgCounter" class="counter" aria-live="polite">0/1000</small>
+            </div>
+          </div>
+        </div>
+
+        <small class="error" data-for="terms" aria-live="polite"></small>
+
+   <button type="submit" class="btn" id="btn-enviar"
+  style="background:#004DFF !important;
+         background-image: none !important;
+         color:#ffffff !important;
+         border:1px solid #004DFF !important;
+         box-shadow:0 8px 20px rgba(0,77,255,0.12) !important;
+         padding:10px 18px; border-radius:8px;">
+  <span class="btn-label">Enviar mensaje</span>
+  <span class="btn-shine" aria-hidden="true"></span>
+  <span class="spinner" aria-hidden="true"></span>
+</button>
+
+
+
+        <div id="formResult" class="toast" role="status" aria-live="polite" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root{
+    --primary: #11314c;
+    --primary-2: #133651;
+    --text: #1c2a39;
+    --text-2: #5b6c7c;
+    --bg: #f3f7fb;
+    --white: #fff;
+    --ok: #1a7f4b;
+    --err: #b02a2a;
+    --ring: rgba(17,49,76,0.18);
+  }
+
+  /* Sección con fondo agradable */
+  #lp-contact{
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 10% -20%, #eaf2fb 10%, transparent 60%),
+      radial-gradient(900px 500px at 110% 0%, #e7eef7 10%, transparent 60%),
+      linear-gradient(180deg, #f7fbff, #eef5fb 60%, #eaf2fb);
+    color: var(--text);
+    padding: 56px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Burbujas decorativas sutiles */
+  #lp-contact::before, #lp-contact::after{
+    content:"";
+    position:absolute; border-radius:50%;
+    filter: blur(30px); opacity:.35; pointer-events:none;
+    animation: float 12s ease-in-out infinite;
+  }
+  #lp-contact::before{ width:380px; height:380px; left:-120px; top:-60px; background: radial-gradient(circle at 30% 30%, #b0d4ff, #8bb6e6); }
+  #lp-contact::after { width:320px; height:320px; right:-120px; bottom:-80px; background: radial-gradient(circle at 70% 70%, #b8e3ff, #99c7ea); animation-delay: -6s; }
+
+  .lp-wrap{ max-width: 980px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .lp-header{
+    text-align:center; margin-bottom: 22px;
+  }
+  .lp-header h2{
+    margin:0 0 6px; font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+    color: var(--primary);
+    letter-spacing:.2px;
+  }
+  .lp-header p{
+    margin:0; color: var(--text-2);
+  }
+
+  .form-card{
+    margin: 18px auto 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.7));
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(19,54,81,0.12);
+    box-shadow: 0 12px 36px rgba(17,49,76,0.12);
+    border-radius: 16px;
+    padding: 22px;
+  }
+
+  /* Grid */
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .field-textarea{ grid-column: 1 / -1; }
+
+  /* Campo con etiqueta flotante e ícono */
+  .field{ position: relative; }
+  .field .icon{
+    position:absolute; left:12px; top: 13px; width:20px; height:20px;
+    display:grid; place-items:center; color:#6b8196;
+  }
+  .field input,
+  .field textarea{
+    width:100%;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid rgba(2,24,44,0.12);
+    border-radius: 12px;
+    padding: 12px 12px 12px 42px;
+    outline: none;
+    transition: box-shadow .15s, border-color .15s, background-color .2s;
+  }
+  .field textarea{ padding-top: 14px; resize: vertical; min-height: 140px; }
+
+  .field label{
+    position:absolute;
+    left:42px; top: 12px;
+    color:#7a8b9a;
+    background: transparent;
+    padding: 0 6px;
+    pointer-events:none;
+    transform-origin:left top;
+    transition: transform .16s ease, color .16s ease, top .16s ease, background-color .16s ease;
+  }
+
+  /* Estado flotante usando :placeholder-shown */
+  .field input::placeholder,
+  .field textarea::placeholder{ color: transparent; }
+  .field input:focus,
+  .field textarea:focus{
+    border-color: var(--primary);
+    box-shadow: 0 0 0 8px var(--ring);
+  }
+  .field input:not(:placeholder-shown) + label,
+  .field input:focus + label,
+  .field textarea:not(:placeholder-shown) + label,
+  .field textarea:focus + label{
+    top: -8px;
+    transform: scale(.82);
+    color: var(--primary);
+    background: var(--white);
+  }
+
+  /* Errores y validez */
+  .error{ display:block; min-height:16px; font-size:.85rem; color: var(--err); margin: 6px 0 0 2px; }
+  .counter{ color:#6b8196; font-size:.8rem; }
+  .meta{ display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
+
+  .is-invalid{ border-color: var(--err) !important; box-shadow: 0 0 0 6px rgba(176,42,42,0.12) !important; }
+  .is-valid{ border-color: var(--ok); }
+
+  /* Términos */
+  .terms{
+    display:flex; align-items:center; gap:10px; margin: 6px 2px 2px;
+    color: var(--text-2); user-select:none;
+  }
+  .terms input{ width:18px; height:18px; accent-color: var(--primary); }
+  .terms a{ color: var(--primary); text-underline-offset: 2px; }
+
+  /* Botón */
+  .btn{
+    margin-top: 10px;
+    position:relative; overflow:hidden;
+    display:inline-flex; align-items:center; gap: 10px;
+    border:0; border-radius: 12px;
+    padding: 12px 18px;
+    font-weight:700; color:#fff; cursor:pointer;
+    background: linear-gradient(90deg, var(--primary), var(--primary-2));
+    box-shadow: 0 10px 26px rgba(19,54,81,0.26);
+    transition: transform .12s, box-shadow .2s, filter .2s, opacity .2s;
+  }
+  .btn:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px rgba(19,54,81,0.34); }
+  .btn:active{ transform: translateY(-1px); }
+  .btn:disabled{ opacity:.85; cursor:not-allowed; transform:none; filter:saturate(.85); }
+
+  .btn-shine{
+    position:absolute; inset:0; background:
+      linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.22) 40%, rgba(255,255,255,0.0) 70%);
+    transform: translateX(-100%);
+    transition: transform .6s ease;
+  }
+  .btn:hover .btn-shine{ transform: translateX(100%); }
+
+  .spinner{
+    width:16px; height:16px; border:2px solid rgba(255,255,255,0.5);
+    border-top-color:#fff; border-radius:50%; display:none; animation: spin .8s linear infinite;
+  }
+
+  /* Toast */
+  .toast{
+    position: fixed;
+    left: 50%; bottom: 18px; transform: translateX(-50%) translateY(20px);
+    background:#ffffff; color:#0a1a2b;
+    border:1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    padding: 12px 14px; border-radius: 12px;
+    z-index: 50; opacity: 0; transition: opacity .2s, transform .2s;
+  }
+  .toast.show{ opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast.ok{ border-color: rgba(26,127,75,0.25); }
+  .toast.err{ border-color: rgba(176,42,42,0.25); }
+
+  /* Responsivo */
+  @media (max-width: 740px){
+    .grid{ grid-template-columns: 1fr; gap: 10px; }
+    .form-card{ padding: 18px; }
+  }
+
+  /* Animaciones */
+  @keyframes float{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-8px); }
+  }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0e1c2a; --text:#eaf2fb; --text-2:#b7c4d1; }
+    #lp-contact{
+      background:
+        radial-gradient(1200px 600px at 10% -20%, #0f2540 10%, transparent 60%),
+        radial-gradient(900px 500px at 110% 0%, #0e2038 10%, transparent 60%),
+        linear-gradient(180deg, #0b1826, #0f2238 60%, #0e1c2a);
+    }
+    .form-card{ background: rgba(13,26,40,0.6); border-color: rgba(255,255,255,0.08); box-shadow: 0 12px 36px rgba(0,0,0,0.45); }
+    .field input, .field textarea{ background:#0b1826; color:#eaf2fb; border-color: rgba(255,255,255,0.12); }
+    .field input:not(:placeholder-shown) + label,
+    .field input:focus + label,
+    .field textarea:not(:placeholder-shown) + label,
+    .field textarea:focus + label{
+      background:#0b1826;
+    }
+    .toast{ background:#102133; color:#eaf2fb; border-color: rgba(255,255,255,0.1); }
+  }
+
+  /* Accesibilidad */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  /* Utilidades */
+  .visually-hidden{
+    position:absolute !important; height:1px; width:1px; overflow:hidden;
+    clip: rect(1px, 1px, 1px, 1px); white-space: nowrap;
+  }
+</style>
+
+<script>
+  (function(){
+    const form = document.getElementById('lpForm');
+    const result = document.getElementById('formResult');
+    const btn = form.querySelector('.btn');
+    const btnLabel = form.querySelector('.btn-label');
+    const spinner = form.querySelector('.spinner');
+    const counter = document.getElementById('msgCounter');
+
+    const fields = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      message: form.message,
+      terms: form.terms,
+      hp: form.website
+    };
+
+    const ENDPOINT = form.getAttribute('data-endpoint') || '/api/contact';
+    const USE_MOCK_IF_FAILS = true;
+
+    function setSending(sending){
+      btn.disabled = sending;
+      spinner.style.display = sending ? 'inline-block' : 'none';
+      btnLabel.textContent = sending ? 'Enviando…' : 'Enviar';
+    }
+
+    function setToast(msg, ok = true){
+      result.textContent = msg;
+      result.hidden = false;
+      result.classList.remove('ok','err','show');
+      result.classList.add(ok ? 'ok' : 'err');
+      // force reflow
+      void result.offsetWidth;
+      result.classList.add('show');
+      setTimeout(() => { result.classList.remove('show'); setTimeout(()=> result.hidden = true, 200); }, 5000);
+    }
+
+    function errEl(id){ return form.querySelector('.error[data-for="'+id+'"]'); }
+
+    function invalidate(input, message){
+      input.classList.add('is-invalid');
+      input.classList.remove('is-valid');
+      input.setAttribute('aria-invalid', 'true');
+      const el = errEl(input.id); if(el) el.textContent = message || '';
+    }
+
+    function validate(input){
+      input.classList.remove('is-invalid');
+      input.removeAttribute('aria-invalid');
+      input.classList.add('is-valid');
+      const el = errEl(input.id); if(el) el.textContent = '';
+    }
+
+    function validateName(){
+      const v = fields.name.value.trim();
+      if(v.length < 2) return invalidate(fields.name, 'Ingresa tu nombre (mín. 2 caracteres).'), false;
+      if(v.length > 80) return invalidate(fields.name, 'Nombre demasiado largo.'), false;
+      validate(fields.name); return true;
+    }
+
+    function validateEmail(){
+      const v = fields.email.value.trim();
+      if(!v) return invalidate(fields.email, 'Ingresa tu correo.'), false;
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+      if(!re.test(v)) return invalidate(fields.email, 'Correo no válido.'), false;
+      validate(fields.email); return true;
+    }
+
+    function validatePhone(){
+      const v = fields.phone.value.trim();
+      if(!v) { fields.phone.classList.remove('is-invalid','is-valid'); errEl('phone').textContent=''; return true; }
+      const re = /^[0-9+()\s-]{6,}$/;
+      if(!re.test(v)) return invalidate(fields.phone, 'Usa solo números y + (mín. 6).'), false;
+      validate(fields.phone); return true;
+    }
+
+    function validateMessage(){
+      const v = fields.message.value.trim();
+      counter.textContent = v.length + '/1000';
+      if(v.length < 10) return invalidate(fields.message, 'Cuéntanos un poco más (mín. 10).'), false;
+      if(v.length > 1000) return invalidate(fields.message, 'Máximo 1000 caracteres.'), false;
+      validate(fields.message); return true;
+    }
+
+    function validateTerms(){
+      if(!fields.terms.checked){ errEl('terms').textContent = 'Debes aceptar la política.'; return false; }
+      errEl('terms').textContent = ''; return true;
+    }
+
+    // Live validation
+    fields.name.addEventListener('blur', validateName);
+    fields.email.addEventListener('blur', validateEmail);
+    fields.phone.addEventListener('blur', validatePhone);
+    fields.message.addEventListener('input', validateMessage);
+    fields.terms.addEventListener('change', validateTerms);
+
+    // Atajos
+    fields.message.addEventListener('keydown', (e)=>{
+      if((e.ctrlKey || e.metaKey) && e.key === 'Enter'){ form.requestSubmit(); }
+    });
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      if(fields.hp && fields.hp.value.trim()){ form.reset(); return; }
+
+      const ok = validateName() & validateEmail() & validatePhone() & validateMessage() & validateTerms();
+      if(!ok) return;
+
+      setSending(true);
+
+      const payload = {
+        name: fields.name.value.trim(),
+        email: fields.email.value.trim(),
+        phone: fields.phone.value.trim() || null,
+        message: fields.message.value.trim(),
+        consent: !!fields.terms.checked,
+        source: location.href,
+        ts: new Date().toISOString()
+      };
+
+      try{
+        const res = await fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept':'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if(!res.ok) throw new Error('HTTP '+res.status);
+
+        form.reset();
+        ['name','email','phone','message'].forEach(id => form[id].classList.remove('is-valid','is-invalid'));
+        counter.textContent = '0/1000';
+        setToast("Gracias por escribirnos, pronto tendrás noticias nuestras 🙌", true);
+      } catch(err){
+        if(USE_MOCK_IF_FAILS){
+          await new Promise(r=>setTimeout(r,700));
+          form.reset();
+          ['name','email','phone','message'].forEach(id => form[id].classList.remove('is-valid','is-invalid'));
+          counter.textContent = '0/1000';
+          setToast('¡Gracias! Tu mensaje fue enviado correctamente.', true);
+        } else {
+          setToast('Hubo un problema al enviar. Inténtalo de nuevo o escríbenos a soporte@xpressate.app', false);
+        }
+      } finally {
+        setSending(false);
+      }
+    });
+  })();
+</script>
+
+    <!-- Contact Channels -->
+<section class="section ">
+    <div class="container bring-to-front">
+        <div class="row gap-y">
+            <div class="col-md-6">
+            </div>
+
+            <div class="col-md-6">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+ <!-- Footer (todo con el mismo color base) -->
+<footer class="site-footer section same-color" aria-label="Pie de página" role="contentinfo">
+  <style>
+    :root{
+      --footer-color: #007BFF;      /* <-- COLOR UNIFORME: cámbialo aquí si quieres otro */
+      --text-on-footer: #ffffff;
+      --muted-on-footer: rgba(255,255,255,0.92);
+      --accent-border: rgba(255,255,255,0.08);
+      --social-size: 44px;
+    }
+
+    .site-footer{
+      background-color: var(--footer-color); /* TODO: fondo uniforme */
+      color: var(--text-on-footer);
+      padding: 28px 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    .site-footer .container{ max-width:1200px; margin:0 auto; padding:0 18px; }
+    .site-footer .row{ display:flex; flex-wrap:wrap; gap:18px; align-items:flex-start; }
+    .site-footer .col-md-4 { flex: 1 1 320px; min-width: 220px; }
+    .site-footer .col-md-2 { flex: 0 0 160px; min-width:120px; }
+
+    /* Forzar logo claro (si necesitas logo blanco) */
+    .site-footer .logo { width:200px; height:auto; display:block; filter: brightness(0) invert(1); }
+
+    /* Links y texto: todo en blanco / mismo tono */
+    .site-footer a { color: var(--text-on-footer); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; color: var(--muted-on-footer); }
+    .site-footer p, .site-footer .tagline, .site-footer h6, .site-footer .small { color: var(--text-on-footer); }
+
+    /* Social buttons — mantienen el mismo color de fondo que el footer (para "todo igual"),
+       pero con borde sutil y sombra para que se distingan. Los iconos se mantienen blancos. */
+    .social-list { list-style:none; margin:0; padding:0; display:flex; gap:12px; align-items:center; }
+    .social-list li{ list-style:none; }
+    .social-btn{
+      width:var(--social-size);
+      height:var(--social-size);
+      display:inline-grid;
+      place-items:center;
+      border-radius:8px;
+      background: var(--footer-color);    /* mismo color que el footer */
+      border: 1px solid var(--accent-border);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      color: var(--text-on-footer);
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+      text-decoration:none;
+    }
+    .social-btn svg, .social-btn svg * { fill: var(--text-on-footer) !important; }
+
+    .social-btn:hover{ transform: translateY(-4px); opacity: .95; box-shadow: 0 18px 40px rgba(0,0,0,0.18); }
+
+    /* Divider */
+    .site-footer hr{ border:0; height:1px; background: rgba(255,255,255,0.06); margin:1.5rem 0 0.5rem 0; }
+
+    /* Ajustes móviles */
+    @media (max-width:720px){
+      .site-footer .col-md-4, .site-footer .col-md-2 { flex: 1 1 100%; }
+      .logo{ width:160px; }
+    }
+  </style>
+
+  <div class="container">
+    <div class="row gap-y text-center text-md-left">
+      <div class="col-md-4 mr-auto">
+        <img src="img/XPR.svg" alt="Logo" class="logo">
+        
+        <p>Tu voz registrada, tus problemas atendidos, tus soluciones reales.</p>
+      </div>
+          
+      <div class="col-md-2">
+        <nav class="nav flex-column">
+          <a class="nav-item py-2" href="#">Inicio</a>
+          <a class="nav-item py-2" href="#">Sobre nosotros</a>
+          <a class="nav-item py-2" href="#">Beneficios</a>
+        </nav>
+      </div>
+
+      <div class="col-md-2">
+        <nav class="nav flex-column">
+          <a class="nav-item py-2" href="#">Testimonios</a>
+          <a class="nav-item py-2" href="#">Unirme a Xpressate</a>
+          <a class="nav-item py-2" href="#">Contacto</a>
+        </nav>
+      </div>
+
+      <div class="col-md-2">
+        <nav class="nav flex-column">
+          <a class="nav-item py-2" href="#">Politica de privacidad</a>
+          <a class="nav-item py-2" href="#">Términos de uso</a>
+          <a class="nav-item py-2" href="#">Centro de ayuda</a>
+        </nav>
+      </div>
+
+      <div class="col-md-2">
+       <h6 class="py-2 small">Síguenos</h6>
+
+        <nav aria-label="Redes sociales">
+          <ul class="social-list" role="list">
+            <li>
+              <a href="https://facebook.com/5studios.net" target="_blank" rel="noopener noreferrer"
+                 class="social-btn" aria-label="Facebook" title="Facebook">
+                <!-- usa SVG o <i class="fab fa-facebook"></i> -->
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M22 12A10 10 0 1 0 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.9h-2.3V22C18.34 21.12 22 16.99 22 12z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-btn" aria-label="Twitter" title="Twitter">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.28 4.28 0 0 0 1.88-2.37 8.54 8.54 0 0 1-2.71 1.03 4.26 4.26 0 0 0-7.26 3.88A12.1 12.1 0 0 1 3.15 4.6a4.25 4.25 0 0 0 1.32 5.68 4.2 4.2 0 0 1-1.93-.53v.05a4.26 4.26 0 0 0 3.42 4.18 4.3 4.3 0 0 1-1.92.07 4.27 4.27 0 0 0 3.98 2.96A8.55 8.55 0 0 1 2 19.54 12.07 12.07 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.35-.01-.53A8.36 8.36 0 0 0 22.46 6z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-btn" aria-label="Instagram" title="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.75-2.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row small mt-3">
+      <div class="col-md-4">
+        <p class="mt-2 mb-0">© 205 <a href="https://5studios.net">Tu voz registrada, tus problemas atendidos, </a>tus soluciones reales.</p>
+      </div>
+    </div>
+  </div>
 </footer>
-<script src="js/laapp.min.js"></script>
-<script src="js/demo.min.js"></script>
+
+<script src="js/jquery.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/counterup2.js"></script>
+<script src="js/odometer.js"></script>
+<script src="js/swiper.js"></script>
+<script src="js/snap.svg.js"></script>
+<script src="js/tilt.jquery.js"></script>
+<script src="js/typed.js"></script>
+<script src="js/noframework.waypoints.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/scrollspy.js"></script>
+<script src="js/site.js"></script>
+
 </body>
 </html>
