@@ -1139,7 +1139,7 @@ Somos una app creada para darte un espacio seguro donde puedas expresar tus idea
 
                 <div class="iphone light">
                     <div class="screen shadow-box">
-                        <img src="img/MOCKUP.png" alt="...">
+                        <img src="img/XPR.jpg" alt="...">
                     </div>
                     <div class="notch"></div>
                 </div>
@@ -1161,7 +1161,7 @@ Somos una app creada para darte un espacio seguro donde puedas expresar tus idea
 
   <div class="xp-wrap">
     <header class="xp-head">
-      <h2 id="xp-create-title" class="xp-title">Crear cuenta en XPRESSATE</span></h2>
+      <h2 id="xp-create-title" class="xp-title">Crear cuenta enXPRESSATE</span></h2>
       <p class="xp-lead">Sigue las instrucciones según tu tipo de cuenta. Fácil, seguro y en pocos pasos.</p>
     </header>
 
@@ -1752,11 +1752,19 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
 
         <small class="error" data-for="terms" aria-live="polite"></small>
 
-        <button type="submit" class="btn">
-          <span class="btn-label">Enviar mensaje </span>
-          <span class="btn-shine" aria-hidden="true"></span>
-          <span class="spinner" aria-hidden="true"></span>
-        </button>
+   <button type="submit" class="btn" id="btn-enviar"
+  style="background:#004DFF !important;
+         background-image: none !important;
+         color:#ffffff !important;
+         border:1px solid #004DFF !important;
+         box-shadow:0 8px 20px rgba(0,77,255,0.12) !important;
+         padding:10px 18px; border-radius:8px;">
+  <span class="btn-label">Enviar mensaje</span>
+  <span class="btn-shine" aria-hidden="true"></span>
+  <span class="spinner" aria-hidden="true"></span>
+</button>
+
+
 
         <div id="formResult" class="toast" role="status" aria-live="polite" hidden></div>
       </form>
@@ -2150,30 +2158,20 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
 </section>
 
 </main>
-
-<footer class="site-footer section" aria-label="Pie de página" role="contentinfo">
+ <!-- Footer (todo con el mismo color base) -->
+<footer class="site-footer section same-color" aria-label="Pie de página" role="contentinfo">
   <style>
-    /* Palette tomada de la imagen: #89D0E5 */
     :root{
-      --footer-bg: #89D0E5;                 /* color solicitado (imagen) */
-      --footer-text: #042f34;               /* texto principal oscuro para contraste */
-      --muted-text: rgba(4,47,52,0.78);     /* texto secundario */
-      --social-size: 48px;
-      --social-gap: 12px;
-      --edge-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      --social-ring: rgba(0,0,0,0.06);
-      --transition-fast: 180ms;
-      --brand-facebook: #1877F2;
-      --brand-linkedin: #0A66C2;
-      --brand-instagram-start: #fdf497;
-      --brand-instagram-mid1: #fd5949;
-      --brand-instagram-mid2: #d6249f;
-      --brand-instagram-end: #285AEB;
+      --footer-color: #007BFF;      /* <-- COLOR UNIFORME: cámbialo aquí si quieres otro */
+      --text-on-footer: #ffffff;
+      --muted-on-footer: rgba(255,255,255,0.92);
+      --accent-border: rgba(255,255,255,0.08);
+      --social-size: 44px;
     }
 
     .site-footer{
-      background-color: var(--footer-bg);
-      color: var(--footer-text);
+      background-color: var(--footer-color); /* TODO: fondo uniforme */
+      color: var(--text-on-footer);
       padding: 28px 0;
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
@@ -2183,61 +2181,56 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
     .site-footer .col-md-4 { flex: 1 1 320px; min-width: 220px; }
     .site-footer .col-md-2 { flex: 0 0 160px; min-width:120px; }
 
-    .logo{ width:200px; height:auto; display:block; }
+    /* Forzar logo claro (si necesitas logo blanco) */
+    .site-footer .logo { width:200px; height:auto; display:block; filter: brightness(0) invert(1); }
 
-    .site-footer a { color: var(--footer-text); text-decoration: none; }
-    .site-footer a:hover { text-decoration: underline; }
+    /* Links y texto: todo en blanco / mismo tono */
+    .site-footer a { color: var(--text-on-footer); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; color: var(--muted-on-footer); }
+    .site-footer p, .site-footer .tagline, .site-footer h6, .site-footer .small { color: var(--text-on-footer); }
 
-    .tagline{ margin-top:8px; font-weight:600; color:var(--footer-text); }
-
-    /* Social */
-    .social-nav{ display:flex; justify-content:center; }
-    .social-list{ list-style:none; margin:0; padding:0; display:flex; gap:var(--social-gap); align-items:center; }
+    /* Social buttons — mantienen el mismo color de fondo que el footer (para "todo igual"),
+       pero con borde sutil y sombra para que se distingan. Los iconos se mantienen blancos. */
+    .social-list { list-style:none; margin:0; padding:0; display:flex; gap:12px; align-items:center; }
     .social-list li{ list-style:none; }
     .social-btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:var(--social-size); height:var(--social-size); border-radius:50%;
-      font-size:16px; transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
-      box-shadow: var(--edge-shadow); color:#fff; text-decoration:none; border:2px solid var(--social-ring);
+      width:var(--social-size);
+      height:var(--social-size);
+      display:inline-grid;
+      place-items:center;
+      border-radius:8px;
+      background: var(--footer-color);    /* mismo color que el footer */
+      border: 1px solid var(--accent-border);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      color: var(--text-on-footer);
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+      text-decoration:none;
     }
-    .social-btn svg{ display:block; width:18px; height:18px; }
+    .social-btn svg, .social-btn svg * { fill: var(--text-on-footer) !important; }
 
-    .social-btn:hover{ transform: translateY(-4px) scale(1.03); box-shadow: 0 12px 26px rgba(0,0,0,0.12); }
-    .social-btn:focus-visible{ box-shadow: 0 0 0 6px rgba(0,0,0,0.06), 0 12px 26px rgba(0,0,0,0.12); outline:none; }
+    .social-btn:hover{ transform: translateY(-4px); opacity: .95; box-shadow: 0 18px 40px rgba(0,0,0,0.18); }
 
-    /* Brand backgrounds remain vibrant and readable on the light footer */
-    .brand-facebook{ background: var(--brand-facebook); }
-    .brand-linkedin{ background: var(--brand-linkedin); }
-    .brand-instagram{
-      background: linear-gradient(180deg,
-        var(--brand-instagram-start) 0%,
-        var(--brand-instagram-mid1) 40%,
-        var(--brand-instagram-mid2) 65%,
-        var(--brand-instagram-end) 100%);
-    }
+    /* Divider */
+    .site-footer hr{ border:0; height:1px; background: rgba(255,255,255,0.06); margin:1.5rem 0 0.5rem 0; }
 
-    /* Links columns */
-    .site-footer .nav a { display:block; color:var(--muted-text); padding:6px 0; }
-    .site-footer .nav a:hover { color:var(--footer-text); }
-
-    .site-footer .small{ font-size:14px; color: var(--muted-text); }
-
+    /* Ajustes móviles */
     @media (max-width:720px){
       .site-footer .col-md-4, .site-footer .col-md-2 { flex: 1 1 100%; }
-      .social-nav{ justify-content:flex-start; }
+      .logo{ width:160px; }
     }
   </style>
 
   <div class="container">
     <div class="row gap-y text-center text-md-left">
       <div class="col-md-4 mr-auto">
-        <img src="img/logoB.png" alt="Logo" class="logo" width="200" height="300" loading="lazy">
-        <p style="margin-top:.6rem;"><strong style="color:var(--footer-text);">la app que gestiona experiencias,resuelve conflictos y abre oportunidades de cambio.</strong></p>
+        <img src="img/XPR.svg" alt="Logo" class="logo">
+        
+        <p>Gestiona experiencias,resuelve conflictos y abre oportunidades.</p>
       </div>
-
+          
       <div class="col-md-2">
         <nav class="nav flex-column">
-          <a class="nav-item py-2" href="#"><i>Inicio</i></a>
+          <a class="nav-item py-2" href="#">Inicio</a>
           <a class="nav-item py-2" href="#">Sobre nosotros</a>
           <a class="nav-item py-2" href="#">Beneficios</a>
         </nav>
@@ -2245,141 +2238,38 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
 
       <div class="col-md-2">
         <nav class="nav flex-column">
-          <a class="nav-item py-2" href="#">Unirme a Xpressate</a>
           <a class="nav-item py-2" href="#">Testimonios</a>
+          <a class="nav-item py-2" href="#">Unirme a Xpressate</a>
           <a class="nav-item py-2" href="#">Contacto</a>
         </nav>
       </div>
 
       <div class="col-md-2">
         <nav class="nav flex-column">
-          <a class="nav-item py-2" href="#">Políticas de privacidad</a>
+          <a class="nav-item py-2" href="#">Politica y privacidad</a>
+          
         </nav>
       </div>
 
       <div class="col-md-2">
-        <h6 class="py-2 small" style="color:var(--muted-text);">Redes sociales</h6>
-
-        <nav class="social-nav" aria-label="Redes sociales">
+        <h6 class="py-2 small">Redes sociales</h6>
+        <nav aria-label="Redes sociales">
           <ul class="social-list" role="list">
-           <style>
-/* Wrapper */
-.socials { display:flex; gap:10px; align-items:center; padding:0; margin:0; list-style:none; }
-
-/* Botón */
-.social-btn{
-  --size:48px;
-  width:var(--size);
-  height:var(--size);
-  display:inline-grid;
-  place-items:center;
-  border-radius:10px;
-  text-decoration:none;
-  color: #ffffff;                    /* asegura currentColor blanco */
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 8px 20px rgba(2,18,27,0.35);
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-  position:relative;
-  overflow:visible;
-}
-
-/* Forzar iconos SVG inline a blanco (funciona aunque el SVG no use currentColor) */
-.social-btn svg,
-.social-btn svg * {
-  color: #ffffff !important;
-  fill: #ffffff !important;
-  stroke: none !important;
-  width:18px;
-  height:18px;
-  display:block;
-}
-
-/* Para iconos en <img> (raster/svg externo) */
-.social-btn img { 
-  width:18px; height:18px; display:block;
-  filter: brightness(0) invert(1); /* convierte iconos oscuros a blanco */
-}
-
-/* Hover / focus — el icono se mantiene blanco, sólo cambia el fondo */
-.social-btn:hover,
-.social-btn:focus{
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(2,18,27,0.45);
-  outline: none;
-}
-
-/* Sutiles variantes de fondo al pasar (manteniendo icono blanco) */
-.brand-facebook:hover{ background: linear-gradient(135deg, rgba(59,89,152,0.14), rgba(59,89,152,0.06)); }
-.brand-linkedin:hover{ background: linear-gradient(135deg, rgba(10,102,153,0.14), rgba(10,102,153,0.06)); }
-.brand-instagram:hover{ background: conic-gradient(from 90deg, #fccc63, #f56040, #c13584, #405de6); background-blend-mode: overlay; }
-
-/* Focus visible accesible */
-.social-btn:focus-visible{
-  outline: 3px solid rgba(247,173,25,0.18);
-  outline-offset: 4px;
-}
-
-/* Small shadow under button for contrast on dark backgrounds */
-.social-btn::after{
-  content:"";
-  position:absolute;
-  bottom:-8px;
-  width:60%;
-  height:6px;
-  border-radius:50%;
-  background: rgba(2,18,27,0.25);
-  filter: blur(6px);
-  opacity: .8;
-  transform: translateY(6px);
-  pointer-events:none;
-}
-
-/* Responsive */
-@media (max-width:480px){
-  .social-btn{ --size:44px; }
-  .social-btn svg, .social-btn img { width:16px; height:16px; }
-}
-</style>
-
-<ul class="socials" aria-label="Redes sociales">
-  <!-- Facebook -->
-  <li>
-    <a href="https://facebook.com/5studios.net" target="_blank" rel="noopener noreferrer"
-       class="social-btn brand-facebook" aria-label="Facebook" title="Facebook">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M22 12A10 10 0 1 0 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.9h-2.3V22C18.34 21.12 22 16.99 22 12z"/>
-      </svg>
-    </a>
-  </li>
-
-  <!-- LinkedIn -->
-  <li>
-    <a href="https://linkedin.com/company/5studios" target="_blank" rel="noopener noreferrer"
-       class="social-btn brand-linkedin" aria-label="LinkedIn" title="LinkedIn">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M22.225 0H1.771C.792 0 0 .774 0 1.728v20.543C0 23.226.792 24 1.771 24h20.454C23.2 24 24 23.226 24 22.271V1.728C24 .774 23.2 0 22.225 0zM6.813 20.452H3.861V9h2.952v11.452zM5.337 7.433a1.804 1.804 0 110-3.607 1.804 1.804 0 010 3.607zM20.447 20.452h-3.237V14.83c0-1.342-.027-3.07-1.871-3.07-1.872 0-2.159 1.46-2.159 2.969v5.723H9.003V9h3.105v1.561h.045c.434-.82 1.494-1.687 3.073-1.687 3.29 0 3.896 2.165 3.896 4.982v6.596z"/>
-      </svg>
-    </a>
-  </li>
-
-  <!-- Instagram -->
-  <li>
-    <a href="https://instagram.com/5studios" target="_blank" rel="noopener noreferrer"
-       class="social-btn brand-instagram" aria-label="Instagram" title="Instagram">
-      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 
-        5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 
-        1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 
-        1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 
-        000-10zm0 2a3 3 0 110 6 3 3 0 
-        010-6zm4.75-2.75a1.25 1.25 0 100 
-        2.5 1.25 1.25 0 000-2.5z"/>
-      </svg>
-    </a>
-  </li>
-</ul>
-
+            <li>
+              <a href="https://facebook.com/5studios.net" target="_blank" rel="noopener noreferrer"
+                 class="social-btn" aria-label="Facebook" title="Facebook">
+                <!-- usa SVG o <i class="fab fa-facebook"></i> -->
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M22 12A10 10 0 1 0 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.9h-2.3V22C18.34 21.12 22 16.99 22 12z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-btn" aria-label="Twitter" title="Twitter">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.28 4.28 0 0 0 1.88-2.37 8.54 8.54 0 0 1-2.71 1.03 4.26 4.26 0 0 0-7.26 3.88A12.1 12.1 0 0 1 3.15 4.6a4.25 4.25 0 0 0 1.32 5.68 4.2 4.2 0 0 1-1.93-.53v.05a4.26 4.26 0 0 0 3.42 4.18 4.3 4.3 0 0 1-1.92.07 4.27 4.27 0 0 0 3.98 2.96A8.55 8.55 0 0 1 2 19.54 12.07 12.07 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.35-.01-.53A8.36 8.36 0 0 0 22.46 6z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-btn" aria-label="Instagram" title="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.75-2.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg>
               </a>
             </li>
           </ul>
@@ -2387,16 +2277,15 @@ Facilitamos a las empresas la gestión de su reputación y respuesta digital de 
       </div>
     </div>
 
-    <hr class="mt-4" style="border-color: rgba(4,47,52,0.08);"/>
+    <hr />
 
     <div class="row small mt-3">
       <div class="col-md-4">
-        <p class="mt-2 mb-0" style="color:var(--muted-text);">© 2025 XPRESSATE — <a href="https://5studios.net" style="color:var(--footer-text); text-decoration:underline;">Hecho para que tu voz cuente</a></p>
+        <p class="mt-2 mb-0">© 205 <a href="https://5studios.net">5studios</a>. Xpressate</p>
       </div>
     </div>
   </div>
 </footer>
-
 
 <script src="js/jquery.js"></script>
 <script src="js/popper.js"></script>
