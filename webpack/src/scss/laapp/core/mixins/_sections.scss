@@ -1,5 +1,0 @@
-@mixin section-overflow {
-  @include media-breakpoint-down(md) {
-    overflow: hidden;
-  }
-}
