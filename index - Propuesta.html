@@ -2112,7 +2112,351 @@
   </script>
 
 </section>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
+<section id="unirme" class="xp-app-section" aria-labelledby="xp-app-title">
+  
+  <style>
+    /* *************************************************************
+     * ESTILOS: DESCARGA APP (Features Icon Grid)
+     * Paleta: #053F5C | #429EBD | #F7AD19
+     * *************************************************************/
+    :root {
+        --col-dark-blue:  #053F5C;
+        --col-med-blue:   #429EBD;
+        --col-light-cyan: #9FE7F5;
+        --col-orange:     #F7AD19;
+        --col-bg-light:   #f8fafc;
+        --col-white:      #ffffff;
+        --text-main:      #1e293b;
+        --text-muted:     #64748b;
+        
+        --font-head: 'Poppins', sans-serif;
+        --font-body: 'Inter', sans-serif;
+    }
+
+    .xp-app-section {
+        padding: 100px 20px;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+        font-family: var(--font-body);
+        color: var(--text-main);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Decoración de fondo */
+    .xp-app-section::before {
+        content: '';
+        position: absolute;
+        top: -10%; right: -5%;
+        width: 600px; height: 600px;
+        background: radial-gradient(circle, rgba(66, 158, 189, 0.08) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .xp-container { 
+        max-width: 1150px; 
+        margin: 0 auto; 
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr; 
+        gap: 60px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* --- COLUMNA IZQUIERDA: CONTENIDO --- */
+    .xp-content-wrapper {
+        max-width: 650px;
+    }
+
+    .xp-badge-app {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(5, 63, 92, 0.06);
+        color: var(--col-dark-blue);
+        font-weight: 700;
+        font-size: 0.85rem;
+        padding: 8px 16px;
+        border-radius: 50px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 24px;
+        border: 1px solid rgba(5, 63, 92, 0.1);
+    }
+    
+    .xp-badge-dot { width: 8px; height: 8px; background: var(--col-orange); border-radius: 50%; }
+
+    .xp-app-title {
+        font-family: var(--font-head);
+        font-size: clamp(2.5rem, 5vw, 3.8rem);
+        font-weight: 800;
+        color: #000000; 
+        margin-bottom: 40px; 
+        line-height: 1.1;
+        letter-spacing: -1px;
+    }
+    
+    .xp-highlight-text {
+        color: var(--col-med-blue); 
+        font-weight: inherit;
+    }
+
+    /* Lista de Beneficios en Grid 2x2 */
+    .xp-app-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 50px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Restaurado a 2 columnas */
+        gap: 25px;
+    }
+
+    .xp-feat-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-weight: 600;
+        color: var(--col-dark-blue);
+        font-size: 1.05rem;
+    }
+
+    .xp-feat-icon {
+        width: 36px; height: 36px; /* Ligeramente más grande */
+        background: #e0f2fe; 
+        color: var(--col-med-blue);
+        border-radius: 10px; /* Cuadrado redondeado moderno */
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 2px 8px rgba(66, 158, 189, 0.15);
+        transition: transform 0.3s ease;
+    }
+    
+    .xp-feat-item:hover .xp-feat-icon {
+        transform: scale(1.1);
+        background: var(--col-med-blue);
+        color: #fff;
+    }
+    
+    .xp-feat-icon svg { width: 18px; height: 18px; stroke-width: 2; }
+
+
+    /* --- COLUMNA DERECHA: TARJETA DE DESCARGA --- */
+    .xp-visual-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .xp-bg-circle {
+        position: absolute;
+        width: 500px; height: 500px;
+        background: radial-gradient(circle, var(--col-light-cyan) 0%, rgba(255,255,255,0) 70%);
+        border-radius: 50%;
+        z-index: 0;
+        animation: pulse 6s infinite ease-in-out;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 0.6; }
+        50% { transform: scale(1.05); opacity: 0.9; }
+    }
+
+    /* Estilo Tarjeta de Descarga */
+    .xp-download-card {
+        position: relative;
+        z-index: 2;
+        background: var(--col-white);
+        padding: 35px;
+        border-radius: 24px;
+        box-shadow: 0 20px 50px rgba(5, 63, 92, 0.12);
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        gap: 25px;
+        border: 1px solid #e2e8f0;
+        width: 100%;
+        max-width: 450px;
+        transition: transform 0.3s ease;
+    }
+    
+    .xp-download-card:hover { transform: translateY(-5px); }
+
+    /* Contenedor interno fila (QR | Botones) */
+    .xp-download-inner {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        width: 100%;
+    }
+
+    /* QR Code */
+    .xp-qr-wrapper {
+        text-align: center;
+        flex-shrink: 0;
+    }
+    
+    .xp-qr-box {
+        width: 130px; height: 130px;
+        background: #fff;
+        border: 2px solid var(--col-light-cyan); 
+        border-radius: 16px;
+        padding: 8px;
+        display: flex; align-items: center; justify-content: center;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease;
+    }
+    .xp-download-card:hover .xp-qr-box { transform: scale(1.05); border-color: var(--col-med-blue); }
+    
+    .xp-qr-img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
+
+    .xp-qr-label {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        font-weight: 600;
+        display: block;
+    }
+
+    /* Botones de Tiendas */
+    .xp-store-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        flex-grow: 1;
+        width: 100%;
+    }
+
+    .xp-store-btn {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: var(--col-dark-blue);
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
+        box-shadow: 0 4px 12px rgba(5, 63, 92, 0.2);
+    }
+    
+    .xp-store-btn:hover {
+        transform: translateY(-2px);
+        background: #0a4b6e; 
+        box-shadow: 0 8px 20px rgba(5, 63, 92, 0.3);
+    }
+    
+    .xp-store-icon { width: 30px; height: 30px; fill: #fff; }
+    
+    .xp-btn-text { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
+    .xp-btn-small { font-size: 0.7rem; opacity: 0.9; font-weight: 400; text-transform: uppercase; }
+    .xp-btn-big { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.5px; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+        .xp-app-section { padding: 60px 20px; }
+        .xp-container { grid-template-columns: 1fr; text-align: center; gap: 60px; }
+        .xp-content-wrapper { margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+        .xp-app-features { max-width: 500px; margin: 0 auto 40px auto; text-align: left; }
+        
+        .xp-download-card { flex-direction: column; padding: 30px; gap: 25px; width: 100%; max-width: 400px; }
+        .xp-store-buttons { width: 100%; }
+        .xp-store-btn { justify-content: center; }
+        
+        .xp-bg-circle { width: 350px; height: 350px; }
+    }
+    
+    @media (max-width: 550px) {
+         .xp-download-inner { flex-direction: column; }
+         .xp-app-features { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <div class="xp-container">
+      
+      <!-- CONTENIDO (Izquierda) -->
+      <div class="xp-content-wrapper">
+          <div class="xp-badge-app">
+              <span class="xp-badge-dot"></span> Disponible Gratis
+          </div>
+          
+          <h2 id="xp-app-title" class="xp-app-title">
+              Lleva el Poder de Resolver en <span class="xp-highlight-text">tu Bolsillo</span>
+          </h2>
+          
+          <ul class="xp-app-features">
+              <li class="xp-feat-item">
+                  <!-- Icono Campana -->
+                  <div class="xp-feat-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                  </div>
+                  Notificaciones Push
+              </li>
+              <li class="xp-feat-item">
+                  <!-- Icono Candado/Chat -->
+                  <div class="xp-feat-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  </div>
+                  Chat Seguro
+              </li>
+              <li class="xp-feat-item">
+                  <!-- Icono Gráfico/Dashboard -->
+                  <div class="xp-feat-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                  </div>
+                  Dashboard de Métricas
+              </li>
+              <li class="xp-feat-item">
+                  <!-- Icono Archivo/Evidencia -->
+                  <div class="xp-feat-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  </div>
+                  Gestión de Evidencias
+              </li>
+          </ul>
+      </div>
+
+      <!-- VISUAL (Derecha - Tarjeta de Descarga) -->
+      <div class="xp-visual-wrapper">
+          <div class="xp-bg-circle"></div>
+          
+          <div class="xp-download-card">
+             <div class="xp-download-inner">
+                <!-- QR -->
+                <div class="xp-qr-wrapper">
+                    <div class="xp-qr-box">
+                        <!-- QR CODE REAL -->
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xpressate.com/descargar" alt="Escanea para descargar" class="xp-qr-img">
+                    </div>
+                    <span class="xp-qr-label">Escanea para descargar</span>
+                </div>
+                
+                <!-- Botones -->
+                <div class="xp-store-buttons">
+                    <!-- App Store -->
+                    <a href="#" class="xp-store-btn" aria-label="Consíguelo en el App Store">
+                        <svg class="xp-store-icon" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/></svg>
+                        <div class="xp-btn-text">
+                            <span class="xp-btn-big">App Store</span>
+                        </div>
+                    </a>
+                    <!-- Google Play -->
+                    <a href="#" class="xp-store-btn" aria-label="Disponible en Google Play">
+                        <svg class="xp-store-icon" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+                        <div class="xp-btn-text">
+                            <span class="xp-btn-big">Google Play</span>
+                        </div>
+                    </a>
+                </div>
+             </div>
+          </div>
+      </div>
+
+  </div>
+</section>
 <!-- Resolviendo Problemas Clave -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
