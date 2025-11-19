@@ -717,26 +717,255 @@
     }
   </style>
 
-  <div class="about-card" role="region" aria-label="Sobre Xpressate">
-    <div class="about-left">
-     <h2 id="xp-benefits-title" class="xp-title">¿Qué es Xpressate?</h2>
-      <div class="accent-line" aria-hidden="true"></div>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-      <p class="lead" style="color:#000;">
-XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere soluciones reales. Publica con nombre o en forma anónima, adjunta pruebas (fotos, documentos) y sigue el avance en tiempo real con notificaciones automáticas. Negocia y cierra acuerdos dentro de la plataforma; todo queda registrado y verificable, garantizando privacidad y trazabilidad.
+<section id="proposito" class="xp-unique-section">
+  
+  <style>
+    /* *************************************************************
+     * ESTILOS: SECCIÓN "ÚNICOS" (Estructura Banner + Grid)
+     * Paleta: #053F5C (Dark) | #429EBD (Turquesa) | #F7AD19 (Naranja)
+     * *************************************************************/
+    :root {
+        --col-dark-blue:  #053F5C;
+        --col-med-blue:   #429EBD;
+        --col-light-cyan: #9FE7F5;
+        --col-orange:     #F7AD19;
+        --col-bg-light:   #f8fafc;
+        --col-white:      #ffffff;
+        --text-main:      #1e293b;
+        --text-muted:     #64748b;
+        --radius-banner:  24px;
+        
+        --font-head: 'Poppins', sans-serif;
+        --font-body: 'Inter', sans-serif;
+    }
 
-</p>
+    .xp-unique-section {
+        padding: 80px 20px;
+        background: var(--col-white);
+        font-family: var(--font-body);
+    }
 
-      <div class="cta-row" role="group" aria-label="Acciones">
+    .xp-container { 
+        max-width: 1150px; 
+        margin: 0 auto; 
+    }
+
+    /* --- 1. BANNER PRINCIPAL (Estilo Hero) --- */
+    .xp-unique-banner {
+        background: var(--col-dark-blue); /* Fondo Azul Profundo Corporativo */
+        border-radius: var(--radius-banner);
+        padding: 60px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(5, 63, 92, 0.15);
+        margin-bottom: 80px; /* Separación con los pilares */
+    }
+
+    /* Decoración de fondo abstracta */
+    .xp-unique-banner::before {
+        content: '';
+        position: absolute;
+        top: -50%; right: -10%;
+        width: 600px; height: 600px;
+        background: radial-gradient(circle, rgba(66, 158, 189, 0.2) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .xp-banner-content {
+        max-width: 55%;
+        position: relative;
+        z-index: 2;
+    }
+
+    .xp-banner-title {
+        font-family: var(--font-head);
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.1;
+    }
+
+    .xp-banner-text {
+        font-size: 1.15rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: 0;
+    }
+
+    .xp-banner-img-wrapper {
+        width: 40%;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Imagen ilustrativa (Placeholder estilizado) */
+    .xp-banner-img {
+        max-width: 100%;
+        height: auto;
+        /* Filtro para integrar cualquier imagen a la estética */
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); 
+        transition: transform 0.3s ease;
+    }
+    .xp-banner-img:hover { transform: scale(1.03); }
+
+
+    /* --- 2. GRID DE PILARES (4 Columnas) --- */
+    .xp-unique-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+    }
+
+    .xp-unique-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        position: relative;
+        padding-left: 20px; /* Espacio para la línea decorativa lateral */
+    }
+
+    /* Línea lateral de color (como en la imagen de referencia) */
+    .xp-unique-item::before {
+        content: '';
+        position: absolute;
+        left: 0; top: 5px;
+        width: 4px; height: 40px;
+        border-radius: 4px;
+        background: var(--col-med-blue); /* Color por defecto */
+    }
+
+    /* Variación de colores para las líneas */
+    .xp-item-1::before { background: var(--col-med-blue); } /* Turquesa */
+    .xp-item-2::before { background: var(--col-orange); }   /* Naranja */
+    .xp-item-3::before { background: var(--col-dark-blue); } /* Azul Oscuro */
+    .xp-item-4::before { background: #10b981; }             /* Verde (Nuevo acento para variedad) */
+
+    /* Icono */
+    .xp-item-icon {
+        margin-bottom: 20px;
+        width: 50px; height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: var(--col-bg-light);
+        color: var(--col-dark-blue);
+        transition: transform 0.3s;
+    }
+    
+    /* Fondos de iconos específicos */
+    .xp-item-1 .xp-item-icon { background: #e0f2fe; color: var(--col-med-blue); }
+    .xp-item-2 .xp-item-icon { background: #fff7ed; color: var(--col-orange); }
+    .xp-item-3 .xp-item-icon { background: #f1f5f9; color: var(--col-dark-blue); }
+    .xp-item-4 .xp-item-icon { background: #ecfdf5; color: #10b981; }
+
+    .xp-unique-item:hover .xp-item-icon { transform: translateY(-5px); }
+
+    .xp-item-title {
+        font-family: var(--font-head);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--col-dark-blue);
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+
+    .xp-item-desc {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+        .xp-unique-banner { flex-direction: column; text-align: center; padding: 40px 30px; }
+        .xp-banner-content { max-width: 100%; margin-bottom: 40px; }
+        .xp-banner-img-wrapper { width: 80%; margin: 0 auto; }
+        
+        .xp-unique-grid { grid-template-columns: 1fr; gap: 30px; }
+        .xp-unique-item { padding-left: 15px; }
+    }
+  </style>
+
+  <div class="xp-container">
+    
+    <!-- 1. BANNER "NUESTRO PROPÓSITO" -->
+    <div class="xp-unique-banner">
+      <div class="xp-banner-content">
+        <h2 class="xp-banner-title">Descubre lo que nos hace únicos</h2>
+        <p class="xp-banner-text">
+          En XPRESSATE no solo gestionamos problemas, construimos puentes. Nuestro propósito es transformar la complejidad de las relaciones laborales en procesos simples, transparentes y humanos.
+        </p>
+      </div>
+      <div class="xp-banner-img-wrapper">
+        <!-- Ilustración representativa (Gente celebrando/colaborando) -->
+        <!-- Reemplaza src con tu imagen real, usé un placeholder acorde a los colores -->
+        <img src="https://placehold.co/500x350/429EBD/ffffff?text=Comunidad+Xpressate" alt="Comunidad Xpressate" class="xp-banner-img">
       </div>
     </div>
 
-    <!-- Imagen / mockup a la derecha -->
-    <div class="xp-right" aria-hidden="true">
-      <div class="xp-mockup xp-mockup-2">
-        <img src="img/2.1.png" alt="Pantalla XPRESSATE - 2" loading="lazy">
+    <!-- 2. GRID DE VALORES (4 Pilares) -->
+    <div class="xp-unique-grid">
+      
+      <!-- Pilar 1 -->
+      <div class="xp-unique-item xp-item-1">
+        <div class="xp-item-icon">
+          <!-- Icono Corazón/Pasión -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+        </div>
+        <h3 class="xp-item-title">Humanizamos cada interacción</h3>
+        <p class="xp-item-desc">
+          Detrás de cada reporte hay una persona. Diseñamos nuestra tecnología para escuchar con empatía y responder con soluciones reales que dignifican el trabajo.
+        </p>
       </div>
+
+      <!-- Pilar 2 -->
+      <div class="xp-unique-item xp-item-2">
+        <div class="xp-item-icon">
+          <!-- Icono Cohete/Innovación -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="M12 15l-3-3a22 22 0 0 1 2-9.5a21.64 21.64 0 0 1 9.5 2a22 22 0 0 1-14 14z"></path><path d="M5 19l2 2"></path><path d="M9 15l2 2"></path></svg>
+        </div>
+        <h3 class="xp-item-title">Innovación con propósito</h3>
+        <p class="xp-item-desc">
+          Rompemos barreras burocráticas. Utilizamos datos inteligentes para predecir conflictos y acelerar resoluciones donde otros solo ven trabas.
+        </p>
+      </div>
+
+      <!-- Pilar 3 -->
+      <div class="xp-unique-item xp-item-3">
+        <div class="xp-item-icon">
+          <!-- Icono Gráfico/Crecimiento -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </div>
+        <h3 class="xp-item-title">Crecemos juntos, ganamos todos</h3>
+        <p class="xp-item-desc">
+          Fomentamos un ecosistema donde la empresa mejora su reputación y el usuario encuentra justicia. Celebramos cada acuerdo cerrado como una victoria compartida.
+        </p>
+      </div>
+
+      <!-- Pilar 4 -->
+      <div class="xp-unique-item xp-item-4">
+        <div class="xp-item-icon">
+          <!-- Icono Escudo/Seguridad -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3 class="xp-item-title">No negociamos tu seguridad</h3>
+        <p class="xp-item-desc">
+          Para crear las mejores soluciones, investigamos y protegemos cada dato. Tu privacidad y la validación legal son los cimientos inamovibles de nuestra plataforma.
+        </p>
+      </div>
+
     </div>
+
   </div>
 </section>
 
@@ -2536,7 +2765,7 @@ XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere solucione
   
   <style>
     /* *************************************************************
-     * ESTILOS: FAQs PREMIUM (SIN BUSCADOR)
+     * ESTILOS: FAQs EXPERT UX/UI 
      * Paleta: #053F5C (Dark) | #429EBD (Turquesa) | #F7AD19 (Orange)
      * *************************************************************/
     :root {
@@ -2556,30 +2785,21 @@ XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere solucione
 
     .xp-faqs-section {
         padding: 100px 20px;
-        background-color: var(--col-bg-light);
+        background: var(--col-bg-light);
         font-family: var(--font-body);
         color: var(--text-main);
         position: relative;
-        overflow: hidden;
     }
 
-    /* Fondo Decorativo (Formas Orgánicas) */
-    .xp-bg-shape {
+    /* Decoración de fondo sutil */
+    .xp-faqs-section::before {
+        content: '';
         position: absolute;
-        border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.4;
-        z-index: 0;
-    }
-    .shape-1 {
-        top: -100px; right: -100px;
-        width: 400px; height: 400px;
-        background: var(--col-light-cyan);
-    }
-    .shape-2 {
-        bottom: -50px; left: -50px;
-        width: 300px; height: 300px;
-        background: #e0f2fe;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: radial-gradient(var(--col-light-cyan) 1px, transparent 1px);
+        background-size: 40px 40px;
+        opacity: 0.3;
+        pointer-events: none;
     }
 
     .xp-container { 
@@ -2589,7 +2809,7 @@ XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere solucione
         z-index: 2; 
     }
 
-    /* --- Cabecera --- */
+    /* --- Cabecera con Copywriting de Confianza --- */
     .xp-section-head { text-align: center; margin-bottom: 60px; }
     
     .xp-faqs-title {
@@ -2609,30 +2829,31 @@ XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere solucione
         line-height: 1.6;
     }
 
-    /* --- Acordeón --- */
+    /* --- Acordeón Moderno --- */
     .xp-accordion { display: flex; flex-direction: column; gap: 24px; }
 
     .xp-accordion-item {
         background: var(--col-white);
         border-radius: var(--radius-card);
-        box-shadow: 0 2px 10px rgba(5, 63, 92, 0.03);
-        border: 1px solid rgba(226, 232, 240, 0.6);
+        /* Sombra suave inicial */
+        box-shadow: 0 4px 20px rgba(5, 63, 92, 0.04);
+        border: 2px solid transparent; /* Preparado para hover/active */
         overflow: hidden;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    /* Hover */
+    /* Hover: Elevación y borde Turquesa */
     .xp-accordion-item:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(66, 158, 189, 0.12);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(66, 158, 189, 0.15);
         border-color: var(--col-light-cyan);
     }
 
-    /* Activo */
+    /* Estado Activo: Borde Naranja para destacar lectura */
     .xp-accordion-item.active {
         border-color: var(--col-orange);
-        box-shadow: 0 8px 25px rgba(247, 173, 25, 0.15);
-        transform: scale(1.01);
+        box-shadow: 0 8px 25px rgba(247, 173, 25, 0.1);
+        transform: translateY(0); /* Regresa a posición base para lectura estable */
     }
 
     /* Header del Item */
@@ -2649,23 +2870,28 @@ XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere solucione
         gap: 20px;
     }
 
-    .xp-question-content { display: flex; align-items: center; gap: 16px; }
+    .xp-question-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 
+    /* Icono temático por pregunta */
     .xp-topic-icon {
-        font-size: 1.4rem;
-        display: flex; align-items: center; justify-content: center;
-        width: 42px; height: 42px;
-        background: #f1f5f9;
-        border-radius: 12px;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px; height: 40px;
+        background: var(--col-bg-light);
+        border-radius: 10px;
         color: var(--col-dark-blue);
-        transition: all 0.3s ease;
-        flex-shrink: 0;
+        transition: background 0.3s, color 0.3s;
     }
     
     .xp-accordion-item.active .xp-topic-icon {
         background: var(--col-orange);
         color: #fff;
-        transform: rotate(-10deg);
     }
 
     .xp-question-text {
@@ -2676,17 +2902,16 @@ XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere solucione
         transition: color 0.3s;
     }
     
-    .xp-accordion-item.active .xp-question-text { color: var(--col-med-blue); }
-
-    /* Chevron */
+    /* Icono de Flecha (Chevron) */
     .xp-accordion-chevron {
-        width: 20px; height: 20px;
+        width: 24px; height: 24px;
         flex-shrink: 0;
         fill: none;
-        stroke: #94a3b8;
+        stroke: var(--col-med-blue);
         stroke-width: 2.5;
-        stroke-linecap: round; stroke-linejoin: round;
-        transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), stroke 0.3s;
+        stroke-linecap: round; 
+        stroke-linejoin: round;
+        transition: transform 0.3s ease, stroke 0.3s ease;
     }
     
     .xp-accordion-item.active .xp-accordion-chevron {
@@ -2694,15 +2919,16 @@ XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere solucione
         stroke: var(--col-orange);
     }
 
-    /* Body */
+    /* Body del Item */
     .xp-accordion-body {
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #fff;
     }
 
     .xp-accordion-content {
-        padding: 0 30px 30px 88px; /* Alineado con texto */
+        padding: 0 30px 30px 85px; /* Indentado para alinear con el texto del header */
         font-size: 1rem;
         color: var(--text-muted);
         line-height: 1.7;
@@ -2711,118 +2937,112 @@ XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere solucione
     /* Responsive */
     @media (max-width: 768px) {
         .xp-faqs-title { font-size: 2rem; }
+        .xp-question-text { font-size: 1rem; }
         .xp-accordion-header { padding: 20px; }
-        .xp-topic-icon { width: 36px; height: 36px; font-size: 1.2rem; }
-        .xp-accordion-content { padding: 0 20px 25px 20px; } /* Sin indentación en móvil */
-        .xp-question-content { gap: 12px; }
+        .xp-topic-icon { display: none; } /* Ocultar icono temático en móvil para ahorrar espacio */
+        .xp-accordion-content { padding: 0 20px 25px 20px; } /* Quitar indentado en móvil */
     }
   </style>
-  
-  <!-- Decoración de Fondo -->
-  <div class="xp-bg-shape shape-1"></div>
-  <div class="xp-bg-shape shape-2"></div>
 
   <div class="xp-container">
       
       <div class="xp-section-head">
           <h2 id="xp-faqs-title" class="xp-faqs-title">Preguntas Frecuentes</h2>
           <p class="xp-faqs-lead">
-            Resolvemos tus dudas para que navegues por <strong>XPRESSATE</strong> con total confianza.
+            Transparencia ante todo. Resolvemos tus dudas para que navegues por <strong>XPRESSATE</strong> con total confianza y seguridad.
           </p>
       </div>
 
-      <div class="xp-accordion" id="faqList">
+      <div class="xp-accordion">
           
-          <!-- Item 1 -->
+          <!-- Pregunta 1: Estados -->
           <div class="xp-accordion-item">
               <button class="xp-accordion-header" aria-expanded="false">
                   <div class="xp-question-content">
-                      <span class="xp-topic-icon">🚦</span>
+                      <span class="xp-topic-icon" aria-hidden="true">🚦</span>
                       <span class="xp-question-text">¿Qué significan los estados de mi caso?</span>
                   </div>
                   <svg class="xp-accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
               <div class="xp-accordion-body">
                   <div class="xp-accordion-content">
-                      Son indicadores visuales de transparencia. <strong>Sin respuesta</strong> alerta que la empresa fue notificada pero no actúa. <strong>En proceso</strong> indica que están gestionando tu solicitud. <strong>Resuelto</strong> certifica que se alcanzó un acuerdo formal.
+                      Son indicadores de transparencia. <strong>Sin respuesta</strong> alerta que la empresa fue notificada pero no actúa. <strong>En proceso</strong> significa que están gestionando tu solicitud. <strong>Resuelto</strong> certifica que se alcanzó un acuerdo formal.
                   </div>
               </div>
           </div>
 
-          <!-- Item 2 -->
+          <!-- Pregunta 2: Publicación -->
           <div class="xp-accordion-item">
               <button class="xp-accordion-header" aria-expanded="false">
                   <div class="xp-question-content">
-                      <span class="xp-topic-icon">📝</span>
+                      <span class="xp-topic-icon" aria-hidden="true">📝</span>
                       <span class="xp-question-text">¿Cómo publico una experiencia correctamente?</span>
                   </div>
                   <svg class="xp-accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
               <div class="xp-accordion-body">
                   <div class="xp-accordion-content">
-                      Nuestra guía interactiva te acompaña paso a paso. Te recomendamos ser objetivo. Puedes adjuntar <strong>fotos o videos</strong> (validados por seguridad) y usar etiquetas para maximizar la visibilidad.
+                      ¡Es muy fácil! Nuestra guía interactiva te acompaña paso a paso. Te recomendamos ser objetivo y claro. Puedes adjuntar <strong>fotos o videos</strong> (validados por seguridad) y usar etiquetas para maximizar la visibilidad de tu caso.
                   </div>
               </div>
           </div>
 
-          <!-- Item 3 -->
+          <!-- Pregunta 3: Notificaciones (Empresas) -->
           <div class="xp-accordion-item">
               <button class="xp-accordion-header" aria-expanded="false">
                    <div class="xp-question-content">
-                      <span class="xp-topic-icon">🔔</span>
+                      <span class="xp-topic-icon" aria-hidden="true">🔔</span>
                       <span class="xp-question-text">¿Puedo configurar alertas para mi equipo?</span>
                    </div>
                   <svg class="xp-accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
               <div class="xp-accordion-body">
                   <div class="xp-accordion-content">
-                      ¡Sí! Los Administradores tienen control total. Pueden definir quién recibe alertas por nuevas menciones, casos urgentes o plazos por vencer (SLA), y agrupar notificaciones para mantener el orden.
+                      Absolutamente. Los Administradores tienen control total para definir quién recibe alertas por nuevas menciones, casos urgentes o plazos por vencer (SLA), garantizando una respuesta ágil y coordinada.
                   </div>
               </div>
           </div>
 
-          <!-- Item 4 -->
+          <!-- Pregunta 4: Seguridad -->
           <div class="xp-accordion-item">
               <button class="xp-accordion-header" aria-expanded="false">
                    <div class="xp-question-content">
-                      <span class="xp-topic-icon">🛡️</span>
+                      <span class="xp-topic-icon" aria-hidden="true">🛡️</span>
                       <span class="xp-question-text">¿Qué hago si veo contenido ofensivo?</span>
                    </div>
                   <svg class="xp-accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
               </button>
               <div class="xp-accordion-body">
                   <div class="xp-accordion-content">
-                      Tu seguridad es prioridad. Reporta el contenido inmediatamente; nuestro sistema prioriza reportes de violencia o fraude para acción urgente. Además, puedes <strong>bloquear o silenciar</strong> usuarios directamente.
+                      Tu seguridad es nuestra prioridad #1. Reporta el contenido inmediatamente; nuestro sistema prioriza reportes de violencia o fraude para acción urgente. Además, tienes herramientas para <strong>bloquear o silenciar</strong> usuarios directamente.
                   </div>
               </div>
           </div>
 
       </div>
-
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const faqItems = document.querySelectorAll('.xp-accordion-item');
+        const accItems = document.querySelectorAll('.xp-accordion-item');
 
-        /* --- Lógica de Acordeón --- */
-        faqItems.forEach(item => {
+        accItems.forEach(item => {
             const header = item.querySelector('.xp-accordion-header');
             const body = item.querySelector('.xp-accordion-body');
 
             header.addEventListener('click', () => {
                 const isOpen = item.classList.contains('active');
 
-                // Cerrar otros (Acordeón exclusivo)
-                faqItems.forEach(other => {
-                    if (other !== item && other.classList.contains('active')) {
-                        other.classList.remove('active');
-                        other.querySelector('.xp-accordion-header').setAttribute('aria-expanded', 'false');
-                        other.querySelector('.xp-accordion-body').style.maxHeight = null;
+                // Cerrar otros ítems (Acordeón exclusivo) para mantener el foco
+                accItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.xp-accordion-header').setAttribute('aria-expanded', 'false');
+                        otherItem.querySelector('.xp-accordion-body').style.maxHeight = null;
                     }
                 });
 
-                // Toggle actual
+                // Alternar estado
                 if (isOpen) {
                     item.classList.remove('active');
                     header.setAttribute('aria-expanded', 'false');
@@ -2837,6 +3057,79 @@ XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere solucione
     });
   </script>
 </section>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      /* ------------------------------------------------
+         1. Lógica de Animación del Contador
+         ------------------------------------------------ */
+      const counters = document.querySelectorAll('.xp-digit-box');
+      const speed = 100; 
+
+      const animateCounters = () => {
+          counters.forEach(counter => {
+              const updateCount = () => {
+                  const target = +counter.getAttribute('data-target');
+                  const count = +counter.innerText;
+                  const inc = Math.max(1, Math.ceil(target / speed));
+
+                  if (count < target) {
+                      counter.innerText = (count + inc > target) ? target : count + inc;
+                      setTimeout(updateCount, 40);
+                  } else {
+                      counter.innerText = target;
+                  }
+              };
+              updateCount();
+          });
+      };
+
+      // Intersection Observer para el contador
+      const observer = new IntersectionObserver((entries) => {
+          if(entries[0].isIntersecting) {
+              animateCounters();
+              observer.disconnect(); 
+          }
+      }, { threshold: 0.2 }); // Se activa cuando el 20% es visible (mejor para móviles)
+
+      const counterSection = document.getElementById('contador');
+      if(counterSection) observer.observe(counterSection);
+
+      /* ------------------------------------------------
+         2. Lógica del Acordeón (FAQs)
+         ------------------------------------------------ */
+      const accItems = document.querySelectorAll('.xp-accordion-item');
+
+      accItems.forEach(item => {
+          const header = item.querySelector('.xp-accordion-header');
+          const body = item.querySelector('.xp-accordion-body');
+
+          header.addEventListener('click', () => {
+              const isOpen = item.classList.contains('active');
+
+              // Cerrar todos los otros ítems (Acordeón exclusivo)
+              accItems.forEach(otherItem => {
+                  if (otherItem !== item) {
+                      otherItem.classList.remove('active');
+                      otherItem.querySelector('.xp-accordion-header').setAttribute('aria-expanded', 'false');
+                      otherItem.querySelector('.xp-accordion-body').style.maxHeight = null;
+                  }
+              });
+
+              // Alternar el ítem actual
+              if (isOpen) {
+                  item.classList.remove('active');
+                  header.setAttribute('aria-expanded', 'false');
+                  body.style.maxHeight = null;
+              } else {
+                  item.classList.add('active');
+                  header.setAttribute('aria-expanded', 'true');
+                  body.style.maxHeight = body.scrollHeight + "px";
+              }
+          });
+      });
+  });
+</script>
+
     <!-- Start For Free -->
 
 <!-- Formulario Landing Xpressate -->
