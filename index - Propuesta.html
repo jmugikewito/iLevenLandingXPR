@@ -411,9 +411,9 @@
   <div class="container py-5 border-bottom">
     <!-- Encabezado principal -->
     <div class="text-center mb-4">
-     <h2 id="xp-benefits-title" class="xp-title">¿Cansado de que tus quejas no sean escuchadas?</h2>
+     <h2 id="xp-benefits-title" class="xp-title">¿Cansado de ser ignorad@?</h2>
       <p class="text-center mb-4">
-        En XPRESSATE tu voz cuenta: comparte opiniones reales, hazte escuchar y ayuda a que las empresas mejoren.
+        En XPRESSATE, tu voz no se pierde en el vacío. Comparte tu experiencia real, exige mejores estándares y logra que las marcas te escuchen de verdad. Tu opinión es poderosa. Úsala.
 
       </p>
     </div>
@@ -723,7 +723,7 @@
   
   <style>
     /* *************************************************************
-     * ESTILOS: SECCIÓN "ÚNICOS" (Estructura Banner + Grid)
+     * ESTILOS: PROPUESTA DE VALOR (Banner + 4 Pilares)
      * Paleta: #053F5C (Dark) | #429EBD (Turquesa) | #F7AD19 (Naranja)
      * *************************************************************/
     :root {
@@ -742,9 +742,10 @@
     }
 
     .xp-unique-section {
-        padding: 80px 20px;
+        padding: 100px 20px;
         background: var(--col-white);
         font-family: var(--font-body);
+        color: var(--text-main);
     }
 
     .xp-container { 
@@ -752,40 +753,56 @@
         margin: 0 auto; 
     }
 
-    /* --- 1. BANNER PRINCIPAL (Estilo Hero) --- */
+    /* --- 1. BANNER HERO (La Promesa) --- */
     .xp-unique-banner {
-        background: var(--col-dark-blue); /* Fondo Azul Profundo Corporativo */
+        background-color: var(--col-dark-blue);
+        /* Degradado sutil para dar profundidad */
+        background-image: linear-gradient(135deg, var(--col-dark-blue) 0%, #0a4b6e 100%);
         border-radius: var(--radius-banner);
-        padding: 60px 50px;
+        padding: 70px 60px;
         display: flex;
         align-items: center;
         justify-content: space-between;
         color: #fff;
         position: relative;
         overflow: hidden;
-        box-shadow: 0 20px 40px rgba(5, 63, 92, 0.15);
-        margin-bottom: 80px; /* Separación con los pilares */
+        box-shadow: 0 25px 50px -12px rgba(5, 63, 92, 0.25);
+        margin-bottom: 80px;
     }
 
-    /* Decoración de fondo abstracta */
-    .xp-unique-banner::before {
-        content: '';
+    /* Elementos decorativos de fondo */
+    .xp-deco-circle {
         position: absolute;
-        top: -50%; right: -10%;
-        width: 600px; height: 600px;
-        background: radial-gradient(circle, rgba(66, 158, 189, 0.2) 0%, transparent 70%);
+        border-radius: 50%;
+        background: var(--col-med-blue);
+        opacity: 0.1;
         pointer-events: none;
     }
+    .circle-1 { width: 400px; height: 400px; top: -100px; right: -100px; }
+    .circle-2 { width: 200px; height: 200px; bottom: -50px; left: 50px; background: var(--col-orange); }
 
     .xp-banner-content {
-        max-width: 55%;
+        max-width: 60%;
         position: relative;
         z-index: 2;
     }
 
+    .xp-tagline {
+        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--col-orange);
+        margin-bottom: 15px;
+        background: rgba(247, 173, 25, 0.1);
+        padding: 6px 12px;
+        border-radius: 50px;
+    }
+
     .xp-banner-title {
         font-family: var(--font-head);
-        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-size: clamp(2.2rem, 4.5vw, 3.2rem);
         font-weight: 800;
         margin-bottom: 20px;
         line-height: 1.1;
@@ -793,31 +810,34 @@
 
     .xp-banner-text {
         font-size: 1.15rem;
-        line-height: 1.6;
-        opacity: 0.9;
+        line-height: 1.7;
+        opacity: 0.95;
         margin-bottom: 0;
+        font-weight: 400;
     }
 
     .xp-banner-img-wrapper {
-        width: 40%;
+        width: 35%;
         position: relative;
         z-index: 2;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
-    /* Imagen ilustrativa (Placeholder estilizado) */
+    /* Imagen Ilustrativa */
     .xp-banner-img {
-        max-width: 100%;
+        width: 100%;
+        max-width: 320px;
         height: auto;
-        /* Filtro para integrar cualquier imagen a la estética */
-        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); 
-        transition: transform 0.3s ease;
+        filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));
+        transform: perspective(1000px) rotateY(-10deg);
+        transition: transform 0.4s ease;
     }
-    .xp-banner-img:hover { transform: scale(1.03); }
+    .xp-unique-banner:hover .xp-banner-img { transform: perspective(1000px) rotateY(0deg) scale(1.05); }
 
 
-    /* --- 2. GRID DE PILARES (4 Columnas) --- */
+    /* --- 2. GRID DE VALORES (4 Pilares) --- */
     .xp-unique-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -830,49 +850,56 @@
         align-items: flex-start;
         text-align: left;
         position: relative;
-        padding-left: 20px; /* Espacio para la línea decorativa lateral */
+        padding: 25px 20px 20px 25px;
+        background: var(--col-white);
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
     }
 
-    /* Línea lateral de color (como en la imagen de referencia) */
+    .xp-unique-item:hover {
+        background: var(--col-bg-light);
+        transform: translateY(-5px);
+    }
+
+    /* Línea lateral de color (La clave del diseño) */
     .xp-unique-item::before {
         content: '';
         position: absolute;
-        left: 0; top: 5px;
-        width: 4px; height: 40px;
-        border-radius: 4px;
-        background: var(--col-med-blue); /* Color por defecto */
+        left: 0; top: 25px;
+        width: 4px; height: 50px;
+        border-radius: 0 4px 4px 0;
+        transition: height 0.3s ease;
     }
+    .xp-unique-item:hover::before { height: 70%; }
 
-    /* Variación de colores para las líneas */
+    /* Colores por ítem */
     .xp-item-1::before { background: var(--col-med-blue); } /* Turquesa */
     .xp-item-2::before { background: var(--col-orange); }   /* Naranja */
-    .xp-item-3::before { background: var(--col-dark-blue); } /* Azul Oscuro */
-    .xp-item-4::before { background: #10b981; }             /* Verde (Nuevo acento para variedad) */
+    .xp-item-3::before { background: var(--col-dark-blue); } /* Azul */
+    .xp-item-4::before { background: #10b981; }             /* Verde (Validación) */
 
     /* Icono */
     .xp-item-icon {
         margin-bottom: 20px;
-        width: 50px; height: 50px;
+        width: 55px; height: 55px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 12px;
-        background: var(--col-bg-light);
-        color: var(--col-dark-blue);
+        border-radius: 14px;
+        font-size: 1.5rem;
         transition: transform 0.3s;
     }
     
-    /* Fondos de iconos específicos */
+    /* Estilos de Icono específicos */
     .xp-item-1 .xp-item-icon { background: #e0f2fe; color: var(--col-med-blue); }
     .xp-item-2 .xp-item-icon { background: #fff7ed; color: var(--col-orange); }
     .xp-item-3 .xp-item-icon { background: #f1f5f9; color: var(--col-dark-blue); }
     .xp-item-4 .xp-item-icon { background: #ecfdf5; color: #10b981; }
 
-    .xp-unique-item:hover .xp-item-icon { transform: translateY(-5px); }
-
     .xp-item-title {
         font-family: var(--font-head);
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         font-weight: 700;
         color: var(--col-dark-blue);
         margin-bottom: 12px;
@@ -887,29 +914,35 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-        .xp-unique-banner { flex-direction: column; text-align: center; padding: 40px 30px; }
+        .xp-unique-section { padding: 60px 20px; }
+        .xp-unique-banner { flex-direction: column; text-align: center; padding: 50px 30px; }
         .xp-banner-content { max-width: 100%; margin-bottom: 40px; }
-        .xp-banner-img-wrapper { width: 80%; margin: 0 auto; }
+        .xp-banner-img-wrapper { width: 70%; margin: 0 auto; }
         
-        .xp-unique-grid { grid-template-columns: 1fr; gap: 30px; }
-        .xp-unique-item { padding-left: 15px; }
+        .xp-unique-grid { grid-template-columns: 1fr; gap: 20px; }
+        .xp-unique-item { padding-left: 20px; }
     }
   </style>
 
   <div class="xp-container">
     
-    <!-- 1. BANNER "NUESTRO PROPÓSITO" -->
+    <!-- 1. BANNER HERO: PROPÓSITO -->
     <div class="xp-unique-banner">
+      <div class="xp-deco-circle circle-1"></div>
+      <div class="xp-deco-circle circle-2"></div>
+
       <div class="xp-banner-content">
+        <span class="xp-tagline">NUESTRO PROPÓSITO</span>
         <h2 class="xp-banner-title">Descubre lo que nos hace únicos</h2>
         <p class="xp-banner-text">
-          En XPRESSATE no solo gestionamos problemas, construimos puentes. Nuestro propósito es transformar la complejidad de las relaciones laborales en procesos simples, transparentes y humanos.
+          ¿Cansado de que tus quejas no sean escuchadas? En <strong>XPRESSATE</strong> tu voz cuenta. 
+          No somos un buzón de sugerencias; somos el puente tecnológico que transforma opiniones reales en acciones concretas para mejorar el entorno laboral.
         </p>
       </div>
+      
       <div class="xp-banner-img-wrapper">
-        <!-- Ilustración representativa (Gente celebrando/colaborando) -->
-        <!-- Reemplaza src con tu imagen real, usé un placeholder acorde a los colores -->
-        <img src="https://placehold.co/500x350/429EBD/ffffff?text=Comunidad+Xpressate" alt="Comunidad Xpressate" class="xp-banner-img">
+        <!-- Ilustración: Personas conectando/Happy people -->
+        <img src="https://placehold.co/400x400/429EBD/ffffff?text=Comunidad+Activa" alt="Comunidad Xpressate" class="xp-banner-img">
       </div>
     </div>
 
@@ -919,48 +952,48 @@
       <!-- Pilar 1 -->
       <div class="xp-unique-item xp-item-1">
         <div class="xp-item-icon">
-          <!-- Icono Corazón/Pasión -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <!-- Icono Megáfono/Voz -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
         </div>
-        <h3 class="xp-item-title">Humanizamos cada interacción</h3>
+        <h3 class="xp-item-title">Hazte Escuchar de Verdad</h3>
         <p class="xp-item-desc">
-          Detrás de cada reporte hay una persona. Diseñamos nuestra tecnología para escuchar con empatía y responder con soluciones reales que dignifican el trabajo.
+          Rompemos el silencio. Ofrecemos canales directos donde tu opinión no se pierde, sino que se convierte en el motor de cambio para las empresas.
         </p>
       </div>
 
       <!-- Pilar 2 -->
       <div class="xp-unique-item xp-item-2">
         <div class="xp-item-icon">
-          <!-- Icono Cohete/Innovación -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="M12 15l-3-3a22 22 0 0 1 2-9.5a21.64 21.64 0 0 1 9.5 2a22 22 0 0 1-14 14z"></path><path d="M5 19l2 2"></path><path d="M9 15l2 2"></path></svg>
+            <!-- Icono Rayo/Rapidez -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
         </div>
-        <h3 class="xp-item-title">Innovación con propósito</h3>
+        <h3 class="xp-item-title">Soluciones, No Trabas</h3>
         <p class="xp-item-desc">
-          Rompemos barreras burocráticas. Utilizamos datos inteligentes para predecir conflictos y acelerar resoluciones donde otros solo ven trabas.
+          Sin burocracia inútil. Nuestra plataforma está diseñada para ser intuitiva y ágil, conectándote con la solución que necesitas en tiempo récord.
         </p>
       </div>
 
       <!-- Pilar 3 -->
       <div class="xp-unique-item xp-item-3">
         <div class="xp-item-icon">
-          <!-- Icono Gráfico/Crecimiento -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            <!-- Icono Comunidad/Gente -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         </div>
-        <h3 class="xp-item-title">Crecemos juntos, ganamos todos</h3>
+        <h3 class="xp-item-title">Comunidad que Construye</h3>
         <p class="xp-item-desc">
-          Fomentamos un ecosistema donde la empresa mejora su reputación y el usuario encuentra justicia. Celebramos cada acuerdo cerrado como una victoria compartida.
+          Fomentamos un ecosistema donde celebramos las mejoras. Si una empresa evoluciona gracias a tu feedback, todos ganamos.
         </p>
       </div>
 
       <!-- Pilar 4 -->
       <div class="xp-unique-item xp-item-4">
         <div class="xp-item-icon">
-          <!-- Icono Escudo/Seguridad -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <!-- Icono Escudo/Confianza -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
         </div>
-        <h3 class="xp-item-title">No negociamos tu seguridad</h3>
+        <h3 class="xp-item-title">Validación y Seguridad</h3>
         <p class="xp-item-desc">
-          Para crear las mejores soluciones, investigamos y protegemos cada dato. Tu privacidad y la validación legal son los cimientos inamovibles de nuestra plataforma.
+          No hacemos las cosas a la ligera. Investigamos y analizamos la data para garantizar un entorno seguro, libre de fraude y confiable para todos.
         </p>
       </div>
 
