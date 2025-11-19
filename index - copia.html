@@ -1,0 +1,3522 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge" /><![endif]-->
+    <title>XPRESSATE</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="icon" href="img/XPR.svg">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,600,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="css/odometer-theme-minimal.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/laapp.css">
+
+    <!-- Smooth scroll + offset for fixed navbar -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 80px; /* ajusta a la altura real de tu navbar fijo si hace falta */
+      }
+    </style>
+
+    <!-- === OVERRIDES: aplicar color #89D0E5 a botones (dentro de main) y footer ===
+         NOTE: No se modifica el navbar (queda fuera de main). -->
+    <style>
+      :root{
+        --landing-accent: #89D0E5;       /* color solicitado */
+        --landing-accent-dark: #6fb7c9;  /* variante para gradiente */
+        --landing-contrast: #042f34;     /* texto oscuro para contraste */
+      }
+
+      /* Aplicar sólo a botones ubicados dentro de <main> (no afecta al navbar) */
+      main .btn,
+      main .btn-rounded,
+      main .btn-primary,
+      main .btn-alternate,
+      main .xp-btn,
+      main .xp-primary,
+      main .xp-brand,
+      main .btn.btn-rounded.btn-alternate,
+      main .xp-ctas .btn,
+      main .about-card .btn
+      {
+        background: linear-gradient(90deg, var(--landing-accent), var(--landing-accent-dark)) !important;
+        color: #ffffff !important;
+        border-color: transparent !important;
+        box-shadow: 0 8px 22px rgba(0,0,0,0.12) !important;
+        text-decoration: none !important;
+      }
+
+      /* Variantes secundarias dentro de main */
+      main .btn.secondary,
+      main .btn.secondary:hover,
+      main .btn.secondary:focus {
+        background: transparent !important;
+        color: var(--landing-accent) !important;
+        border-color: rgba(4,47,52,0.08) !important;
+        box-shadow: none !important;
+      }
+
+      /* Chip de marca (xp-brand) */
+      main .xp-brand {
+        background: linear-gradient(90deg, var(--landing-accent), var(--landing-accent-dark)) !important;
+        color: #fff !important;
+      }
+
+      /* Botón del formulario de contacto dentro de main */
+      main #lpForm .btn {
+        background: linear-gradient(90deg, var(--landing-accent), var(--landing-accent-dark)) !important;
+        box-shadow: 0 10px 26px rgba(137,208,229,0.18) !important;
+        color: #fff !important;
+      }
+
+      /* Footer: asegurar que use el color y contraste */
+      .site-footer{
+        background-color: var(--landing-accent) !important;
+        color: var(--landing-contrast) !important;
+      }
+      .site-footer a, .site-footer .tagline {
+        color: var(--landing-contrast) !important;
+      }
+      .site-footer .nav a {
+        color: rgba(4,47,52,0.78) !important;
+      }
+      .site-footer .small { color: rgba(4,47,52,0.78) !important; }
+
+      /* Ajustes en los botones sociales para que se lean sobre el footer */
+      .site-footer .social-btn { box-shadow: 0 6px 16px rgba(0,0,0,0.08) !important; }
+
+      /* Accesibilidad / motion reduction */
+      @media (prefers-reduced-motion: reduce){ *{ transition:none!important; animation:none!important; } }
+    </style>
+
+</head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+    <!-- Main Navigation -->
+<nav class="navbar navbar-expand-md main-nav navigation fixed-top sidebar-left">
+    <div class="container">
+    <button class="navbar-toggler" type="button">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+
+    <a href="#main" class="navbar-brand">
+            <img src="img/XPR.svg" alt="Laapp" class="logo logo-sticky "width="200" height="300">
+    </a>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+        <div class="sidebar-brand">
+            <a href="index.html">
+                <img src="img/XPR.svg" alt="Laapp Template" class="image">
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav ml-auto">
+            <!-- Links actualizados para apuntar a las secciones solicitadas -->
+            <li class="nav-item"><a class="nav-link scrollto" href="#home" style="color:#000 !important;">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#about" style="color:#000 !important;">Sobre nosotros</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#beneficios" style="color:#000 !important;">Beneficios</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#testimonios" style="color:#000 !important;">Testimonios</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#unirme" style="color:#000 !important;">Unirme a Xpressate</a></li>
+            <li class="nav-item">
+              <a class="btn btn-rounded scrollto" href="#contacto" style="background-color:#F7AD19; color:#fff; padding:8px 20px; border-radius:30px; font-weight:600; text-decoration:none;">
+                Contacto
+              </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+</nav>
+
+<main >
+    
+    
+<!-- Alternative 2 Heading -->
+<header class="header alter2-header section" id="home">
+    <div class="shapes-container">
+        <!-- diagonal shapes -->
+            <div class="shape shape-animated" data-aos="fade-down-right" data-aos-duration="1500" data-aos-delay="100"></div>
+            <div class="shape shape-animated" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
+            <div class="shape shape-animated" data-aos="fade-up-left" data-aos-duration="500" data-aos-delay="200"></div>
+            <div class="shape shape-animated" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"></div>
+            <div class="shape shape-animated" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
+            <div class="shape shape-animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
+            <div class="shape shape-animated" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+            <div class="shape shape-animated" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+            <div class="shape shape-animated" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
+
+        <!-- animated shapes -->
+        <div class="animation-shape shape-ring animation--clockwise"></div>
+        <div class="animation-shape shape-circle shape-circle-1 animation--anti-clockwise"></div>
+        <div class="animation-shape shape-circle shape-circle-2 animation--clockwise"></div>
+        <div class="animation-shape shape-heart animation--clockwise">
+            <div class="animation--rotating"></div>
+        </div>
+
+        <div class="animation-shape shape-triangle animation--rotating-diagonal">
+            <div class="animation--rotating"></div>
+        </div>
+        <div class="animation-shape shape-diamond animation--anti-clockwise">
+            <div class="animation--rotating"></div>
+        </div>
+
+        <!-- static shapes -->
+        <div class="static-shape shape-ring-1"></div>
+        <div class="static-shape shape-ring-2"></div>
+
+        <div class="static-shape shape-circle shape-circle-1">
+            <div data-aos="fade-down-left"></div>
+        </div>
+
+        <div class="static-shape shape-circle shape-circle-2">
+            <div data-aos="fade-down-left" data-aos-delay="500"></div>
+        </div>
+
+        <div class="static-shape pattern-dots-1"></div>
+        <div class="static-shape pattern-dots-2"></div>
+
+        <!-- main shape -->
+        <div class="static-shape background-shape-main"></div>
+
+        <!-- ghost shapes -->
+        <div class="static-shape ghost-shape ghost-shape-1"></div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+             <h1 class="text-contrast display-4 display-md-3"3">
+<span class="bold" style="color:#000">
+  ¡<span style="color:#000">Xpressate,</span><br> tu voz ,nuestro impulso!
+</span>
+
+</h1>
+
+                <p class="bold" style="color:#000000;">Tu voz registrada, tus problemas atendidos, tus soluciones reales.</p>
+                  <!-- app buttons -->
+          <!-- Badges tipo "App Store / Google Play" con borde púrpura y en una línea -->
+<style>
+  :root{
+    --badge-gap: 28px;         /* espacio entre badges */
+    --purple: #6e40ff;        /* color del borde (ajusta si quieres) */
+    --border-size: 3px;       /* grosor del borde */
+    --card-radius: 18px;      /* radio de las esquinas */
+    --card-padding: 12px 36px;/* padding dentro del rectángulo */
+    --badge-height: 46px;     /* altura visual del logo dentro del rectángulo */
+    --card-bg: #ffffff;
+    --card-shadow: 0 8px 18px rgba(16,12,60,0.06);
+  }
+
+  .badges-row {
+    display:flex;
+    gap: var(--badge-gap);
+    align-items:center;
+    justify-content:flex-start; /* o center */
+    flex-wrap: nowrap;
+    padding: 12px 0;
+    background: transparent;
+  }
+
+  .badge-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    padding: var(--card-padding);
+    border-radius: var(--card-radius);
+    border: var(--border-size) solid var(--purple);
+    box-shadow: var(--card-shadow);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+
+  .badge-card:focus,
+  .badge-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(16,12,60,0.10);
+    outline: none;
+  }
+
+  /* Las imágenes deben mantener proporción y adaptarse por altura */
+  .badge-card img {
+    display:block;
+    height: var(--badge-height);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+
+  /* Si quieres dos anchos distintos (opcional), controla con clases */
+  .badge-1 img { height: 46px; } /* App Store */
+  .badge-2 img { height: 46px; } /* Google Play */
+
+  /* Responsive: en pantallas muy pequeñas se apilan pero centradas */
+  @media (max-width:420px){
+    .badges-row{
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content:center;
+    }
+    .badge-card { width: calc(50% - 12px); box-sizing:border-box; padding:10px 18px; }
+    .badge-card img { height: 36px; }
+  }
+</style>
+
+ <!-- app buttons -->
+          <!-- Inicio: Botones de descarga (solo la parte solicitada) -->
+<style>
+  :root {
+    --app-btn-blue: #007BFF;   /* color azul solicitado (cámbialo si prefieres otro) */
+    --app-btn-gap: 18px;       /* separación entre botones (un poquito más) */
+    --app-btn-radius: 10px;
+    --app-btn-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    --app-btn-padding: 8px 14px;
+    --btn-img-maxh: 40px;
+  }
+
+  /* Contenedor de los botones (lista horizontal) */
+  .app_btn {
+    display: flex;
+    gap: var(--app-btn-gap);
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .app_btn li { margin: 0; }
+
+  /* Estilo del enlace-botón */
+  .app-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-btn-blue);
+    padding: var(--app-btn-padding);
+    border-radius: var(--app-btn-radius);
+    box-shadow: var(--app-btn-shadow);
+    border: 1px solid rgba(255,255,255,0.08);
+    text-decoration: none;
+    transition: transform 150ms ease, box-shadow 150ms ease, opacity 120ms ease;
+  }
+
+  .app-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.16);
+  }
+
+  .app-btn:active { transform: translateY(-1px); }
+  .app-btn:focus-visible {
+    outline: 3px solid rgba(0,123,255,0.18);
+    outline-offset: 2px;
+  }
+
+  /* Imagen dentro del botón */
+  .app-btn .btn-img {
+    display: block;
+    max-height: var(--btn-img-maxh);
+    width: auto;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+
+  /* Si la imagen blanca necesita un contraste sutil, se puede aplicar un filtro */
+  .app-btn .white_img {
+    /* filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12)); */
+  }
+
+  /* Responsive: reducir tamaños en pantallas muy pequeñas */
+  @media (max-width: 480px) {
+    :root { --app-btn-gap: 12px; --btn-img-maxh: 36px; --app-btn-padding: 6px 10px; }
+    .app_btn { gap: var(--app-btn-gap); }
+  }
+</style>
+
+<ul class="app_btn" aria-label="Botones de descarga de la app">
+  <li>
+    <a class="app-btn" href="#" aria-label="Descargar en App Store">
+      <img class="btn-img blue_img" src="img/ASS.png" alt="App Store" loading="lazy">
+    </a>
+  </li>
+
+  <li>
+    <a class="app-btn" href="#" aria-label="Descargar en Google Play">
+      <img class="btn-img white_img" src="img/GPY.png" alt="Google Play" loading="lazy">
+    </a>
+  </li>
+</ul>
+<!-- Fin: Botones de descarga -->
+
+
+                <nav class="nav my-5">
+
+
+            </div>
+
+           <!-- Coloca esto dentro de tu grid (ej. dentro de .row) -->
+<!-- HTML + CSS juntos -->
+<style>
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+  /* Respeta la preferencia del usuario por menos movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-float { animation: none; }
+  }
+</style>
+
+<div class="col-lg-6 col-md-12" data-aos="fade-in" data-aos-duration="1500">
+
+   <img src="img/MOCKUP.png" alt="Pantalla XPRESSATE" width="750">
+
+
+  </div>
+  <div class="notch"></div>
+</div>
+
+        <!-- row end -->
+      </div>
+      <!-- container end -->
+  
+</div>
+
+</div>
+</header>
+
+    <!-- Partners Slider -->
+<section class="section">
+  <div class="container py-5 border-bottom">
+    <!-- Encabezado principal -->
+    <div class="text-center mb-4">
+     <h2 id="xp-benefits-title" class="xp-title">¿Cansado de que tus quejas no sean escuchadas?</h2>
+      <p class="text-center mb-4">
+        En XPRESSATE tu voz cuenta: comparte opiniones reales, hazte escuchar y ayuda a que las empresas mejoren.
+
+      </p>
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Estilos mínimos para mantener diseño e integración responsiva -->
+<style>
+  :root { --azul: #053F5C; --mostaza: #F7AD19; --negro: #000; }
+
+  .section { background: transparent; } /* no altera color de bloque externo */
+  .container.py-5 { padding-top: 2rem; padding-bottom: 2rem; }
+
+  .bold { font-weight:700; letter-spacing: -0.2px; color: inherit; }
+  .text-center { text-align: center; }
+
+  /* Carrusel / fallback si no hay Swiper JS */
+  .company-logos { overflow: hidden; }
+  .company-logos .swiper-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+  .company-logos .swiper-slide {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+  }
+  .company-logos img {
+    display: block;
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* Si usas Swiper, las clases se mantendrán; si no, el contenido quedará centrado y horizontal */
+  @media (max-width: 768px) {
+    .company-logos .swiper-wrapper { gap: 18px; padding: 8px 6px; }
+    .company-logos img { max-height: 48px; }
+    .container.py-5 { padding-left: 1rem; padding-right: 1rem; }
+  }
+</style>
+
+    
+<!-- .Premium Features -->
+<!-- Sección "Sobre nosotros" con imagen al lado derecho -->
+<section id="about" aria-labelledby="about-title">
+  <style>
+    :root{
+      --accent-line: #c24acb;
+      --text: #222;
+      --muted: #666;
+      --max-width: 1100px;
+      --gap: 28px;
+    }
+
+    /* Contenedor principal */
+    .about-card{
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 18px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      gap: var(--gap);
+    }
+
+    /* Columna izquierda (texto) */
+    .about-left{
+      flex: 1 1 60%;
+      min-width: 260px;
+    }
+
+    .title{
+      font-size: 26px;
+      margin: 0 0 8px 0;
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    .accent-line{
+      width: 70px;
+      height: 6px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--accent-line), #9a3aa9);
+      margin: 12px 0 18px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+    }
+
+    .lead{
+      margin: 0 0 20px 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .cta-row{
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 6px;
+    }
+
+    /* Columna derecha (mockup / imagen) */
+    .xp-right{
+      flex: 0 0 380px; /* ancho fijo recomendable para mantener la composición */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .xp-mockup{
+      width: 100%;
+      max-width: 380px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      background: linear-gradient(180deg, #fff, #fafafa);
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .xp-mockup img{
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* Focus util para botones (incluiste esta regla) */
+    .btn:focus { 
+      outline: none; 
+      box-shadow: 0 0 0 6px rgba(143,179,226,0.16); 
+      border-radius:10px; 
+    }
+
+    /* Responsive: apilar en pantallas pequeñas */
+    @media (max-width: 900px){
+      .about-card{
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .xp-right{
+        width: 100%;
+        order: 2; /* si quieres la imagen debajo del texto */
+        margin-top: 18px;
+      }
+      .about-left{
+        order: 1;
+      }
+      .xp-mockup{ max-width: 100%; }
+    }
+
+    /* Si prefieres la imagen encima del texto en móvil, cambia order: 2 -> order: 0 */
+  </style>
+
+  <!-- Sección "Sobre nosotros" (color principal: #0f2c47) -->
+<section id="about" aria-labelledby="about-title">
+  <style>
+    :root{
+      --accent-line: #0f2c47;   /* color solicitado */
+      --accent-line-2: #153b56; /* variante para gradiente */
+      --text: #111827;
+      --muted: #4b5563;
+      --max-width: 1100px;
+      --gap: 28px;
+      --radius: 12px;
+    }
+
+    /* Contenedor principal */
+    .about-card{
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 32px 18px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      gap: var(--gap);
+    }
+
+    /* Columna izquierda (texto) */
+    .about-left{
+      flex: 1 1 60%;
+      min-width: 260px;
+    }
+
+    .title{
+      font-size: 26px;
+      margin: 0 0 8px 0;
+      color: var(--text);
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .accent-line{
+      width: 84px;
+      height: 6px;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--accent-line), var(--accent-line-2));
+      margin: 12px 0 18px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
+    }
+
+    .lead{
+      margin: 0 0 20px 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .cta-row{
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    /* Estilos básicos de botones (puedes ajustarlos) */
+    .btn{
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+      border: 1px solid transparent;
+      color: white;
+      background: linear-gradient(180deg, var(--accent-line), var(--accent-line-2));
+      box-shadow: 0 6px 20px rgba(15,44,71,0.14);
+    }
+
+    .btn.secondary{
+      background: transparent;
+      color: var(--accent-line);
+      border: 1px solid rgba(15,44,71,0.12);
+      box-shadow: none;
+    }
+
+    .btn:hover{ transform: translateY(-2px); }
+    .btn:active{ transform: translateY(0); opacity: .95; }
+
+    /* Focus util (tu regla original adaptada) */
+    .btn:focus {
+      outline: none;
+      box-shadow: 0 0 0 6px rgba(15,44,71,0.12);
+      border-radius: 10px;
+    }
+
+    /* Columna derecha (mockup / imagen) */
+    .xp-right{
+      flex: 0 0 380px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .xp-mockup{
+      width: 100%;
+      max-width: 380px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(2,6,23,0.12);
+      background: linear-gradient(180deg, #ffffff, #fbfdff);
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid rgba(15,44,71,0.04);
+    }
+
+    .xp-mockup img{
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: calc(var(--radius) - 4px);
+    }
+
+    /* Responsive: apilar en pantallas pequeñas */
+    @media (max-width: 900px){
+      .about-card{
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .xp-right{
+        width: 100%;
+        order: 2;
+        margin-top: 18px;
+      }
+      .about-left{
+        order: 1;
+      }
+      .xp-mockup{ max-width: 100%; }
+    }
+  </style>
+
+  <div class="about-card" role="region" aria-label="Sobre Xpressate">
+    <div class="about-left">
+     <h2 id="xp-benefits-title" class="xp-title">¿Qué es Xpressate?</h2>
+      <div class="accent-line" aria-hidden="true"></div>
+
+      <p class="lead" style="color:#000;">
+XPRESSATE es una app diseñada para que tu reclamo tenga peso y genere soluciones reales. Publica con nombre o en forma anónima, adjunta pruebas (fotos, documentos) y sigue el avance en tiempo real con notificaciones automáticas. Negocia y cierra acuerdos dentro de la plataforma; todo queda registrado y verificable, garantizando privacidad y trazabilidad.
+
+</p>
+
+      <div class="cta-row" role="group" aria-label="Acciones">
+      </div>
+    </div>
+
+    <!-- Imagen / mockup a la derecha -->
+    <div class="xp-right" aria-hidden="true">
+      <div class="xp-mockup xp-mockup-2">
+        <img src="img/2.1.png" alt="Pantalla XPRESSATE - 2" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+    <!-- Beneficios -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<section id="beneficios" class="xp-benefits-section" aria-labelledby="xp-ben-title">
+  
+  <style>
+    /* *************************************************************
+     * ESTILOS CSS - DISEÑO "ROW CARDS" (COMPACTO & ESPACIADO)
+     * *************************************************************/
+    :root {
+        /* Paleta Global */
+        --col-orange:     #F7AD19;
+        --col-dark-blue:  #053F5C;
+        --col-med-blue:   #429EBD;
+        --col-light-bg:   #f8fafc;
+        --col-white:      #ffffff;
+        --text-main:      #1e293b;
+        --text-muted:     #64748b;
+        
+        /* Tema Activo (Por defecto Usuario/Naranja) */
+        --theme-accent: var(--col-orange);
+    }
+
+    /* Clase para cambiar a tema empresa */
+    .theme-company-mode {
+        --theme-accent: var(--col-dark-blue);
+    }
+
+    /* --- Estructura General --- */
+    .xp-benefits-section {
+        padding: 60px 20px; 
+        background: var(--col-light-bg);
+        font-family: 'Inter', sans-serif;
+        color: var(--text-main);
+        transition: background 0.3s ease;
+    }
+    
+    .xp-container { max-width: 1200px; margin: 0 auto; }
+
+    /* --- Cabecera --- */
+    .xp-ben-header {
+        max-width: 800px;
+        margin-bottom: 50px; 
+    }
+
+    .xp-ben-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-weight: 800;
+        color: var(--text-main);
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+    
+    .highlight { color: var(--theme-accent); transition: color 0.3s; }
+
+    .xp-ben-desc {
+        font-size: 1.05rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 30px;
+        max-width: 90%;
+    }
+
+    /* Botón CTA */
+    .xp-btn-action {
+        display: inline-block;
+        background: var(--theme-accent);
+        color: #fff;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        transition: transform 0.2s, background 0.3s, box-shadow 0.2s;
+    }
+    .xp-btn-action:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        filter: brightness(1.1);
+    }
+
+    /* --- Tabs de Navegación --- */
+    .xp-ben-tabs {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 35px;
+    }
+    .xp-ben-tab {
+        background: transparent;
+        border: 2px solid #e2e8f0;
+        padding: 8px 20px; 
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .xp-ben-tab.active {
+        background: var(--theme-accent);
+        border-color: var(--theme-accent);
+        color: #fff;
+    }
+
+    /* --- Grid de Tarjetas --- */
+    .xp-cards-wrapper {
+        display: none; 
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        /* AUMENTADO: 40px de espacio vertical (filas) y 20px horizontal (columnas) */
+        gap: 40px 20px; 
+        animation: slideUpFade 0.5s ease forwards;
+    }
+    .xp-cards-wrapper.visible { display: grid; }
+
+    @keyframes slideUpFade {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Estilo de la Tarjeta Individual */
+    .xp-card {
+        background: var(--col-white);
+        padding: 30px 20px; 
+        border-radius: 16px; 
+        box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+        text-align: center;
+        border: 1px solid transparent;
+        transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; 
+        height: 100%;
+    }
+
+    .xp-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        border-color: var(--theme-accent);
+    }
+
+    /* Icono dentro de la tarjeta */
+    .xp-icon-box {
+        width: 55px; 
+        height: 55px;
+        margin-bottom: 15px; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+        flex-shrink: 0;
+    }
+    .xp-card:hover .xp-icon-box { transform: scale(1.1); }
+    
+    .xp-icon-svg {
+        width: 100%;
+        height: 100%;
+        stroke: var(--theme-accent);
+        stroke-width: 1.5;
+        fill: none;
+        transition: stroke 0.3s;
+    }
+
+    /* Texto de la tarjeta */
+    .xp-card-title {
+        font-size: 1rem; 
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--text-main);
+        line-height: 1.3;
+    }
+    .xp-card-text {
+        font-size: 0.9rem; 
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .xp-ben-title { font-size: 2rem; }
+        .xp-cards-wrapper { grid-template-columns: 1fr; gap: 20px; } /* En móvil el gap normal está bien */
+        .xp-card { padding: 20px; flex-direction: row; text-align: left; gap: 15px; align-items: center;}
+        .xp-icon-box { width: 40px; height: 40px; margin-bottom: 0; }
+        .xp-card-title { margin-bottom: 4px; font-size: 1rem; }
+        .xp-card-text { font-size: 0.85rem; }
+    }
+  </style>
+
+  <div class="xp-container">
+    
+    <!-- CABECERA -->
+    <div class="xp-ben-header">
+      <div class="xp-ben-tabs">
+        <button class="xp-ben-tab active" onclick="toggleBenefits('user')">PARA USUARIOS</button>
+        <button class="xp-ben-tab" onclick="toggleBenefits('company')">PARA EMPRESAS</button>
+      </div>
+
+      <h2 class="xp-ben-title">De Controversia a Valor: <br><span class="highlight" id="dynamic-title">Tu Camino a la Resolución</span></h2>
+      
+      <p class="xp-ben-desc">
+        Ofrecemos el camino formal y seguro para la resolución definitiva. Elige tu perfil y descubre cómo transformamos problemas en oportunidades de crecimiento.
+      </p>
+
+      <a href="#registro" class="xp-btn-action">Transforma tu Gestión</a>
+    </div>
+
+    <!-- GRID DE TARJETAS: USUARIO (Naranja) -->
+    <div id="grid-user" class="xp-cards-wrapper visible">
+      <!-- Card 1 -->
+      <div class="xp-card">
+        <div class="xp-icon-box">
+            <!-- Icono Certificado -->
+            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </div>
+        <h3 class="xp-card-title">Resolución Formal</h3>
+        <p class="xp-card-text">Accede a un canal certificado y privado para resolver controversias.</p>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="xp-card">
+        <div class="xp-icon-box">
+            <!-- Icono Reputación -->
+            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <h3 class="xp-card-title">Protección de Reputación</h3>
+        <p class="xp-card-text">Fomenta acuerdos que mejoran tu historial y marca personal.</p>
+      </div>
+      
+      <!-- Card 3 -->
+      <div class="xp-card">
+        <div class="xp-icon-box">
+            <!-- Icono Seguridad -->
+            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3 class="xp-card-title">Entorno Seguro</h3>
+        <p class="xp-card-text">Contenido estrictamente validado para evitar riesgos legales.</p>
+      </div>
+      
+      <!-- Card 4 -->
+      <div class="xp-card">
+        <div class="xp-icon-box">
+             <!-- Icono Oportunidades -->
+             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        </div>
+        <h3 class="xp-card-title">Acceso a Oportunidades</h3>
+        <p class="xp-card-text">Conéctate con empresas que valoran la transparencia.</p>
+      </div>
+
+      <!-- Card 5 (Conocimiento Empresarial) -->
+      <div class="xp-card">
+        <div class="xp-icon-box">
+             <!-- Icono Edificio/Búsqueda -->
+             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M9 10a2 2 0 1 1-4 0"/></svg>
+        </div>
+        <h3 class="xp-card-title">Conocimiento Empresarial</h3>
+        <p class="xp-card-text">Conoce el perfil de las empresas donde trabajarás, estudiarás o harás tus prácticas.</p>
+      </div>
+    </div>
+
+    <!-- GRID DE TARJETAS: EMPRESA (Azul) -->
+    <div id="grid-company" class="xp-cards-wrapper">
+      <!-- Card 1 -->
+      <div class="xp-card">
+        <div class="xp-icon-box">
+             <!-- Icono Trazabilidad -->
+             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+        </div>
+        <h3 class="xp-card-title">Trazabilidad Legal</h3>
+        <p class="xp-card-text">Diálogo directo con respaldo y seguimiento certificado.</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="xp-card">
+        <div class="xp-icon-box">
+             <!-- Icono Métricas -->
+             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        </div>
+        <h3 class="xp-card-title">Métricas Accionables</h3>
+        <p class="xp-card-text">Panel con métricas clave de reputación y resolución.</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="xp-card">
+        <div class="xp-icon-box">
+             <!-- Icono Respuesta -->
+             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <h3 class="xp-card-title">Control de Respuesta</h3>
+        <p class="xp-card-text">Gestión de roles y representantes para control total.</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="xp-card">
+        <div class="xp-icon-box">
+             <!-- Icono Reclutamiento -->
+             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+        <h3 class="xp-card-title">Reclutamiento Inteligente</h3>
+        <p class="xp-card-text">Accede a talento de alto valor que busca transparencia.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleBenefits(type) {
+        const section = document.getElementById('beneficios');
+        const gridUser = document.getElementById('grid-user');
+        const gridCompany = document.getElementById('grid-company');
+        const tabs = document.querySelectorAll('.xp-ben-tab');
+        const titleSpan = document.getElementById('dynamic-title');
+
+        // Resetear estado de tabs
+        tabs.forEach(t => t.classList.remove('active'));
+
+        if (type === 'company') {
+            // Cambiar a Tema Empresa (Azul)
+            section.classList.add('theme-company-mode');
+            gridUser.classList.remove('visible');
+            gridCompany.classList.add('visible');
+            tabs[1].classList.add('active'); // Activar tab Empresa
+            titleSpan.textContent = "Tu Empresa Gana: Data y Trazabilidad";
+        } else {
+            // Cambiar a Tema Usuario (Naranja)
+            section.classList.remove('theme-company-mode');
+            gridCompany.classList.remove('visible');
+            gridUser.classList.add('visible');
+            tabs[0].classList.add('active'); // Activar tab Usuario
+            titleSpan.textContent = "Tu Camino a la Resolución";
+        }
+    }
+  </script>
+</section>
+    <!-- fin de Beneficios -->
+    <!-- tESTIMONIOS -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<section id="casos-exito" class="xp-success-section" aria-labelledby="xp-success-title">
+  
+  <style>
+    /* *************************************************************
+     * ESTILOS: CASOS DE ÉXITO (Paleta 053F5C / 429EBD / F7AD19)
+     * *************************************************************/
+    :root {
+        --col-dark-blue:  #053F5C;
+        --col-med-blue:   #429EBD;
+        --col-light-cyan: #9FE7F5;
+        --col-orange:     #F7AD19;
+        --col-bg-light:   #f8fafc;
+        --col-white:      #ffffff;
+        --text-main:      #1e293b;
+        --text-muted:     #64748b;
+        --radius-app:     20px;
+        
+        --font-head: 'Poppins', sans-serif;
+        --font-body: 'Inter', sans-serif;
+    }
+
+    .xp-success-section {
+        padding: 80px 20px;
+        background: linear-gradient(to bottom, #ffffff, var(--col-bg-light));
+        font-family: var(--font-body);
+        overflow: hidden; /* Para contener el slider */
+    }
+
+    .xp-container { max-width: 1200px; margin: 0 auto; }
+
+    /* --- Cabecera --- */
+    .xp-sec-header { text-align: center; margin-bottom: 60px; }
+    
+    .xp-sec-title {
+        font-family: var(--font-head);
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-weight: 800;
+        color: var(--col-dark-blue);
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+    
+    .xp-highlight { 
+        color: var(--col-med-blue); 
+        position: relative;
+        display: inline-block;
+    }
+    /* Subrayado decorativo naranja */
+    .xp-highlight::after {
+        content: '';
+        position: absolute;
+        bottom: 2px; left: 0; width: 100%; height: 8px;
+        background: var(--col-orange);
+        opacity: 0.3;
+        z-index: -1;
+        border-radius: 4px;
+    }
+
+    .xp-sec-desc {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* --- Carrusel Swiper --- */
+    .swiper {
+        width: 100%;
+        padding-bottom: 60px !important; /* Espacio para paginación */
+        padding-top: 20px;
+    }
+
+    .swiper-slide {
+        height: auto; /* Altura flexible */
+        display: flex;
+        justify-content: center;
+    }
+
+    /* --- Tarjeta "App Mockup" --- */
+    .xp-case-card {
+        background: var(--col-white);
+        border-radius: var(--radius-app);
+        box-shadow: 0 15px 40px rgba(5, 63, 92, 0.12);
+        width: 100%;
+        max-width: 380px;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease;
+    }
+
+    .xp-case-card:hover {
+        transform: translateY(-10px);
+    }
+
+    /* 1. Encabezado de la App (Usuario) */
+    .xp-app-header {
+        background: var(--col-dark-blue);
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: #fff;
+    }
+    
+    .xp-avatar {
+        width: 45px; height: 45px;
+        border-radius: 50%;
+        background: var(--col-med-blue);
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 700; font-size: 1.1rem;
+        border: 2px solid var(--col-orange);
+    }
+
+    .xp-user-info h4 { margin: 0; font-size: 1rem; font-weight: 700; font-family: var(--font-head); }
+    .xp-user-info span { font-size: 0.8rem; opacity: 0.8; }
+
+    /* 2. Cuerpo de la App (Chat / Proceso) */
+    .xp-app-body {
+        background: #f1f5f9;
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* Burbujas de Chat */
+    .xp-msg {
+        max-width: 85%;
+        padding: 12px 16px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        position: relative;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    /* Mensaje del Problema (Usuario) */
+    .xp-msg-problem {
+        align-self: flex-start;
+        background: #ffffff;
+        color: var(--text-main);
+        border-bottom-left-radius: 2px;
+        border-left: 4px solid var(--col-orange); /* Indicador de "Alerta/Problema" */
+    }
+    .xp-label {
+        display: block; font-size: 0.7rem; font-weight: 700; 
+        margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .xp-label.prob { color: var(--col-orange); }
+    
+    /* Mensaje de Solución (Empresa/Sistema) */
+    .xp-msg-solution {
+        align-self: flex-end;
+        background: var(--col-med-blue);
+        color: #fff;
+        border-bottom-right-radius: 2px;
+    }
+    .xp-label.sol { color: var(--col-light-cyan); }
+
+    /* Indicador de Resultado */
+    .xp-result-badge {
+        align-self: center;
+        margin-top: 10px;
+        background: #dcfce7; /* Verde muy suave */
+        color: #166534;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        display: flex; align-items: center; gap: 6px;
+        border: 1px solid #bbf7d0;
+    }
+    .xp-check-icon { width: 16px; height: 16px; fill: currentColor; }
+
+    /* 3. Footer de la Tarjeta (Cita/Testimonio) */
+    .xp-case-footer {
+        padding: 20px;
+        background: #fff;
+        border-top: 1px solid #e2e8f0;
+        position: relative;
+    }
+    
+    .xp-quote-icon {
+        position: absolute;
+        top: -15px; right: 20px;
+        width: 30px; height: 30px;
+        background: var(--col-orange);
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+        color: #fff; font-size: 1rem;
+        box-shadow: 0 4px 10px rgba(247, 173, 25, 0.4);
+    }
+
+    .xp-quote-text {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        font-style: italic;
+        line-height: 1.5;
+    }
+
+    /* Controles Swiper */
+    .swiper-pagination-bullet {
+        background: var(--col-med-blue);
+        opacity: 0.3;
+        width: 10px; height: 10px;
+    }
+    .swiper-pagination-bullet-active {
+        opacity: 1;
+        background: var(--col-dark-blue);
+        width: 25px; border-radius: 5px; /* Bullet alargado */
+    }
+
+  </style>
+
+  <div class="xp-container">
+    
+    <div class="xp-sec-header">
+      <h2 id="xp-success-title" class="xp-sec-title">Más que opiniones, <br><span class="xp-highlight">Historias de Resolución</span></h2>
+      <p class="xp-sec-desc">
+        Descubre cómo usuarios y empresas transforman conflictos en acuerdos formales y transparentes a través de nuestra plataforma.
+      </p>
+    </div>
+
+    <!-- SWIPER -->
+    <div class="swiper xp-success-swiper">
+      <div class="swiper-wrapper">
+
+        <!-- CASO 1 -->
+        <div class="swiper-slide">
+          <div class="xp-case-card">
+            <!-- Header App -->
+            <div class="xp-app-header">
+              <div class="xp-avatar">AR</div>
+              <div class="xp-user-info">
+                <h4>Antonio Ruiz</h4>
+                <span>RR.HH - Empresa Logística</span>
+              </div>
+            </div>
+            <!-- Body App (Chat Flow) -->
+            <div class="xp-app-body">
+              <!-- Problema -->
+              <div class="xp-msg xp-msg-problem">
+                <span class="xp-label prob">Reporte Inicial</span>
+                Problemas recurrentes con la atención en mi oficina local. Necesitamos una solución formal.
+              </div>
+              <!-- Interacción -->
+              <div class="xp-msg xp-msg-solution">
+                <span class="xp-label sol">Empresa Responde</span>
+                Hemos revisado su caso. Presentamos un plan de acción inmediato para corregir la atención.
+              </div>
+              <!-- Resultado -->
+              <div class="xp-result-badge">
+                <svg class="xp-check-icon" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                Caso Cerrado en 48h
+              </div>
+            </div>
+            <!-- Footer (Cita) -->
+            <div class="xp-case-footer">
+              <div class="xp-quote-icon">❝</div>
+              <p class="xp-quote-text">
+                "La trazabilidad de XPRESSATE dejó constancia de cada paso. En 48 horas teníamos un plan y cerramos el caso formalmente."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CASO 2 -->
+        <div class="swiper-slide">
+          <div class="xp-case-card">
+            <div class="xp-app-header">
+              <div class="xp-avatar">MC</div>
+              <div class="xp-user-info">
+                <h4>María C.</h4>
+                <span>Comunicadora</span>
+              </div>
+            </div>
+            <div class="xp-app-body">
+              <div class="xp-msg xp-msg-problem">
+                <span class="xp-label prob">Incidencia</span>
+                Necesito dialogar de forma segura sobre un incumplimiento contractual sin represalias.
+              </div>
+              <div class="xp-msg xp-msg-solution">
+                <span class="xp-label sol">Acuerdo Mutuo</span>
+                Canal habilitado. Procedemos a regularizar el contrato según los términos acordados.
+              </div>
+              <div class="xp-result-badge">
+                <svg class="xp-check-icon" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                Solución Efectiva
+              </div>
+            </div>
+            <div class="xp-case-footer">
+              <div class="xp-quote-icon">❝</div>
+              <p class="xp-quote-text">
+                "Gracias a la plataforma, logré un diálogo seguro que parecía imposible y conseguí una solución real con la empresa."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CASO 3 -->
+        <div class="swiper-slide">
+          <div class="xp-case-card">
+            <div class="xp-app-header">
+              <div class="xp-avatar">LV</div>
+              <div class="xp-user-info">
+                <h4>Luis V.</h4>
+                <span>Gerente - Startup Tech</span>
+              </div>
+            </div>
+            <div class="xp-app-body">
+              <div class="xp-msg xp-msg-problem">
+                <span class="xp-label prob">Feedback Interno</span>
+                Detectamos reportes sobre procesos de onboarding lentos.
+              </div>
+              <div class="xp-msg xp-msg-solution">
+                <span class="xp-label sol">Optimización</span>
+                Procesos actualizados. Hemos reducido el tiempo de respuesta en un 40%.
+              </div>
+              <div class="xp-result-badge">
+                <svg class="xp-check-icon" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"></path></svg>
+                Reputación Fortalecida
+              </div>
+            </div>
+            <div class="xp-case-footer">
+              <div class="xp-quote-icon">❝</div>
+              <p class="xp-quote-text">
+                "XPRESSATE nos permitió mejorar procesos internos rápidamente y fortalecer nuestra reputación al responder formalmente."
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Paginación -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+
+  <!-- Scripts necesarios para Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const swiper = new Swiper('.xp-success-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        centeredSlides: true,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          // Cuando la pantalla es >= 768px
+          768: {
+            slidesPerView: 2,
+            centeredSlides: false,
+          },
+          // Cuando la pantalla es >= 1024px
+          1024: {
+            slidesPerView: 3,
+            centeredSlides: false,
+          }
+        }
+      });
+    });
+  </script>
+</section>
+<!--  FIN tESTIMONIOS -->
+
+    <!-- Registro -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<section id="unirme" class="xp-create" aria-labelledby="xp-create-title" role="region">
+  
+  <style>
+    /* *************************************************************
+     * ESTILOS CSS - NUEVA PALETA (Naranja & Azul Profundo)
+     * *************************************************************/
+    :root {
+        /* --- PALETA DE COLORES (Desde tu imagen) --- */
+        --col-light-cyan: #9FE7F5;
+        --col-med-blue:   #429EBD;
+        --col-dark-blue:  #053F5C;
+        --col-orange:     #F7AD19;
+
+        /* --- TEMA USUARIO (Por defecto: Naranja) --- */
+        --theme-color: var(--col-orange);
+        --theme-color-text: #ffffff; /* Texto blanco sobre naranja */
+        --theme-bg-light: #fffdf5;   /* Fondo cálido muy suave */
+        --theme-border: #fcebc7;     /* Borde naranja suave */
+        
+        /* Neutros y Base */
+        --bg-section: #f8fafc; 
+        --card-white: #ffffff;
+        --text-main: var(--col-dark-blue); /* Usamos el azul oscuro como texto principal */
+        --text-muted: #587385; 
+        --radius: 12px;
+        --shadow: 0 10px 30px rgba(5, 63, 92, 0.08); /* Sombra tintada de azul */
+        
+        /* Fuentes */
+        --font-body: 'Inter', sans-serif;
+        --font-head: 'Poppins', sans-serif;
+    }
+
+    /* --- TEMA EMPRESA (Azul Oscuro) --- */
+    .theme-company-active {
+        --theme-color: var(--col-dark-blue);
+        --theme-color-text: #ffffff;
+        --theme-bg-light: #f0faff;   /* Fondo azulado muy suave */
+        --theme-border: #dbeff5;     /* Borde azul suave */
+    }
+
+    /* Estructura General */
+    .xp-create { 
+        background: var(--bg-section); 
+        padding: 60px 20px; 
+        font-family: var(--font-body); 
+        color: var(--text-main);
+    } 
+    .xp-wrap { max-width: 1150px; margin: 0 auto; }
+
+    /* Encabezado */
+    .xp-head { text-align: center; margin-bottom: 40px; }
+    .xp-title { 
+        font-family: var(--font-head); 
+        font-size: clamp(2rem, 4vw, 2.5rem); 
+        font-weight: 800; 
+        color: var(--col-dark-blue); 
+        margin-bottom: 10px; 
+    }
+    .xp-brand { color: var(--col-med-blue); } /* Marca en tono medio */
+    .xp-lead { color: var(--text-muted); font-size: 1.1rem; } 
+
+    /* Tabs (Píldoras) */
+    .xp-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; } 
+    .xp-tab { 
+        background: #fff; 
+        border: 2px solid #e2e8f0; 
+        color: var(--text-muted); 
+        font-weight: 700; 
+        border-radius: 50px; 
+        padding: 12px 35px; 
+        cursor: pointer; 
+        transition: all 0.3s ease; 
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: flex; align-items: center; gap: 8px;
+    }
+    .xp-tab:hover { border-color: var(--col-light-cyan); color: var(--col-med-blue); }
+
+    /* Estado Activo de Tabs */
+    .xp-tab-active[data-target="user"] { 
+        background: var(--col-orange); 
+        border-color: var(--col-orange); 
+        color: #fff; 
+        box-shadow: 0 4px 15px rgba(247, 173, 25, 0.3);
+    }
+    .xp-tab-active[data-target="company"] { 
+        background: var(--col-dark-blue); 
+        border-color: var(--col-dark-blue); 
+        color: #fff;
+        box-shadow: 0 4px 15px rgba(5, 63, 92, 0.3);
+    }
+
+    /* Contenedor del Panel */
+    .xp-panel { display: none; animation: fadeIn 0.4s ease; }
+    .xp-panel.xp-visible { display: block; }
+    
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* GRID PRINCIPAL */
+    .xp-grid-main { 
+        display: grid; 
+        grid-template-columns: 380px 1fr; 
+        gap: 50px; 
+        align-items: start;
+    }
+    
+    /* Columna Izquierda */
+    .xp-side-visual { 
+        display: flex; flex-direction: column; align-items: center; text-align: center; 
+    }
+    
+    /* Wrapper de la Imagen */
+    .xp-img-container {
+        width: 100%;
+        background: var(--theme-bg-light);
+        padding: 20px;
+        border-radius: 20px;
+        margin-bottom: 25px;
+        position: relative;
+        border: 1px solid var(--theme-border);
+    }
+    .xp-img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 15px 30px rgba(5, 63, 92, 0.15);
+        transform: rotate(-2deg);
+        transition: transform 0.3s ease;
+        background: #fff;
+    }
+    .xp-img:hover { transform: rotate(0deg) scale(1.02); }
+
+    /* Botón Principal */
+    .xp-cta-side { width: 100%; }
+    .xp-btn { 
+        display: block; width: 100%; padding: 16px; 
+        background: var(--theme-color); 
+        color: var(--theme-color-text); 
+        font-weight: 700; text-align: center; 
+        border-radius: 8px; text-decoration: none; text-transform: uppercase;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+    }
+    /* Ajuste especial para texto en botón naranja si se desea mayor contraste, 
+       pero el blanco suele funcionar bien con este naranja fuerte */
+    .xp-btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
+
+    /* Columna Derecha: Pasos */
+    .xp-steps { padding: 0; }
+
+    .xp-ol { 
+        list-style: none; padding: 0; margin: 0; 
+        display: flex; flex-direction: column; gap: 15px; 
+    } 
+    
+    /* Tarjeta de Paso */
+    .xp-step-item { 
+        display: flex; align-items: center; gap: 20px; 
+        background: #fff; 
+        border: 2px solid var(--theme-border); 
+        border-radius: 8px; 
+        padding: 20px 25px; 
+        transition: border-color 0.3s, transform 0.3s;
+    }
+    .xp-step-item:hover { 
+        border-color: var(--theme-color); 
+        transform: translateX(5px);
+    }
+
+    /* Número Grande */
+    .step-num { 
+        font-family: var(--font-head);
+        font-size: 2.5rem; 
+        font-weight: 800; 
+        color: var(--theme-color); 
+        opacity: 0.8; 
+        min-width: 60px; 
+        line-height: 1;
+        text-align: center;
+    }
+    
+    .step-content strong { 
+        display: block; font-size: 1.1rem; color: var(--col-dark-blue); margin-bottom: 4px; 
+    } 
+    .step-content p { 
+        color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0; 
+    }
+    
+    /* Tips / KPI Box */
+    .xp-mini { 
+        margin-top: 15px; 
+        padding: 15px 20px; 
+        background: var(--theme-bg-light); 
+        border: 2px solid var(--theme-border); 
+        border-radius: 8px; 
+        display: flex; align-items: center; gap: 15px;
+    }
+    .xp-mini-icon { font-size: 1.5rem; }
+    .xp-mini p { margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+    .xp-mini strong { color: var(--col-dark-blue); display: block; margin-bottom: 2px; }
+
+    /* Footer */
+    .xp-foot { margin-top: 60px; text-align: center; border-top: 1px dashed #cbd5e1; padding-top: 30px; }
+    .xp-note a { color: var(--col-med-blue); font-weight: 700; }
+
+    /* Responsive */
+    @media (max-width:900px){ 
+        .xp-grid-main { grid-template-columns: 1fr; gap: 30px; }
+        .xp-side-visual { max-width: 450px; margin: 0 auto; }
+        .xp-title { font-size: 2rem; }
+    }
+  </style>
+
+  <div class="xp-wrap">
+    <header class="xp-head">
+      <h2 id="xp-create-title" class="xp-title">¿Cómo funciona XPRESSATE</span>?</h2>
+      <p class="xp-lead">Elige tu perfil para ver el proceso paso a paso</p>
+    </header>
+
+    <div class="xp-tabs" role="tablist">
+      <button id="tab-user" class="xp-tab xp-tab-active" role="tab" aria-selected="true" aria-controls="xp-panel-user" data-target="user">
+        <span class="tab-icon">🙋‍♀️</span> Usuario
+      </button>
+      <button id="tab-company" class="xp-tab" role="tab" aria-selected="false" aria-controls="xp-panel-company" data-target="company">
+        <span class="tab-icon">🏢</span> Empresa
+      </button>
+    </div>
+
+    <div class="xp-content-wrapper">
+        
+      <!-- PANEL USUARIO (Tema Naranja) -->
+      <div id="xp-panel-user" class="xp-panel xp-visible" role="tabpanel" aria-labelledby="tab-user">
+        <div class="xp-grid-main">
+          
+          <div class="xp-side-visual">
+            <div class="xp-img-container">
+                <!-- IMAGEN USUARIO (Tono Naranja) -->
+                <img src="https://placehold.co/400x550/F7AD19/ffffff?text=App+Usuario" alt="App Usuario" class="xp-img">
+            </div>
+            <div class="xp-cta-side">
+              <a href="#registro-usuario" class="xp-btn" title="Crea tu cuenta">
+                ¡HAZTE ESCUCHAR! <br><small style="font-weight:400; font-size:0.8em; opacity:0.9;">Crea tu cuenta y comienza hoy</small>
+              </a>
+            </div>
+          </div>
+          
+          <div class="xp-steps">
+            <ol class="xp-ol">
+              <li class="xp-step-item">
+                <span class="step-num">01</span>
+                <div class="step-content">
+                  <strong>Registro y Validación</strong>
+                  <p>Descarga la app o accede vía web, ingresa tu número y valida con el código SMS.</p>
+                </div>
+              </li>
+              <li class="xp-step-item">
+                <span class="step-num">02</span>
+                <div class="step-content">
+                  <strong>Gestión de Casos</strong>
+                  <p>Completa tu perfil y publica tu primera experiencia, agregando evidencias si aplica.</p>
+                </div>
+              </li>
+              <li class="xp-step-item">
+                <span class="step-num">03</span>
+                <div class="step-content">
+                  <strong>Resolución Trazable</strong>
+                  <p>Utiliza el chat para dialogar y formalizar acuerdos con seguimiento de estado.</p>
+                </div>
+              </li>
+              <li class="xp-step-item">
+                <span class="step-num">04</span>
+                <div class="step-content">
+                  <strong>Trabajo Accesible</strong>
+                  <p>Accede a ofertas laborales adaptadas a tus intereses profesionales.</p>
+                </div>
+              </li>
+            </ol>
+            
+            <aside class="xp-mini">
+                <span class="xp-mini-icon">💡</span>
+                <div>
+                    <strong>Consejo Rápido</strong>
+                    <p>Usa #hashtags y @menciona la empresa para maximizar la visibilidad.</p>
+                </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL EMPRESA (Tema Azul Oscuro) -->
+      <div id="xp-panel-company" class="xp-panel" role="tabpanel" aria-labelledby="tab-company">
+        <div class="xp-grid-main">
+          
+          <div class="xp-side-visual">
+            <div class="xp-img-container">
+                <!-- IMAGEN EMPRESA (Tono Azul Oscuro) -->
+                <img src="https://placehold.co/400x550/053F5C/ffffff?text=Dashboard+Empresa" alt="Dashboard Empresa" class="xp-img">
+            </div>
+            <div class="xp-cta-side">
+              <a href="#registro-empresa" class="xp-btn" title="Registra tu empresa">
+                ¡OPTIMIZA TU GESTIÓN! <br><small style="font-weight:400; font-size:0.8em; opacity:0.9;">Registra tu empresa ahora</small>
+              </a>
+            </div>
+          </div>
+          
+          <div class="xp-steps">
+            <ol class="xp-ol">
+              <li class="xp-step-item">
+                <span class="step-num">01</span>
+                <div class="step-content">
+                  <strong>Registro y Validación</strong>
+                  <p>Accede, proporciona tu Email Corporativo y RUC. Valida el enlace recibido.</p>
+                </div>
+              </li>
+              <li class="xp-step-item">
+                <span class="step-num">02</span>
+                <div class="step-content">
+                  <strong>Configura Roles</strong>
+                  <p>Define administradores y niveles de acceso desde el módulo Representantes.</p>
+                </div>
+              </li>
+              <li class="xp-step-item">
+                <span class="step-num">03</span>
+                <div class="step-content">
+                  <strong>Resolución Trazable</strong>
+                  <p>Conecta con el usuario en el chat estructurado y llega a acuerdos formales.</p>
+                </div>
+              </li>
+            </ol>
+            
+            <aside class="xp-mini">
+                <span class="xp-mini-icon">📊</span>
+                <div>
+                    <strong>Indicador Clave (KPI)</strong>
+                    <p>Controla tu TMR (Tiempo Medio de Respuesta) para el mejor desempeño.</p>
+                </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+  </div>
+
+  <script>
+    (function(){
+      const tabs = Array.from(document.querySelectorAll('.xp-tab'));
+      const panels = document.querySelectorAll('.xp-panel');
+      const wrap = document.querySelector('.xp-create'); 
+
+      function activateTabPanel(targetKey) {
+        // 1. PANELES
+        panels.forEach(p => {
+          if (p.id === 'xp-panel-' + targetKey) {
+            p.classList.add('xp-visible');
+          } else {
+            p.classList.remove('xp-visible');
+          }
+        });
+        
+        // 2. TABS
+        tabs.forEach(t => {
+          if (t.dataset.target === targetKey) {
+            t.classList.add('xp-tab-active');
+            t.setAttribute('aria-selected', 'true');
+          } else {
+            t.classList.remove('xp-tab-active');
+            t.setAttribute('aria-selected', 'false');
+          }
+        });
+
+        // 3. TEMA
+        if(targetKey === 'company') {
+            wrap.classList.add('theme-company-active');
+        } else {
+            wrap.classList.remove('theme-company-active');
+        }
+      }
+
+      tabs.forEach(t => {
+        t.addEventListener('click', () => {
+          const targetKey = t.dataset.target;
+          activateTabPanel(targetKey);
+        });
+      });
+    })();
+  </script>
+
+</section>
+<!-- Resolviendo Problemas Clave -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+<section id="problemas-clave" class="xp-problems-section" aria-labelledby="xp-problems-title">
+  
+  <style>
+    /* *************************************************************
+     * ESTILOS: RESOLVIENDO PROBLEMAS CLAVE
+     * Paleta: --col-dark-blue: #053F5C / --col-med-blue: #429EBD / --col-orange: #F7AD19
+     * *************************************************************/
+    :root {
+        --col-dark-blue:  #053F5C;
+        --col-med-blue:   #429EBD;
+        --col-light-cyan: #9FE7F5;
+        --col-orange:     #F7AD19;
+        --col-bg-light:   #f8fafc;
+        --col-white:      #ffffff;
+        --text-main:      #1e293b;
+        --text-muted:     #64748b;
+        --radius-app:     16px;
+        
+        --font-head: 'Poppins', sans-serif;
+        --font-body: 'Inter', sans-serif;
+    }
+
+    .xp-problems-section {
+        padding: 80px 20px;
+        background: var(--col-bg-light); /* Fondo claro para contraste */
+        font-family: var(--font-body);
+        color: var(--text-main);
+        overflow: hidden;
+    }
+
+    .xp-container { max-width: 1200px; margin: 0 auto; }
+
+    /* --- Cabecera de la Sección --- */
+    .xp-sec-header { text-align: center; margin-bottom: 60px; }
+    
+    .xp-sec-title {
+        font-family: var(--font-head);
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        font-weight: 800;
+        color: var(--col-dark-blue);
+        margin-bottom: 15px;
+        line-height: 1.2;
+    }
+    
+    .xp-highlight { 
+        color: var(--col-med-blue); /* Texto principal resaltado en azul turquesa */
+        position: relative;
+    }
+    .xp-highlight::after { /* Subrayado naranja para el highlight */
+        content: '';
+        position: absolute;
+        bottom: 2px; left: 0; width: 100%; height: 8px;
+        background: var(--col-orange);
+        opacity: 0.3;
+        z-index: -1;
+        border-radius: 4px;
+    }
+
+    .xp-sec-desc {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    /* --- Grid de Soluciones --- */
+    .xp-solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    /* --- Tarjeta de Solución Individual --- */
+    .xp-solution-card {
+        background: var(--col-white);
+        padding: 30px;
+        border-radius: var(--radius-app);
+        box-shadow: 0 10px 30px rgba(5, 63, 92, 0.08); /* Sombra sutil */
+        border: 1px solid #e2e8f0;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .xp-solution-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 18px 40px rgba(66, 158, 189, 0.15); /* Sombra más pronunciada y azulada al hover */
+        border-color: var(--col-light-cyan);
+    }
+
+    .xp-icon-wrapper {
+        width: 60px;
+        height: 60px;
+        background: var(--col-light-cyan); /* Fondo del icono con cian claro */
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-shrink: 0;
+        transition: background 0.3s ease;
+    }
+    .xp-solution-card:hover .xp-icon-wrapper {
+        background: var(--col-med-blue); /* Icono con fondo azul turquesa al hover */
+    }
+
+    .xp-icon-svg {
+        width: 32px;
+        height: 32px;
+        stroke: var(--col-dark-blue); /* Color del trazo del icono */
+        stroke-width: 1.8;
+        fill: none;
+        transition: stroke 0.3s ease;
+    }
+    .xp-solution-card:hover .xp-icon-svg {
+        stroke: var(--col-white); /* Trazo blanco al hover */
+    }
+
+    .xp-card-title {
+        font-family: var(--font-head);
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--col-dark-blue);
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+
+    .xp-card-text {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .xp-problems-section { padding: 60px 15px; }
+        .xp-sec-title { font-size: 2.2rem; }
+        .xp-sec-desc { font-size: 1rem; }
+        .xp-solutions-grid { gap: 20px; }
+        .xp-solution-card { padding: 25px; }
+        .xp-icon-wrapper { width: 50px; height: 50px; margin-bottom: 15px; }
+        .xp-icon-svg { width: 28px; height: 28px; }
+        .xp-card-title { font-size: 1.15rem; }
+        .xp-card-text { font-size: 0.9rem; }
+    }
+  </style>
+
+  <div class="xp-container">
+    
+    <div class="xp-sec-header">
+      <h2 id="xp-problems-title" class="xp-sec-title">
+        XPRESSATE: <span class="xp-highlight">La Solución a tus Desafíos Laborales</span>
+      </h2>
+      <p class="xp-sec-desc">
+       Entendemos los obstáculos del entorno laboral actual. Nuestra plataforma elimina las barreras de comunicación, ofreciendo un espacio seguro y eficiente para usuarios y empresas.
+      </p>
+    </div>
+
+    <div class="xp-solutions-grid">
+
+      <!-- Solución 1: Canales Ineficaces -> Voces Escuchadas y Trazables --><div class="xp-solution-card">
+        <div class="xp-icon-wrapper">
+            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12" y2="16"></line>
+            </svg>
+        </div>
+        <h3 class="xp-card-title">Voces Escuchadas y Trazables</h3>
+        <p class="xp-card-text">
+          Superamos la frustración de canales sin respuesta. En XPRESSATE, tu voz es escuchada en un entorno transparente, con seguimiento detallado de cada interacción.
+        </p>
+      </div>
+
+      <!-- Solución 2: Gestión de reputación -> Reputación Protegida, Gestión Eficaz --><div class="xp-solution-card">
+        <div class="xp-icon-wrapper">
+            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+            </svg>
+        </div>
+        <h3 class="xp-card-title">Reputación Protegida, Gestión Eficaz</h3>
+        <p class="xp-card-text">
+          Para empresas, ofrecemos herramientas para gestionar proactivamente su reputación y responder digitalmente de forma organizada, transformando desafíos en oportunidades de mejora.
+        </p>
+      </div>
+
+      <!-- Solución 3: Anonimato Seguro -> Privacidad y Confianza Absoluta --><div class="xp-solution-card">
+        <div class="xp-icon-wrapper">
+            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+        </div>
+        <h3 class="xp-card-title">Privacidad y Confianza Absoluta</h3>
+        <p class="xp-card-text">
+          Garantizamos un entorno seguro donde usuarios pueden expresarse libremente, incluso con anonimato, sabiendo que sus inquietudes serán tratadas con el respeto y la seriedad que merecen.
+        </p>
+      </div>
+
+      <!-- Solución 4: Resolución Formal -> Acuerdos Firmes, Conflictos Resueltos --><div class="xp-solution-card">
+        <div class="xp-icon-wrapper">
+            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+        </div>
+        <h3 class="xp-card-title">Acuerdos Firmes, Conflictos Resueltos</h3>
+        <p class="xp-card-text">
+          Facilitamos mecanismos claros para alcanzar acuerdos formales y vinculantes, llevando cada caso a una resolución definitiva que beneficia a todas las partes involucradas.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+    <!--FIN  Resolviendo Problemas Clave -->  
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+<section class="xp-trust-section" aria-labelledby="xp-trust-title">
+  <style>
+    /* *************************************************************
+     * ESTILOS: TRUST SLIDER (Marquee Infinito)
+     * Paleta: #053F5C | #429EBD | #F7AD19
+     * *************************************************************/
+    :root {
+        --col-dark-blue:  #053F5C;
+        --col-med-blue:   #429EBD;
+        --col-light-cyan: #9FE7F5;
+        --col-bg-gray:    #f8fafc;
+        --font-head: 'Poppins', sans-serif;
+    }
+
+    .xp-trust-section {
+        padding: 60px 0;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+        overflow: hidden;
+        font-family: var(--font-head);
+    }
+
+    .xp-trust-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    /* Cabecera Sutil */
+    .xp-trust-header {
+        margin-bottom: 40px;
+    }
+
+    .xp-trust-title {
+        font-size: 1.1rem;
+        color: #64748b; /* Gris sutil para no robar protagonismo */
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 700;
+        margin: 0;
+    }
+    
+    .xp-trust-highlight { color: var(--col-med-blue); }
+
+    /* --- SLIDER INFINITO --- */
+    .xp-slider-track {
+        display: flex;
+        width: calc(250px * 14); /* Ancho aproximado: ancho_slide * num_slides_duplicados */
+        animation: scroll 40s linear infinite;
+        align-items: center;
+    }
+
+    .xp-slider-wrapper {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        /* Degradado lateral para suavizar la entrada/salida */
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+
+    .xp-slide {
+        width: 250px; /* Ancho de cada espacio de logo */
+        padding: 0 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        filter: grayscale(100%) opacity(0.6); /* Estado inicial: gris y sutil */
+        transition: all 0.4s ease;
+        cursor: pointer;
+    }
+
+    /* Efecto Hover: Color y Opacidad Total */
+    .xp-slide:hover {
+        filter: grayscale(0%) opacity(1);
+        transform: scale(1.05);
+    }
+
+    /* SVG Logo Styles (Simulados) */
+    .xp-partner-logo {
+        height: 45px; /* Altura fija para uniformidad */
+        width: auto;
+        max-width: 100%;
+        fill: var(--col-dark-blue); /* Color base al hacer hover */
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-250px * 7)); } /* Mueve la mitad de los items (7 originales) */
+    }
+
+    /* Pausar animación al pasar el mouse para ver logos */
+    .xp-slider-wrapper:hover .xp-slider-track {
+        animation-play-state: paused;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .xp-trust-section { padding: 40px 0; }
+        .xp-slide { width: 180px; padding: 0 20px; }
+        .xp-partner-logo { height: 35px; }
+        .xp-trust-title { font-size: 0.9rem; }
+        .xp-slider-track { width: calc(180px * 14); }
+        @keyframes scroll {
+            100% { transform: translateX(calc(-180px * 7)); }
+        }
+    }
+  </style>
+
+  <div class="xp-trust-container">
+    
+    <div class="xp-trust-header">
+      <h3 id="xp-trust-title" class="xp-trust-title">
+        Organismos y Empresas que <span class="xp-trust-highlight">Confían en la Transparencia</span>
+      </h3>
+    </div>
+
+    <div class="xp-slider-wrapper">
+      <div class="xp-slider-track">
+        
+        <!-- LOGOS ORIGINALES (7 Logos) -->
+        <!-- Logo 1: TechCorp -->
+        <div class="xp-slide">
+            <!-- SVG Placeholder con nombre de empresa -->
+            <svg class="xp-partner-logo" viewBox="0 0 200 50">
+                <rect x="0" y="10" width="30" height="30" rx="5" fill="currentColor"/>
+                <text x="40" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">TechCorp</text>
+            </svg>
+        </div>
+
+        <!-- Logo 2: LegalAlly -->
+        <div class="xp-slide">
+             <svg class="xp-partner-logo" viewBox="0 0 200 50">
+                <circle cx="20" cy="25" r="15" fill="currentColor"/>
+                <text x="45" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">LegalAlly</text>
+            </svg>
+        </div>
+
+        <!-- Logo 3: RetailGroup -->
+        <div class="xp-slide">
+            <svg class="xp-partner-logo" viewBox="0 0 220 50">
+                <path d="M10 40 L25 10 L40 40 Z" fill="currentColor"/>
+                <text x="50" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">RetailGroup</text>
+            </svg>
+        </div>
+
+        <!-- Logo 4: Ministerio -->
+        <div class="xp-slide">
+            <svg class="xp-partner-logo" viewBox="0 0 250 50">
+                <rect x="0" y="15" width="40" height="20" fill="currentColor"/>
+                <text x="50" y="32" font-family="Arial" font-weight="bold" font-size="22" fill="currentColor">Ministerio T.</text>
+            </svg>
+        </div>
+
+        <!-- Logo 5: Innova -->
+        <div class="xp-slide">
+            <svg class="xp-partner-logo" viewBox="0 0 200 50">
+                <circle cx="15" cy="25" r="10" fill="currentColor"/>
+                <circle cx="40" cy="25" r="10" fill="currentColor"/>
+                <text x="60" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">Innova</text>
+            </svg>
+        </div>
+
+        <!-- Logo 6: SafeWork -->
+        <div class="xp-slide">
+            <svg class="xp-partner-logo" viewBox="0 0 200 50">
+                <path d="M10 25 L20 35 L40 15" stroke="currentColor" stroke-width="5" fill="none"/>
+                <text x="50" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">SafeWork</text>
+            </svg>
+        </div>
+
+        <!-- Logo 7: GlobalHR -->
+        <div class="xp-slide">
+             <svg class="xp-partner-logo" viewBox="0 0 200 50">
+                <rect x="10" y="10" width="20" height="30" fill="currentColor"/>
+                <text x="40" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">GlobalHR</text>
+            </svg>
+        </div>
+
+        <!-- DUPLICADOS PARA EFECTO INFINITO (Los mismos 7 logos) -->
+        <div class="xp-slide">
+            <svg class="xp-partner-logo" viewBox="0 0 200 50"><rect x="0" y="10" width="30" height="30" rx="5" fill="currentColor"/><text x="40" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">TechCorp</text></svg>
+        </div>
+        <div class="xp-slide">
+             <svg class="xp-partner-logo" viewBox="0 0 200 50"><circle cx="20" cy="25" r="15" fill="currentColor"/><text x="45" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">LegalAlly</text></svg>
+        </div>
+        <div class="xp-slide">
+            <svg class="xp-partner-logo" viewBox="0 0 220 50"><path d="M10 40 L25 10 L40 40 Z" fill="currentColor"/><text x="50" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">RetailGroup</text></svg>
+        </div>
+        <div class="xp-slide">
+            <svg class="xp-partner-logo" viewBox="0 0 250 50"><rect x="0" y="15" width="40" height="20" fill="currentColor"/><text x="50" y="32" font-family="Arial" font-weight="bold" font-size="22" fill="currentColor">Ministerio T.</text></svg>
+        </div>
+        <div class="xp-slide">
+            <svg class="xp-partner-logo" viewBox="0 0 200 50"><circle cx="15" cy="25" r="10" fill="currentColor"/><circle cx="40" cy="25" r="10" fill="currentColor"/><text x="60" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">Innova</text></svg>
+        </div>
+        <div class="xp-slide">
+            <svg class="xp-partner-logo" viewBox="0 0 200 50"><path d="M10 25 L20 35 L40 15" stroke="currentColor" stroke-width="5" fill="none"/><text x="50" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">SafeWork</text></svg>
+        </div>
+        <div class="xp-slide">
+             <svg class="xp-partner-logo" viewBox="0 0 200 50"><rect x="10" y="10" width="20" height="30" fill="currentColor"/><text x="40" y="32" font-family="Arial" font-weight="bold" font-size="24" fill="currentColor">GlobalHR</text></svg>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+<div class="xp-wrapper">
+
+  <!-- ============================================
+       SECCIÓN 1: CONTADOR (Estilo Yape)
+       ============================================ -->
+  <section id="contador" class="xp-counter-section" aria-labelledby="xp-counter-title">
+    <style>
+      /* *************************************************************
+       * ESTILOS GLOBALES (Paleta Personalizada)
+       * *************************************************************/
+      :root {
+          /* Paleta de Colores */
+          --col-light-cyan: #9FE7F5;
+          --col-med-blue:   #429EBD;   /* Azul Turquesa */
+          --col-dark-blue:  #053F5C;   /* Azul Profundo */
+          --col-orange:     #F7AD19;
+          --col-bg-light:   #f8fafc;
+          
+          --font-head: 'Poppins', sans-serif;
+          --font-body: 'Inter', sans-serif;
+      }
+
+      .xp-wrapper {
+          font-family: var(--font-body);
+          color: var(--col-dark-blue);
+          overflow: hidden;
+      }
+
+      .xp-container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+      /* --- ESTILOS CONTADOR --- */
+      .xp-counter-section {
+          padding: 80px 20px;
+          background: #ffffff;
+          text-align: center;
+          border-bottom: 1px solid #e2e8f0;
+      }
+
+      .xp-counter-title {
+          font-family: var(--font-head);
+          font-size: clamp(2rem, 5vw, 3.5rem);
+          font-weight: 900;
+          color: var(--col-dark-blue);
+          margin-bottom: 15px;
+          line-height: 1.1;
+          text-transform: uppercase;
+      }
+      
+      .xp-counter-highlight { color: var(--col-med-blue); }
+
+      .xp-counter-sub {
+          font-size: 1.1rem;
+          color: #587385;
+          margin-bottom: 50px;
+          font-weight: 500;
+      }
+
+      .xp-digits-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          gap: 10px;
+          flex-wrap: wrap;
+      }
+
+      .xp-digit-box {
+          width: 65px;
+          height: 90px;
+          border: 2px solid #e2e8f0;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: var(--font-head);
+          font-size: 3rem;
+          font-weight: 700;
+          color: var(--col-dark-blue);
+          background: #fff;
+          box-shadow: 0 8px 20px rgba(5, 63, 92, 0.08);
+          transition: transform 0.3s, border-color 0.3s, color 0.3s;
+          cursor: default;
+      }
+      
+      .xp-digit-box:hover {
+          transform: translateY(-8px);
+          border-color: var(--col-med-blue);
+          color: var(--col-med-blue);
+          box-shadow: 0 12px 25px rgba(66, 158, 189, 0.2);
+      }
+
+      .xp-digit-comma {
+          font-size: 3rem;
+          font-weight: 700;
+          color: var(--col-dark-blue);
+          padding-bottom: 15px;
+          margin: 0 5px;
+      }
+
+      /* --- ESTILOS PREGUNTAS FRECUENTES (FAQs) --- */
+      .xp-faqs-section {
+          padding: 80px 20px;
+          background: var(--col-bg-light);
+          position: relative;
+      }
+
+      .xp-section-head { text-align: center; margin-bottom: 50px; }
+      
+      .xp-faqs-title {
+          font-family: var(--font-head);
+          font-size: 2.5rem;
+          font-weight: 800;
+          color: var(--col-dark-blue);
+          margin-bottom: 15px;
+      }
+      
+      .xp-faqs-lead { font-size: 1.1rem; color: #587385; }
+
+      /* Acordeón */
+      .xp-accordion { max-width: 800px; margin: 0 auto; }
+
+      .xp-accordion-item {
+          background: #fff;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+          margin-bottom: 20px;
+          overflow: hidden;
+          border: 1px solid transparent;
+          transition: all 0.3s ease;
+      }
+
+      .xp-accordion-item:hover {
+          box-shadow: 0 8px 25px rgba(66, 158, 189, 0.1);
+          transform: translateY(-2px);
+      }
+
+      .xp-accordion-header {
+          width: 100%;
+          padding: 20px 25px;
+          background: transparent;
+          border: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          text-align: left;
+      }
+
+      .xp-question-text {
+          font-family: var(--font-head);
+          font-weight: 700;
+          font-size: 1.1rem;
+          color: var(--col-dark-blue);
+          transition: color 0.3s;
+      }
+
+      .xp-accordion-icon {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+          fill: none;
+          stroke: var(--col-med-blue);
+          stroke-width: 2;
+          transition: transform 0.3s ease;
+      }
+
+      /* Estado Activo del Acordeón */
+      .xp-accordion-item.active {
+          border-color: var(--col-light-cyan);
+      }
+      
+      .xp-accordion-item.active .xp-accordion-header .xp-question-text {
+          color: var(--col-med-blue);
+      }
+
+      .xp-accordion-item.active .xp-accordion-icon {
+          transform: rotate(180deg);
+      }
+
+      .xp-accordion-body {
+          max-height: 0; /* Oculto por defecto */
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+          background: #fff;
+      }
+
+      .xp-accordion-content {
+          padding: 0 25px 25px 25px;
+          font-size: 1rem;
+          color: #587385;
+          line-height: 1.6;
+          border-top: 1px solid #f1f5f9;
+          padding-top: 15px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+          .xp-digit-box { width: 40px; height: 60px; font-size: 1.8rem; border-radius: 8px; }
+          .xp-digit-comma { font-size: 1.8rem; padding-bottom: 10px; margin: 0 2px; }
+          .xp-counter-title { font-size: 2rem; }
+          .xp-digits-wrapper { gap: 5px; }
+          .xp-faqs-title { font-size: 2rem; }
+          .xp-question-text { font-size: 1rem; }
+      }
+    </style>
+  
+    <div class="xp-container">
+      <h2 id="xp-counter-title" class="xp-counter-title">
+        ¡Ya somos más de <br>
+        <span class="xp-counter-highlight">18 MILLONES</span> DE YOINNERS!
+      </h2>
+      
+      <p class="xp-counter-sub">
+        Y seguimos creciendo, construyendo una comunidad laboral más justa y transparente.
+      </p>
+  
+      <!-- DIGITOS ANIMADOS -->
+      <div class="xp-digits-wrapper" role="group" aria-label="Contador de usuarios: 18,805,515">
+        
+        <!-- Millones -->
+        <div class="xp-digit-box" data-target="1">0</div>
+        <div class="xp-digit-box" data-target="8">0</div>
+        
+        <div class="xp-digit-comma">,</div>
+        
+        <!-- Miles -->
+        <div class="xp-digit-box" data-target="8">0</div>
+        <div class="xp-digit-box" data-target="0">0</div>
+        <div class="xp-digit-box" data-target="5">0</div>
+        
+        <div class="xp-digit-comma">,</div>
+        
+        <!-- Unidades -->
+        <div class="xp-digit-box" data-target="5">0</div>
+        <div class="xp-digit-box" data-target="1">0</div>
+        <div class="xp-digit-box" data-target="5">0</div>
+        
+      </div>
+    </div>
+  </section>
+    
+  <!-- ============================================
+       SECCIÓN 2: PREGUNTAS FRECUENTES (FAQs)
+       ============================================ -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<section class="xp-faqs-section" aria-labelledby="xp-faqs-title">
+  
+  <style>
+    /* *************************************************************
+     * ESTILOS: FAQs EXPERT UX/UI 
+     * Paleta: #053F5C (Dark) | #429EBD (Turquesa) | #F7AD19 (Orange)
+     * *************************************************************/
+    :root {
+        --col-dark-blue:  #053F5C;
+        --col-med-blue:   #429EBD;
+        --col-light-cyan: #9FE7F5;
+        --col-orange:     #F7AD19;
+        --col-bg-light:   #f8fafc;
+        --col-white:      #ffffff;
+        --text-main:      #1e293b;
+        --text-muted:     #64748b;
+        --radius-card:    16px;
+        
+        --font-head: 'Poppins', sans-serif;
+        --font-body: 'Inter', sans-serif;
+    }
+
+    .xp-faqs-section {
+        padding: 100px 20px;
+        background: var(--col-bg-light);
+        font-family: var(--font-body);
+        color: var(--text-main);
+        position: relative;
+    }
+
+    /* Decoración de fondo sutil */
+    .xp-faqs-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: radial-gradient(var(--col-light-cyan) 1px, transparent 1px);
+        background-size: 40px 40px;
+        opacity: 0.3;
+        pointer-events: none;
+    }
+
+    .xp-container { 
+        max-width: 900px; 
+        margin: 0 auto; 
+        position: relative; 
+        z-index: 2; 
+    }
+
+    /* --- Cabecera con Copywriting de Confianza --- */
+    .xp-section-head { text-align: center; margin-bottom: 60px; }
+    
+    .xp-faqs-title {
+        font-family: var(--font-head);
+        font-size: clamp(2.2rem, 4vw, 3rem);
+        font-weight: 800;
+        color: var(--col-dark-blue);
+        margin-bottom: 16px;
+        line-height: 1.2;
+    }
+    
+    .xp-faqs-lead {
+        font-size: 1.15rem;
+        color: var(--text-muted);
+        max-width: 650px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    /* --- Acordeón Moderno --- */
+    .xp-accordion { display: flex; flex-direction: column; gap: 24px; }
+
+    .xp-accordion-item {
+        background: var(--col-white);
+        border-radius: var(--radius-card);
+        /* Sombra suave inicial */
+        box-shadow: 0 4px 20px rgba(5, 63, 92, 0.04);
+        border: 2px solid transparent; /* Preparado para hover/active */
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Hover: Elevación y borde Turquesa */
+    .xp-accordion-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(66, 158, 189, 0.15);
+        border-color: var(--col-light-cyan);
+    }
+
+    /* Estado Activo: Borde Naranja para destacar lectura */
+    .xp-accordion-item.active {
+        border-color: var(--col-orange);
+        box-shadow: 0 8px 25px rgba(247, 173, 25, 0.1);
+        transform: translateY(0); /* Regresa a posición base para lectura estable */
+    }
+
+    /* Header del Item */
+    .xp-accordion-header {
+        width: 100%;
+        padding: 24px 30px;
+        background: transparent;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        text-align: left;
+        gap: 20px;
+    }
+
+    .xp-question-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Icono temático por pregunta */
+    .xp-topic-icon {
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px; height: 40px;
+        background: var(--col-bg-light);
+        border-radius: 10px;
+        color: var(--col-dark-blue);
+        transition: background 0.3s, color 0.3s;
+    }
+    
+    .xp-accordion-item.active .xp-topic-icon {
+        background: var(--col-orange);
+        color: #fff;
+    }
+
+    .xp-question-text {
+        font-family: var(--font-head);
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: var(--col-dark-blue);
+        transition: color 0.3s;
+    }
+    
+    /* Icono de Flecha (Chevron) */
+    .xp-accordion-chevron {
+        width: 24px; height: 24px;
+        flex-shrink: 0;
+        fill: none;
+        stroke: var(--col-med-blue);
+        stroke-width: 2.5;
+        stroke-linecap: round; 
+        stroke-linejoin: round;
+        transition: transform 0.3s ease, stroke 0.3s ease;
+    }
+    
+    .xp-accordion-item.active .xp-accordion-chevron {
+        transform: rotate(180deg);
+        stroke: var(--col-orange);
+    }
+
+    /* Body del Item */
+    .xp-accordion-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background: #fff;
+    }
+
+    .xp-accordion-content {
+        padding: 0 30px 30px 85px; /* Indentado para alinear con el texto del header */
+        font-size: 1rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .xp-faqs-title { font-size: 2rem; }
+        .xp-question-text { font-size: 1rem; }
+        .xp-accordion-header { padding: 20px; }
+        .xp-topic-icon { display: none; } /* Ocultar icono temático en móvil para ahorrar espacio */
+        .xp-accordion-content { padding: 0 20px 25px 20px; } /* Quitar indentado en móvil */
+    }
+  </style>
+
+  <div class="xp-container">
+      
+      <div class="xp-section-head">
+          <h2 id="xp-faqs-title" class="xp-faqs-title">Preguntas Frecuentes</h2>
+          <p class="xp-faqs-lead">
+            Transparencia ante todo. Resolvemos tus dudas para que navegues por <strong>XPRESSATE</strong> con total confianza y seguridad.
+          </p>
+      </div>
+
+      <div class="xp-accordion">
+          
+          <!-- Pregunta 1: Estados -->
+          <div class="xp-accordion-item">
+              <button class="xp-accordion-header" aria-expanded="false">
+                  <div class="xp-question-content">
+                      <span class="xp-topic-icon" aria-hidden="true">🚦</span>
+                      <span class="xp-question-text">¿Qué significan los estados de mi caso?</span>
+                  </div>
+                  <svg class="xp-accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="xp-accordion-body">
+                  <div class="xp-accordion-content">
+                      Son indicadores de transparencia. <strong>Sin respuesta</strong> alerta que la empresa fue notificada pero no actúa. <strong>En proceso</strong> significa que están gestionando tu solicitud. <strong>Resuelto</strong> certifica que se alcanzó un acuerdo formal.
+                  </div>
+              </div>
+          </div>
+
+          <!-- Pregunta 2: Publicación -->
+          <div class="xp-accordion-item">
+              <button class="xp-accordion-header" aria-expanded="false">
+                  <div class="xp-question-content">
+                      <span class="xp-topic-icon" aria-hidden="true">📝</span>
+                      <span class="xp-question-text">¿Cómo publico una experiencia correctamente?</span>
+                  </div>
+                  <svg class="xp-accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="xp-accordion-body">
+                  <div class="xp-accordion-content">
+                      ¡Es muy fácil! Nuestra guía interactiva te acompaña paso a paso. Te recomendamos ser objetivo y claro. Puedes adjuntar <strong>fotos o videos</strong> (validados por seguridad) y usar etiquetas para maximizar la visibilidad de tu caso.
+                  </div>
+              </div>
+          </div>
+
+          <!-- Pregunta 3: Notificaciones (Empresas) -->
+          <div class="xp-accordion-item">
+              <button class="xp-accordion-header" aria-expanded="false">
+                   <div class="xp-question-content">
+                      <span class="xp-topic-icon" aria-hidden="true">🔔</span>
+                      <span class="xp-question-text">¿Puedo configurar alertas para mi equipo?</span>
+                   </div>
+                  <svg class="xp-accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="xp-accordion-body">
+                  <div class="xp-accordion-content">
+                      Absolutamente. Los Administradores tienen control total para definir quién recibe alertas por nuevas menciones, casos urgentes o plazos por vencer (SLA), garantizando una respuesta ágil y coordinada.
+                  </div>
+              </div>
+          </div>
+
+          <!-- Pregunta 4: Seguridad -->
+          <div class="xp-accordion-item">
+              <button class="xp-accordion-header" aria-expanded="false">
+                   <div class="xp-question-content">
+                      <span class="xp-topic-icon" aria-hidden="true">🛡️</span>
+                      <span class="xp-question-text">¿Qué hago si veo contenido ofensivo?</span>
+                   </div>
+                  <svg class="xp-accordion-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="xp-accordion-body">
+                  <div class="xp-accordion-content">
+                      Tu seguridad es nuestra prioridad #1. Reporta el contenido inmediatamente; nuestro sistema prioriza reportes de violencia o fraude para acción urgente. Además, tienes herramientas para <strong>bloquear o silenciar</strong> usuarios directamente.
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const accItems = document.querySelectorAll('.xp-accordion-item');
+
+        accItems.forEach(item => {
+            const header = item.querySelector('.xp-accordion-header');
+            const body = item.querySelector('.xp-accordion-body');
+
+            header.addEventListener('click', () => {
+                const isOpen = item.classList.contains('active');
+
+                // Cerrar otros ítems (Acordeón exclusivo) para mantener el foco
+                accItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.xp-accordion-header').setAttribute('aria-expanded', 'false');
+                        otherItem.querySelector('.xp-accordion-body').style.maxHeight = null;
+                    }
+                });
+
+                // Alternar estado
+                if (isOpen) {
+                    item.classList.remove('active');
+                    header.setAttribute('aria-expanded', 'false');
+                    body.style.maxHeight = null;
+                } else {
+                    item.classList.add('active');
+                    header.setAttribute('aria-expanded', 'true');
+                    body.style.maxHeight = body.scrollHeight + "px";
+                }
+            });
+        });
+    });
+  </script>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      /* ------------------------------------------------
+         1. Lógica de Animación del Contador
+         ------------------------------------------------ */
+      const counters = document.querySelectorAll('.xp-digit-box');
+      const speed = 100; 
+
+      const animateCounters = () => {
+          counters.forEach(counter => {
+              const updateCount = () => {
+                  const target = +counter.getAttribute('data-target');
+                  const count = +counter.innerText;
+                  const inc = Math.max(1, Math.ceil(target / speed));
+
+                  if (count < target) {
+                      counter.innerText = (count + inc > target) ? target : count + inc;
+                      setTimeout(updateCount, 40);
+                  } else {
+                      counter.innerText = target;
+                  }
+              };
+              updateCount();
+          });
+      };
+
+      // Intersection Observer para el contador
+      const observer = new IntersectionObserver((entries) => {
+          if(entries[0].isIntersecting) {
+              animateCounters();
+              observer.disconnect(); 
+          }
+      }, { threshold: 0.2 }); // Se activa cuando el 20% es visible (mejor para móviles)
+
+      const counterSection = document.getElementById('contador');
+      if(counterSection) observer.observe(counterSection);
+
+      /* ------------------------------------------------
+         2. Lógica del Acordeón (FAQs)
+         ------------------------------------------------ */
+      const accItems = document.querySelectorAll('.xp-accordion-item');
+
+      accItems.forEach(item => {
+          const header = item.querySelector('.xp-accordion-header');
+          const body = item.querySelector('.xp-accordion-body');
+
+          header.addEventListener('click', () => {
+              const isOpen = item.classList.contains('active');
+
+              // Cerrar todos los otros ítems (Acordeón exclusivo)
+              accItems.forEach(otherItem => {
+                  if (otherItem !== item) {
+                      otherItem.classList.remove('active');
+                      otherItem.querySelector('.xp-accordion-header').setAttribute('aria-expanded', 'false');
+                      otherItem.querySelector('.xp-accordion-body').style.maxHeight = null;
+                  }
+              });
+
+              // Alternar el ítem actual
+              if (isOpen) {
+                  item.classList.remove('active');
+                  header.setAttribute('aria-expanded', 'false');
+                  body.style.maxHeight = null;
+              } else {
+                  item.classList.add('active');
+                  header.setAttribute('aria-expanded', 'true');
+                  body.style.maxHeight = body.scrollHeight + "px";
+              }
+          });
+      });
+  });
+</script>
+
+    <!-- Start For Free -->
+
+<!-- Formulario Landing Xpressate -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<section id="contacto" aria-labelledby="lpContactTitle">
+ <div class="container">
+        <div class="section-heading text-center">
+            <h2 id="xp-benefits-title" class="xp-title">¿Listo para hablar con Xpressate?</h2>
+            <p class="lead">Cuéntanos tu duda y te contactamos en breve. </p>
+        </div>
+
+    <div class="form-card" role="form" aria-describedby="lpIntro">
+      <form id="lpForm" novalidate data-endpoint="/api/contact">
+        <!-- Honeypot anti-spam -->
+        <div class="visually-hidden" aria-hidden="true">
+          <label for="website">No completar</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <span class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5Z" fill="currentColor"/></svg>
+            </span>
+            <input id="name" name="name" type="text" placeholder=" " autocomplete="name" required minlength="2" maxlength="80">
+            <label for="name">Nombre</label>
+            <small class="error" data-for="name" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <span class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 4H4a2 2 0 0 0-2 2v.5l10 6.5 10-6.5V6a2 2 0 0 0-2-2Zm0 4.5-8 5.2-8-5.2V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5Z" fill="currentColor"/></svg>
+            </span>
+            <input id="email" name="email" type="email" placeholder=" " autocomplete="email" inputmode="email" spellcheck="false" required>
+            <label for="email">Correo</label>
+            <small class="error" data-for="email" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <span class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a15.53 15.53 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1.02-.24 11.3 11.3 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.47a1 1 0 0 1 1 1 11.3 11.3 0 0 0 .57 3.56 1 1 0 0 1-.24 1.02L6.6 10.8Z" fill="currentColor"/></svg>
+            </span>
+            <input id="phone" name="phone" type="tel" placeholder=" " autocomplete="tel" inputmode="tel" pattern="^[0-9+()\\s-]{6,}$">
+            <label for="phone">Teléfono </label>
+            <small class="error" data-for="phone" aria-live="polite"></small>
+          </div>
+
+          <div class="field field-textarea">
+            <span class="icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8l-4 4V6Z" fill="currentColor"/></svg>
+            </span>
+            <textarea id="message" name="message" rows="5" placeholder=" " required minlength="10" maxlength="1000"></textarea>
+            <label for="message">Mensaje</label>
+            <div class="meta">
+              <small class="error" data-for="message" aria-live="polite"></small>
+              <small id="msgCounter" class="counter" aria-live="polite">0/1000</small>
+            </div>
+          </div>
+        </div>
+
+        <small class="error" data-for="terms" aria-live="polite"></small>
+
+   <button type="submit" class="btn" id="btn-enviar"
+  style="background:#004DFF !important;
+         background-image: none !important;
+         color:#ffffff !important;
+         border:1px solid #004DFF !important;
+         box-shadow:0 8px 20px rgba(0,77,255,0.12) !important;
+         padding:10px 18px; border-radius:8px;">
+  <span class="btn-label">Enviar mensaje</span>
+  <span class="btn-shine" aria-hidden="true"></span>
+  <span class="spinner" aria-hidden="true"></span>
+</button>
+
+
+
+        <div id="formResult" class="toast" role="status" aria-live="polite" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root{
+    --primary: #11314c;
+    --primary-2: #133651;
+    --text: #1c2a39;
+    --text-2: #5b6c7c;
+    --bg: #f3f7fb;
+    --white: #fff;
+    --ok: #1a7f4b;
+    --err: #b02a2a;
+    --ring: rgba(17,49,76,0.18);
+  }
+
+  /* Sección con fondo agradable */
+  #lp-contact{
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background:
+      radial-gradient(1200px 600px at 10% -20%, #eaf2fb 10%, transparent 60%),
+      radial-gradient(900px 500px at 110% 0%, #e7eef7 10%, transparent 60%),
+      linear-gradient(180deg, #f7fbff, #eef5fb 60%, #eaf2fb);
+    color: var(--text);
+    padding: 56px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Burbujas decorativas sutiles */
+  #lp-contact::before, #lp-contact::after{
+    content:"";
+    position:absolute; border-radius:50%;
+    filter: blur(30px); opacity:.35; pointer-events:none;
+    animation: float 12s ease-in-out infinite;
+  }
+  #lp-contact::before{ width:380px; height:380px; left:-120px; top:-60px; background: radial-gradient(circle at 30% 30%, #b0d4ff, #8bb6e6); }
+  #lp-contact::after { width:320px; height:320px; right:-120px; bottom:-80px; background: radial-gradient(circle at 70% 70%, #b8e3ff, #99c7ea); animation-delay: -6s; }
+
+  .lp-wrap{ max-width: 980px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .lp-header{
+    text-align:center; margin-bottom: 22px;
+  }
+  .lp-header h2{
+    margin:0 0 6px; font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
+    color: var(--primary);
+    letter-spacing:.2px;
+  }
+  .lp-header p{
+    margin:0; color: var(--text-2);
+  }
+
+  .form-card{
+    margin: 18px auto 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.7));
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(19,54,81,0.12);
+    box-shadow: 0 12px 36px rgba(17,49,76,0.12);
+    border-radius: 16px;
+    padding: 22px;
+  }
+
+  /* Grid */
+  .grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .field-textarea{ grid-column: 1 / -1; }
+
+  /* Campo con etiqueta flotante e ícono */
+  .field{ position: relative; }
+  .field .icon{
+    position:absolute; left:12px; top: 13px; width:20px; height:20px;
+    display:grid; place-items:center; color:#6b8196;
+  }
+  .field input,
+  .field textarea{
+    width:100%;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid rgba(2,24,44,0.12);
+    border-radius: 12px;
+    padding: 12px 12px 12px 42px;
+    outline: none;
+    transition: box-shadow .15s, border-color .15s, background-color .2s;
+  }
+  .field textarea{ padding-top: 14px; resize: vertical; min-height: 140px; }
+
+  .field label{
+    position:absolute;
+    left:42px; top: 12px;
+    color:#7a8b9a;
+    background: transparent;
+    padding: 0 6px;
+    pointer-events:none;
+    transform-origin:left top;
+    transition: transform .16s ease, color .16s ease, top .16s ease, background-color .16s ease;
+  }
+
+  /* Estado flotante usando :placeholder-shown */
+  .field input::placeholder,
+  .field textarea::placeholder{ color: transparent; }
+  .field input:focus,
+  .field textarea:focus{
+    border-color: var(--primary);
+    box-shadow: 0 0 0 8px var(--ring);
+  }
+  .field input:not(:placeholder-shown) + label,
+  .field input:focus + label,
+  .field textarea:not(:placeholder-shown) + label,
+  .field textarea:focus + label{
+    top: -8px;
+    transform: scale(.82);
+    color: var(--primary);
+    background: var(--white);
+  }
+
+  /* Errores y validez */
+  .error{ display:block; min-height:16px; font-size:.85rem; color: var(--err); margin: 6px 0 0 2px; }
+  .counter{ color:#6b8196; font-size:.8rem; }
+  .meta{ display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
+
+  .is-invalid{ border-color: var(--err) !important; box-shadow: 0 0 0 6px rgba(176,42,42,0.12) !important; }
+  .is-valid{ border-color: var(--ok); }
+
+  /* Términos */
+  .terms{
+    display:flex; align-items:center; gap:10px; margin: 6px 2px 2px;
+    color: var(--text-2); user-select:none;
+  }
+  .terms input{ width:18px; height:18px; accent-color: var(--primary); }
+  .terms a{ color: var(--primary); text-underline-offset: 2px; }
+
+  /* Botón */
+  .btn{
+    margin-top: 10px;
+    position:relative; overflow:hidden;
+    display:inline-flex; align-items:center; gap: 10px;
+    border:0; border-radius: 12px;
+    padding: 12px 18px;
+    font-weight:700; color:#fff; cursor:pointer;
+    background: linear-gradient(90deg, var(--primary), var(--primary-2));
+    box-shadow: 0 10px 26px rgba(19,54,81,0.26);
+    transition: transform .12s, box-shadow .2s, filter .2s, opacity .2s;
+  }
+  .btn:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px rgba(19,54,81,0.34); }
+  .btn:active{ transform: translateY(-1px); }
+  .btn:disabled{ opacity:.85; cursor:not-allowed; transform:none; filter:saturate(.85); }
+
+  .btn-shine{
+    position:absolute; inset:0; background:
+      linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.22) 40%, rgba(255,255,255,0.0) 70%);
+    transform: translateX(-100%);
+    transition: transform .6s ease;
+  }
+  .btn:hover .btn-shine{ transform: translateX(100%); }
+
+  .spinner{
+    width:16px; height:16px; border:2px solid rgba(255,255,255,0.5);
+    border-top-color:#fff; border-radius:50%; display:none; animation: spin .8s linear infinite;
+  }
+
+  /* Toast */
+  .toast{
+    position: fixed;
+    left: 50%; bottom: 18px; transform: translateX(-50%) translateY(20px);
+    background:#ffffff; color:#0a1a2b;
+    border:1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    padding: 12px 14px; border-radius: 12px;
+    z-index: 50; opacity: 0; transition: opacity .2s, transform .2s;
+  }
+  .toast.show{ opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast.ok{ border-color: rgba(26,127,75,0.25); }
+  .toast.err{ border-color: rgba(176,42,42,0.25); }
+
+  /* Responsivo */
+  @media (max-width: 740px){
+    .grid{ grid-template-columns: 1fr; gap: 10px; }
+    .form-card{ padding: 18px; }
+  }
+
+  /* Animaciones */
+  @keyframes float{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-8px); }
+  }
+  @keyframes spin{ to{ transform: rotate(360deg); } }
+
+  /* Dark mode */
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0e1c2a; --text:#eaf2fb; --text-2:#b7c4d1; }
+    #lp-contact{
+      background:
+        radial-gradient(1200px 600px at 10% -20%, #0f2540 10%, transparent 60%),
+        radial-gradient(900px 500px at 110% 0%, #0e2038 10%, transparent 60%),
+        linear-gradient(180deg, #0b1826, #0f2238 60%, #0e1c2a);
+    }
+    .form-card{ background: rgba(13,26,40,0.6); border-color: rgba(255,255,255,0.08); box-shadow: 0 12px 36px rgba(0,0,0,0.45); }
+    .field input, .field textarea{ background:#0b1826; color:#eaf2fb; border-color: rgba(255,255,255,0.12); }
+    .field input:not(:placeholder-shown) + label,
+    .field input:focus + label,
+    .field textarea:not(:placeholder-shown) + label,
+    .field textarea:focus + label{
+      background:#0b1826;
+    }
+    .toast{ background:#102133; color:#eaf2fb; border-color: rgba(255,255,255,0.1); }
+  }
+
+  /* Accesibilidad */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  /* Utilidades */
+  .visually-hidden{
+    position:absolute !important; height:1px; width:1px; overflow:hidden;
+    clip: rect(1px, 1px, 1px, 1px); white-space: nowrap;
+  }
+</style>
+
+<script>
+  (function(){
+    const form = document.getElementById('lpForm');
+    const result = document.getElementById('formResult');
+    const btn = form.querySelector('.btn');
+    const btnLabel = form.querySelector('.btn-label');
+    const spinner = form.querySelector('.spinner');
+    const counter = document.getElementById('msgCounter');
+
+    const fields = {
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      message: form.message,
+      terms: form.terms,
+      hp: form.website
+    };
+
+    const ENDPOINT = form.getAttribute('data-endpoint') || '/api/contact';
+    const USE_MOCK_IF_FAILS = true;
+
+    function setSending(sending){
+      btn.disabled = sending;
+      spinner.style.display = sending ? 'inline-block' : 'none';
+      btnLabel.textContent = sending ? 'Enviando…' : 'Enviar';
+    }
+
+    function setToast(msg, ok = true){
+      result.textContent = msg;
+      result.hidden = false;
+      result.classList.remove('ok','err','show');
+      result.classList.add(ok ? 'ok' : 'err');
+      // force reflow
+      void result.offsetWidth;
+      result.classList.add('show');
+      setTimeout(() => { result.classList.remove('show'); setTimeout(()=> result.hidden = true, 200); }, 5000);
+    }
+
+    function errEl(id){ return form.querySelector('.error[data-for="'+id+'"]'); }
+
+    function invalidate(input, message){
+      input.classList.add('is-invalid');
+      input.classList.remove('is-valid');
+      input.setAttribute('aria-invalid', 'true');
+      const el = errEl(input.id); if(el) el.textContent = message || '';
+    }
+
+    function validate(input){
+      input.classList.remove('is-invalid');
+      input.removeAttribute('aria-invalid');
+      input.classList.add('is-valid');
+      const el = errEl(input.id); if(el) el.textContent = '';
+    }
+
+    function validateName(){
+      const v = fields.name.value.trim();
+      if(v.length < 2) return invalidate(fields.name, 'Ingresa tu nombre (mín. 2 caracteres).'), false;
+      if(v.length > 80) return invalidate(fields.name, 'Nombre demasiado largo.'), false;
+      validate(fields.name); return true;
+    }
+
+    function validateEmail(){
+      const v = fields.email.value.trim();
+      if(!v) return invalidate(fields.email, 'Ingresa tu correo.'), false;
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+      if(!re.test(v)) return invalidate(fields.email, 'Correo no válido.'), false;
+      validate(fields.email); return true;
+    }
+
+    function validatePhone(){
+      const v = fields.phone.value.trim();
+      if(!v) { fields.phone.classList.remove('is-invalid','is-valid'); errEl('phone').textContent=''; return true; }
+      const re = /^[0-9+()\s-]{6,}$/;
+      if(!re.test(v)) return invalidate(fields.phone, 'Usa solo números y + (mín. 6).'), false;
+      validate(fields.phone); return true;
+    }
+
+    function validateMessage(){
+      const v = fields.message.value.trim();
+      counter.textContent = v.length + '/1000';
+      if(v.length < 10) return invalidate(fields.message, 'Cuéntanos un poco más (mín. 10).'), false;
+      if(v.length > 1000) return invalidate(fields.message, 'Máximo 1000 caracteres.'), false;
+      validate(fields.message); return true;
+    }
+
+    function validateTerms(){
+      if(!fields.terms.checked){ errEl('terms').textContent = 'Debes aceptar la política.'; return false; }
+      errEl('terms').textContent = ''; return true;
+    }
+
+    // Live validation
+    fields.name.addEventListener('blur', validateName);
+    fields.email.addEventListener('blur', validateEmail);
+    fields.phone.addEventListener('blur', validatePhone);
+    fields.message.addEventListener('input', validateMessage);
+    fields.terms.addEventListener('change', validateTerms);
+
+    // Atajos
+    fields.message.addEventListener('keydown', (e)=>{
+      if((e.ctrlKey || e.metaKey) && e.key === 'Enter'){ form.requestSubmit(); }
+    });
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      if(fields.hp && fields.hp.value.trim()){ form.reset(); return; }
+
+      const ok = validateName() & validateEmail() & validatePhone() & validateMessage() & validateTerms();
+      if(!ok) return;
+
+      setSending(true);
+
+      const payload = {
+        name: fields.name.value.trim(),
+        email: fields.email.value.trim(),
+        phone: fields.phone.value.trim() || null,
+        message: fields.message.value.trim(),
+        consent: !!fields.terms.checked,
+        source: location.href,
+        ts: new Date().toISOString()
+      };
+
+      try{
+        const res = await fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept':'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if(!res.ok) throw new Error('HTTP '+res.status);
+
+        form.reset();
+        ['name','email','phone','message'].forEach(id => form[id].classList.remove('is-valid','is-invalid'));
+        counter.textContent = '0/1000';
+        setToast("Gracias por escribirnos, pronto tendrás noticias nuestras 🙌", true);
+      } catch(err){
+        if(USE_MOCK_IF_FAILS){
+          await new Promise(r=>setTimeout(r,700));
+          form.reset();
+          ['name','email','phone','message'].forEach(id => form[id].classList.remove('is-valid','is-invalid'));
+          counter.textContent = '0/1000';
+          setToast('¡Gracias! Tu mensaje fue enviado correctamente.', true);
+        } else {
+          setToast('Hubo un problema al enviar. Inténtalo de nuevo o escríbenos a soporte@xpressate.app', false);
+        }
+      } finally {
+        setSending(false);
+      }
+    });
+  })();
+</script>
+
+    <!-- Contact Channels -->
+<section class="section ">
+    <div class="container bring-to-front">
+        <div class="row gap-y">
+            <div class="col-md-6">
+            </div>
+
+            <div class="col-md-6">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+ <!-- Footer (todo con el mismo color base) -->
+<footer class="site-footer section same-color" aria-label="Pie de página" role="contentinfo">
+  <style>
+    :root{
+      --footer-color: #007BFF;      /* <-- COLOR UNIFORME: cámbialo aquí si quieres otro */
+      --text-on-footer: #ffffff;
+      --muted-on-footer: rgba(255,255,255,0.92);
+      --accent-border: rgba(255,255,255,0.08);
+      --social-size: 44px;
+    }
+
+    .site-footer{
+      background-color: var(--footer-color); /* TODO: fondo uniforme */
+      color: var(--text-on-footer);
+      padding: 28px 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    .site-footer .container{ max-width:1200px; margin:0 auto; padding:0 18px; }
+    .site-footer .row{ display:flex; flex-wrap:wrap; gap:18px; align-items:flex-start; }
+    .site-footer .col-md-4 { flex: 1 1 320px; min-width: 220px; }
+    .site-footer .col-md-2 { flex: 0 0 160px; min-width:120px; }
+
+    /* Forzar logo claro (si necesitas logo blanco) */
+    .site-footer .logo { width:200px; height:auto; display:block; filter: brightness(0) invert(1); }
+
+    /* Links y texto: todo en blanco / mismo tono */
+    .site-footer a { color: var(--text-on-footer); text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; color: var(--muted-on-footer); }
+    .site-footer p, .site-footer .tagline, .site-footer h6, .site-footer .small { color: var(--text-on-footer); }
+
+    /* Social buttons — mantienen el mismo color de fondo que el footer (para "todo igual"),
+       pero con borde sutil y sombra para que se distingan. Los iconos se mantienen blancos. */
+    .social-list { list-style:none; margin:0; padding:0; display:flex; gap:12px; align-items:center; }
+    .social-list li{ list-style:none; }
+    .social-btn{
+      width:var(--social-size);
+      height:var(--social-size);
+      display:inline-grid;
+      place-items:center;
+      border-radius:8px;
+      background: var(--footer-color);    /* mismo color que el footer */
+      border: 1px solid var(--accent-border);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      color: var(--text-on-footer);
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+      text-decoration:none;
+    }
+    .social-btn svg, .social-btn svg * { fill: var(--text-on-footer) !important; }
+
+    .social-btn:hover{ transform: translateY(-4px); opacity: .95; box-shadow: 0 18px 40px rgba(0,0,0,0.18); }
+
+    /* Divider */
+    .site-footer hr{ border:0; height:1px; background: rgba(255,255,255,0.06); margin:1.5rem 0 0.5rem 0; }
+
+    /* Ajustes móviles */
+    @media (max-width:720px){
+      .site-footer .col-md-4, .site-footer .col-md-2 { flex: 1 1 100%; }
+      .logo{ width:160px; }
+    }
+  </style>
+
+  <div class="container">
+    <div class="row gap-y text-center text-md-left">
+      <div class="col-md-4 mr-auto">
+        <img src="img/XPR.svg" alt="Logo" class="logo">
+        
+        <p>Tu voz registrada, tus problemas atendidos, tus soluciones reales.</p>
+      </div>
+          
+      <div class="col-md-2">
+        <nav class="nav flex-column">
+          <a class="nav-item py-2" href="#">Inicio</a>
+          <a class="nav-item py-2" href="#">Sobre nosotros</a>
+          <a class="nav-item py-2" href="#">Beneficios</a>
+        </nav>
+      </div>
+
+      <div class="col-md-2">
+        <nav class="nav flex-column">
+          <a class="nav-item py-2" href="#">Testimonios</a>
+          <a class="nav-item py-2" href="#">Unirme a Xpressate</a>
+          <a class="nav-item py-2" href="#">Contacto</a>
+        </nav>
+      </div>
+
+      <div class="col-md-2">
+        <nav class="nav flex-column">
+          <a class="nav-item py-2" href="#">Politica de privacidad</a>
+          <a class="nav-item py-2" href="#">Términos de uso</a>
+          <a class="nav-item py-2" href="#">Centro de ayuda</a>
+        </nav>
+      </div>
+
+      <div class="col-md-2">
+       <h6 class="py-2 small">Síguenos</h6>
+
+        <nav aria-label="Redes sociales">
+          <ul class="social-list" role="list">
+            <li>
+              <a href="https://facebook.com/5studios.net" target="_blank" rel="noopener noreferrer"
+                 class="social-btn" aria-label="Facebook" title="Facebook">
+                <!-- usa SVG o <i class="fab fa-facebook"></i> -->
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M22 12A10 10 0 1 0 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.9h-2.3V22C18.34 21.12 22 16.99 22 12z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-btn" aria-label="Twitter" title="Twitter">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.28 4.28 0 0 0 1.88-2.37 8.54 8.54 0 0 1-2.71 1.03 4.26 4.26 0 0 0-7.26 3.88A12.1 12.1 0 0 1 3.15 4.6a4.25 4.25 0 0 0 1.32 5.68 4.2 4.2 0 0 1-1.93-.53v.05a4.26 4.26 0 0 0 3.42 4.18 4.3 4.3 0 0 1-1.92.07 4.27 4.27 0 0 0 3.98 2.96A8.55 8.55 0 0 1 2 19.54 12.07 12.07 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.35-.01-.53A8.36 8.36 0 0 0 22.46 6z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="social-btn" aria-label="Instagram" title="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.75-2.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row small mt-3">
+      <div class="col-md-4">
+        <p class="mt-2 mb-0">© 205 <a href="https://5studios.net">Tu voz registrada, tus problemas atendidos, </a>tus soluciones reales.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/jquery.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/counterup2.js"></script>
+<script src="js/odometer.js"></script>
+<script src="js/swiper.js"></script>
+<script src="js/snap.svg.js"></script>
+<script src="js/tilt.jquery.js"></script>
+<script src="js/typed.js"></script>
+<script src="js/noframework.waypoints.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/scrollspy.js"></script>
+<script src="js/site.js"></script>
+
+</body>
+</html>
