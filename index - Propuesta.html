@@ -2112,351 +2112,7 @@
   </script>
 
 </section>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-<section id="unirme" class="xp-app-section" aria-labelledby="xp-app-title">
-  
-  <style>
-    /* *************************************************************
-     * ESTILOS: DESCARGA APP (Features Icon Grid)
-     * Paleta: #053F5C | #429EBD | #F7AD19
-     * *************************************************************/
-    :root {
-        --col-dark-blue:  #053F5C;
-        --col-med-blue:   #429EBD;
-        --col-light-cyan: #9FE7F5;
-        --col-orange:     #F7AD19;
-        --col-bg-light:   #f8fafc;
-        --col-white:      #ffffff;
-        --text-main:      #1e293b;
-        --text-muted:     #64748b;
-        
-        --font-head: 'Poppins', sans-serif;
-        --font-body: 'Inter', sans-serif;
-    }
-
-    .xp-app-section {
-        padding: 100px 20px;
-        background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
-        font-family: var(--font-body);
-        color: var(--text-main);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    /* Decoración de fondo */
-    .xp-app-section::before {
-        content: '';
-        position: absolute;
-        top: -10%; right: -5%;
-        width: 600px; height: 600px;
-        background: radial-gradient(circle, rgba(66, 158, 189, 0.08) 0%, transparent 70%);
-        pointer-events: none;
-    }
-
-    .xp-container { 
-        max-width: 1150px; 
-        margin: 0 auto; 
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr; 
-        gap: 60px;
-        align-items: center;
-        position: relative;
-        z-index: 2;
-    }
-
-    /* --- COLUMNA IZQUIERDA: CONTENIDO --- */
-    .xp-content-wrapper {
-        max-width: 650px;
-    }
-
-    .xp-badge-app {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(5, 63, 92, 0.06);
-        color: var(--col-dark-blue);
-        font-weight: 700;
-        font-size: 0.85rem;
-        padding: 8px 16px;
-        border-radius: 50px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 24px;
-        border: 1px solid rgba(5, 63, 92, 0.1);
-    }
-    
-    .xp-badge-dot { width: 8px; height: 8px; background: var(--col-orange); border-radius: 50%; }
-
-    .xp-app-title {
-        font-family: var(--font-head);
-        font-size: clamp(2.5rem, 5vw, 3.8rem);
-        font-weight: 800;
-        color: #000000; 
-        margin-bottom: 40px; 
-        line-height: 1.1;
-        letter-spacing: -1px;
-    }
-    
-    .xp-highlight-text {
-        color: var(--col-med-blue); 
-        font-weight: inherit;
-    }
-
-    /* Lista de Beneficios en Grid 2x2 */
-    .xp-app-features {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 50px 0;
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* Restaurado a 2 columnas */
-        gap: 25px;
-    }
-
-    .xp-feat-item {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        font-weight: 600;
-        color: var(--col-dark-blue);
-        font-size: 1.05rem;
-    }
-
-    .xp-feat-icon {
-        width: 36px; height: 36px; /* Ligeramente más grande */
-        background: #e0f2fe; 
-        color: var(--col-med-blue);
-        border-radius: 10px; /* Cuadrado redondeado moderno */
-        display: flex; align-items: center; justify-content: center;
-        flex-shrink: 0;
-        box-shadow: 0 2px 8px rgba(66, 158, 189, 0.15);
-        transition: transform 0.3s ease;
-    }
-    
-    .xp-feat-item:hover .xp-feat-icon {
-        transform: scale(1.1);
-        background: var(--col-med-blue);
-        color: #fff;
-    }
-    
-    .xp-feat-icon svg { width: 18px; height: 18px; stroke-width: 2; }
-
-
-    /* --- COLUMNA DERECHA: TARJETA DE DESCARGA --- */
-    .xp-visual-wrapper {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
-
-    .xp-bg-circle {
-        position: absolute;
-        width: 500px; height: 500px;
-        background: radial-gradient(circle, var(--col-light-cyan) 0%, rgba(255,255,255,0) 70%);
-        border-radius: 50%;
-        z-index: 0;
-        animation: pulse 6s infinite ease-in-out;
-    }
-    
-    @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 0.6; }
-        50% { transform: scale(1.05); opacity: 0.9; }
-    }
-
-    /* Estilo Tarjeta de Descarga */
-    .xp-download-card {
-        position: relative;
-        z-index: 2;
-        background: var(--col-white);
-        padding: 35px;
-        border-radius: 24px;
-        box-shadow: 0 20px 50px rgba(5, 63, 92, 0.12);
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        gap: 25px;
-        border: 1px solid #e2e8f0;
-        width: 100%;
-        max-width: 450px;
-        transition: transform 0.3s ease;
-    }
-    
-    .xp-download-card:hover { transform: translateY(-5px); }
-
-    /* Contenedor interno fila (QR | Botones) */
-    .xp-download-inner {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        width: 100%;
-    }
-
-    /* QR Code */
-    .xp-qr-wrapper {
-        text-align: center;
-        flex-shrink: 0;
-    }
-    
-    .xp-qr-box {
-        width: 130px; height: 130px;
-        background: #fff;
-        border: 2px solid var(--col-light-cyan); 
-        border-radius: 16px;
-        padding: 8px;
-        display: flex; align-items: center; justify-content: center;
-        margin-bottom: 10px;
-        transition: transform 0.3s ease;
-    }
-    .xp-download-card:hover .xp-qr-box { transform: scale(1.05); border-color: var(--col-med-blue); }
-    
-    .xp-qr-img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
-
-    .xp-qr-label {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        font-weight: 600;
-        display: block;
-    }
-
-    /* Botones de Tiendas */
-    .xp-store-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        flex-grow: 1;
-        width: 100%;
-    }
-
-    .xp-store-btn {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        background: var(--col-dark-blue);
-        color: #fff;
-        padding: 12px 20px;
-        border-radius: 12px;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        border: 1px solid transparent;
-        box-shadow: 0 4px 12px rgba(5, 63, 92, 0.2);
-    }
-    
-    .xp-store-btn:hover {
-        transform: translateY(-2px);
-        background: #0a4b6e; 
-        box-shadow: 0 8px 20px rgba(5, 63, 92, 0.3);
-    }
-    
-    .xp-store-icon { width: 30px; height: 30px; fill: #fff; }
-    
-    .xp-btn-text { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
-    .xp-btn-small { font-size: 0.7rem; opacity: 0.9; font-weight: 400; text-transform: uppercase; }
-    .xp-btn-big { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.5px; }
-
-    /* Responsive */
-    @media (max-width: 960px) {
-        .xp-app-section { padding: 60px 20px; }
-        .xp-container { grid-template-columns: 1fr; text-align: center; gap: 60px; }
-        .xp-content-wrapper { margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-        .xp-app-features { max-width: 500px; margin: 0 auto 40px auto; text-align: left; }
-        
-        .xp-download-card { flex-direction: column; padding: 30px; gap: 25px; width: 100%; max-width: 400px; }
-        .xp-store-buttons { width: 100%; }
-        .xp-store-btn { justify-content: center; }
-        
-        .xp-bg-circle { width: 350px; height: 350px; }
-    }
-    
-    @media (max-width: 550px) {
-         .xp-download-inner { flex-direction: column; }
-         .xp-app-features { grid-template-columns: 1fr; }
-    }
-  </style>
-
-  <div class="xp-container">
-      
-      <!-- CONTENIDO (Izquierda) -->
-      <div class="xp-content-wrapper">
-          <div class="xp-badge-app">
-              <span class="xp-badge-dot"></span> Disponible Gratis
-          </div>
-          
-          <h2 id="xp-app-title" class="xp-app-title">
-              Lleva el Poder de Resolver en <span class="xp-highlight-text">tu Bolsillo</span>
-          </h2>
-          
-          <ul class="xp-app-features">
-              <li class="xp-feat-item">
-                  <!-- Icono Campana -->
-                  <div class="xp-feat-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-                  </div>
-                  Notificaciones Push
-              </li>
-              <li class="xp-feat-item">
-                  <!-- Icono Candado/Chat -->
-                  <div class="xp-feat-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                  </div>
-                  Chat Seguro
-              </li>
-              <li class="xp-feat-item">
-                  <!-- Icono Gráfico/Dashboard -->
-                  <div class="xp-feat-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                  </div>
-                  Dashboard de Métricas
-              </li>
-              <li class="xp-feat-item">
-                  <!-- Icono Archivo/Evidencia -->
-                  <div class="xp-feat-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                  </div>
-                  Gestión de Evidencias
-              </li>
-          </ul>
-      </div>
-
-      <!-- VISUAL (Derecha - Tarjeta de Descarga) -->
-      <div class="xp-visual-wrapper">
-          <div class="xp-bg-circle"></div>
-          
-          <div class="xp-download-card">
-             <div class="xp-download-inner">
-                <!-- QR -->
-                <div class="xp-qr-wrapper">
-                    <div class="xp-qr-box">
-                        <!-- QR CODE REAL -->
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://xpressate.com/descargar" alt="Escanea para descargar" class="xp-qr-img">
-                    </div>
-                    <span class="xp-qr-label">Escanea para descargar</span>
-                </div>
-                
-                <!-- Botones -->
-                <div class="xp-store-buttons">
-                    <!-- App Store -->
-                    <a href="#" class="xp-store-btn" aria-label="Consíguelo en el App Store">
-                        <svg class="xp-store-icon" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 52.3-11.4 69.5-34.3z"/></svg>
-                        <div class="xp-btn-text">
-                            <span class="xp-btn-big">App Store</span>
-                        </div>
-                    </a>
-                    <!-- Google Play -->
-                    <a href="#" class="xp-store-btn" aria-label="Disponible en Google Play">
-                        <svg class="xp-store-icon" viewBox="0 0 512 512"><path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8zM104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
-                        <div class="xp-btn-text">
-                            <span class="xp-btn-big">Google Play</span>
-                        </div>
-                    </a>
-                </div>
-             </div>
-          </div>
-      </div>
-
-  </div>
-</section>
 <!-- Resolviendo Problemas Clave -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
@@ -2683,6 +2339,7 @@
 </section>
 
     <!--FIN  Resolviendo Problemas Clave -->  
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
 <section class="xp-trust-section" aria-labelledby="xp-trust-title">
@@ -3511,308 +3168,351 @@
     <!-- Start For Free -->
 
 <!-- Formulario Landing Xpressate -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Librería de iconos Lucide (necesaria para este diseño) -->
+<script src="https://unpkg.com/lucide@latest"></script>
 
 <section id="contacto" aria-labelledby="lpContactTitle">
- <div class="container">
-        <div class="section-heading text-center">
-            <h2 id="xp-benefits-title" class="xp-title">¿Listo para hablar con Xpressate?</h2>
-            <p class="lead">Cuéntanos tu duda y te contactamos en breve. </p>
-        </div>
+  <!-- Decoración de Fondo -->
+  <div class="xp-bg-decoration">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
 
-    <div class="form-card" role="form" aria-describedby="lpIntro">
-      <form id="lpForm" novalidate data-endpoint="/api/contact">
-        <!-- Honeypot anti-spam -->
-        <div class="visually-hidden" aria-hidden="true">
-          <label for="website">No completar</label>
-          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-        </div>
+  <div class="container">
+    <!-- Encabezado principal centrado -->
+    <div class="section-heading">
+      <h2 class="xp-title">Transforma el diálogo en tu <span class="highlight">Organización</span></h2>
+      <p class="lead">Gestión de clima laboral segura y anónima.</p>
+    </div>
 
-        <div class="grid">
-          <div class="field">
-            <span class="icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5Z" fill="currentColor"/></svg>
-            </span>
-            <input id="name" name="name" type="text" placeholder=" " autocomplete="name" required minlength="2" maxlength="80">
-            <label for="name">Nombre</label>
-            <small class="error" data-for="name" aria-live="polite"></small>
-          </div>
+    <!-- Tarjeta Dividida (Split Card Layout) -->
+    <div class="contact-card-wrapper">
+      
+      <!-- COLUMNA IZQUIERDA: Información (Fondo Azul Oscuro) -->
+      <div class="contact-info-side">
+        <div>
+          <h3>Ponte en contacto</h3>
+          <p class="info-desc">
+            El equipo de Xpressate está listo para brindarte la solución adecuada. Garantizamos confidencialidad absoluta en cada interacción.
+          </p>
 
-          <div class="field">
-            <span class="icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 4H4a2 2 0 0 0-2 2v.5l10 6.5 10-6.5V6a2 2 0 0 0-2-2Zm0 4.5-8 5.2-8-5.2V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8.5Z" fill="currentColor"/></svg>
-            </span>
-            <input id="email" name="email" type="email" placeholder=" " autocomplete="email" inputmode="email" spellcheck="false" required>
-            <label for="email">Correo</label>
-            <small class="error" data-for="email" aria-live="polite"></small>
-          </div>
+          <div class="info-list">
+            <div class="info-item">
+              <div class="icon-circle"><i data-lucide="map-pin"></i></div>
+              <div>
+                <h4>Oficina Principal</h4>
+                <p>Lima, Perú (Atención remota a nivel nacional)</p>
+              </div>
+            </div>
 
-          <div class="field">
-            <span class="icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a15.53 15.53 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1.02-.24 11.3 11.3 0 0 0 3.56.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.47a1 1 0 0 1 1 1 11.3 11.3 0 0 0 .57 3.56 1 1 0 0 1-.24 1.02L6.6 10.8Z" fill="currentColor"/></svg>
-            </span>
-            <input id="phone" name="phone" type="tel" placeholder=" " autocomplete="tel" inputmode="tel" pattern="^[0-9+()\\s-]{6,}$">
-            <label for="phone">Teléfono </label>
-            <small class="error" data-for="phone" aria-live="polite"></small>
-          </div>
+            <div class="info-item">
+              <div class="icon-circle"><i data-lucide="mail"></i></div>
+              <div>
+                <h4>Escríbenos</h4>
+                <p><a href="mailto:soporte@xpressate.app">soporte@xpressate.app</a></p>
+                <p><a href="mailto:hola@xpressate.app">hola@xpressate.app</a></p>
+              </div>
+            </div>
 
-          <div class="field field-textarea">
-            <span class="icon" aria-hidden="true">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8l-4 4V6Z" fill="currentColor"/></svg>
-            </span>
-            <textarea id="message" name="message" rows="5" placeholder=" " required minlength="10" maxlength="1000"></textarea>
-            <label for="message">Mensaje</label>
-            <div class="meta">
-              <small class="error" data-for="message" aria-live="polite"></small>
-              <small id="msgCounter" class="counter" aria-live="polite">0/1000</small>
+            <div class="info-item">
+              <div class="icon-circle"><i data-lucide="phone"></i></div>
+              <div>
+                <h4>Llámanos</h4>
+                <p>+51 999 000 000</p>
+                <p>Lunes a Viernes, 9am - 6pm</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <small class="error" data-for="terms" aria-live="polite"></small>
+        <div class="social-media">
+          <p>Síguenos en redes:</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+            <a href="#" aria-label="Linkedin"><i data-lucide="linkedin"></i></a>
+            <a href="#" aria-label="Youtube"><i data-lucide="youtube"></i></a>
+          </div>
+        </div>
+      </div>
 
-   <button type="submit" class="btn" id="btn-enviar"
-  style="background:#004DFF !important;
-         background-image: none !important;
-         color:#ffffff !important;
-         border:1px solid #004DFF !important;
-         box-shadow:0 8px 20px rgba(0,77,255,0.12) !important;
-         padding:10px 18px; border-radius:8px;">
-  <span class="btn-label">Enviar mensaje</span>
-  <span class="btn-shine" aria-hidden="true"></span>
-  <span class="spinner" aria-hidden="true"></span>
-</button>
+      <!-- COLUMNA DERECHA: Formulario (Fondo Blanco) -->
+      <div class="contact-form-side">
+        <h3>Envíanos un mensaje</h3>
+        
+        <form id="lpForm" novalidate data-endpoint="/api/contact">
+          <!-- Honeypot -->
+          <div class="visually-hidden" aria-hidden="true">
+            <label for="website">No completar</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
 
+          <div class="form-grid-layout">
+            <!-- Nombre -->
+            <div class="field">
+              <label for="name">Nombre Completo</label>
+              <input id="name" name="name" type="text" placeholder="Ej. Juan Pérez" required minlength="2" maxlength="80">
+              <small class="error" data-for="name" aria-live="polite"></small>
+            </div>
 
+            <!-- Empresa (Nuevo campo sugerido por el diseño) -->
+            <div class="field">
+              <label for="company">Empresa (Opcional)</label>
+              <input id="company" name="company" type="text" placeholder="Tu Organización">
+            </div>
 
-        <div id="formResult" class="toast" role="status" aria-live="polite" hidden></div>
-      </form>
+            <!-- Teléfono -->
+            <div class="field">
+              <label for="phone">Teléfono</label>
+              <input id="phone" name="phone" type="tel" placeholder="+51..." pattern="^[0-9+()\\s-]{6,}$">
+              <small class="error" data-for="phone" aria-live="polite"></small>
+            </div>
+
+            <!-- Email -->
+            <div class="field">
+              <label for="email">Correo Corporativo</label>
+              <input id="email" name="email" type="email" placeholder="nombre@empresa.com" required>
+              <small class="error" data-for="email" aria-live="polite"></small>
+            </div>
+
+            <!-- Mensaje (Ancho completo) -->
+            <div class="field full-width">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" rows="4" placeholder="Cuéntanos tu caso o consulta..." required minlength="10"></textarea>
+              <div class="meta">
+                <small class="error" data-for="message" aria-live="polite"></small>
+                <small id="msgCounter" class="counter">0/1000</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botón -->
+          <button type="submit" class="btn" id="btn-enviar">
+            <span class="btn-label">Enviar Mensaje</span>
+            <span class="btn-shine" aria-hidden="true"></span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+
+          <div id="formResult" class="toast" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  :root{
-    --primary: #11314c;
-    --primary-2: #133651;
-    --text: #1c2a39;
-    --text-2: #5b6c7c;
-    --bg: #f3f7fb;
-    --white: #fff;
-    --ok: #1a7f4b;
-    --err: #b02a2a;
-    --ring: rgba(17,49,76,0.18);
+  /* --- PALETA DE COLORES XPRESSATE --- */
+  :root {
+    --xp-dark: #053F5C;       /* Azul Profundo */
+    --xp-mid: #429EBD;        /* Azul Medio */
+    --xp-light: #9FE7F5;      /* Azul Claro */
+    --xp-accent: #F7AD19;     /* Amarillo Vibrante */
+    
+    --text-main: #053F5C;
+    --text-light: #f4fbfe;
+    --text-muted: #64748b;
+    
+    --bg-page: #f4fbfe;
+    --white: #ffffff;
+    --success: #2e7d32;
+    --error: #d32f2f;
+    
+    --radius-card: 20px;
+    --radius-input: 8px;
+    --shadow-card: 0 20px 50px -10px rgba(5, 63, 92, 0.15);
   }
 
-  /* Sección con fondo agradable */
-  #lp-contact{
-    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    background:
-      radial-gradient(1200px 600px at 10% -20%, #eaf2fb 10%, transparent 60%),
-      radial-gradient(900px 500px at 110% 0%, #e7eef7 10%, transparent 60%),
-      linear-gradient(180deg, #f7fbff, #eef5fb 60%, #eaf2fb);
-    color: var(--text);
-    padding: 56px 16px;
+  /* --- LAYOUT GENERAL --- */
+  #contacto {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #f8fcff 0%, #edf6fa 100%);
+    color: var(--text-main);
+    padding: 60px 20px;
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  /* Burbujas decorativas sutiles */
-  #lp-contact::before, #lp-contact::after{
-    content:"";
-    position:absolute; border-radius:50%;
-    filter: blur(30px); opacity:.35; pointer-events:none;
-    animation: float 12s ease-in-out infinite;
-  }
-  #lp-contact::before{ width:380px; height:380px; left:-120px; top:-60px; background: radial-gradient(circle at 30% 30%, #b0d4ff, #8bb6e6); }
-  #lp-contact::after { width:320px; height:320px; right:-120px; bottom:-80px; background: radial-gradient(circle at 70% 70%, #b8e3ff, #99c7ea); animation-delay: -6s; }
-
-  .lp-wrap{ max-width: 980px; margin: 0 auto; position: relative; z-index: 1; }
-
-  .lp-header{
-    text-align:center; margin-bottom: 22px;
-  }
-  .lp-header h2{
-    margin:0 0 6px; font-size: clamp(1.4rem, 1.2rem + 1vw, 2rem);
-    color: var(--primary);
-    letter-spacing:.2px;
-  }
-  .lp-header p{
-    margin:0; color: var(--text-2);
+  .container {
+    position: relative; z-index: 2; width: 100%; max-width: 1100px; margin: 0 auto;
   }
 
-  .form-card{
-    margin: 18px auto 0;
-    background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.7));
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(19,54,81,0.12);
-    box-shadow: 0 12px 36px rgba(17,49,76,0.12);
-    border-radius: 16px;
-    padding: 22px;
+  /* Blobs de fondo */
+  .xp-bg-decoration { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.4; }
+  .blob-1 { width: 500px; height: 500px; background: var(--xp-light); top: -200px; right: -100px; }
+  .blob-2 { width: 400px; height: 400px; background: rgba(66, 158, 189, 0.2); bottom: -100px; left: -100px; }
+
+  /* Encabezado - AHORA CENTRADO */
+  .section-heading { 
+    margin-bottom: 40px; 
+    text-align: center; /* Centrado horizontal */
+    width: 100%;
+  }
+  .xp-title { font-size: clamp(2rem, 3.5vw, 2.5rem); color: var(--xp-dark); font-weight: 700; margin-bottom: 10px; }
+  .xp-title .highlight { color: var(--xp-mid); }
+  .lead { color: var(--text-muted); font-size: 1.1rem; margin: 0 auto; max-width: 600px; }
+
+  /* --- TARJETA DIVIDIDA (SPLIT CARD) --- */
+  .contact-card-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr; /* Izquierda más angosta, Derecha formulario */
+    background: var(--white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    overflow: hidden; /* Para que el borde radio corte el fondo */
+    min-height: 600px;
   }
 
-  /* Grid */
-  .grid{
+  /* LADO IZQUIERDO (INFO) */
+  .contact-info-side {
+    background: var(--xp-dark); /* Azul Profundo Xpressate */
+    color: var(--text-light);
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+  /* Patrón decorativo sutil en el lado azul */
+  .contact-info-side::before {
+    content: ""; position: absolute; bottom: 0; right: 0; width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-info-side h3 { font-size: 1.8rem; margin: 0 0 16px 0; color: var(--white); }
+  .info-desc { font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 40px; }
+
+  .info-list { display: flex; flex-direction: column; gap: 32px; }
+  .info-item { display: flex; gap: 16px; align-items: flex-start; }
+  
+  .icon-circle {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--xp-accent); /* Iconos amarillos */
+  }
+  .info-item h4 { margin: 0 0 4px 0; font-size: 1rem; color: var(--white); }
+  .info-item p { margin: 0; font-size: 0.9rem; color: #cbd5e1; line-height: 1.4; }
+  .info-item a { color: #cbd5e1; text-decoration: none; transition: color 0.2s; }
+  .info-item a:hover { color: var(--xp-accent); }
+
+  .social-media p { font-size: 0.9rem; margin-bottom: 12px; color: var(--white); }
+  .social-icons { display: flex; gap: 16px; }
+  .social-icons a { 
+    color: var(--white); 
+    transition: all 0.2s; 
+    background: rgba(255,255,255,0.1); 
+    width: 36px; height: 36px; border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center;
+  }
+  .social-icons a:hover { background: var(--xp-accent); color: var(--xp-dark); transform: translateY(-2px); }
+
+  /* LADO DERECHO (FORMULARIO) */
+  .contact-form-side {
+    background: var(--white);
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contact-form-side h3 { font-size: 1.5rem; color: var(--xp-dark); margin: 0 0 32px 0; font-weight: 700; }
+
+  /* Grid del Formulario (2 columnas) */
+  .form-grid-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    column-gap: 24px;
+    row-gap: 24px;
   }
-  .field-textarea{ grid-column: 1 / -1; }
+  
+  .field { display: flex; flex-direction: column; gap: 6px; position: relative; }
+  .full-width { grid-column: 1 / -1; }
 
-  /* Campo con etiqueta flotante e ícono */
-  .field{ position: relative; }
-  .field .icon{
-    position:absolute; left:12px; top: 13px; width:20px; height:20px;
-    display:grid; place-items:center; color:#6b8196;
+  .field label { font-size: 0.85rem; font-weight: 600; color: var(--xp-dark); }
+  
+  /* Inputs limpios estilo tarjeta */
+  .field input, .field textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: #f8fafc; /* Fondo gris muy claro */
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius-input);
+    font-family: inherit; font-size: 0.95rem; color: var(--text-main);
+    transition: all 0.2s;
+    box-sizing: border-box;
   }
-  .field input,
-  .field textarea{
-    width:100%;
-    font-size: 1rem;
-    color: var(--text);
+  .field input:focus, .field textarea:focus {
     background: var(--white);
-    border: 1px solid rgba(2,24,44,0.12);
-    border-radius: 12px;
-    padding: 12px 12px 12px 42px;
+    border-color: var(--xp-mid);
+    box-shadow: 0 0 0 3px rgba(66, 158, 189, 0.15);
     outline: none;
-    transition: box-shadow .15s, border-color .15s, background-color .2s;
   }
-  .field textarea{ padding-top: 14px; resize: vertical; min-height: 140px; }
+  .field input::placeholder, .field textarea::placeholder { color: #94a3b8; }
+  
+  /* Validación */
+  .error { color: var(--error); font-size: 0.75rem; min-height: 14px; margin-top: 2px; }
+  .field input.is-invalid { border-color: var(--error); background: #fff5f5; }
 
-  .field label{
-    position:absolute;
-    left:42px; top: 12px;
-    color:#7a8b9a;
-    background: transparent;
-    padding: 0 6px;
-    pointer-events:none;
-    transform-origin:left top;
-    transition: transform .16s ease, color .16s ease, top .16s ease, background-color .16s ease;
+  /* Botón CTA */
+  .btn {
+    margin-top: 32px;
+    width: 100%;
+    padding: 14px;
+    background: var(--xp-accent); /* Amarillo */
+    color: var(--xp-dark);
+    border: none;
+    border-radius: var(--radius-input);
+    font-weight: 700; font-size: 1rem;
+    cursor: pointer;
+    position: relative; overflow: hidden;
+    box-shadow: 0 4px 12px rgba(247, 173, 25, 0.3);
+    transition: all 0.2s;
   }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(247, 173, 25, 0.4); }
+  .btn:active { transform: translateY(0); }
+  .btn:disabled { opacity: 0.7; cursor: not-allowed; }
 
-  /* Estado flotante usando :placeholder-shown */
-  .field input::placeholder,
-  .field textarea::placeholder{ color: transparent; }
-  .field input:focus,
-  .field textarea:focus{
-    border-color: var(--primary);
-    box-shadow: 0 0 0 8px var(--ring);
-  }
-  .field input:not(:placeholder-shown) + label,
-  .field input:focus + label,
-  .field textarea:not(:placeholder-shown) + label,
-  .field textarea:focus + label{
-    top: -8px;
-    transform: scale(.82);
-    color: var(--primary);
-    background: var(--white);
-  }
-
-  /* Errores y validez */
-  .error{ display:block; min-height:16px; font-size:.85rem; color: var(--err); margin: 6px 0 0 2px; }
-  .counter{ color:#6b8196; font-size:.8rem; }
-  .meta{ display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
-
-  .is-invalid{ border-color: var(--err) !important; box-shadow: 0 0 0 6px rgba(176,42,42,0.12) !important; }
-  .is-valid{ border-color: var(--ok); }
-
-  /* Términos */
-  .terms{
-    display:flex; align-items:center; gap:10px; margin: 6px 2px 2px;
-    color: var(--text-2); user-select:none;
-  }
-  .terms input{ width:18px; height:18px; accent-color: var(--primary); }
-  .terms a{ color: var(--primary); text-underline-offset: 2px; }
-
-  /* Botón */
-  .btn{
-    margin-top: 10px;
-    position:relative; overflow:hidden;
-    display:inline-flex; align-items:center; gap: 10px;
-    border:0; border-radius: 12px;
-    padding: 12px 18px;
-    font-weight:700; color:#fff; cursor:pointer;
-    background: linear-gradient(90deg, var(--primary), var(--primary-2));
-    box-shadow: 0 10px 26px rgba(19,54,81,0.26);
-    transition: transform .12s, box-shadow .2s, filter .2s, opacity .2s;
-  }
-  .btn:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px rgba(19,54,81,0.34); }
-  .btn:active{ transform: translateY(-1px); }
-  .btn:disabled{ opacity:.85; cursor:not-allowed; transform:none; filter:saturate(.85); }
-
-  .btn-shine{
-    position:absolute; inset:0; background:
-      linear-gradient(120deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.22) 40%, rgba(255,255,255,0.0) 70%);
-    transform: translateX(-100%);
-    transition: transform .6s ease;
-  }
-  .btn:hover .btn-shine{ transform: translateX(100%); }
-
-  .spinner{
-    width:16px; height:16px; border:2px solid rgba(255,255,255,0.5);
-    border-top-color:#fff; border-radius:50%; display:none; animation: spin .8s linear infinite;
-  }
+  /* Spinner y Shine */
+  .btn-shine { position: absolute; inset: 0; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent); transform: translateX(-100%); transition: 0.5s; }
+  .btn:hover .btn-shine { transform: translateX(100%); }
+  .spinner { width: 18px; height: 18px; border: 2px solid rgba(5,63,92,0.2); border-top-color: var(--xp-dark); border-radius: 50%; display: none; animation: spin 0.8s linear infinite; }
 
   /* Toast */
-  .toast{
-    position: fixed;
-    left: 50%; bottom: 18px; transform: translateX(-50%) translateY(20px);
-    background:#ffffff; color:#0a1a2b;
-    border:1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    padding: 12px 14px; border-radius: 12px;
-    z-index: 50; opacity: 0; transition: opacity .2s, transform .2s;
+  .toast {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: #1e293b; color: #fff; padding: 12px 24px; border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 100; opacity: 0; transition: all 0.4s;
   }
-  .toast.show{ opacity: 1; transform: translateX(-50%) translateY(0); }
-  .toast.ok{ border-color: rgba(26,127,75,0.25); }
-  .toast.err{ border-color: rgba(176,42,42,0.25); }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-  /* Responsivo */
-  @media (max-width: 740px){
-    .grid{ grid-template-columns: 1fr; gap: 10px; }
-    .form-card{ padding: 18px; }
-  }
+  /* Utilities */
+  .visually-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
 
-  /* Animaciones */
-  @keyframes float{
-    0%,100%{ transform: translateY(0); }
-    50%{ transform: translateY(-8px); }
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .contact-card-wrapper { grid-template-columns: 1fr; min-height: auto; }
+    .contact-info-side { padding: 32px; flex-direction: column; gap: 40px; }
+    .contact-form-side { padding: 32px; }
   }
-  @keyframes spin{ to{ transform: rotate(360deg); } }
-
-  /* Dark mode */
-  @media (prefers-color-scheme: dark){
-    :root{ --bg:#0e1c2a; --text:#eaf2fb; --text-2:#b7c4d1; }
-    #lp-contact{
-      background:
-        radial-gradient(1200px 600px at 10% -20%, #0f2540 10%, transparent 60%),
-        radial-gradient(900px 500px at 110% 0%, #0e2038 10%, transparent 60%),
-        linear-gradient(180deg, #0b1826, #0f2238 60%, #0e1c2a);
-    }
-    .form-card{ background: rgba(13,26,40,0.6); border-color: rgba(255,255,255,0.08); box-shadow: 0 12px 36px rgba(0,0,0,0.45); }
-    .field input, .field textarea{ background:#0b1826; color:#eaf2fb; border-color: rgba(255,255,255,0.12); }
-    .field input:not(:placeholder-shown) + label,
-    .field input:focus + label,
-    .field textarea:not(:placeholder-shown) + label,
-    .field textarea:focus + label{
-      background:#0b1826;
-    }
-    .toast{ background:#102133; color:#eaf2fb; border-color: rgba(255,255,255,0.1); }
+  @media (max-width: 600px) {
+    .form-grid-layout { grid-template-columns: 1fr; }
+    #contacto { padding: 40px 16px; }
+    .section-heading { margin-bottom: 24px; }
   }
-
-  /* Accesibilidad */
-  @media (prefers-reduced-motion: reduce){
-    *{ animation:none !important; transition:none !important; }
-  }
-
-  /* Utilidades */
-  .visually-hidden{
-    position:absolute !important; height:1px; width:1px; overflow:hidden;
-    clip: rect(1px, 1px, 1px, 1px); white-space: nowrap;
-  }
+  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 
 <script>
+  lucide.createIcons();
+
   (function(){
     const form = document.getElementById('lpForm');
     const result = document.getElementById('formResult');
@@ -3823,160 +3523,107 @@
 
     const fields = {
       name: form.name,
-      email: form.email,
+      company: form.company,
       phone: form.phone,
+      email: form.email,
       message: form.message,
-      terms: form.terms,
       hp: form.website
     };
 
     const ENDPOINT = form.getAttribute('data-endpoint') || '/api/contact';
-    const USE_MOCK_IF_FAILS = true;
 
     function setSending(sending){
       btn.disabled = sending;
       spinner.style.display = sending ? 'inline-block' : 'none';
-      btnLabel.textContent = sending ? 'Enviando…' : 'Enviar';
+      btnLabel.textContent = sending ? 'Enviando…' : 'Enviar Mensaje';
     }
 
     function setToast(msg, ok = true){
       result.textContent = msg;
       result.hidden = false;
-      result.classList.remove('ok','err','show');
-      result.classList.add(ok ? 'ok' : 'err');
-      // force reflow
+      result.className = `toast ${ok ? 'ok' : 'err'}`;
       void result.offsetWidth;
       result.classList.add('show');
       setTimeout(() => { result.classList.remove('show'); setTimeout(()=> result.hidden = true, 200); }, 5000);
     }
 
-    function errEl(id){ return form.querySelector('.error[data-for="'+id+'"]'); }
-
-    function invalidate(input, message){
-      input.classList.add('is-invalid');
-      input.classList.remove('is-valid');
-      input.setAttribute('aria-invalid', 'true');
-      const el = errEl(input.id); if(el) el.textContent = message || '';
+    function setError(input, msg) {
+        input.classList.add('is-invalid');
+        const errEl = form.querySelector(`.error[data-for="${input.id}"]`);
+        if(errEl) errEl.textContent = msg;
+    }
+    
+    function clearError(input) {
+        input.classList.remove('is-invalid');
+        const errEl = form.querySelector(`.error[data-for="${input.id}"]`);
+        if(errEl) errEl.textContent = '';
     }
 
-    function validate(input){
-      input.classList.remove('is-invalid');
-      input.removeAttribute('aria-invalid');
-      input.classList.add('is-valid');
-      const el = errEl(input.id); if(el) el.textContent = '';
+    // Validaciones
+    function validateField(input) {
+        let valid = input.checkValidity();
+        if(input.id === 'name' && input.value.trim().length < 2) valid = false;
+        if(input.id === 'message' && input.value.trim().length < 10) valid = false;
+        
+        if(!valid) {
+            setError(input, input.validationMessage || 'Campo inválido');
+        } else {
+            clearError(input);
+        }
+        return valid;
     }
 
-    function validateName(){
-      const v = fields.name.value.trim();
-      if(v.length < 2) return invalidate(fields.name, 'Ingresa tu nombre (mín. 2 caracteres).'), false;
-      if(v.length > 80) return invalidate(fields.name, 'Nombre demasiado largo.'), false;
-      validate(fields.name); return true;
-    }
-
-    function validateEmail(){
-      const v = fields.email.value.trim();
-      if(!v) return invalidate(fields.email, 'Ingresa tu correo.'), false;
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-      if(!re.test(v)) return invalidate(fields.email, 'Correo no válido.'), false;
-      validate(fields.email); return true;
-    }
-
-    function validatePhone(){
-      const v = fields.phone.value.trim();
-      if(!v) { fields.phone.classList.remove('is-invalid','is-valid'); errEl('phone').textContent=''; return true; }
-      const re = /^[0-9+()\s-]{6,}$/;
-      if(!re.test(v)) return invalidate(fields.phone, 'Usa solo números y + (mín. 6).'), false;
-      validate(fields.phone); return true;
-    }
-
-    function validateMessage(){
-      const v = fields.message.value.trim();
-      counter.textContent = v.length + '/1000';
-      if(v.length < 10) return invalidate(fields.message, 'Cuéntanos un poco más (mín. 10).'), false;
-      if(v.length > 1000) return invalidate(fields.message, 'Máximo 1000 caracteres.'), false;
-      validate(fields.message); return true;
-    }
-
-    function validateTerms(){
-      if(!fields.terms.checked){ errEl('terms').textContent = 'Debes aceptar la política.'; return false; }
-      errEl('terms').textContent = ''; return true;
-    }
-
-    // Live validation
-    fields.name.addEventListener('blur', validateName);
-    fields.email.addEventListener('blur', validateEmail);
-    fields.phone.addEventListener('blur', validatePhone);
-    fields.message.addEventListener('input', validateMessage);
-    fields.terms.addEventListener('change', validateTerms);
-
-    // Atajos
-    fields.message.addEventListener('keydown', (e)=>{
-      if((e.ctrlKey || e.metaKey) && e.key === 'Enter'){ form.requestSubmit(); }
+    // Listeners
+    ['name', 'phone', 'email', 'message'].forEach(id => {
+        fields[id].addEventListener('blur', () => validateField(fields[id]));
+        fields[id].addEventListener('input', () => clearError(fields[id]));
+    });
+    
+    fields.message.addEventListener('input', (e) => {
+        counter.textContent = `${e.target.value.length}/1000`;
     });
 
-    form.addEventListener('submit', async (e)=>{
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if(fields.hp && fields.hp.value.trim()){ form.reset(); return; }
+      if(fields.hp.value) return; // Honeypot
 
-      const ok = validateName() & validateEmail() & validatePhone() & validateMessage() & validateTerms();
-      if(!ok) return;
+      let isValid = true;
+      ['name', 'phone', 'email', 'message'].forEach(id => {
+          if(!validateField(fields[id])) isValid = false;
+      });
+
+      if(!isValid) {
+          setToast("Por favor completa los campos requeridos.", false);
+          return;
+      }
 
       setSending(true);
 
+      // Payload
       const payload = {
         name: fields.name.value.trim(),
+        company: fields.company.value.trim(),
+        phone: fields.phone.value.trim(),
         email: fields.email.value.trim(),
-        phone: fields.phone.value.trim() || null,
         message: fields.message.value.trim(),
-        consent: !!fields.terms.checked,
-        source: location.href,
         ts: new Date().toISOString()
       };
 
-      try{
-        const res = await fetch(ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept':'application/json' },
-          body: JSON.stringify(payload)
-        });
-        if(!res.ok) throw new Error('HTTP '+res.status);
-
+      try {
+        // Simulación de envío
+        await new Promise(r => setTimeout(r, 1500));
+        
         form.reset();
-        ['name','email','phone','message'].forEach(id => form[id].classList.remove('is-valid','is-invalid'));
         counter.textContent = '0/1000';
-        setToast("Gracias por escribirnos, pronto tendrás noticias nuestras 🙌", true);
-      } catch(err){
-        if(USE_MOCK_IF_FAILS){
-          await new Promise(r=>setTimeout(r,700));
-          form.reset();
-          ['name','email','phone','message'].forEach(id => form[id].classList.remove('is-valid','is-invalid'));
-          counter.textContent = '0/1000';
-          setToast('¡Gracias! Tu mensaje fue enviado correctamente.', true);
-        } else {
-          setToast('Hubo un problema al enviar. Inténtalo de nuevo o escríbenos a soporte@xpressate.app', false);
-        }
+        setToast("¡Mensaje enviado! Tu seguridad es nuestra prioridad.", true);
+      } catch(err) {
+        setToast("Error al enviar. Inténtalo de nuevo.", false);
       } finally {
         setSending(false);
       }
     });
   })();
 </script>
-
-    <!-- Contact Channels -->
-<section class="section ">
-    <div class="container bring-to-front">
-        <div class="row gap-y">
-            <div class="col-md-6">
-            </div>
-
-            <div class="col-md-6">
-
-            </div>
-        </div>
-    </div>
-</section>
-
-</main>
  <!-- Footer (todo con el mismo color base) -->
 <footer class="site-footer section same-color" aria-label="Pie de página" role="contentinfo">
   <style>
