@@ -161,9 +161,7 @@
       <div class="col-lg-8 col-md-11">
         
         <!-- Eyebrow / Etiqueta de Contexto -->
-        <div class="xp-eyebrow mb-3" data-aos="fade-down" data-aos-delay="0">
-           <span class="xp-badge-pill">🚀 GESTIÓN DE CLIMA LABORAL 360°</span>
-        </div>
+      
 
         <h1 class="xp-hero-title text-white mb-4" data-aos="fade-up" data-aos-delay="100">
           ¡Xpressate,<br>
@@ -176,23 +174,7 @@
           <strong>Reporta, gestiona y resuelve</strong> conflictos laborales con total anonimato y respaldo profesional.
         </p>
 
-        <!-- Botones de Acción MEJORADOS -->
-        <div class="d-flex flex-wrap align-items-center gap-3" data-aos="fade-up" data-aos-delay="300">
-          
-          <!-- Botón Principal con animación Pulse -->
-          <a href="#descarga-app" class="btn btn-lg xp-btn-primary rounded-pill">
-             <span class="btn-content">
-               <span class="btn-icon-anim">⬇</span> Descargar App
-             </span>
-             <div class="xp-btn-glow"></div>
-          </a>
-          
-          <!-- Botón Secundario Glassmorphism Refinado -->
-          <a href="#contacto" class="btn btn-lg xp-btn-glass rounded-pill">
-             <span>Contáctanos</span>
-             <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </a>
-
+        
         </div>
 
       </div>
@@ -1064,166 +1046,181 @@
 </section>
 
     <!-- Beneficios -->
-<section id="servicios-detalle" class="xp-deep-dive-section">
-  <style>
-    :root {
-      --xp-blue-dark: #053F5C;
-      --xp-blue-med: #429EBD;
-      --xp-orange: #F7AD19;
-      --xp-gray-bg: #f8fafc;
-    }
+<style>
+  /* --- ESTILOS ESPECÍFICOS DE ESTA SECCIÓN --- */
 
+  /* Contenedor Principal con Fondo y Corte Diagonal */
+  .xp-deep-dive-section {
+    position: relative;
+    width: 100%;
+    /* ¡COLOR ACTUALIZADO SEGÚN TU IMAGEN! */
+    background: #053F5C; 
+    
+    /* Corte geométrico: Empieza bajo a la izq, sube a la derecha */
+    clip-path: polygon(0 6vw, 100% 0, 100% 100%, 0 100%);
+    padding-top: 12vw; /* Compensación por el corte */
+    padding-bottom: 80px;
+    margin-top: -1px;
+    color: white; /* El texto sigue siendo blanco para contraste */
+  }
+
+  .xp-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Layout de filas */
+  .xp-row-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    margin-bottom: 80px;
+  }
+
+  .xp-row-block.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .xp-text-col { flex: 1; }
+  
+  .xp-img-col { 
+    flex: 1; 
+    display: flex; 
+    justify-content: center; 
+    position: relative;
+  }
+
+  /* Tipografía y Colores (Forzados a Blanco) */
+  .xp-block-title {
+    font-family: sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+
+  .xp-block-desc {
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  /* Etiquetas (Sobrescribe estilos inline con !important) */
+  .xp-subtitle-tag {
+    display: inline-block;
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(4px);
+  }
+
+  /* Listas */
+  .xp-check-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+  }
+
+  .xp-check-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #fff;
+    font-family: sans-serif;
+  }
+
+  .xp-check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    /* Color del check: ¡Ahora es el mismo azul del fondo para coherencia! */
+    color: #053F5C; 
+    border-radius: 50%;
+    margin-right: 12px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  /* Botones */
+  .xp-btn-line {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #fff;
+    /* Color del texto del botón: ¡Ahora es el mismo azul del fondo! */
+    color: #053F5C; 
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    font-family: sans-serif;
+    transition: transform 0.2s;
+  }
+  
+  .xp-btn-line:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  /* Estilos de Imágenes y Marcos */
+  .xp-img-frame {
+    position: relative;
+    z-index: 2;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border: 4px solid rgba(255,255,255,0.4);
+  }
+
+  .xp-img-frame img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .xp-img-bg {
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    background: rgba(255,255,255,0.15) !important;
+    z-index: 1;
+    border-radius: 50%;
+    top: 10%;
+    left: -5%;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
     .xp-deep-dive-section {
-      padding: 80px 0;
-      overflow: hidden;
+      clip-path: polygon(0 40px, 100% 0, 100% 100%, 0 100%);
+      padding-top: 80px;
     }
-
-    /* Estilo de cada Fila (Bloque) */
-    .xp-row-block {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 100px; /* Espacio generoso entre servicios */
-      gap: 60px;
+    .xp-row-block, .xp-row-block.reverse {
+      flex-direction: column;
+      text-align: center;
     }
-
-    /* Alternancia para móviles */
-    @media (max-width: 991px) {
-      .xp-row-block {
-        flex-direction: column;
-        text-align: center;
-        margin-bottom: 60px;
-        gap: 30px;
-      }
-      /* Invertir orden visual en móvil para que la imagen siempre quede arriba o abajo según prefieras */
-      .xp-row-block.reverse {
-        flex-direction: column; 
-      }
-    }
-
-    /* Contenido de Texto */
-    .xp-text-col {
-      flex: 1;
-    }
-
-    .xp-subtitle-tag {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--xp-orange);
-      margin-bottom: 15px;
-      background: rgba(247, 173, 25, 0.1);
-      padding: 6px 12px;
-      border-radius: 50px;
-    }
-
-    .xp-block-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--xp-blue-dark);
-      margin-bottom: 20px;
-      line-height: 1.1;
-    }
-
-    .xp-block-desc {
-      font-size: 1.1rem;
-      color: #587385;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-
-    .xp-check-list {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 30px;
-    }
-
     .xp-check-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-      font-weight: 500;
-      color: var(--xp-blue-dark);
-    }
-
-    .xp-check-icon {
-      color: var(--xp-blue-med);
-      font-weight: bold;
-    }
-
-    /* Botón "Saber más" estilo Poolfarm */
-    .xp-btn-line {
-      font-weight: 700;
-      color: var(--xp-blue-dark);
-      text-decoration: none;
-      border-bottom: 2px solid var(--xp-orange);
-      padding-bottom: 2px;
-      transition: all 0.3s ease;
-    }
-    .xp-btn-line:hover {
-      color: var(--xp-orange);
-      border-color: var(--xp-blue-dark);
-    }
-
-    /* Contenedor de Imagen con decoración */
-    .xp-img-col {
-      flex: 1;
-      position: relative;
-      display: flex;
       justify-content: center;
     }
+  }
+</style>
 
-    .xp-img-frame {
-      position: relative;
-      z-index: 2;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 20px 40px rgba(5, 63, 92, 0.15);
-      max-width: 500px;
-      width: 100%;
-    }
-
-    .xp-img-frame img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.5s ease;
-    }
+<!-- INICIO DE LA SECCIÓN --><section id="servicios-detalle" class="xp-deep-dive-section">
+  <div class="xp-container">
     
-    .xp-img-frame:hover img {
-      transform: scale(1.03);
-    }
-
-    /* Elemento decorativo trasero (El cuadro de color detrás de la imagen) */
-    .xp-img-bg {
-      position: absolute;
-      top: 20px;
-      left: 20px; /* Se invierte en el modificador */
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;
-      background: var(--xp-gray-bg);
-      z-index: 1;
-      border: 2px solid rgba(5, 63, 92, 0.05);
-    }
-
-    /* Modificador para el bloque invertido (Imagen Izq - Texto Der) */
-    .xp-row-block.reverse {
-      flex-direction: row-reverse;
-    }
-    .xp-row-block.reverse .xp-img-bg {
-      left: auto;
-      right: 20px;
-    }
-  </style>
-
-  <div class="container">
-
-    <div class="xp-row-block" data-aos="fade-up">
+    <!-- Bloque 1 --><div class="xp-row-block" data-aos="fade-up">
       <div class="xp-text-col">
         <span class="xp-subtitle-tag">Para Colaboradores</span>
         <h3 class="xp-block-title">Tu voz segura, tu identidad protegida.</h3>
@@ -1243,12 +1240,12 @@
       <div class="xp-img-col">
         <div class="xp-img-bg"></div>
         <div class="xp-img-frame">
-          <img src="https://placehold.co/600x400/F7AD19/ffffff?text=App+Usuarios" alt="Interfaz Usuario Xpressate">
+          <img src="https://placehold.co/350x600/F7AD19/ffffff?text=App+Usuario" alt="Interfaz Usuario Xpressate">
         </div>
       </div>
     </div>
 
-    <div class="xp-row-block reverse" data-aos="fade-up">
+    <!-- Bloque 2 --><div class="xp-row-block reverse" data-aos="fade-up">
       <div class="xp-text-col">
         <span class="xp-subtitle-tag" style="color:var(--xp-blue-med); background:rgba(66,158,189,0.1);">Para Empresas</span>
         <h3 class="xp-block-title">Gestión de riesgos y reputación corporativa.</h3>
@@ -1273,7 +1270,7 @@
       </div>
     </div>
 
-    <div class="xp-row-block" data-aos="fade-up">
+    <!-- Bloque 3 --><div class="xp-row-block" data-aos="fade-up">
       <div class="xp-text-col">
         <span class="xp-subtitle-tag" style="color:#10b981; background:rgba(16,185,129,0.1);">Seguridad & IA</span>
         <h3 class="xp-block-title">Resolución inteligente basada en datos.</h3>
