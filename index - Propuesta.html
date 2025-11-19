@@ -144,263 +144,326 @@
     
     
 <!-- Alternative 2 Heading -->
-<header class="header alter2-header section" id="home">
-    <div class="shapes-container">
-        <!-- diagonal shapes -->
-            <div class="shape shape-animated" data-aos="fade-down-right" data-aos-duration="1500" data-aos-delay="100"></div>
-            <div class="shape shape-animated" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
-            <div class="shape shape-animated" data-aos="fade-up-left" data-aos-duration="500" data-aos-delay="200"></div>
-            <div class="shape shape-animated" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200"></div>
-            <div class="shape shape-animated" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
-            <div class="shape shape-animated" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
-            <div class="shape shape-animated" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
-            <div class="shape shape-animated" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
-            <div class="shape shape-animated" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
+<header id="home" class="xp-immersive-hero">
+  <!-- Link a Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 
-        <!-- animated shapes -->
-        <div class="animation-shape shape-ring animation--clockwise"></div>
-        <div class="animation-shape shape-circle shape-circle-1 animation--anti-clockwise"></div>
-        <div class="animation-shape shape-circle shape-circle-2 animation--clockwise"></div>
-        <div class="animation-shape shape-heart animation--clockwise">
-            <div class="animation--rotating"></div>
+  <!-- 1. IMAGEN DE FONDO -->
+  <!-- Nota: He añadido un filtro sutil de saturación para que se vea más elegante -->
+  <div class="xp-bg-image" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');"></div>
+  
+  <!-- 2. SUPERPOSICIÓN (Overlay con gradiente direccional) -->
+  <div class="xp-hero-overlay"></div>
+
+  <!-- 3. CONTENIDO -->
+  <div class="container h-100 position-relative z-3">
+    <div class="row h-100 align-items-center">
+      <div class="col-lg-8 col-md-11">
+        
+        <!-- Eyebrow / Etiqueta de Contexto -->
+        <div class="xp-eyebrow mb-3" data-aos="fade-down" data-aos-delay="0">
+           <span class="xp-badge-pill">🚀 GESTIÓN DE CLIMA LABORAL 360°</span>
         </div>
 
-        <div class="animation-shape shape-triangle animation--rotating-diagonal">
-            <div class="animation--rotating"></div>
+        <h1 class="xp-hero-title text-white mb-4" data-aos="fade-up" data-aos-delay="100">
+          ¡Xpressate,<br>
+          tu voz, tu experiencia,<br> 
+          <span class="text-highlight">tu verdad!</span>
+        </h1>
+
+        <p class="xp-hero-lead text-white-50 mb-5" data-aos="fade-up" data-aos-delay="200">
+          La plataforma segura que conecta a colaboradores y empresas. 
+          <strong>Reporta, gestiona y resuelve</strong> conflictos laborales con total anonimato y respaldo profesional.
+        </p>
+
+        <!-- Botones de Acción MEJORADOS -->
+        <div class="d-flex flex-wrap align-items-center gap-3" data-aos="fade-up" data-aos-delay="300">
+          
+          <!-- Botón Principal con animación Pulse -->
+          <a href="#descarga-app" class="btn btn-lg xp-btn-primary rounded-pill">
+             <span class="btn-content">
+               <span class="btn-icon-anim">⬇</span> Descargar App
+             </span>
+             <div class="xp-btn-glow"></div>
+          </a>
+          
+          <!-- Botón Secundario Glassmorphism Refinado -->
+          <a href="#contacto" class="btn btn-lg xp-btn-glass rounded-pill">
+             <span>Contáctanos</span>
+             <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+
         </div>
-        <div class="animation-shape shape-diamond animation--anti-clockwise">
-            <div class="animation--rotating"></div>
-        </div>
 
-        <!-- static shapes -->
-        <div class="static-shape shape-ring-1"></div>
-        <div class="static-shape shape-ring-2"></div>
-
-        <div class="static-shape shape-circle shape-circle-1">
-            <div data-aos="fade-down-left"></div>
-        </div>
-
-        <div class="static-shape shape-circle shape-circle-2">
-            <div data-aos="fade-down-left" data-aos-delay="500"></div>
-        </div>
-
-        <div class="static-shape pattern-dots-1"></div>
-        <div class="static-shape pattern-dots-2"></div>
-
-        <!-- main shape -->
-        <div class="static-shape background-shape-main"></div>
-
-        <!-- ghost shapes -->
-        <div class="static-shape ghost-shape ghost-shape-1"></div>
+      </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-
-             <h1 class="text-contrast display-4 display-md-3"3">
-<span class="bold" style="color:#000">
-  ¡<span style="color:#000">Xpressate,</span><br>tu voz,tu experiencia, tu verdad!
-</span>
-
-</h1>
-                  <!-- app buttons -->
-          <!-- Badges tipo "App Store / Google Play" con borde púrpura y en una línea -->
-<style>
-  :root{
-    --badge-gap: 28px;         /* espacio entre badges */
-    --purple: #6e40ff;        /* color del borde (ajusta si quieres) */
-    --border-size: 3px;       /* grosor del borde */
-    --card-radius: 18px;      /* radio de las esquinas */
-    --card-padding: 12px 36px;/* padding dentro del rectángulo */
-    --badge-height: 46px;     /* altura visual del logo dentro del rectángulo */
-    --card-bg: #ffffff;
-    --card-shadow: 0 8px 18px rgba(16,12,60,0.06);
-  }
-
-  .badges-row {
-    display:flex;
-    gap: var(--badge-gap);
-    align-items:center;
-    justify-content:flex-start; /* o center */
-    flex-wrap: nowrap;
-    padding: 12px 0;
-    background: transparent;
-  }
-
-  .badge-card {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--card-bg);
-    padding: var(--card-padding);
-    border-radius: var(--card-radius);
-    border: var(--border-size) solid var(--purple);
-    box-shadow: var(--card-shadow);
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: transform .12s ease, box-shadow .12s ease;
-  }
-
-  .badge-card:focus,
-  .badge-card:hover{
-    transform: translateY(-4px);
-    box-shadow: 0 14px 30px rgba(16,12,60,0.10);
-    outline: none;
-  }
-
-  /* Las imágenes deben mantener proporción y adaptarse por altura */
-  .badge-card img {
-    display:block;
-    height: var(--badge-height);
-    width: auto;
-    max-width: 100%;
-    object-fit: contain;
-    vertical-align: middle;
-  }
-
-  /* Si quieres dos anchos distintos (opcional), controla con clases */
-  .badge-1 img { height: 46px; } /* App Store */
-  .badge-2 img { height: 46px; } /* Google Play */
-
-  /* Responsive: en pantallas muy pequeñas se apilan pero centradas */
-  @media (max-width:420px){
-    .badges-row{
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content:center;
-    }
-    .badge-card { width: calc(50% - 12px); box-sizing:border-box; padding:10px 18px; }
-    .badge-card img { height: 36px; }
-  }
-</style>
-
- <!-- app buttons -->
-          <!-- Inicio: Botones de descarga (solo la parte solicitada) -->
-<style>
-  :root {
-    --app-btn-blue: #007BFF;   /* color azul solicitado (cámbialo si prefieres otro) */
-    --app-btn-gap: 18px;       /* separación entre botones (un poquito más) */
-    --app-btn-radius: 10px;
-    --app-btn-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    --app-btn-padding: 8px 14px;
-    --btn-img-maxh: 40px;
-  }
-
-  /* Contenedor de los botones (lista horizontal) */
-  .app_btn {
-    display: flex;
-    gap: var(--app-btn-gap);
-    align-items: center;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .app_btn li { margin: 0; }
-
-  /* Estilo del enlace-botón */
-  .app-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--app-btn-blue);
-    padding: var(--app-btn-padding);
-    border-radius: var(--app-btn-radius);
-    box-shadow: var(--app-btn-shadow);
-    border: 1px solid rgba(255,255,255,0.08);
-    text-decoration: none;
-    transition: transform 150ms ease, box-shadow 150ms ease, opacity 120ms ease;
-  }
-
-  .app-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 36px rgba(0,0,0,0.16);
-  }
-
-  .app-btn:active { transform: translateY(-1px); }
-  .app-btn:focus-visible {
-    outline: 3px solid rgba(0,123,255,0.18);
-    outline-offset: 2px;
-  }
-
-  /* Imagen dentro del botón */
-  .app-btn .btn-img {
-    display: block;
-    max-height: var(--btn-img-maxh);
-    width: auto;
-    object-fit: contain;
-    vertical-align: middle;
-  }
-
-  /* Si la imagen blanca necesita un contraste sutil, se puede aplicar un filtro */
-  .app-btn .white_img {
-    /* filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12)); */
-  }
-
-  /* Responsive: reducir tamaños en pantallas muy pequeñas */
-  @media (max-width: 480px) {
-    :root { --app-btn-gap: 12px; --btn-img-maxh: 36px; --app-btn-padding: 6px 10px; }
-    .app_btn { gap: var(--app-btn-gap); }
-  }
-</style>
-
-<ul class="app_btn" aria-label="Botones de descarga de la app">
-  <li>
-    <a class="app-btn" href="#" aria-label="Descargar en App Store">
-      <img class="btn-img blue_img" src="img/ASS.png" alt="App Store" loading="lazy">
+    <!-- Indicador de Scroll (Mouse) -->
+    <a href="#beneficios" class="xp-scroll-indicator" aria-label="Deslizar hacia abajo">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <div class="arrow-scroll">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </a>
-  </li>
-
-  <li>
-    <a class="app-btn" href="#" aria-label="Descargar en Google Play">
-      <img class="btn-img white_img" src="img/GPY.png" alt="Google Play" loading="lazy">
-    </a>
-  </li>
-</ul>
-<!-- Fin: Botones de descarga -->
-
-
-                <nav class="nav my-5">
-
-
-            </div>
-
-           <!-- Coloca esto dentro de tu grid (ej. dentro de .row) -->
-<!-- HTML + CSS juntos -->
-<style>
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-    will-change: transform;
-  }
-  @keyframes float {
-    0%   { transform: translateY(0); }
-    50%  { transform: translateY(-8px); }
-    100% { transform: translateY(0); }
-  }
-  /* Respeta la preferencia del usuario por menos movimiento */
-  @media (prefers-reduced-motion: reduce) {
-    .animate-float { animation: none; }
-  }
-</style>
-
-<div class="col-lg-6 col-md-12" data-aos="fade-in" data-aos-duration="1500">
-
-   <img src="img/xpr3.png" alt="Pantalla XPRESSATE" width="750">
-
 
   </div>
-  <div class="notch"></div>
-</div>
-
-        <!-- row end -->
-      </div>
-      <!-- container end -->
-  
-</div>
-
-</div>
 </header>
+
+<!-- ESTILOS CSS NECESARIOS -->
+<style>
+  /* --- Configuración General --- */
+  .xp-immersive-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 650px; /* Altura mínima para evitar cortes en laptops pequeñas */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* --- Eyebrow (Etiqueta superior) --- */
+  .xp-eyebrow {
+    display: inline-block;
+  }
+  .xp-badge-pill {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    color: #F7AD19; /* Naranja */
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  /* --- Tipografía --- */
+  .xp-hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem); /* Ligeramente más grande */
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  
+  .text-highlight {
+    color: #F7AD19;
+    position: relative;
+    white-space: nowrap; /* Evita que se rompa la frase clave */
+    z-index: 1;
+  }
+  
+  /* Subrayado decorativo creativo */
+  .text-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: -5px;
+    width: 105%;
+    height: 18px;
+    background: rgba(247, 173, 25, 0.25);
+    z-index: -1;
+    transform: skewX(-15deg) rotate(-1deg);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(247, 173, 25, 0.2);
+  }
+
+  .xp-hero-lead {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    max-width: 650px;
+    line-height: 1.7;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    color: rgba(255, 255, 255, 0.9) !important; /* Más brillante */
+  }
+  .xp-hero-lead strong {
+    font-weight: 600;
+    color: #fff;
+  }
+
+  /* --- BOTÓN PRINCIPAL (Descargar) --- */
+  .xp-btn-primary {
+    background: linear-gradient(135deg, #FFB82E 0%, #F7AD19 100%);
+    color: #053F5C;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    border: none;
+    padding: 18px 45px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(247, 173, 25, 0.35);
+    z-index: 1;
+  }
+  
+  /* Animación de latido suave */
+  .xp-btn-primary {
+    animation: pulse-btn 3s infinite;
+  }
+  
+  @keyframes pulse-btn {
+    0% { box-shadow: 0 0 0 0 rgba(247, 173, 25, 0.6); }
+    70% { box-shadow: 0 0 0 15px rgba(247, 173, 25, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(247, 173, 25, 0); }
+  }
+
+  .xp-btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(247, 173, 25, 0.5);
+    color: #053F5C;
+  }
+
+  .btn-content {
+    display: flex; align-items: center; gap: 12px; font-size: 1.1rem;
+  }
+  
+  .btn-icon-anim {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  
+  .xp-btn-primary:hover .btn-icon-anim {
+    transform: translateY(3px); /* La flecha baja al hacer hover */
+  }
+
+  /* Resplandor interno al hover */
+  .xp-btn-glow {
+    position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 60%);
+    transform: scale(0); transition: transform 0.5s; pointer-events: none;
+  }
+  .xp-btn-primary:hover .xp-btn-glow { transform: scale(1); }
+
+
+  /* --- BOTÓN SECUNDARIO (Glass) --- */
+  .xp-btn-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 18px 40px;
+    transition: all 0.3s ease;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  
+  .xp-btn-glass .arrow-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .xp-btn-glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  }
+  
+  .xp-btn-glass:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+
+  /* --- FONDO Y OVERLAY --- */
+  .xp-bg-image {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover; background-position: center; z-index: 1;
+    /* Animación de paneo suave (Ken Burns effect) */
+    animation: panSlow 30s infinite alternate ease-in-out;
+    filter: saturate(1.1); /* Un poco más vibrante */
+  }
+
+  @keyframes panSlow {
+    0% { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.15) translate(-2%, -1%); }
+  }
+
+  .xp-hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    /* Gradiente radial para enfocar el centro/izquierda donde está el texto */
+    background: radial-gradient(circle at 30% 50%, rgba(5,63,92,0.85) 0%, rgba(5,63,92,0.95) 100%);
+    z-index: 2;
+  }
+
+  .z-3 { z-index: 3; }
+
+  /* --- INDICADOR DE SCROLL --- */
+  .xp-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    z-index: 10;
+  }
+  .xp-scroll-indicator:hover { opacity: 1; }
+
+  .mouse {
+    width: 26px; height: 42px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .wheel {
+    width: 4px; height: 6px; background: #F7AD19;
+    position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scrollWheel 1.5s infinite;
+  }
+  
+  @keyframes scrollWheel {
+    0% { opacity: 1; top: 8px; }
+    100% { opacity: 0; top: 24px; }
+  }
+  
+  /* Flechitas abajo (opcional, para reforzar) */
+  .arrow-scroll span {
+    display: block; width: 10px; height: 10px;
+    border-bottom: 2px solid #fff; border-right: 2px solid #fff;
+    transform: rotate(45deg);
+    margin: -4px auto;
+    animation: arrowScroll 2s infinite;
+  }
+  .arrow-scroll span:nth-child(2) { animation-delay: -0.2s; }
+  .arrow-scroll span:nth-child(3) { animation-delay: -0.4s; }
+  
+  @keyframes arrowScroll {
+    0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); }
+  }
+  
+  /* Ajuste responsive para móviles */
+  @media (max-width: 768px) {
+     .xp-hero-title { font-size: 2.8rem; }
+     .xp-immersive-hero { text-align: center; }
+     .xp-immersive-hero .row { justify-content: center; }
+     .xp-eyebrow { margin-bottom: 20px; }
+     .d-flex { justify-content: center; }
+     .xp-btn-primary, .xp-btn-glass { width: 100%; justify-content: center; }
+     .xp-scroll-indicator { display: none; /* Ocultar en móviles muy pequeños si estorba */ }
+  }
+</style>
 
     <!-- Partners Slider -->
 <section class="section">
@@ -1001,335 +1064,241 @@
 </section>
 
     <!-- Beneficios -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-
-<section id="beneficios" class="xp-benefits-section" aria-labelledby="xp-ben-title">
-  
+<section id="servicios-detalle" class="xp-deep-dive-section">
   <style>
-    /* *************************************************************
-     * ESTILOS CSS - DISEÑO "ROW CARDS" (COMPACTO & ESPACIADO)
-     * *************************************************************/
     :root {
-        /* Paleta Global */
-        --col-orange:     #F7AD19;
-        --col-dark-blue:  #053F5C;
-        --col-med-blue:   #429EBD;
-        --col-light-bg:   #f8fafc;
-        --col-white:      #ffffff;
-        --text-main:      #1e293b;
-        --text-muted:     #64748b;
-        
-        /* Tema Activo (Por defecto Usuario/Naranja) */
-        --theme-accent: var(--col-orange);
+      --xp-blue-dark: #053F5C;
+      --xp-blue-med: #429EBD;
+      --xp-orange: #F7AD19;
+      --xp-gray-bg: #f8fafc;
     }
 
-    /* Clase para cambiar a tema empresa */
-    .theme-company-mode {
-        --theme-accent: var(--col-dark-blue);
+    .xp-deep-dive-section {
+      padding: 80px 0;
+      overflow: hidden;
     }
 
-    /* --- Estructura General --- */
-    .xp-benefits-section {
-        padding: 60px 20px; 
-        background: var(--col-light-bg);
-        font-family: 'Inter', sans-serif;
-        color: var(--text-main);
-        transition: background 0.3s ease;
-    }
-    
-    .xp-container { max-width: 1200px; margin: 0 auto; }
-
-    /* --- Cabecera --- */
-    .xp-ben-header {
-        max-width: 800px;
-        margin-bottom: 50px; 
+    /* Estilo de cada Fila (Bloque) */
+    .xp-row-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 100px; /* Espacio generoso entre servicios */
+      gap: 60px;
     }
 
-    .xp-ben-title {
-        font-family: 'Poppins', sans-serif;
-        font-size: clamp(2rem, 4vw, 2.8rem);
-        font-weight: 800;
-        color: var(--text-main);
-        margin-bottom: 15px;
-        line-height: 1.2;
-    }
-    
-    .highlight { color: var(--theme-accent); transition: color 0.3s; }
-
-    .xp-ben-desc {
-        font-size: 1.05rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-        margin-bottom: 30px;
-        max-width: 90%;
-    }
-
-    /* Botón CTA */
-    .xp-btn-action {
-        display: inline-block;
-        background: var(--theme-accent);
-        color: #fff;
-        padding: 12px 28px;
-        border-radius: 50px;
-        font-weight: 700;
-        text-decoration: none;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        transition: transform 0.2s, background 0.3s, box-shadow 0.2s;
-    }
-    .xp-btn-action:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 25px rgba(0,0,0,0.2);
-        filter: brightness(1.1);
-    }
-
-    /* --- Tabs de Navegación --- */
-    .xp-ben-tabs {
-        display: flex;
-        gap: 15px;
-        margin-bottom: 35px;
-    }
-    .xp-ben-tab {
-        background: transparent;
-        border: 2px solid #e2e8f0;
-        padding: 8px 20px; 
-        border-radius: 30px;
-        font-weight: 600;
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    .xp-ben-tab.active {
-        background: var(--theme-accent);
-        border-color: var(--theme-accent);
-        color: #fff;
-    }
-
-    /* --- Grid de Tarjetas --- */
-    .xp-cards-wrapper {
-        display: none; 
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        /* AUMENTADO: 40px de espacio vertical (filas) y 20px horizontal (columnas) */
-        gap: 40px 20px; 
-        animation: slideUpFade 0.5s ease forwards;
-    }
-    .xp-cards-wrapper.visible { display: grid; }
-
-    @keyframes slideUpFade {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Estilo de la Tarjeta Individual */
-    .xp-card {
-        background: var(--col-white);
-        padding: 30px 20px; 
-        border-radius: 16px; 
-        box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-        text-align: center;
-        border: 1px solid transparent;
-        transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-        display: flex;
+    /* Alternancia para móviles */
+    @media (max-width: 991px) {
+      .xp-row-block {
         flex-direction: column;
-        align-items: center;
-        justify-content: flex-start; 
-        height: 100%;
+        text-align: center;
+        margin-bottom: 60px;
+        gap: 30px;
+      }
+      /* Invertir orden visual en móvil para que la imagen siempre quede arriba o abajo según prefieras */
+      .xp-row-block.reverse {
+        flex-direction: column; 
+      }
     }
 
-    .xp-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-        border-color: var(--theme-accent);
+    /* Contenido de Texto */
+    .xp-text-col {
+      flex: 1;
     }
 
-    /* Icono dentro de la tarjeta */
-    .xp-icon-box {
-        width: 55px; 
-        height: 55px;
-        margin-bottom: 15px; 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s;
-        flex-shrink: 0;
+    .xp-subtitle-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--xp-orange);
+      margin-bottom: 15px;
+      background: rgba(247, 173, 25, 0.1);
+      padding: 6px 12px;
+      border-radius: 50px;
     }
-    .xp-card:hover .xp-icon-box { transform: scale(1.1); }
+
+    .xp-block-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--xp-blue-dark);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .xp-block-desc {
+      font-size: 1.1rem;
+      color: #587385;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .xp-check-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 30px;
+    }
+
+    .xp-check-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-weight: 500;
+      color: var(--xp-blue-dark);
+    }
+
+    .xp-check-icon {
+      color: var(--xp-blue-med);
+      font-weight: bold;
+    }
+
+    /* Botón "Saber más" estilo Poolfarm */
+    .xp-btn-line {
+      font-weight: 700;
+      color: var(--xp-blue-dark);
+      text-decoration: none;
+      border-bottom: 2px solid var(--xp-orange);
+      padding-bottom: 2px;
+      transition: all 0.3s ease;
+    }
+    .xp-btn-line:hover {
+      color: var(--xp-orange);
+      border-color: var(--xp-blue-dark);
+    }
+
+    /* Contenedor de Imagen con decoración */
+    .xp-img-col {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .xp-img-frame {
+      position: relative;
+      z-index: 2;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(5, 63, 92, 0.15);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .xp-img-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
     
-    .xp-icon-svg {
-        width: 100%;
-        height: 100%;
-        stroke: var(--theme-accent);
-        stroke-width: 1.5;
-        fill: none;
-        transition: stroke 0.3s;
+    .xp-img-frame:hover img {
+      transform: scale(1.03);
     }
 
-    /* Texto de la tarjeta */
-    .xp-card-title {
-        font-size: 1rem; 
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: var(--text-main);
-        line-height: 1.3;
-    }
-    .xp-card-text {
-        font-size: 0.9rem; 
-        color: var(--text-muted);
-        line-height: 1.5;
+    /* Elemento decorativo trasero (El cuadro de color detrás de la imagen) */
+    .xp-img-bg {
+      position: absolute;
+      top: 20px;
+      left: 20px; /* Se invierte en el modificador */
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      background: var(--xp-gray-bg);
+      z-index: 1;
+      border: 2px solid rgba(5, 63, 92, 0.05);
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-        .xp-ben-title { font-size: 2rem; }
-        .xp-cards-wrapper { grid-template-columns: 1fr; gap: 20px; } /* En móvil el gap normal está bien */
-        .xp-card { padding: 20px; flex-direction: row; text-align: left; gap: 15px; align-items: center;}
-        .xp-icon-box { width: 40px; height: 40px; margin-bottom: 0; }
-        .xp-card-title { margin-bottom: 4px; font-size: 1rem; }
-        .xp-card-text { font-size: 0.85rem; }
+    /* Modificador para el bloque invertido (Imagen Izq - Texto Der) */
+    .xp-row-block.reverse {
+      flex-direction: row-reverse;
+    }
+    .xp-row-block.reverse .xp-img-bg {
+      left: auto;
+      right: 20px;
     }
   </style>
 
-  <div class="xp-container">
-    
-    <!-- CABECERA -->
-    <div class="xp-ben-header">
-      <div class="xp-ben-tabs">
-        <button class="xp-ben-tab active" onclick="toggleBenefits('user')">PARA USUARIOS</button>
-        <button class="xp-ben-tab" onclick="toggleBenefits('company')">PARA EMPRESAS</button>
+  <div class="container">
+
+    <div class="xp-row-block" data-aos="fade-up">
+      <div class="xp-text-col">
+        <span class="xp-subtitle-tag">Para Colaboradores</span>
+        <h3 class="xp-block-title">Tu voz segura, tu identidad protegida.</h3>
+        <p class="xp-block-desc">
+          Deja de lado el miedo a represalias. Nuestra tecnología de encriptación garantiza el anonimato mientras permitimos que tu reporte llegue a quien toma las decisiones.
+        </p>
+        
+        <ul class="xp-check-list">
+          <li><span class="xp-check-icon">✓</span> Reportes anónimos validados.</li>
+          <li><span class="xp-check-icon">✓</span> Chat directo sin revelar identidad.</li>
+          <li><span class="xp-check-icon">✓</span> Seguimiento de estado en tiempo real.</li>
+        </ul>
+
+        <a href="#unirme" class="xp-btn-line">Descargar App →</a>
       </div>
 
-      <h2 class="xp-ben-title">De Controversia a Valor: <br><span class="highlight" id="dynamic-title">Tu Camino a la Resolución</span></h2>
-      
-      <p class="xp-ben-desc">
-        Ofrecemos el camino formal y seguro para la resolución definitiva. Elige tu perfil y descubre cómo transformamos problemas en oportunidades de crecimiento.
-      </p>
-
-      <a href="#registro" class="xp-btn-action">Transforma tu Gestión</a>
-    </div>
-
-    <!-- GRID DE TARJETAS: USUARIO (Naranja) -->
-    <div id="grid-user" class="xp-cards-wrapper visible">
-      <!-- Card 1 -->
-      <div class="xp-card">
-        <div class="xp-icon-box">
-            <!-- Icono Certificado -->
-            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      <div class="xp-img-col">
+        <div class="xp-img-bg"></div>
+        <div class="xp-img-frame">
+          <img src="https://placehold.co/600x400/F7AD19/ffffff?text=App+Usuarios" alt="Interfaz Usuario Xpressate">
         </div>
-        <h3 class="xp-card-title">Resolución Formal</h3>
-        <p class="xp-card-text">Accede a un canal certificado y privado para resolver controversias.</p>
-      </div>
-      
-      <!-- Card 2 -->
-      <div class="xp-card">
-        <div class="xp-icon-box">
-            <!-- Icono Reputación -->
-            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-        </div>
-        <h3 class="xp-card-title">Protección de Reputación</h3>
-        <p class="xp-card-text">Fomenta acuerdos que mejoran tu historial y marca personal.</p>
-      </div>
-      
-      <!-- Card 3 -->
-      <div class="xp-card">
-        <div class="xp-icon-box">
-            <!-- Icono Seguridad -->
-            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        </div>
-        <h3 class="xp-card-title">Entorno Seguro</h3>
-        <p class="xp-card-text">Contenido estrictamente validado para evitar riesgos legales.</p>
-      </div>
-      
-      <!-- Card 4 -->
-      <div class="xp-card">
-        <div class="xp-icon-box">
-             <!-- Icono Oportunidades -->
-             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-        </div>
-        <h3 class="xp-card-title">Acceso a Oportunidades</h3>
-        <p class="xp-card-text">Conéctate con empresas que valoran la transparencia.</p>
-      </div>
-
-      <!-- Card 5 (Conocimiento Empresarial) -->
-      <div class="xp-card">
-        <div class="xp-icon-box">
-             <!-- Icono Edificio/Búsqueda -->
-             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M9 10a2 2 0 1 1-4 0"/></svg>
-        </div>
-        <h3 class="xp-card-title">Conocimiento Empresarial</h3>
-        <p class="xp-card-text">Conoce el perfil de las empresas donde trabajarás, estudiarás o harás tus prácticas.</p>
       </div>
     </div>
 
-    <!-- GRID DE TARJETAS: EMPRESA (Azul) -->
-    <div id="grid-company" class="xp-cards-wrapper">
-      <!-- Card 1 -->
-      <div class="xp-card">
-        <div class="xp-icon-box">
-             <!-- Icono Trazabilidad -->
-             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
-        </div>
-        <h3 class="xp-card-title">Trazabilidad Legal</h3>
-        <p class="xp-card-text">Diálogo directo con respaldo y seguimiento certificado.</p>
+    <div class="xp-row-block reverse" data-aos="fade-up">
+      <div class="xp-text-col">
+        <span class="xp-subtitle-tag" style="color:var(--xp-blue-med); background:rgba(66,158,189,0.1);">Para Empresas</span>
+        <h3 class="xp-block-title">Gestión de riesgos y reputación corporativa.</h3>
+        <p class="xp-block-desc">
+          Transforma las quejas en datos. Accede a un dashboard ejecutivo que te permite medir el clima laboral, detectar focos de conflicto y resolverlos antes de que escalen a redes sociales o instancias legales.
+        </p>
+        
+        <ul class="xp-check-list">
+          <li><span class="xp-check-icon">✓</span> Dashboard de métricas y KPIs.</li>
+          <li><span class="xp-check-icon">✓</span> Gestión de roles y permisos.</li>
+          <li><span class="xp-check-icon">✓</span> Trazabilidad legal de acuerdos.</li>
+        </ul>
+
+        <a href="#registro-empresa" class="xp-btn-line">Solicitar Demo →</a>
       </div>
-      <!-- Card 2 -->
-      <div class="xp-card">
-        <div class="xp-icon-box">
-             <!-- Icono Métricas -->
-             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+
+      <div class="xp-img-col">
+        <div class="xp-img-bg" style="background:#f0f8ff;"></div>
+        <div class="xp-img-frame">
+          <img src="https://placehold.co/600x400/053F5C/ffffff?text=Dashboard+Empresas" alt="Dashboard Empresas">
         </div>
-        <h3 class="xp-card-title">Métricas Accionables</h3>
-        <p class="xp-card-text">Panel con métricas clave de reputación y resolución.</p>
       </div>
-      <!-- Card 3 -->
-      <div class="xp-card">
-        <div class="xp-icon-box">
-             <!-- Icono Respuesta -->
-             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-        </div>
-        <h3 class="xp-card-title">Control de Respuesta</h3>
-        <p class="xp-card-text">Gestión de roles y representantes para control total.</p>
+    </div>
+
+    <div class="xp-row-block" data-aos="fade-up">
+      <div class="xp-text-col">
+        <span class="xp-subtitle-tag" style="color:#10b981; background:rgba(16,185,129,0.1);">Seguridad & IA</span>
+        <h3 class="xp-block-title">Resolución inteligente basada en datos.</h3>
+        <p class="xp-block-desc">
+          No solo conectamos partes, analizamos patrones. Nuestros sistemas detectan toxicidad en los mensajes y guían la conversación hacia una resolución formal, generando actas digitales válidas.
+        </p>
+        
+        <ul class="xp-check-list">
+          <li><span class="xp-check-icon">✓</span> Moderación automática de contenido.</li>
+          <li><span class="xp-check-icon">✓</span> Generación de acuerdos digitales.</li>
+          <li><span class="xp-check-icon">✓</span> Protección de datos grado bancario.</li>
+        </ul>
+
+        <a href="#seguridad" class="xp-btn-line">Conocer tecnología →</a>
       </div>
-      <!-- Card 4 -->
-      <div class="xp-card">
-        <div class="xp-icon-box">
-             <!-- Icono Reclutamiento -->
-             <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+
+      <div class="xp-img-col">
+        <div class="xp-img-bg"></div>
+        <div class="xp-img-frame">
+          <img src="https://placehold.co/600x400/429EBD/ffffff?text=Seguridad+y+Datos" alt="Seguridad Xpressate">
         </div>
-        <h3 class="xp-card-title">Reclutamiento Inteligente</h3>
-        <p class="xp-card-text">Accede a talento de alto valor que busca transparencia.</p>
       </div>
     </div>
 
   </div>
-
-  <script>
-    function toggleBenefits(type) {
-        const section = document.getElementById('beneficios');
-        const gridUser = document.getElementById('grid-user');
-        const gridCompany = document.getElementById('grid-company');
-        const tabs = document.querySelectorAll('.xp-ben-tab');
-        const titleSpan = document.getElementById('dynamic-title');
-
-        // Resetear estado de tabs
-        tabs.forEach(t => t.classList.remove('active'));
-
-        if (type === 'company') {
-            // Cambiar a Tema Empresa (Azul)
-            section.classList.add('theme-company-mode');
-            gridUser.classList.remove('visible');
-            gridCompany.classList.add('visible');
-            tabs[1].classList.add('active'); // Activar tab Empresa
-            titleSpan.textContent = "Tu Empresa Gana: Data y Trazabilidad";
-        } else {
-            // Cambiar a Tema Usuario (Naranja)
-            section.classList.remove('theme-company-mode');
-            gridCompany.classList.remove('visible');
-            gridUser.classList.add('visible');
-            tabs[0].classList.add('active'); // Activar tab Usuario
-            titleSpan.textContent = "Tu Camino a la Resolución";
-        }
-    }
-  </script>
 </section>
     <!-- fin de Beneficios -->
     <!-- tESTIMONIOS -->
