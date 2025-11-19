@@ -3104,7 +3104,244 @@
       });
   });
 </script>
+<!-- ============================================
+       SECCIÓN 1: CONTADOR (Estilo Yape)
+       ============================================ -->
+  <section id="contador" class="xp-counter-section" aria-labelledby="xp-counter-title">
+    <style>
+      /* *************************************************************
+       * ESTILOS GLOBALES (Paleta Personalizada)
+       * *************************************************************/
+      :root {
+          /* Paleta de Colores */
+          --col-light-cyan: #9FE7F5;
+          --col-med-blue:   #429EBD;   /* Azul Turquesa */
+          --col-dark-blue:  #053F5C;   /* Azul Profundo */
+          --col-orange:     #F7AD19;
+          --col-bg-light:   #f8fafc;
+          
+          --font-head: 'Poppins', sans-serif;
+          --font-body: 'Inter', sans-serif;
+      }
 
+      .xp-wrapper {
+          font-family: var(--font-body);
+          color: var(--col-dark-blue);
+          overflow: hidden;
+      }
+
+      .xp-container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+      /* --- ESTILOS CONTADOR --- */
+      .xp-counter-section {
+          padding: 80px 20px;
+          background: #ffffff;
+          text-align: center;
+          border-bottom: 1px solid #e2e8f0;
+      }
+
+      .xp-counter-title {
+          font-family: var(--font-head);
+          font-size: clamp(2rem, 5vw, 3.5rem);
+          font-weight: 900;
+          color: var(--col-dark-blue);
+          margin-bottom: 15px;
+          line-height: 1.1;
+          text-transform: uppercase;
+      }
+      
+      .xp-counter-highlight { color: var(--col-med-blue); }
+
+      .xp-counter-sub {
+          font-size: 1.1rem;
+          color: #587385;
+          margin-bottom: 50px;
+          font-weight: 500;
+      }
+
+      .xp-digits-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          gap: 10px;
+          flex-wrap: wrap;
+      }
+
+      .xp-digit-box {
+          width: 65px;
+          height: 90px;
+          border: 2px solid #e2e8f0;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: var(--font-head);
+          font-size: 3rem;
+          font-weight: 700;
+          color: var(--col-dark-blue);
+          background: #fff;
+          box-shadow: 0 8px 20px rgba(5, 63, 92, 0.08);
+          transition: transform 0.3s, border-color 0.3s, color 0.3s;
+          cursor: default;
+      }
+      
+      .xp-digit-box:hover {
+          transform: translateY(-8px);
+          border-color: var(--col-med-blue);
+          color: var(--col-med-blue);
+          box-shadow: 0 12px 25px rgba(66, 158, 189, 0.2);
+      }
+
+      .xp-digit-comma {
+          font-size: 3rem;
+          font-weight: 700;
+          color: var(--col-dark-blue);
+          padding-bottom: 15px;
+          margin: 0 5px;
+      }
+
+      /* --- ESTILOS PREGUNTAS FRECUENTES (FAQs) --- */
+      .xp-faqs-section {
+          padding: 80px 20px;
+          background: var(--col-bg-light);
+          position: relative;
+      }
+
+      .xp-section-head { text-align: center; margin-bottom: 50px; }
+      
+      .xp-faqs-title {
+          font-family: var(--font-head);
+          font-size: 2.5rem;
+          font-weight: 800;
+          color: var(--col-dark-blue);
+          margin-bottom: 15px;
+      }
+      
+      .xp-faqs-lead { font-size: 1.1rem; color: #587385; }
+
+      /* Acordeón */
+      .xp-accordion { max-width: 800px; margin: 0 auto; }
+
+      .xp-accordion-item {
+          background: #fff;
+          border-radius: 12px;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+          margin-bottom: 20px;
+          overflow: hidden;
+          border: 1px solid transparent;
+          transition: all 0.3s ease;
+      }
+
+      .xp-accordion-item:hover {
+          box-shadow: 0 8px 25px rgba(66, 158, 189, 0.1);
+          transform: translateY(-2px);
+      }
+
+      .xp-accordion-header {
+          width: 100%;
+          padding: 20px 25px;
+          background: transparent;
+          border: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          text-align: left;
+      }
+
+      .xp-question-text {
+          font-family: var(--font-head);
+          font-weight: 700;
+          font-size: 1.1rem;
+          color: var(--col-dark-blue);
+          transition: color 0.3s;
+      }
+
+      .xp-accordion-icon {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+          fill: none;
+          stroke: var(--col-med-blue);
+          stroke-width: 2;
+          transition: transform 0.3s ease;
+      }
+
+      /* Estado Activo del Acordeón */
+      .xp-accordion-item.active {
+          border-color: var(--col-light-cyan);
+      }
+      
+      .xp-accordion-item.active .xp-accordion-header .xp-question-text {
+          color: var(--col-med-blue);
+      }
+
+      .xp-accordion-item.active .xp-accordion-icon {
+          transform: rotate(180deg);
+      }
+
+      .xp-accordion-body {
+          max-height: 0; /* Oculto por defecto */
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+          background: #fff;
+      }
+
+      .xp-accordion-content {
+          padding: 0 25px 25px 25px;
+          font-size: 1rem;
+          color: #587385;
+          line-height: 1.6;
+          border-top: 1px solid #f1f5f9;
+          padding-top: 15px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+          .xp-digit-box { width: 40px; height: 60px; font-size: 1.8rem; border-radius: 8px; }
+          .xp-digit-comma { font-size: 1.8rem; padding-bottom: 10px; margin: 0 2px; }
+          .xp-counter-title { font-size: 2rem; }
+          .xp-digits-wrapper { gap: 5px; }
+          .xp-faqs-title { font-size: 2rem; }
+          .xp-question-text { font-size: 1rem; }
+      }
+    </style>
+  
+    <div class="xp-container">
+      <h2 id="xp-counter-title" class="xp-counter-title">
+        ¡Ya somos más de <br>
+        <span class="xp-counter-highlight">18 MILLONES</span> DE YOINNERS!
+      </h2>
+      
+      <p class="xp-counter-sub">
+        Y seguimos creciendo, construyendo una comunidad laboral más justa y transparente.
+      </p>
+  
+      <!-- DIGITOS ANIMADOS -->
+      <div class="xp-digits-wrapper" role="group" aria-label="Contador de usuarios: 18,805,515">
+        
+        <!-- Millones -->
+        <div class="xp-digit-box" data-target="1">0</div>
+        <div class="xp-digit-box" data-target="8">0</div>
+        
+        <div class="xp-digit-comma">,</div>
+        
+        <!-- Miles -->
+        <div class="xp-digit-box" data-target="8">0</div>
+        <div class="xp-digit-box" data-target="0">0</div>
+        <div class="xp-digit-box" data-target="5">0</div>
+        
+        <div class="xp-digit-comma">,</div>
+        
+        <!-- Unidades -->
+        <div class="xp-digit-box" data-target="5">0</div>
+        <div class="xp-digit-box" data-target="1">0</div>
+        <div class="xp-digit-box" data-target="5">0</div>
+        
+      </div>
+    </div>
+  </section>
+    
     <!-- Start For Free -->
 
 <!-- Formulario Landing Xpressate -->
