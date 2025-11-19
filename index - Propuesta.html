@@ -506,543 +506,329 @@
     
 <!-- .Premium Features -->
 <!-- Sección "Sobre nosotros" con imagen al lado derecho -->
-<section id="about" aria-labelledby="about-title">
-  <style>
-    :root{
-      --accent-line: #c24acb;
-      --text: #222;
-      --muted: #666;
-      --max-width: 1100px;
-      --gap: 28px;
-    }
+<!-- Librería Lucide y Fuentes -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
-    /* Contenedor principal */
-    .about-card{
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 32px 18px;
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      gap: var(--gap);
-    }
+<style>
+  /* --- VARIABLES DE DISEÑO (Fusión Dark/Neon + Clean White) --- */
+  :root {
+    --xp-neon: #00E6A0;       /* Verde Geométrico */
+    --xp-dark: #053F5C;       /* Azul Corporativo */
+    --xp-text: #1e293b;       /* Texto oscuro */
+    --xp-muted: #64748b;      /* Texto secundario */
+    --bg-white: #ffffff;
+  }
 
-    /* Columna izquierda (texto) */
-    .about-left{
-      flex: 1 1 60%;
-      min-width: 260px;
-    }
+  body { margin: 0; font-family: 'Inter', sans-serif; }
 
-    .title{
-      font-size: 26px;
-      margin: 0 0 8px 0;
-      color: var(--text);
-      line-height: 1.1;
-    }
+  /* Contenedor Principal Limpio */
+  .xp-clean-section {
+    background-color: var(--bg-white);
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+  }
 
-    .accent-line{
-      width: 70px;
-      height: 6px;
-      border-radius: 6px;
-      background: linear-gradient(90deg, var(--accent-line), #9a3aa9);
-      margin: 12px 0 18px 0;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
-    }
+  .xp-container-adapt {
+    max-width: 1150px;
+    margin: 0 auto;
+  }
 
-    .lead{
-      margin: 0 0 20px 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.5;
-    }
+  /* --- 1. ENCABEZADO (Adaptado del Banner original) --- */
+  .xp-header-centered {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+  }
 
-    .cta-row{
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-top: 6px;
-    }
+  .xp-tagline-caps {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--xp-dark);
+    margin-bottom: 16px;
+    background: rgba(5, 63, 92, 0.05); /* Fondo sutil azul */
+    padding: 6px 12px;
+    border-radius: 50px;
+  }
 
-    /* Columna derecha (mockup / imagen) */
-    .xp-right{
-      flex: 0 0 380px; /* ancho fijo recomendable para mantener la composición */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .xp-main-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--xp-text);
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
 
-    .xp-mockup{
-      width: 100%;
-      max-width: 380px;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-      background: linear-gradient(180deg, #fff, #fafafa);
-      padding: 10px;
-      box-sizing: border-box;
-    }
+  .xp-intro-text {
+    font-size: 1.1rem;
+    color: var(--xp-muted);
+    line-height: 1.6;
+  }
 
-    .xp-mockup img{
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 8px;
-    }
+  /* --- 2. GRID DE VALORES (Con formas geométricas verdes) --- */
+  .xp-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px;
+    margin-bottom: 120px;
+    text-align: center;
+  }
 
-    /* Focus util para botones (incluiste esta regla) */
-    .btn:focus { 
-      outline: none; 
-      box-shadow: 0 0 0 6px rgba(143,179,226,0.16); 
-      border-radius:10px; 
-    }
+  .xp-value-card {
+    padding: 10px;
+  }
 
-    /* Responsive: apilar en pantallas pequeñas */
-    @media (max-width: 900px){
-      .about-card{
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .xp-right{
-        width: 100%;
-        order: 2; /* si quieres la imagen debajo del texto */
-        margin-top: 18px;
-      }
-      .about-left{
-        order: 1;
-      }
-      .xp-mockup{ max-width: 100%; }
-    }
+  /* Wrapper del Icono + Forma Geométrica */
+  .xp-icon-geo {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    /* Si prefieres la imagen encima del texto en móvil, cambia order: 2 -> order: 0 */
-  </style>
-
-  <!-- Sección "Sobre nosotros" (color principal: #0f2c47) -->
-<section id="about" aria-labelledby="about-title">
-  <style>
-    :root{
-      --accent-line: #0f2c47;   /* color solicitado */
-      --accent-line-2: #153b56; /* variante para gradiente */
-      --text: #111827;
-      --muted: #4b5563;
-      --max-width: 1100px;
-      --gap: 28px;
-      --radius: 12px;
-    }
-
-    /* Contenedor principal */
-    .about-card{
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 32px 18px;
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      gap: var(--gap);
-    }
-
-    /* Columna izquierda (texto) */
-    .about-left{
-      flex: 1 1 60%;
-      min-width: 260px;
-    }
-
-    .title{
-      font-size: 26px;
-      margin: 0 0 8px 0;
-      color: var(--text);
-      line-height: 1.1;
-      font-weight: 700;
-    }
-
-    .accent-line{
-      width: 84px;
-      height: 6px;
-      border-radius: 6px;
-      background: linear-gradient(90deg, var(--accent-line), var(--accent-line-2));
-      margin: 12px 0 18px 0;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.04) inset;
-    }
-
-    .lead{
-      margin: 0 0 20px 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .cta-row{
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-top: 6px;
-      flex-wrap: wrap;
-    }
-
-    /* Estilos básicos de botones (puedes ajustarlos) */
-    .btn{
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
-      border: 1px solid transparent;
-      color: white;
-      background: linear-gradient(180deg, var(--accent-line), var(--accent-line-2));
-      box-shadow: 0 6px 20px rgba(15,44,71,0.14);
-    }
-
-    .btn.secondary{
-      background: transparent;
-      color: var(--accent-line);
-      border: 1px solid rgba(15,44,71,0.12);
-      box-shadow: none;
-    }
-
-    .btn:hover{ transform: translateY(-2px); }
-    .btn:active{ transform: translateY(0); opacity: .95; }
-
-    /* Focus util (tu regla original adaptada) */
-    .btn:focus {
-      outline: none;
-      box-shadow: 0 0 0 6px rgba(15,44,71,0.12);
-      border-radius: 10px;
-    }
-
-    /* Columna derecha (mockup / imagen) */
-    .xp-right{
-      flex: 0 0 380px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .xp-mockup{
-      width: 100%;
-      max-width: 380px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(2,6,23,0.12);
-      background: linear-gradient(180deg, #ffffff, #fbfdff);
-      padding: 10px;
-      box-sizing: border-box;
-      border: 1px solid rgba(15,44,71,0.04);
-    }
-
-    .xp-mockup img{
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: calc(var(--radius) - 4px);
-    }
-
-    /* Responsive: apilar en pantallas pequeñas */
-    @media (max-width: 900px){
-      .about-card{
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .xp-right{
-        width: 100%;
-        order: 2;
-        margin-top: 18px;
-      }
-      .about-left{
-        order: 1;
-      }
-      .xp-mockup{ max-width: 100%; }
-    }
-  </style>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
-
-<section id="proposito" class="xp-unique-section">
+  /* Formas Geométricas Verdes (Estilo de la imagen de referencia) */
+  .geo-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: var(--xp-neon);
+    z-index: 0;
+    opacity: 0.8;
+  }
   
-  <style>
-    /* *************************************************************
-     * ESTILOS: PROPUESTA DE VALOR (Banner + 4 Pilares)
-     * Paleta: #053F5C (Dark) | #429EBD (Turquesa) | #F7AD19 (Naranja)
-     * *************************************************************/
-    :root {
-        --col-dark-blue:  #053F5C;
-        --col-med-blue:   #429EBD;
-        --col-light-cyan: #9FE7F5;
-        --col-orange:     #F7AD19;
-        --col-bg-light:   #f8fafc;
-        --col-white:      #ffffff;
-        --text-main:      #1e293b;
-        --text-muted:     #64748b;
-        --radius-banner:  24px;
-        
-        --font-head: 'Poppins', sans-serif;
-        --font-body: 'Inter', sans-serif;
-    }
+  /* Formas irregulares con clip-path */
+  .shape-a { clip-path: polygon(20% 0%, 100% 20%, 80% 100%, 0% 80%); transform: rotate(-10deg); }
+  .shape-b { clip-path: polygon(0 20%, 100% 0, 100% 80%, 20% 100%); transform: rotate(15deg); }
+  .shape-c { clip-path: polygon(10% 0, 100% 40%, 70% 100%, 0 80%); transform: rotate(-5deg); }
+  .shape-d { clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); transform: rotate(10deg); }
 
-    .xp-unique-section {
-        padding: 100px 20px;
-        background: var(--col-white);
-        font-family: var(--font-body);
-        color: var(--text-main);
-    }
+  /* SVG Styling */
+  .xp-icon-geo svg {
+    position: relative;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    color: #000; /* Iconos negros para contraste sobre verde neón */
+    stroke-width: 1.5px;
+  }
 
-    .xp-container { 
-        max-width: 1150px; 
-        margin: 0 auto; 
-    }
+  .xp-value-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--xp-dark);
+    margin-bottom: 12px;
+  }
 
-    /* --- 1. BANNER HERO (La Promesa) --- */
-    .xp-unique-banner {
-        background-color: var(--col-dark-blue);
-        /* Degradado sutil para dar profundidad */
-        background-image: linear-gradient(135deg, var(--col-dark-blue) 0%, #0a4b6e 100%);
-        border-radius: var(--radius-banner);
-        padding: 70px 60px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: #fff;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 25px 50px -12px rgba(5, 63, 92, 0.25);
-        margin-bottom: 80px;
-    }
+  .xp-value-desc {
+    font-size: 0.95rem;
+    color: var(--xp-muted);
+    line-height: 1.5;
+  }
 
-    /* Elementos decorativos de fondo */
-    .xp-deco-circle {
-        position: absolute;
-        border-radius: 50%;
-        background: var(--col-med-blue);
-        opacity: 0.1;
-        pointer-events: none;
-    }
-    .circle-1 { width: 400px; height: 400px; top: -100px; right: -100px; }
-    .circle-2 { width: 200px; height: 200px; bottom: -50px; left: 50px; background: var(--col-orange); }
+  /* --- 3. SECCIÓN SPLIT INFERIOR (Sobre Nosotros) --- */
+  /* Adaptando tu contenido .about-card a la estructura split limpia */
+  .xp-split-row {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    position: relative;
+  }
 
-    .xp-banner-content {
-        max-width: 60%;
-        position: relative;
-        z-index: 2;
-    }
+  .xp-split-text {
+    flex: 1;
+  }
 
-    .xp-tagline {
-        display: inline-block;
-        font-size: 0.9rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--col-orange);
-        margin-bottom: 15px;
-        background: rgba(247, 173, 25, 0.1);
-        padding: 6px 12px;
-        border-radius: 50px;
-    }
+  .xp-split-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    color: var(--xp-text);
+    font-weight: 700;
+    margin: 0 0 10px 0;
+  }
 
-    .xp-banner-title {
-        font-family: var(--font-head);
-        font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-        font-weight: 800;
-        margin-bottom: 20px;
-        line-height: 1.1;
-    }
+  /* Tu línea de acento original */
+  .xp-accent-line {
+    width: 80px;
+    height: 6px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--xp-dark), #429EBD);
+    margin: 0 0 25px 0;
+  }
 
-    .xp-banner-text {
-        font-size: 1.15rem;
-        line-height: 1.7;
-        opacity: 0.95;
-        margin-bottom: 0;
-        font-weight: 400;
-    }
+  .xp-split-desc {
+    font-size: 1.05rem;
+    color: var(--xp-muted);
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
 
-    .xp-banner-img-wrapper {
-        width: 35%;
-        position: relative;
-        z-index: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  /* Botones */
+  .xp-cta-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
 
-    /* Imagen Ilustrativa */
-    .xp-banner-img {
-        width: 100%;
-        max-width: 320px;
-        height: auto;
-        filter: drop-shadow(0 20px 30px rgba(0,0,0,0.2));
-        transform: perspective(1000px) rotateY(-10deg);
-        transition: transform 0.4s ease;
-    }
-    .xp-unique-banner:hover .xp-banner-img { transform: perspective(1000px) rotateY(0deg) scale(1.05); }
+  .btn-primary {
+    background-color: var(--xp-dark);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid transparent;
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(5, 63, 92, 0.2);
+  }
 
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--xp-dark);
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid rgba(5, 63, 92, 0.2);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover {
+    background-color: rgba(5, 63, 92, 0.05);
+  }
 
-    /* --- 2. GRID DE VALORES (4 Pilares) --- */
-    .xp-unique-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 40px;
-    }
+  /* Imagen derecha (Mockup) */
+  .xp-split-image {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
 
-    .xp-unique-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        position: relative;
-        padding: 25px 20px 20px 25px;
-        background: var(--col-white);
-        border-radius: 16px;
-        transition: all 0.3s ease;
-        border: 1px solid transparent;
-    }
+  .xp-mockup-clean {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    transform: rotate(2deg); /* Ligero toque moderno */
+    transition: transform 0.3s ease;
+    border: 8px solid #fff; /* Marco blanco */
+  }
+  .xp-split-row:hover .xp-mockup-clean {
+    transform: rotate(0deg) scale(1.02);
+  }
 
-    .xp-unique-item:hover {
-        background: var(--col-bg-light);
-        transform: translateY(-5px);
-    }
+  /* --- RESPONSIVE --- */
+  @media (max-width: 900px) {
+    .xp-split-row { flex-direction: column; text-align: center; gap: 50px; }
+    .xp-accent-line { margin: 0 auto 25px; }
+    .xp-cta-group { justify-content: center; }
+    .xp-mockup-clean { transform: rotate(0deg); }
+  }
+</style>
 
-    /* Línea lateral de color (La clave del diseño) */
-    .xp-unique-item::before {
-        content: '';
-        position: absolute;
-        left: 0; top: 25px;
-        width: 4px; height: 50px;
-        border-radius: 0 4px 4px 0;
-        transition: height 0.3s ease;
-    }
-    .xp-unique-item:hover::before { height: 70%; }
-
-    /* Colores por ítem */
-    .xp-item-1::before { background: var(--col-med-blue); } /* Turquesa */
-    .xp-item-2::before { background: var(--col-orange); }   /* Naranja */
-    .xp-item-3::before { background: var(--col-dark-blue); } /* Azul */
-    .xp-item-4::before { background: #10b981; }             /* Verde (Validación) */
-
-    /* Icono */
-    .xp-item-icon {
-        margin-bottom: 20px;
-        width: 55px; height: 55px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 14px;
-        font-size: 1.5rem;
-        transition: transform 0.3s;
-    }
+<section class="xp-clean-section">
+  <div class="xp-container-adapt">
     
-    /* Estilos de Icono específicos */
-    .xp-item-1 .xp-item-icon { background: #e0f2fe; color: var(--col-med-blue); }
-    .xp-item-2 .xp-item-icon { background: #fff7ed; color: var(--col-orange); }
-    .xp-item-3 .xp-item-icon { background: #f1f5f9; color: var(--col-dark-blue); }
-    .xp-item-4 .xp-item-icon { background: #ecfdf5; color: #10b981; }
-
-    .xp-item-title {
-        font-family: var(--font-head);
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--col-dark-blue);
-        margin-bottom: 12px;
-        line-height: 1.3;
-    }
-
-    .xp-item-desc {
-        font-size: 0.95rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-        .xp-unique-section { padding: 60px 20px; }
-        .xp-unique-banner { flex-direction: column; text-align: center; padding: 50px 30px; }
-        .xp-banner-content { max-width: 100%; margin-bottom: 40px; }
-        .xp-banner-img-wrapper { width: 70%; margin: 0 auto; }
-        
-        .xp-unique-grid { grid-template-columns: 1fr; gap: 20px; }
-        .xp-unique-item { padding-left: 20px; }
-    }
-  </style>
-
-  <div class="xp-container">
-    
-    <!-- 1. BANNER HERO: PROPÓSITO -->
-    <div class="xp-unique-banner">
-      <div class="xp-deco-circle circle-1"></div>
-      <div class="xp-deco-circle circle-2"></div>
-
-      <div class="xp-banner-content">
-        <span class="xp-tagline">Propuesta de valor</span>
-        <h2 class="xp-banner-title">Impacto Real, No Solo Palabras</h2>
-        <p class="xp-banner-text">
-          Tu voz impulsa cambios reales. <strong>XPRESSATE</strong> Nuestra tecnología transforma simples opiniones en proyectos de mejora.
-          Visualiza el recorrido de cada idea: desde que la envías hasta que se implementa y transforma tu entorno.
-        </p>
-      </div>
-      
-      <div class="xp-banner-img-wrapper">
-        <!-- Ilustración: Personas conectando/Happy people -->
-        <img src="https://placehold.co/400x400/429EBD/ffffff?text=Comunidad+Activa" alt="Comunidad Xpressate" class="xp-banner-img">
-      </div>
+    <!-- 1. ENCABEZADO DE LA SECCIÓN (Adaptado del Banner) -->
+    <div class="xp-header-centered">
+      <span class="xp-tagline-caps">Propuesta de Valor</span>
+      <h2 class="xp-main-title">Impacto Real, No Solo Palabras</h2>
+      <p class="xp-intro-text">
+        Tu voz impulsa cambios reales. Nuestra tecnología transforma simples opiniones en proyectos de mejora. Visualiza el recorrido de cada idea: desde que la envías hasta que se implementa.
+      </p>
     </div>
 
-    <!-- 2. GRID DE VALORES (4 Pilares) -->
-    <div class="xp-unique-grid">
+    <!-- 2. GRID DE 4 COLUMNAS (Estilo Geométrico de la Imagen) -->
+    <div class="xp-values-grid">
       
-      <!-- Pilar 1 -->
-      <div class="xp-unique-item xp-item-1">
-        <div class="xp-item-icon">
-            <!-- Icono Megáfono/Voz -->
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+      <!-- Item 1 -->
+      <div class="xp-value-card">
+        <div class="xp-icon-geo">
+          <div class="geo-bg shape-a"></div>
+          <!-- Icono Megáfono -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
         </div>
-        <h3 class="xp-item-title">Experiencia Fluida e Intuitiva</h3>
-        <p class="xp-item-desc">
-          Olvídate de formularios eternos. Diseñamos una interfaz pensada en ti: reporta, sugiere o felicita en menos de 3 clics.Sin manuales, directo al grano.
+        <h3 class="xp-value-title">Experiencia Intuitiva</h3>
+        <p class="xp-value-desc">
+          Olvídate de formularios eternos. Reporta, sugiere o felicita en menos de 3 clics. Sin manuales, directo al grano.
         </p>
       </div>
 
-      <!-- Pilar 2 -->
-      <div class="xp-unique-item xp-item-2">
-        <div class="xp-item-icon">
-            <!-- Icono Rayo/Rapidez -->
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+      <!-- Item 2 -->
+      <div class="xp-value-card">
+        <div class="xp-icon-geo">
+          <div class="geo-bg shape-b"></div>
+          <!-- Icono Rayo -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
         </div>
-        <h3 class="xp-item-title">Cultura de Pertenencia</h3>
-        <p class="xp-item-desc">
-          Creamos puentes, no muros. Fomentamos un ecosistema donde celebrar logros y proponer mejoras diarias. Cuando la empresa mejora gracias a ti, todos ganamos.
+        <h3 class="xp-value-title">Cultura de Pertenencia</h3>
+        <p class="xp-value-desc">
+          Creamos puentes, no muros. Un ecosistema donde celebrar logros y proponer mejoras diarias es la norma.
         </p>
       </div>
 
-      <!-- Pilar 3 -->
-      <div class="xp-unique-item xp-item-3">
-        <div class="xp-item-icon">
-            <!-- Icono Comunidad/Gente -->
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+      <!-- Item 3 -->
+      <div class="xp-value-card">
+        <div class="xp-icon-geo">
+          <div class="geo-bg shape-c"></div>
+          <!-- Icono Comunidad -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
         </div>
-        <h3 class="xp-item-title">Comunidad que Construye</h3>
-        <p class="xp-item-desc">
+        <h3 class="xp-value-title">Comunidad Activa</h3>
+        <p class="xp-value-desc">
           Fomentamos un ecosistema donde celebramos las mejoras. Si una empresa evoluciona gracias a tu feedback, todos ganamos.
         </p>
       </div>
 
-      <!-- Pilar 4 -->
-      <div class="xp-unique-item xp-item-4">
-        <div class="xp-item-icon">
-            <!-- Icono Escudo/Confianza -->
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <!-- Item 4 -->
+      <div class="xp-value-card">
+        <div class="xp-icon-geo">
+          <div class="geo-bg shape-d"></div>
+          <!-- Icono Escudo -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
         </div>
-        <h3 class="xp-item-title">Validación y Anonimato Total</h3>
-        <p class="xp-item-desc">
-          La confianza es nuestra moneda. Utilizamos encriptación de grado bancario para asegurar que tu identidad esté protegida. Un espacio libre de sesgos donde lo único que importa es el valor de tu idea.
+        <h3 class="xp-value-title">Validación Total</h3>
+        <p class="xp-value-desc">
+          La confianza es nuestra moneda. Utilizamos encriptación de grado bancario para asegurar que tu identidad esté protegida.
         </p>
+      </div>
+
+    </div>
+
+    <!-- 3. SECCIÓN SPLIT INFERIOR (Adaptado de tu "Sobre Nosotros") -->
+    <div class="xp-split-row">
+      
+      <div class="xp-split-text">
+        <h2 class="xp-split-title">Sobre Xpressate</h2>
+        <div class="xp-accent-line"></div>
+        <p class="xp-split-desc">
+          En Xpressate nos dedicamos a conectar personas con organizaciones de manera transparente y segura. Creemos que la comunicación efectiva es la base del crecimiento sostenible. Nuestra plataforma está diseñada para eliminar barreras y construir confianza a través de la tecnología.
+        </p>
+        
+        <div class="xp-cta-group">
+          <a href="#unirme" class="btn-primary">Unirme Ahora</a>
+        </div>
+      </div>
+
+      <div class="xp-split-image">
+        <!-- Placeholder de tu Mockup -->
+        <img src="https://placehold.co/500x350/f1f5f9/053F5C?text=Mockup+App" alt="Xpressate App" class="xp-mockup-clean">
       </div>
 
     </div>
 
   </div>
-</section>
-
 </section>
 
     <!-- Beneficios -->
@@ -1238,9 +1024,9 @@
       </div>
 
       <div class="xp-img-col">
-        <div class="xp-img-bg"></div>
+        
         <div class="xp-img-frame">
-          <img src="https://placehold.co/350x600/F7AD19/ffffff?text=App+Usuario" alt="Interfaz Usuario Xpressate">
+          <img src="img/MOCKUP.png" alt="Interfaz Usuario Xpressate">
         </div>
       </div>
     </div>
