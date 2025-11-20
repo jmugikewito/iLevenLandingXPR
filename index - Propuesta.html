@@ -1862,222 +1862,178 @@
 </section>
 
 <!-- Resolviendo Problemas Clave -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-<section id="problemas-clave" class="xp-problems-section" aria-labelledby="xp-problems-title">
+<section id="problemas-clave" class="xp-problems-compact" aria-labelledby="xp-problems-title">
   
   <style>
-    /* *************************************************************
-     * ESTILOS: RESOLVIENDO PROBLEMAS CLAVE
-     * Paleta: --col-dark-blue: #053F5C / --col-med-blue: #429EBD / --col-orange: #F7AD19
-     * *************************************************************/
+    /* --- ESTILOS COMPACTOS --- */
     :root {
-        --col-dark-blue:  #053F5C;
-        --col-med-blue:   #429EBD;
-        --col-light-cyan: #9FE7F5;
-        --col-orange:     #F7AD19;
-        --col-bg-light:   #f8fafc;
-        --col-white:      #ffffff;
-        --text-main:      #1e293b;
-        --text-muted:     #64748b;
-        --radius-app:     16px;
+        --col-dark:   #053F5C;
+        --col-med:    #429EBD;
+        --col-cyan:   #9FE7F5;
+        --col-accent: #00E6A0; /* Verde Neón para detalles */
+        --bg-light:   #f8fafc;
+        --white:      #ffffff;
+        --text-main:  #334155;
+        --text-muted: #64748b;
         
         --font-head: 'Poppins', sans-serif;
         --font-body: 'Inter', sans-serif;
     }
 
-    .xp-problems-section {
-        padding: 80px 20px;
-        background: var(--col-bg-light); /* Fondo claro para contraste */
+    .xp-problems-compact {
+        padding: 60px 20px; /* Reducido de 80px */
+        background: var(--bg-light);
         font-family: var(--font-body);
         color: var(--text-main);
-        overflow: hidden;
     }
 
-    .xp-container { max-width: 1200px; margin: 0 auto; }
+    .xp-container-compact { max-width: 1000px; margin: 0 auto; } /* Ancho máximo reducido para compactar */
 
-    /* --- Cabecera de la Sección --- */
-    .xp-sec-header { text-align: center; margin-bottom: 60px; }
+    /* --- Cabecera --- */
+    .xp-sec-header-sm { text-align: center; margin-bottom: 40px; }
     
-    .xp-sec-title {
+    .xp-sec-title-sm {
         font-family: var(--font-head);
-        font-size: clamp(2rem, 4.5vw, 3rem);
-        font-weight: 800;
-        color: var(--col-dark-blue);
-        margin-bottom: 15px;
+        font-size: 1.8rem; /* Reducido de 2rem+ */
+        font-weight: 700;
+        color: var(--col-dark);
+        margin-bottom: 10px;
         line-height: 1.2;
     }
     
-    .xp-highlight { 
-        color: var(--col-med-blue); /* Texto principal resaltado en azul turquesa */
-        position: relative;
-    }
-    .xp-highlight::after { /* Subrayado naranja para el highlight */
-        content: '';
-        position: absolute;
-        bottom: 2px; left: 0; width: 100%; height: 8px;
-        background: var(--col-orange);
-        opacity: 0.3;
-        z-index: -1;
-        border-radius: 4px;
+    .xp-highlight-sm { color: var(--col-med); position: relative; display: inline-block; }
+    .xp-highlight-sm::after {
+        content: ''; position: absolute; bottom: 2px; left: 0; width: 100%; height: 6px;
+        background: var(--col-accent); opacity: 0.2; z-index: -1; border-radius: 4px;
     }
 
-    .xp-sec-desc {
-        font-size: 1.1rem;
+    .xp-sec-desc-sm {
+        font-size: 0.95rem; /* Reducido */
         color: var(--text-muted);
-        max-width: 800px;
+        max-width: 600px;
         margin: 0 auto;
-        line-height: 1.6;
+        line-height: 1.5;
     }
 
-    /* --- Grid de Soluciones --- */
-    .xp-solutions-grid {
+    /* --- Grid Compacto --- */
+    .xp-solutions-grid-sm {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Tarjetas más estrechas */
+        gap: 20px; /* Menor espacio entre tarjetas */
     }
 
-    /* --- Tarjeta de Solución Individual --- */
-    .xp-solution-card {
-        background: var(--col-white);
-        padding: 30px;
-        border-radius: var(--radius-app);
-        box-shadow: 0 10px 30px rgba(5, 63, 92, 0.08); /* Sombra sutil */
-        border: 1px solid #e2e8f0;
+    /* --- Tarjeta --- */
+    .xp-card-sm {
+        background: var(--white);
+        padding: 24px; /* Padding interno reducido */
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(5, 63, 92, 0.06);
+        border: 1px solid transparent;
         text-align: left;
+        transition: all 0.3s ease;
+        height: 100%; /* Altura uniforme */
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
 
-    .xp-solution-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 18px 40px rgba(66, 158, 189, 0.15); /* Sombra más pronunciada y azulada al hover */
-        border-color: var(--col-light-cyan);
+    .xp-card-sm:hover {
+        transform: translateY(-5px);
+        border-color: var(--col-cyan);
+        box-shadow: 0 12px 30px rgba(66, 158, 189, 0.12);
     }
 
-    .xp-icon-wrapper {
-        width: 60px;
-        height: 60px;
-        background: var(--col-light-cyan); /* Fondo del icono con cian claro */
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-        flex-shrink: 0;
-        transition: background 0.3s ease;
+    /* Icono más pequeño */
+    .xp-icon-sm {
+        width: 48px; height: 48px;
+        background: rgba(66, 158, 189, 0.1);
+        border-radius: 10px; /* Cuadrado redondeado moderno */
+        display: flex; align-items: center; justify-content: center;
+        margin-bottom: 16px;
+        color: var(--col-dark);
+        transition: background 0.3s;
     }
-    .xp-solution-card:hover .xp-icon-wrapper {
-        background: var(--col-med-blue); /* Icono con fondo azul turquesa al hover */
-    }
+    .xp-card-sm:hover .xp-icon-sm { background: var(--col-cyan); }
 
-    .xp-icon-svg {
-        width: 32px;
-        height: 32px;
-        stroke: var(--col-dark-blue); /* Color del trazo del icono */
-        stroke-width: 1.8;
-        fill: none;
-        transition: stroke 0.3s ease;
-    }
-    .xp-solution-card:hover .xp-icon-svg {
-        stroke: var(--col-white); /* Trazo blanco al hover */
-    }
+    .xp-icon-sm svg { width: 24px; height: 24px; stroke-width: 2; }
 
-    .xp-card-title {
+    /* Textos Tarjeta */
+    .xp-card-head-sm {
         font-family: var(--font-head);
-        font-size: 1.3rem;
+        font-size: 1.05rem; /* Título más pequeño */
         font-weight: 700;
-        color: var(--col-dark-blue);
-        margin-bottom: 10px;
-        line-height: 1.3;
+        color: var(--col-dark);
+        margin-bottom: 8px;
     }
 
-    .xp-card-text {
-        font-size: 0.95rem;
+    .xp-card-body-sm {
+        font-size: 0.85rem; /* Texto cuerpo reducido */
         color: var(--text-muted);
-        line-height: 1.6;
+        line-height: 1.5;
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-        .xp-problems-section { padding: 60px 15px; }
-        .xp-sec-title { font-size: 2.2rem; }
-        .xp-sec-desc { font-size: 1rem; }
-        .xp-solutions-grid { gap: 20px; }
-        .xp-solution-card { padding: 25px; }
-        .xp-icon-wrapper { width: 50px; height: 50px; margin-bottom: 15px; }
-        .xp-icon-svg { width: 28px; height: 28px; }
-        .xp-card-title { font-size: 1.15rem; }
-        .xp-card-text { font-size: 0.9rem; }
+    @media (max-width: 600px) {
+        .xp-solutions-grid-sm { grid-template-columns: 1fr; }
+        .xp-sec-title-sm { font-size: 1.6rem; }
     }
   </style>
 
-  <div class="xp-container">
+  <div class="xp-container-compact">
     
-    <div class="xp-sec-header">
-      <h2 id="xp-problems-title" class="xp-sec-title">
-        XPRESSATE: <span class="xp-highlight">La Solución a tus Desafíos Laborales</span>
+    <div class="xp-sec-header-sm">
+      <h2 id="xp-problems-title" class="xp-sec-title-sm">
+        Soluciones Reales a <span class="xp-highlight-sm">Conflictos Comunes</span>
       </h2>
-      <p class="xp-sec-desc">
-       Entendemos los obstáculos del entorno laboral actual. Nuestra plataforma elimina las barreras de comunicación, ofreciendo un espacio seguro y eficiente para usuarios y empresas.
+      <p class="xp-sec-desc-sm">
+        Eliminamos las barreras de comunicación y confianza para crear entornos laborales más sanos y productivos.
       </p>
     </div>
 
-    <div class="xp-solutions-grid">
+    <div class="xp-solutions-grid-sm">
 
-      <!-- Solución 1: Canales Ineficaces -> Voces Escuchadas y Trazables --><div class="xp-solution-card">
-        <div class="xp-icon-wrapper">
-            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12" y2="16"></line>
-            </svg>
+      <!-- Tarjeta 1: Usuario / Comunicación -->
+      <div class="xp-card-sm">
+        <div class="xp-icon-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
         </div>
-        <h3 class="xp-card-title">Voces Escuchadas y Trazables</h3>
-        <p class="xp-card-text">
-          Superamos la frustración de canales sin respuesta. En XPRESSATE, tu voz es escuchada en un entorno transparente, con seguimiento detallado de cada interacción.
+        <h3 class="xp-card-head-sm">Tu Voz Importa</h3>
+        <p class="xp-card-body-sm">
+          Supera la frustración de ser ignorado. Garantizamos que tu reporte llegue a quien decide, con trazabilidad total en tiempo real.
         </p>
       </div>
 
-      <!-- Solución 2: Gestión de reputación -> Reputación Protegida, Gestión Eficaz --><div class="xp-solution-card">
-        <div class="xp-icon-wrapper">
-            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
-            </svg>
+      <!-- Tarjeta 2: Empresa / Reputación -->
+      <div class="xp-card-sm">
+        <div class="xp-icon-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
         </div>
-        <h3 class="xp-card-title">Reputación Protegida, Gestión Eficaz</h3>
-        <p class="xp-card-text">
-          Para empresas, ofrecemos herramientas para gestionar proactivamente su reputación y responder digitalmente de forma organizada, transformando desafíos en oportunidades de mejora.
+        <h3 class="xp-card-head-sm">Protección de Marca</h3>
+        <p class="xp-card-body-sm">
+          Gestiona incidencias internas proactivamente. Convierte riesgos en oportunidades de mejora antes de que afecten tu reputación pública.
         </p>
       </div>
 
-      <!-- Solución 3: Anonimato Seguro -> Privacidad y Confianza Absoluta --><div class="xp-solution-card">
-        <div class="xp-icon-wrapper">
-            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-            </svg>
+      <!-- Tarjeta 3: Confianza / Seguridad -->
+      <div class="xp-card-sm">
+        <div class="xp-icon-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
         </div>
-        <h3 class="xp-card-title">Privacidad y Confianza Absoluta</h3>
-        <p class="xp-card-text">
-          Garantizamos un entorno seguro donde usuarios pueden expresarse libremente, incluso con anonimato, sabiendo que sus inquietudes serán tratadas con el respeto y la seriedad que merecen.
+        <h3 class="xp-card-head-sm">Anonimato Blindado</h3>
+        <p class="xp-card-body-sm">
+          Sin miedo a represalias. Tecnología de encriptación segura que protege tu identidad al 100% para que te expreses con libertad.
         </p>
       </div>
 
-      <!-- Solución 4: Resolución Formal -> Acuerdos Firmes, Conflictos Resueltos --><div class="xp-solution-card">
-        <div class="xp-icon-wrapper">
-            <svg class="xp-icon-svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-            </svg>
+      <!-- Tarjeta 4: Resolución / Valor -->
+      <div class="xp-card-sm">
+        <div class="xp-icon-sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
         </div>
-        <h3 class="xp-card-title">Acuerdos Firmes, Conflictos Resueltos</h3>
-        <p class="xp-card-text">
-          Facilitamos mecanismos claros para alcanzar acuerdos formales y vinculantes, llevando cada caso a una resolución definitiva que beneficia a todas las partes involucradas.
+        <h3 class="xp-card-head-sm">Acuerdos Formales</h3>
+        <p class="xp-card-body-sm">
+          No más palabras al aire. Facilitamos la creación de actas digitales y acuerdos vinculantes para cerrar conflictos definitivamente.
         </p>
       </div>
 
@@ -2198,7 +2154,7 @@
   :root {
     --xp-dark-bg: #0C354F;    /* Azul oscuro de fondo similar a tu imagen */
     --xp-card-bg: #13405E;    /* Azul un poco más claro para tarjeta QR */
-    --xp-accent: #D99A26;     /* Amarillo dorado/mostaza para botones y badge */
+    --xp-accent: #00E6A0;     /* Amarillo dorado/mostaza para botones y badge */
     --xp-text-white: #ffffff;
     --xp-text-gray: #AABBC6;  /* Gris azulado para textos secundarios */
     
@@ -3097,462 +3053,102 @@
     <!-- Start For Free -->
 
 <!-- Formulario Landing Xpressate -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- Librería de iconos Lucide (necesaria para este diseño) -->
-<script src="https://unpkg.com/lucide@latest"></script>
+<section id="contacto-neon" style="position: relative; padding: 80px 20px; font-family: 'Inter', sans-serif; color: white; overflow: hidden;">
+  
+  <!-- 
+    FONDO TEMÁTICO: CLIMA LABORAL Y COLABORACIÓN
+    He seleccionado una imagen de un equipo colaborando para reflejar el propósito de Xpressate.
+    El degradado azul oscuro se mantiene encima para preservar tu identidad corporativa.
+  -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(5, 63, 92, 0.92), rgba(11, 24, 41, 0.88)), 
+                url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  "></div>
 
-<section id="contacto" aria-labelledby="lpContactTitle">
-  <!-- Decoración de Fondo -->
-  <div class="xp-bg-decoration">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-  </div>
-
-  <div class="container">
-    <!-- Encabezado principal centrado -->
-    <div class="section-heading">
-      <h2 class="xp-title">Transforma el diálogo en tu <span class="highlight">Organización</span></h2>
-      <p class="lead">Gestión de clima laboral segura y anónima.</p>
-    </div>
-
-    <!-- Tarjeta Dividida (Split Card Layout) -->
-    <div class="contact-card-wrapper">
+  <!-- Contenedor Centrado (z-index para estar sobre el fondo) -->
+  <div style="position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+    
+    <!-- COLUMNA IZQUIERDA: Info -->
+    <div>
+      <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; color: #fff;">Contáctanos</h2>
+      <p style="color: #e2e8f0; line-height: 1.6; margin-bottom: 40px; font-size: 0.95rem; max-width: 450px;">
+        Si tienes alguna pregunta, sugerencia o simplemente quieres compartir tus ideas, ¡no dudes en ponerte en contacto con nosotros! Estamos aquí para escucharte y hacer que tu experiencia sea aún mejor.
+      </p>
       
-      <!-- COLUMNA IZQUIERDA: Información (Fondo Azul Oscuro) -->
-      <div class="contact-info-side">
+      <div style="display: flex; flex-direction: column; gap: 15px; font-size: 0.9rem; color: #f1f5f9;">
         <div>
-          <h3>Ponte en contacto</h3>
-          <p class="info-desc">
-            El equipo de Xpressate está listo para brindarte la solución adecuada. Garantizamos confidencialidad absoluta en cada interacción.
-          </p>
-
-          <div class="info-list">
-            <div class="info-item">
-              <div class="icon-circle"><i data-lucide="map-pin"></i></div>
-              <div>
-                <h4>Oficina Principal</h4>
-                <p>Lima, Perú (Atención remota a nivel nacional)</p>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <div class="icon-circle"><i data-lucide="mail"></i></div>
-              <div>
-                <h4>Escríbenos</h4>
-                <p><a href="mailto:soporte@xpressate.app">soporte@xpressate.app</a></p>
-                <p><a href="mailto:hola@xpressate.app">hola@xpressate.app</a></p>
-              </div>
-            </div>
-
-            <div class="info-item">
-              <div class="icon-circle"><i data-lucide="phone"></i></div>
-              <div>
-                <h4>Llámanos</h4>
-                <p>+51 999 000 000</p>
-                <p>Lunes a Viernes, 9am - 6pm</p>
-              </div>
-            </div>
-          </div>
+          <span style="color: #00E6A0; font-weight: 600;">Email :</span> administracion@poolfarm.pe
         </div>
-
-        <div class="social-media">
-          <p>Síguenos en redes:</p>
-          <div class="social-icons">
-            <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
-            <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-            <a href="#" aria-label="Linkedin"><i data-lucide="linkedin"></i></a>
-            <a href="#" aria-label="Youtube"><i data-lucide="youtube"></i></a>
-          </div>
+        <div>
+          <span style="color: #00E6A0; font-weight: 600;">Phone :</span> +51 980 438 984 / +51 947 186 561
+        </div>
+        <div>
+          <span style="color: #00E6A0; font-weight: 600;">Ubicación :</span> Lima, Perú
         </div>
       </div>
-
-      <!-- COLUMNA DERECHA: Formulario (Fondo Blanco) -->
-      <div class="contact-form-side">
-        <h3>Envíanos un mensaje</h3>
-        
-        <form id="lpForm" novalidate data-endpoint="/api/contact">
-          <!-- Honeypot -->
-          <div class="visually-hidden" aria-hidden="true">
-            <label for="website">No completar</label>
-            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-          </div>
-
-          <div class="form-grid-layout">
-            <!-- Nombre -->
-            <div class="field">
-              <label for="name">Nombre Completo</label>
-              <input id="name" name="name" type="text" placeholder="Ej. Juan Pérez" required minlength="2" maxlength="80">
-              <small class="error" data-for="name" aria-live="polite"></small>
-            </div>
-
-            <!-- Empresa (Nuevo campo sugerido por el diseño) -->
-            <div class="field">
-              <label for="company">Empresa (Opcional)</label>
-              <input id="company" name="company" type="text" placeholder="Tu Organización">
-            </div>
-
-            <!-- Teléfono -->
-            <div class="field">
-              <label for="phone">Teléfono</label>
-              <input id="phone" name="phone" type="tel" placeholder="+51..." pattern="^[0-9+()\\s-]{6,}$">
-              <small class="error" data-for="phone" aria-live="polite"></small>
-            </div>
-
-            <!-- Email -->
-            <div class="field">
-              <label for="email">Correo Corporativo</label>
-              <input id="email" name="email" type="email" placeholder="nombre@empresa.com" required>
-              <small class="error" data-for="email" aria-live="polite"></small>
-            </div>
-
-            <!-- Mensaje (Ancho completo) -->
-            <div class="field full-width">
-              <label for="message">Mensaje</label>
-              <textarea id="message" name="message" rows="4" placeholder="Cuéntanos tu caso o consulta..." required minlength="10"></textarea>
-              <div class="meta">
-                <small class="error" data-for="message" aria-live="polite"></small>
-                <small id="msgCounter" class="counter">0/1000</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- Botón -->
-          <button type="submit" class="btn" id="btn-enviar">
-            <span class="btn-label">Enviar Mensaje</span>
-            <span class="btn-shine" aria-hidden="true"></span>
-            <span class="spinner" aria-hidden="true"></span>
-          </button>
-
-          <div id="formResult" class="toast" role="status" aria-live="polite" hidden></div>
-        </form>
-      </div>
-
     </div>
+
+    <!-- COLUMNA DERECHA: Formulario Neon -->
+    <div>
+      <form style="display: flex; flex-direction: column; gap: 25px;">
+        
+        <!-- Fila 1: Nombre y Correo -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <!-- Input Nombre -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <label style="color: #00E6A0; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px;">Nombre</label>
+            <input type="text" style="background: rgba(255,255,255,0.02); border: 1px solid #00E6A0; border-radius: 6px; padding: 12px 15px; color: white; outline: none; font-family: inherit;">
+          </div>
+          <!-- Input Correo -->
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <label style="color: #00E6A0; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px;">Correo</label>
+            <input type="email" style="background: rgba(255,255,255,0.02); border: 1px solid #00E6A0; border-radius: 6px; padding: 12px 15px; color: white; outline: none; font-family: inherit;">
+          </div>
+        </div>
+
+        <!-- Fila 2: Mensaje -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="color: #00E6A0; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px;">Mensaje</label>
+          <textarea rows="5" style="background: rgba(255,255,255,0.02); border: 1px solid #00E6A0; border-radius: 6px; padding: 12px 15px; color: white; outline: none; resize: vertical; font-family: inherit;"></textarea>
+        </div>
+
+        <!-- Fila 3: Botón -->
+        <button type="submit" class="btn-glow" style="margin-top: 10px; background-color: #00E6A0; color: #0b1829; border: none; border-radius: 50px; padding: 14px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; font-size: 1rem;">
+          Enviar
+        </button>
+
+      </form>
+    </div>
+
   </div>
+
+  <!-- Estilos Adicionales para Hover y Responsive -->
+  <style>
+    /* Efecto hover en los inputs */
+    input:focus, textarea:focus {
+      box-shadow: 0 0 0 4px rgba(0, 230, 160, 0.15);
+      background: rgba(0, 230, 160, 0.05) !important;
+    }
+    
+    /* Efecto hover en el botón */
+    .btn-glow:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 230, 160, 0.3);
+      background-color: #33ffc2 !important;
+    }
+
+    @media (max-width: 768px) {
+      #contacto-neon > div:last-of-type { grid-template-columns: 1fr !important; gap: 50px !important; }
+      input, textarea { width: 100%; box-sizing: border-box; }
+      h2 { font-size: 2rem !important; }
+    }
+  </style>
 </section>
-
-<style>
-  /* --- PALETA DE COLORES XPRESSATE --- */
-  :root {
-    --xp-dark: #053F5C;       /* Azul Profundo */
-    --xp-mid: #429EBD;        /* Azul Medio */
-    --xp-light: #9FE7F5;      /* Azul Claro */
-    --xp-accent: #F7AD19;     /* Amarillo Vibrante */
-    
-    --text-main: #053F5C;
-    --text-light: #f4fbfe;
-    --text-muted: #64748b;
-    
-    --bg-page: #f4fbfe;
-    --white: #ffffff;
-    --success: #2e7d32;
-    --error: #d32f2f;
-    
-    --radius-card: 20px;
-    --radius-input: 8px;
-    --shadow-card: 0 20px 50px -10px rgba(5, 63, 92, 0.15);
-  }
-
-  /* --- LAYOUT GENERAL --- */
-  #contacto {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(180deg, #f8fcff 0%, #edf6fa 100%);
-    color: var(--text-main);
-    padding: 60px 20px;
-    position: relative;
-    overflow: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .container {
-    position: relative; z-index: 2; width: 100%; max-width: 1100px; margin: 0 auto;
-  }
-
-  /* Blobs de fondo */
-  .xp-bg-decoration { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
-  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.4; }
-  .blob-1 { width: 500px; height: 500px; background: var(--xp-light); top: -200px; right: -100px; }
-  .blob-2 { width: 400px; height: 400px; background: rgba(66, 158, 189, 0.2); bottom: -100px; left: -100px; }
-
-  /* Encabezado - AHORA CENTRADO */
-  .section-heading { 
-    margin-bottom: 40px; 
-    text-align: center; /* Centrado horizontal */
-    width: 100%;
-  }
-  .xp-title { font-size: clamp(2rem, 3.5vw, 2.5rem); color: var(--xp-dark); font-weight: 700; margin-bottom: 10px; }
-  .xp-title .highlight { color: var(--xp-mid); }
-  .lead { color: var(--text-muted); font-size: 1.1rem; margin: 0 auto; max-width: 600px; }
-
-  /* --- TARJETA DIVIDIDA (SPLIT CARD) --- */
-  .contact-card-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr; /* Izquierda más angosta, Derecha formulario */
-    background: var(--white);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
-    overflow: hidden; /* Para que el borde radio corte el fondo */
-    min-height: 600px;
-  }
-
-  /* LADO IZQUIERDO (INFO) */
-  .contact-info-side {
-    background: var(--xp-dark); /* Azul Profundo Xpressate */
-    color: var(--text-light);
-    padding: 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-  }
-  /* Patrón decorativo sutil en el lado azul */
-  .contact-info-side::before {
-    content: ""; position: absolute; bottom: 0; right: 0; width: 200px; height: 200px;
-    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .contact-info-side h3 { font-size: 1.8rem; margin: 0 0 16px 0; color: var(--white); }
-  .info-desc { font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; margin-bottom: 40px; }
-
-  .info-list { display: flex; flex-direction: column; gap: 32px; }
-  .info-item { display: flex; gap: 16px; align-items: flex-start; }
-  
-  .icon-circle {
-    width: 40px; height: 40px; flex-shrink: 0;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--xp-accent); /* Iconos amarillos */
-  }
-  .info-item h4 { margin: 0 0 4px 0; font-size: 1rem; color: var(--white); }
-  .info-item p { margin: 0; font-size: 0.9rem; color: #cbd5e1; line-height: 1.4; }
-  .info-item a { color: #cbd5e1; text-decoration: none; transition: color 0.2s; }
-  .info-item a:hover { color: var(--xp-accent); }
-
-  .social-media p { font-size: 0.9rem; margin-bottom: 12px; color: var(--white); }
-  .social-icons { display: flex; gap: 16px; }
-  .social-icons a { 
-    color: var(--white); 
-    transition: all 0.2s; 
-    background: rgba(255,255,255,0.1); 
-    width: 36px; height: 36px; border-radius: 50%; 
-    display: flex; align-items: center; justify-content: center;
-  }
-  .social-icons a:hover { background: var(--xp-accent); color: var(--xp-dark); transform: translateY(-2px); }
-
-  /* LADO DERECHO (FORMULARIO) */
-  .contact-form-side {
-    background: var(--white);
-    padding: 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .contact-form-side h3 { font-size: 1.5rem; color: var(--xp-dark); margin: 0 0 32px 0; font-weight: 700; }
-
-  /* Grid del Formulario (2 columnas) */
-  .form-grid-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 24px;
-    row-gap: 24px;
-  }
-  
-  .field { display: flex; flex-direction: column; gap: 6px; position: relative; }
-  .full-width { grid-column: 1 / -1; }
-
-  .field label { font-size: 0.85rem; font-weight: 600; color: var(--xp-dark); }
-  
-  /* Inputs limpios estilo tarjeta */
-  .field input, .field textarea {
-    width: 100%;
-    padding: 12px 16px;
-    background: #f8fafc; /* Fondo gris muy claro */
-    border: 1px solid #e2e8f0;
-    border-radius: var(--radius-input);
-    font-family: inherit; font-size: 0.95rem; color: var(--text-main);
-    transition: all 0.2s;
-    box-sizing: border-box;
-  }
-  .field input:focus, .field textarea:focus {
-    background: var(--white);
-    border-color: var(--xp-mid);
-    box-shadow: 0 0 0 3px rgba(66, 158, 189, 0.15);
-    outline: none;
-  }
-  .field input::placeholder, .field textarea::placeholder { color: #94a3b8; }
-  
-  /* Validación */
-  .error { color: var(--error); font-size: 0.75rem; min-height: 14px; margin-top: 2px; }
-  .field input.is-invalid { border-color: var(--error); background: #fff5f5; }
-
-  /* Botón CTA */
-  .btn {
-    margin-top: 32px;
-    width: 100%;
-    padding: 14px;
-    background: var(--xp-accent); /* Amarillo */
-    color: var(--xp-dark);
-    border: none;
-    border-radius: var(--radius-input);
-    font-weight: 700; font-size: 1rem;
-    cursor: pointer;
-    position: relative; overflow: hidden;
-    box-shadow: 0 4px 12px rgba(247, 173, 25, 0.3);
-    transition: all 0.2s;
-  }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(247, 173, 25, 0.4); }
-  .btn:active { transform: translateY(0); }
-  .btn:disabled { opacity: 0.7; cursor: not-allowed; }
-
-  /* Spinner y Shine */
-  .btn-shine { position: absolute; inset: 0; background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent); transform: translateX(-100%); transition: 0.5s; }
-  .btn:hover .btn-shine { transform: translateX(100%); }
-  .spinner { width: 18px; height: 18px; border: 2px solid rgba(5,63,92,0.2); border-top-color: var(--xp-dark); border-radius: 50%; display: none; animation: spin 0.8s linear infinite; }
-
-  /* Toast */
-  .toast {
-    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
-    background: #1e293b; color: #fff; padding: 12px 24px; border-radius: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2); z-index: 100; opacity: 0; transition: all 0.4s;
-  }
-  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-
-  /* Utilities */
-  .visually-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
-
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .contact-card-wrapper { grid-template-columns: 1fr; min-height: auto; }
-    .contact-info-side { padding: 32px; flex-direction: column; gap: 40px; }
-    .contact-form-side { padding: 32px; }
-  }
-  @media (max-width: 600px) {
-    .form-grid-layout { grid-template-columns: 1fr; }
-    #contacto { padding: 40px 16px; }
-    .section-heading { margin-bottom: 24px; }
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-</style>
-
-<script>
-  lucide.createIcons();
-
-  (function(){
-    const form = document.getElementById('lpForm');
-    const result = document.getElementById('formResult');
-    const btn = form.querySelector('.btn');
-    const btnLabel = form.querySelector('.btn-label');
-    const spinner = form.querySelector('.spinner');
-    const counter = document.getElementById('msgCounter');
-
-    const fields = {
-      name: form.name,
-      company: form.company,
-      phone: form.phone,
-      email: form.email,
-      message: form.message,
-      hp: form.website
-    };
-
-    const ENDPOINT = form.getAttribute('data-endpoint') || '/api/contact';
-
-    function setSending(sending){
-      btn.disabled = sending;
-      spinner.style.display = sending ? 'inline-block' : 'none';
-      btnLabel.textContent = sending ? 'Enviando…' : 'Enviar Mensaje';
-    }
-
-    function setToast(msg, ok = true){
-      result.textContent = msg;
-      result.hidden = false;
-      result.className = `toast ${ok ? 'ok' : 'err'}`;
-      void result.offsetWidth;
-      result.classList.add('show');
-      setTimeout(() => { result.classList.remove('show'); setTimeout(()=> result.hidden = true, 200); }, 5000);
-    }
-
-    function setError(input, msg) {
-        input.classList.add('is-invalid');
-        const errEl = form.querySelector(`.error[data-for="${input.id}"]`);
-        if(errEl) errEl.textContent = msg;
-    }
-    
-    function clearError(input) {
-        input.classList.remove('is-invalid');
-        const errEl = form.querySelector(`.error[data-for="${input.id}"]`);
-        if(errEl) errEl.textContent = '';
-    }
-
-    // Validaciones
-    function validateField(input) {
-        let valid = input.checkValidity();
-        if(input.id === 'name' && input.value.trim().length < 2) valid = false;
-        if(input.id === 'message' && input.value.trim().length < 10) valid = false;
-        
-        if(!valid) {
-            setError(input, input.validationMessage || 'Campo inválido');
-        } else {
-            clearError(input);
-        }
-        return valid;
-    }
-
-    // Listeners
-    ['name', 'phone', 'email', 'message'].forEach(id => {
-        fields[id].addEventListener('blur', () => validateField(fields[id]));
-        fields[id].addEventListener('input', () => clearError(fields[id]));
-    });
-    
-    fields.message.addEventListener('input', (e) => {
-        counter.textContent = `${e.target.value.length}/1000`;
-    });
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if(fields.hp.value) return; // Honeypot
-
-      let isValid = true;
-      ['name', 'phone', 'email', 'message'].forEach(id => {
-          if(!validateField(fields[id])) isValid = false;
-      });
-
-      if(!isValid) {
-          setToast("Por favor completa los campos requeridos.", false);
-          return;
-      }
-
-      setSending(true);
-
-      // Payload
-      const payload = {
-        name: fields.name.value.trim(),
-        company: fields.company.value.trim(),
-        phone: fields.phone.value.trim(),
-        email: fields.email.value.trim(),
-        message: fields.message.value.trim(),
-        ts: new Date().toISOString()
-      };
-
-      try {
-        // Simulación de envío
-        await new Promise(r => setTimeout(r, 1500));
-        
-        form.reset();
-        counter.textContent = '0/1000';
-        setToast("¡Mensaje enviado! Tu seguridad es nuestra prioridad.", true);
-      } catch(err) {
-        setToast("Error al enviar. Inténtalo de nuevo.", false);
-      } finally {
-        setSending(false);
-      }
-    });
-  })();
-</script>
  <!-- Footer (todo con el mismo color base) -->
 <footer class="site-footer section same-color" aria-label="Pie de página" role="contentinfo">
   <style>
@@ -3674,7 +3270,6 @@
       </div>
     </div>
 
-    <hr />
 
     <div class="row small mt-3">
       <div class="col-md-4">
