@@ -2416,14 +2416,13 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
   <!-- ============================================
        SECCIÓN 2: PREGUNTAS FRECUENTES (FAQs)
        ============================================ -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
 <section class="xp-faqs-section" aria-labelledby="xp-faqs-title">
   
   <style>
     /* *************************************************************
-     * ESTILOS: FAQs EXPERT UX/UI 
-     * Paleta: #053F5C (Dark) | #429EBD (Turquesa) | #F7AD19 (Orange)
+     * ESTILOS: FAQs EXPERT UX/UI (ROBUSTO)
      * *************************************************************/
     :root {
         --col-dark-blue:  #053F5C;
@@ -2446,9 +2445,13 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         font-family: var(--font-body);
         color: var(--text-main);
         position: relative;
+        box-sizing: border-box; /* Asegura modelo de caja */
+    }
+    
+    .xp-faqs-section * {
+        box-sizing: border-box;
     }
 
-    /* Decoración de fondo sutil */
     .xp-faqs-section::before {
         content: '';
         position: absolute;
@@ -2466,7 +2469,7 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         z-index: 2; 
     }
 
-    /* --- Cabecera con Copywriting de Confianza --- */
+    /* --- Cabecera --- */
     .xp-section-head { text-align: center; margin-bottom: 60px; }
     
     .xp-faqs-title {
@@ -2486,34 +2489,31 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         line-height: 1.6;
     }
 
-    /* --- Acordeón Moderno --- */
+    /* --- Acordeón --- */
     .xp-accordion { display: flex; flex-direction: column; gap: 24px; }
 
     .xp-accordion-item {
         background: var(--col-white);
         border-radius: var(--radius-card);
-        /* Sombra suave inicial */
         box-shadow: 0 4px 20px rgba(5, 63, 92, 0.04);
-        border: 2px solid transparent; /* Preparado para hover/active */
+        border: 2px solid transparent;
         overflow: hidden;
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
-    /* Hover: Elevación y borde Turquesa */
     .xp-accordion-item:hover {
         transform: translateY(-4px);
         box-shadow: 0 12px 30px rgba(66, 158, 189, 0.15);
         border-color: var(--col-light-cyan);
     }
 
-    /* Estado Activo: Borde Naranja para destacar lectura */
     .xp-accordion-item.active {
         border-color: var(--col-orange);
         box-shadow: 0 8px 25px rgba(247, 173, 25, 0.1);
-        transform: translateY(0); /* Regresa a posición base para lectura estable */
+        transform: translateY(0);
     }
 
-    /* Header del Item */
+    /* HEADER (BOTÓN) */
     .xp-accordion-header {
         width: 100%;
         padding: 24px 30px;
@@ -2525,15 +2525,21 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         cursor: pointer;
         text-align: left;
         gap: 20px;
+        outline: none;
+        /* Resetear estilos de botón por si hereda de theme */
+        margin: 0;
+        line-height: normal;
     }
 
+    /* --- SEGURIDAD DE CLIC --- */
+    /* Pointer events none asegura que el clic "atraviese" estos elementos y llegue al botón */
     .xp-question-content {
         display: flex;
         align-items: center;
         gap: 15px;
+        pointer-events: none; 
     }
 
-    /* Icono temático por pregunta */
     .xp-topic-icon {
         font-size: 1.5rem;
         display: flex;
@@ -2559,7 +2565,6 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         transition: color 0.3s;
     }
     
-    /* Icono de Flecha (Chevron) */
     .xp-accordion-chevron {
         width: 24px; height: 24px;
         flex-shrink: 0;
@@ -2569,6 +2574,7 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         stroke-linecap: round; 
         stroke-linejoin: round;
         transition: transform 0.3s ease, stroke 0.3s ease;
+        pointer-events: none; 
     }
     
     .xp-accordion-item.active .xp-accordion-chevron {
@@ -2576,28 +2582,34 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         stroke: var(--col-orange);
     }
 
-    /* Body del Item */
+    /* BODY (CONTENIDO DESPLEGABLE) */
     .xp-accordion-body {
+        /* Forzar estilos importantes por si hay CSS global interfiriendo */
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         background: #fff;
+        opacity: 0; /* Ocultar visualmente mientras está cerrado */
+        transition: max-height 0.4s ease, opacity 0.3s ease;
+    }
+    
+    .xp-accordion-item.active .xp-accordion-body {
+        opacity: 1;
     }
 
     .xp-accordion-content {
-        padding: 0 30px 30px 85px; /* Indentado para alinear con el texto del header */
+        padding: 0 30px 30px 85px;
         font-size: 1rem;
         color: var(--text-muted);
         line-height: 1.7;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
         .xp-faqs-title { font-size: 2rem; }
         .xp-question-text { font-size: 1rem; }
         .xp-accordion-header { padding: 20px; }
-        .xp-topic-icon { display: none; } /* Ocultar icono temático en móvil para ahorrar espacio */
-        .xp-accordion-content { padding: 0 20px 25px 20px; } /* Quitar indentado en móvil */
+        .xp-topic-icon { display: none; }
+        .xp-accordion-content { padding: 0 20px 25px 20px; }
     }
   </style>
 
@@ -2610,11 +2622,12 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
           </p>
       </div>
 
-      <div class="xp-accordion">
+      <!-- CONTENEDOR PRINCIPAL -->
+      <div class="xp-accordion" id="xpAccordionMain">
           
-          <!-- Pregunta 1: Estados -->
+          <!-- ITEM 1 -->
           <div class="xp-accordion-item">
-              <button class="xp-accordion-header" aria-expanded="false">
+              <button type="button" class="xp-accordion-header" aria-expanded="false">
                   <div class="xp-question-content">
                       <span class="xp-topic-icon" aria-hidden="true">🚦</span>
                       <span class="xp-question-text">¿Qué significan los estados de mi caso?</span>
@@ -2628,9 +2641,9 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
               </div>
           </div>
 
-          <!-- Pregunta 2: Publicación -->
+          <!-- ITEM 2 -->
           <div class="xp-accordion-item">
-              <button class="xp-accordion-header" aria-expanded="false">
+              <button type="button" class="xp-accordion-header" aria-expanded="false">
                   <div class="xp-question-content">
                       <span class="xp-topic-icon" aria-hidden="true">📝</span>
                       <span class="xp-question-text">¿Cómo publico una experiencia correctamente?</span>
@@ -2644,9 +2657,9 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
               </div>
           </div>
 
-          <!-- Pregunta 3: Notificaciones (Empresas) -->
+          <!-- ITEM 3 -->
           <div class="xp-accordion-item">
-              <button class="xp-accordion-header" aria-expanded="false">
+              <button type="button" class="xp-accordion-header" aria-expanded="false">
                    <div class="xp-question-content">
                       <span class="xp-topic-icon" aria-hidden="true">🔔</span>
                       <span class="xp-question-text">¿Puedo configurar alertas para mi equipo?</span>
@@ -2660,9 +2673,9 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
               </div>
           </div>
 
-          <!-- Pregunta 4: Seguridad -->
+          <!-- ITEM 4 -->
           <div class="xp-accordion-item">
-              <button class="xp-accordion-header" aria-expanded="false">
+              <button type="button" class="xp-accordion-header" aria-expanded="false">
                    <div class="xp-question-content">
                       <span class="xp-topic-icon" aria-hidden="true">🛡️</span>
                       <span class="xp-question-text">¿Qué hago si veo contenido ofensivo?</span>
@@ -2680,38 +2693,60 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const accItems = document.querySelectorAll('.xp-accordion-item');
+    /* ==========================================
+       JS DE ACORDEÓN ROBUSTO (Event Delegation)
+       ========================================== */
+    (function() {
+        function initAccordion() {
+            const container = document.getElementById('xpAccordionMain');
+            if (!container) return;
 
-        accItems.forEach(item => {
-            const header = item.querySelector('.xp-accordion-header');
-            const body = item.querySelector('.xp-accordion-body');
+            // Usamos un solo listener en el padre (más eficiente y seguro)
+            container.addEventListener('click', function(e) {
+                // Buscar si el click fue dentro de un header
+                const header = e.target.closest('.xp-accordion-header');
+                
+                // Si no se clickeó un header, no hacemos nada
+                if (!header) return;
 
-            header.addEventListener('click', () => {
-                const isOpen = item.classList.contains('active');
+                // Prevenir submit si está dentro de un form
+                e.preventDefault();
 
-                // Cerrar otros ítems (Acordeón exclusivo) para mantener el foco
-                accItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                        otherItem.querySelector('.xp-accordion-header').setAttribute('aria-expanded', 'false');
-                        otherItem.querySelector('.xp-accordion-body').style.maxHeight = null;
+                const currentItem = header.closest('.xp-accordion-item');
+                const currentBody = currentItem.querySelector('.xp-accordion-body');
+                const isOpen = currentItem.classList.contains('active');
+                
+                // 1. Cerrar todos los demás items
+                const allItems = container.querySelectorAll('.xp-accordion-item');
+                allItems.forEach(item => {
+                    if (item !== currentItem && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        item.querySelector('.xp-accordion-header').setAttribute('aria-expanded', 'false');
+                        item.querySelector('.xp-accordion-body').style.maxHeight = null;
                     }
                 });
 
-                // Alternar estado
+                // 2. Alternar el actual
                 if (isOpen) {
-                    item.classList.remove('active');
+                    currentItem.classList.remove('active');
                     header.setAttribute('aria-expanded', 'false');
-                    body.style.maxHeight = null;
+                    currentBody.style.maxHeight = null;
                 } else {
-                    item.classList.add('active');
+                    currentItem.classList.add('active');
                     header.setAttribute('aria-expanded', 'true');
-                    body.style.maxHeight = body.scrollHeight + "px";
+                    // scrollHeight es la altura real del contenido
+                    currentBody.style.maxHeight = currentBody.scrollHeight + "px";
                 }
             });
-        });
-    });
+        }
+
+        // Ejecutar cuando el DOM esté listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initAccordion);
+        } else {
+            initAccordion(); // Si ya cargó, ejecutar directamente
+        }
+    })();
   </script>
 </section>
 <script>
@@ -3124,131 +3159,202 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
   </style>
 </section>
  <!-- Footer (todo con el mismo color base) -->
-<footer class="site-footer section same-color" aria-label="Pie de página" role="contentinfo">
+<footer class="site-footer-elegant section" aria-label="Pie de página" role="contentinfo">
+  <!-- Tipografías modernas -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --footer-color: #007BFF;      /* <-- COLOR UNIFORME: cámbialo aquí si quieres otro */
-      --text-on-footer: #ffffff;
-      --muted-on-footer: rgba(255,255,255,0.92);
-      --accent-border: rgba(255,255,255,0.08);
-      --social-size: 44px;
+    /* --- ESTILOS ELEGANTES (Forzados) --- */
+    .site-footer-elegant {
+      /* Usamos !important para asegurar que veas el cambio de color */
+      background-color: #0B3B55 !important; /* Azul Petróleo Profundo */
+      color: #e2e8f0 !important;       /* Texto gris claro casi blanco */
+      padding: 60px 0 30px !important;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      position: relative;
     }
 
-    .site-footer{
-      background-color: var(--footer-color); /* TODO: fondo uniforme */
-      color: var(--text-on-footer);
-      padding: 28px 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    /* Separador superior */
+    .site-footer-elegant::before {
+        content: '';
+        position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+        background: rgba(0, 0, 0, 0.2);
     }
 
-    .site-footer .container{ max-width:1200px; margin:0 auto; padding:0 18px; }
-    .site-footer .row{ display:flex; flex-wrap:wrap; gap:18px; align-items:flex-start; }
-    .site-footer .col-md-4 { flex: 1 1 320px; min-width: 220px; }
-    .site-footer .col-md-2 { flex: 0 0 160px; min-width:120px; }
-
-    /* Forzar logo claro (si necesitas logo blanco) */
-    .site-footer .logo { width:200px; height:auto; display:block; filter: brightness(0) invert(1); }
-
-    /* Links y texto: todo en blanco / mismo tono */
-    .site-footer a { color: var(--text-on-footer); text-decoration: none; }
-    .site-footer a:hover { text-decoration: underline; color: var(--muted-on-footer); }
-    .site-footer p, .site-footer .tagline, .site-footer h6, .site-footer .small { color: var(--text-on-footer); }
-
-    /* Social buttons — mantienen el mismo color de fondo que el footer (para "todo igual"),
-       pero con borde sutil y sombra para que se distingan. Los iconos se mantienen blancos. */
-    .social-list { list-style:none; margin:0; padding:0; display:flex; gap:12px; align-items:center; }
-    .social-list li{ list-style:none; }
-    .social-btn{
-      width:var(--social-size);
-      height:var(--social-size);
-      display:inline-grid;
-      place-items:center;
-      border-radius:8px;
-      background: var(--footer-color);    /* mismo color que el footer */
-      border: 1px solid var(--accent-border);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-      color: var(--text-on-footer);
-      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
-      text-decoration:none;
+    .site-footer-elegant .container { 
+        max-width: 1140px; 
+        margin: 0 auto; 
+        padding: 0 20px; 
     }
-    .social-btn svg, .social-btn svg * { fill: var(--text-on-footer) !important; }
+    
+    .site-footer-elegant .row { 
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 40px 0;
+    }
+    
+    /* Columnas */
+    .site-footer-elegant .col-brand { flex: 0 0 100%; max-width: 100%; margin-bottom: 30px; }
+    .site-footer-elegant .col-link { flex: 0 0 50%; max-width: 50%; } 
 
-    .social-btn:hover{ transform: translateY(-4px); opacity: .95; box-shadow: 0 18px 40px rgba(0,0,0,0.18); }
+    @media (min-width: 768px) {
+        .site-footer-elegant .col-brand { flex: 0 0 40%; max-width: 40%; padding-right: 40px; margin-bottom: 0; }
+        .site-footer-elegant .col-link { flex: 0 0 20%; max-width: 20%; }
+    }
 
-    /* Divider */
-    .site-footer hr{ border:0; height:1px; background: rgba(255,255,255,0.06); margin:1.5rem 0 0.5rem 0; }
+    /* --- LOGO (Reducido) --- */
+    .site-footer-elegant .logo { 
+        width: 130px !important; /* Tamaño forzado más pequeño */
+        height: auto; 
+        display: block; 
+        margin-bottom: 20px;
+        filter: brightness(0) invert(1); /* Blanco puro */
+        opacity: 0.95;
+    }
+    
+    .site-footer-elegant p {
+        margin-bottom: 0;
+        color: #cbd5e1;
+    }
 
-    /* Ajustes móviles */
-    @media (max-width:720px){
-      .site-footer .col-md-4, .site-footer .col-md-2 { flex: 1 1 100%; }
-      .logo{ width:160px; }
+    /* --- TÍTULOS --- */
+    .site-footer-elegant h6 { 
+        color: #ffffff !important;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 20px;
+        margin-top: 0;
+        opacity: 0.9;
+        border-left: 2px solid #00C08B; /* Pequeño detalle de diseño */
+        padding-left: 10px;
+    }
+
+    /* --- ENLACES --- */
+    .site-footer-elegant .nav { 
+        padding: 0; 
+        list-style: none; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 12px; 
+    }
+    
+    .site-footer-elegant a { 
+        color: #94a3b8 !important; 
+        text-decoration: none !important; 
+        transition: all 0.2s ease;
+        font-weight: 400;
+        display: inline-block;
+    }
+    
+    .site-footer-elegant a:hover { 
+        color: #00C08B !important; /* Verde menta al pasar el mouse */
+        transform: translateX(5px); 
+    }
+
+    /* --- REDES SOCIALES --- */
+    .site-footer-elegant .social-list { 
+        list-style: none; margin: 0; padding: 0; 
+        display: flex; gap: 10px; flex-wrap: wrap;
+        margin-top: 25px;
+    }
+    
+    .site-footer-elegant .social-btn {
+        width: 40px; height: 40px;
+        display: flex; align-items: center; justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: #fff;
+        transition: all 0.3s ease;
+    }
+    
+    .site-footer-elegant .social-btn svg { 
+        fill: currentColor; width: 18px; height: 18px; 
+    }
+
+    .site-footer-elegant .social-btn:hover { 
+        background: #00C08B; 
+        border-color: #00C08B;
+        color: #0B3B55; 
+        transform: translateY(-3px);
+    }
+
+    /* --- BOTTOM --- */
+    .footer-bottom {
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        font-size: 0.8rem;
+        color: #64748b;
+    }
+    
+    .footer-bottom a { color: #cbd5e1 !important; }
+
+    @media (max-width: 768px) {
+        .footer-bottom { flex-direction: column; text-align: center; }
     }
   </style>
 
   <div class="container">
-    <div class="row gap-y text-center text-md-left">
-      <div class="col-md-4 mr-auto">
-        <img src="img/XPR.svg" alt="Logo" class="logo">
-        
+    <div class="row">
+      
+      <!-- MARCA -->
+      <div class="col-brand">
+        <!-- Logo -->
+        <img src="img/XPR.svg" alt="Xpressate" class="logo">
         <p>Tu voz registrada, tus problemas atendidos, tus soluciones reales.</p>
+        
+        <!-- Redes Sociales -->
+        <ul class="social-list">
+            <li><a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a></li>
+            <li><a href="#" class="social-btn"><svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a></li>
+            <li><a href="#" class="social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a></li>
+        </ul>
       </div>
           
-      <div class="col-md-2">
-        <nav class="nav flex-column">
-          <a class="nav-item py-2" href="#">Inicio</a>
-          <a class="nav-item py-2" href="#">Sobre nosotros</a>
-          <a class="nav-item py-2" href="#">Beneficios</a>
+      <!-- MENÚS -->
+      <div class="col-link">
+        <h6>Compañía</h6>
+        <nav class="nav">
+          <a href="#">Inicio</a>
+          <a href="#">Sobre nosotros</a>
+          <a href="#">Beneficios</a>
         </nav>
       </div>
 
-      <div class="col-md-2">
-        <nav class="nav flex-column">
-          <a class="nav-item py-2" href="#">Testimonios</a>
-          <a class="nav-item py-2" href="#">Unirme a Xpressate</a>
-          <a class="nav-item py-2" href="#">Contacto</a>
+      <div class="col-link">
+        <h6>Comunidad</h6>
+        <nav class="nav">
+          <a href="#">Testimonios</a>
+          <a href="#">Unirme</a>
+          <a href="#">Contacto</a>
         </nav>
       </div>
 
-      <div class="col-md-2">
-        <nav class="nav flex-column">
-          <a class="nav-item py-2" href="#">Politica de privacidad</a>
-          <a class="nav-item py-2" href="#">Términos de uso</a>
-          <a class="nav-item py-2" href="#">Centro de ayuda</a>
+      <div class="col-link">
+        <h6>Legal</h6>
+        <nav class="nav">
+          <a href="#">Privacidad</a>
+          <a href="#">Términos</a>
+          <a href="#">Ayuda</a>
         </nav>
       </div>
 
-      <div class="col-md-2">
-       <h6 class="py-2 small">Síguenos</h6>
-
-        <nav aria-label="Redes sociales">
-          <ul class="social-list" role="list">
-            <li>
-              <a href="https://facebook.com/5studios.net" target="_blank" rel="noopener noreferrer"
-                 class="social-btn" aria-label="Facebook" title="Facebook">
-                <!-- usa SVG o <i class="fab fa-facebook"></i> -->
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M22 12A10 10 0 1 0 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9v-2.9h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.9h-2.3V22C18.34 21.12 22 16.99 22 12z"/></svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social-btn" aria-label="Twitter" title="Twitter">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.28 4.28 0 0 0 1.88-2.37 8.54 8.54 0 0 1-2.71 1.03 4.26 4.26 0 0 0-7.26 3.88A12.1 12.1 0 0 1 3.15 4.6a4.25 4.25 0 0 0 1.32 5.68 4.2 4.2 0 0 1-1.93-.53v.05a4.26 4.26 0 0 0 3.42 4.18 4.3 4.3 0 0 1-1.92.07 4.27 4.27 0 0 0 3.98 2.96A8.55 8.55 0 0 1 2 19.54 12.07 12.07 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68 0-.18 0-.35-.01-.53A8.36 8.36 0 0 0 22.46 6z"/></svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="social-btn" aria-label="Instagram" title="Instagram">
-                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="18" height="18"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.65 0 3 1.35 3 3v10c0 1.65-1.35 3-3 3H7c-1.65 0-3-1.35-3-3V7c0-1.65 1.35-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.75-2.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
     </div>
 
-
-    <div class="row small mt-3">
-      <div class="col-md-4">
-        <p class="mt-2 mb-0">© 205 <a href="https://5studios.net">Tu voz registrada, tus problemas atendidos, </a>tus soluciones reales.</p>
-      </div>
+    <div class="footer-bottom">
+      <div>© 2025 Xpressate. Todos los derechos reservados.</div>
+      <div>Desarrollado por <a href="https://5studios.net" target="_blank">5Studios</a></div>
     </div>
   </div>
 </footer>
