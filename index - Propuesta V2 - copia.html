@@ -127,12 +127,11 @@
         <ul class="nav navbar-nav ml-auto">
             <!-- Links actualizados para apuntar a las secciones solicitadas -->
             <li class="nav-item"><a class="nav-link scrollto" href="#home" style="color:#000 !important;">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link scrollto" href="#about" style="color:#000 !important;">Sobre nosotros</a></li>
-            <li class="nav-item"><a class="nav-link scrollto" href="#beneficios" style="color:#000 !important;">Beneficios</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#proceso-confianza" style="color:#000 !important;">Beneficios</a></li>
             <li class="nav-item"><a class="nav-link scrollto" href="#casos-exito" style="color:#000 !important;">Testimonios</a></li>
             <li class="nav-item"><a class="nav-link scrollto" href="#unirme" style="color:#000 !important;">Unirme a Xpressate</a></li>
+            <li class="nav-item"><a class="nav-link scrollto" href="#contacto-neon" style="color:#000 !important;">Contáctanos</a></li>
             <li class="nav-item">
-             <li class="nav-item"><a class="nav-link scrollto" href="#contacto" style="color:#000 !important;">Contáctanos</a></li>
             </li>
         </ul>
     </div>
@@ -1186,6 +1185,142 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
   }
 </style>
 
+<style>
+    /* --- ESTILOS DE DISEÑO (Pegar en tu CSS) --- */
+
+    /* 1. Fondo General de la Sección */
+    .xp-deep-dive-section {
+        background-color: #F8FAFC; /* Gris muy pálido para contraste limpio */
+        padding: 80px 20px;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif; /* Fuente moderna */
+    }
+
+    .xp-container {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* 2. Estructura Zig-Zag (Filas) */
+    .xp-row-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+        margin-bottom: 100px; /* Espacio entre bloques */
+    }
+
+    .xp-row-block.reverse {
+        flex-direction: row-reverse; /* Invierte imagen/texto */
+    }
+
+    .xp-row-block:last-child {
+        margin-bottom: 0;
+    }
+
+    /* 3. Columnas */
+    .xp-text-col {
+        flex: 1;
+        max-width: 500px;
+    }
+
+    .xp-img-col {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        position: relative; /* Para el fondo decorativo */
+    }
+
+    /* 4. Tipografía Estilo SaaS */
+    .xp-subtitle-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 6px 14px;
+        border-radius: 50px;
+        margin-bottom: 16px;
+        /* Color por defecto (Azul) si no tiene style inline */
+        background-color: #E0F2FE; 
+        color: #0369A1; 
+    }
+
+    .xp-block-title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #0F2C40; /* Tu Azul Oscuro Corporativo */
+        line-height: 1.2;
+        margin-bottom: 16px;
+        margin-top: 0;
+    }
+
+    .xp-block-desc {
+        font-size: 1rem;
+        color: #64748B; /* Gris suave para lectura fácil */
+        line-height: 1.6;
+        margin-bottom: 24px;
+    }
+
+    .xp-btn-line {
+        text-decoration: none;
+        font-weight: 600;
+        color: #0F2C40;
+        border-bottom: 2px solid rgba(15, 44, 64, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .xp-btn-line:hover {
+        color: #00C08B; /* Verde acento */
+        border-color: #00C08B;
+    }
+
+    /* 5. El Marco de la Imagen (La clave del diseño) */
+    .xp-img-frame {
+        position: relative;
+        z-index: 2;
+        background: #fff;
+        border-radius: 20px; /* Bordes redondeados */
+        overflow: hidden;
+        /* Sombra suave y difusa (Elevación) */
+        box-shadow: 0 20px 40px -5px rgba(0,0,0,0.08), 0 10px 15px -5px rgba(0,0,0,0.04);
+        transition: transform 0.3s ease;
+    }
+    
+    .xp-img-frame:hover {
+        transform: translateY(-5px); /* Efecto flotante al pasar mouse */
+    }
+
+    .xp-img-frame img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 500px; /* Controlar tamaño máximo */
+    }
+
+    /* 6. Fondo Decorativo (Glow) detrás de la imagen */
+    .xp-img-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 10px;
+        left: 10px;
+        border-radius: 24px;
+        z-index: 1;
+        /* El color viene del inline style en tu HTML, aquí solo damos la forma */
+    }
+
+    /* 7. Responsivo (Móvil) */
+    @media (max-width: 768px) {
+        .xp-row-block, .xp-row-block.reverse {
+            flex-direction: column;
+            text-align: center;
+            gap: 40px;
+        }
+        .xp-text-col { max-width: 100%; }
+        .xp-img-frame img { width: 100%; }
+    }
+</style>
+
 <section id="proceso-confianza" class="xp-deep-dive-section">
     <div class="xp-container">
         
@@ -1195,9 +1330,11 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
                 <h3 class="xp-block-title">Intermediario Tecnológico: Diálogo Seguro y Neutral.</h3>
                 <p class="xp-block-desc">
                 Xpressate actúa como intermediario tecnológico, no crea ni edita el contenido; solo modera de acuerdo con normas de seguridad.
+                </p>
             </div>
 
             <div class="xp-img-col">
+                <div class="xp-img-bg" style="background:rgba(15, 44, 64, 0.05);"></div> 
                 <div class="xp-img-frame">
                     <img src="img/seguridad.png" alt="Interfaz de Chat Xpressate">
                 </div>
@@ -1206,7 +1343,7 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
 
         <div class="xp-row-block reverse" data-aos="fade-up">
             <div class="xp-text-col">
-                <span class="xp-subtitle-tag" style="color:#FFF; background:rgba(255,193,7,0.4);">Acuerdos Formales</span>
+                <span class="xp-subtitle-tag" style="color:#FFF; background:rgba(255,193,7,1);">Acuerdos Formales</span>
                 <h3 class="xp-block-title">Negociación Formal: Solución Mutua con Respaldo Digital.</h3>
                 <p class="xp-block-desc">
                     La resolución se formaliza a través de un proceso de acuerdos en el chat. Esto garantiza que las soluciones sean consensuadas y registradas para una trazabilidad legal.
@@ -1224,13 +1361,11 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
 
         <div class="xp-row-block" data-aos="fade-up">
             <div class="xp-text-col">
-                <span class="xp-subtitle-tag" style="color:#FFF; background:rgba(40,167,69,0.4);">Calidad del Contenido</span>
+                <span class="xp-subtitle-tag" style="color:#FFF; background:rgba(40,167,69,1);">Calidad del Contenido</span>
                 <h3 class="xp-block-title">Contenido Auténtico, Interacciones Validadas.</h3>
                 <p class="xp-block-desc">
                     Mantenemos un entorno limpio y respetuoso. La moderación automática garantiza que las conversaciones sean productivas y que las interacciones reflejen el sentir real de la comunidad.
                 </p>
-                
-                
             </div>
 
             <div class="xp-img-col">
@@ -1242,7 +1377,6 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         </div>
 
     </div>
-</section>
 </section>
     <!-- fin de Beneficios -->
     <!-- tESTIMONIOS -->
