@@ -142,7 +142,6 @@
 <main >
     
     
-<!-- Alternative 2 Heading -->
 <header id="home" class="xp-immersive-hero">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -173,13 +172,11 @@
             </h1>
         </div>
 
-        <!-- SECCIÓN MODIFICADA -->
         <div class="animate-fade-up" style="animation-delay: 0.3s;">
             <p class="xp-block-desc" style="color: #000000 !important; font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.6;">
             Plataforma líder en gestión de experiencia laboral y comunicación corporativa en un entorno seguro y transparente.
             </p>
         </div>
-        <!-- FIN SECCIÓN MODIFICADA -->
 
         <div class="animate-fade-up" style="animation-delay: 0.4s;">
             <div class="xp-btn-wrapper mb-5 justify-content-center justify-content-lg-start">
@@ -187,13 +184,14 @@
                   <span>Descargar Aplicación</span>
                   <i data-lucide="arrow-right" width="20"></i>
               </a>
-              <a href="#demo" class="btn-xp-outline">
+              
+              <a href="javascript:void(0)" class="btn-xp-outline js-open-video">
                   <div class="play-icon-simple me-2">
                       <i data-lucide="play" width="12" fill="currentColor" style="position: relative; left: 1px;"></i>
                   </div>
                   <span>Ver Demo</span>
               </a>
-            </div>
+              </div>
         </div>
 
         <div class="animate-fade-up mt-4 pt-lg-2" style="animation-delay: 0.5s;">
@@ -274,21 +272,36 @@
     </div>
   </div>
 
+  <div id="xpVideoModal" class="xp-video-modal" aria-hidden="true">
+    <div class="xp-modal-overlay js-close-video"></div>
+    <div class="xp-modal-container">
+        <button class="xp-close-btn js-close-video" aria-label="Cerrar video">
+            <i data-lucide="x" width="24" height="24"></i>
+        </button>
+        <div class="xp-video-wrapper">
+            <iframe 
+                id="xpDemoIframe"
+                src="https://www.youtube.com/embed/VIDEO_ID_HERE?enablejsapi=1" 
+                title="Xpressate Demo" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+  </div>
+
   <style>
-    /* --- VARIABLES DE DISEÑO (Extraídas de la imagen) --- */
+    /* --- VARIABLES DE DISEÑO (Originales) --- */
     :root {
-        --xp-dark: #0f172a;        /* Texto Oscuro */
-        --xp-green: #00d68f;       /* Verde Vibrante (Accent) */
-        --xp-green-soft: #dcfce7;  /* Fondo Verde suave */
+        --xp-dark: #0f172a;
+        --xp-green: #00d68f;
+        --xp-green-soft: #dcfce7;
         --xp-green-text: #059669;
-        
-        --xp-orange-bg: #fff7ed;   /* Fondo Naranja suave */
-        --xp-orange-text: #c2410c; /* Texto Naranja */
-        
+        --xp-orange-bg: #fff7ed;
+        --xp-orange-text: #c2410c;
         --xp-font-heading: 'Poppins', sans-serif;
         --xp-font-body: 'Inter', sans-serif;
-        
-        /* Sombras Suaves (Diffuse Shadows) */
         --shadow-card: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
         --shadow-float: 0 30px 60px -12px rgba(0, 0, 0, 0.12);
     }
@@ -299,6 +312,7 @@
         font-family: var(--xp-font-body);
         padding: 80px 0 100px;
         overflow-x: hidden;
+        position: relative; /* Asegura contexto */
     }
 
     /* --- TIPOGRAFÍA --- */
@@ -320,7 +334,7 @@
         font-weight: 400;
     }
 
-    /* --- BADGE DE CASOS (Estilo Pill) --- */
+    /* --- BADGE --- */
     .xp-badge-flat {
         display: inline-flex; align-items: center;
         background: #f8fafc;
@@ -374,15 +388,15 @@
     .metric-number { font-family: var(--xp-font-heading); font-weight: 800; font-size: 2rem; color: var(--xp-dark); margin-bottom: 0; }
     .metric-label { font-size: 0.9rem; color: #64748b; font-weight: 500; margin: 0; }
 
-    /* --- UI DEL TELÉFONO (Mockup) --- */
+    /* --- PHONE MOCKUP --- */
     .phone-mockup-container {
         width: 320px; height: 640px;
         background: var(--xp-dark);
         border-radius: 50px;
-        padding: 10px; /* Bezel thickness */
+        padding: 10px;
         box-shadow: var(--shadow-float);
         position: relative; z-index: 10;
-        transform: rotate(0deg); /* Flat view */
+        transform: rotate(0deg);
     }
     
     .phone-bezel {
@@ -395,11 +409,9 @@
         position: relative;
     }
 
-    /* Header Curvo dentro de la App */
     .app-header-curve {
         background: var(--xp-green);
-        height: 35%;
-        width: 100%;
+        height: 35%; width: 100%;
         border-bottom-left-radius: 30px;
         border-bottom-right-radius: 30px;
         position: relative;
@@ -407,13 +419,11 @@
 
     .app-body { margin-top: -50px; position: relative; z-index: 5; }
 
-    /* Tarjetas internas de la App */
     .app-card-internal {
         background: white; padding: 16px; border-radius: 16px;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     }
     
-    /* Pills de estado */
     .badge-pill {
         font-size: 0.65rem; font-weight: 800; 
         padding: 6px 12px; border-radius: 20px; 
@@ -422,7 +432,7 @@
     .badge-pill.success { background: var(--xp-green-soft); color: var(--xp-green-text); }
     .badge-pill.warning { background: var(--xp-orange-bg); color: var(--xp-orange-text); }
 
-    /* --- TARJETAS FLOTANTES (Overlay) --- */
+    /* --- FLOAT CARDS --- */
     .floating-card {
         position: absolute; 
         background: white;
@@ -436,14 +446,12 @@
     .float-top-right { top: 50px; right: -60px; animation-delay: 0s; }
     .float-bottom-left { bottom: 80px; left: -70px; animation-delay: 3s; }
 
-    /* Iconos en tarjetas flotantes */
     .icon-box-green {
         color: var(--xp-green);
         display: flex; align-items: center; justify-content: center;
     }
     .avatar-box-purple {
         width: 42px; height: 42px; border-radius: 50%;
-        background: var(--xp-font-heading); /* fallback */
         background: #f3e8ff; color: #7e22ce;
         display: flex; align-items: center; justify-content: center;
         font-weight: 700; font-size: 0.85rem;
@@ -455,275 +463,103 @@
         100% { transform: translateY(0px); }
     }
 
-    /* --- RESPONSIVE --- */
     @media (max-width: 991px) {
         .xp-immersive-hero { text-align: center; padding-top: 40px; }
-        .float-top-right, .float-bottom-left { display: none; } /* Ocultar floats en tablet/móvil */
+        .float-top-right, .float-bottom-left { display: none; }
         .phone-mockup-container { margin-top: 40px; width: 280px; height: 560px; }
         .xp-badge-flat { margin: 0 auto; }
+    }
+
+    /* --- ESTILOS NUEVOS PARA EL MODAL DE VIDEO --- */
+    .xp-video-modal {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        z-index: 10000; /* Encima de todo */
+        display: flex; align-items: center; justify-content: center;
+        opacity: 0; visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .xp-video-modal.is-visible { opacity: 1; visibility: visible; }
+
+    .xp-modal-overlay {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(15, 23, 42, 0.9); /* Color xp-dark con transparencia */
+        backdrop-filter: blur(8px);
+    }
+
+    .xp-modal-container {
+        position: relative; width: 90%; max-width: 900px;
+        background: #000; border-radius: 20px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        transform: scale(0.95); transition: transform 0.3s ease;
+        overflow: hidden;
+    }
+    .xp-video-modal.is-visible .xp-modal-container { transform: scale(1); }
+
+    .xp-close-btn {
+        position: absolute; top: -45px; right: 0;
+        background: none; border: none; color: white;
+        cursor: pointer; transition: color 0.3s ease;
+        padding: 5px;
+    }
+    .xp-close-btn:hover { color: var(--xp-green); }
+
+    .xp-video-wrapper {
+        position: relative; padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+    }
+    .xp-video-wrapper iframe {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    }
+    
+    @media (max-width: 768px) {
+        .xp-close-btn { top: 5px; right: 5px; z-index: 10; background: rgba(0,0,0,0.5); border-radius: 50%; }
     }
   </style>
 
   <script>
-    // Inicializar iconos de Lucide
     document.addEventListener("DOMContentLoaded", function() {
+       // Inicializar iconos Lucide
        if(typeof lucide !== 'undefined') {
          lucide.createIcons();
        }
+
+       // --- LÓGICA DEL VIDEO MODAL ---
+       const modal = document.getElementById('xpVideoModal');
+       const openBtns = document.querySelectorAll('.js-open-video');
+       const closeElems = document.querySelectorAll('.js-close-video');
+       const iframe = document.getElementById('xpDemoIframe');
+       
+       // Guardar URL original
+       let originalVideoSrc = "";
+       if(iframe) originalVideoSrc = iframe.src;
+
+       const openModal = (e) => {
+           e.preventDefault();
+           if(iframe) iframe.src = originalVideoSrc; // Resetear src para asegurar carga
+           modal.classList.add('is-visible');
+           modal.setAttribute('aria-hidden', 'false');
+           document.body.style.overflow = 'hidden'; // Bloquear scroll
+       };
+
+       const closeModal = () => {
+           modal.classList.remove('is-visible');
+           modal.setAttribute('aria-hidden', 'true');
+           document.body.style.overflow = ''; // Restaurar scroll
+           if(iframe) iframe.src = ''; // Detener video al cerrar
+       };
+
+       openBtns.forEach(btn => btn.addEventListener('click', openModal));
+       closeElems.forEach(elem => elem.addEventListener('click', closeModal));
+
+       document.addEventListener('keydown', (e) => {
+           if (e.key === 'Escape' && modal.classList.contains('is-visible')) {
+               closeModal();
+           }
+       });
     });
   </script>
 </header>
-<!-- ESTILOS CSS NECESARIOS -->
-<style>
-  /* --- Configuración General --- */
-  .xp-immersive-hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 650px; /* Altura mínima para evitar cortes en laptops pequeñas */
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    font-family: 'Inter', sans-serif;
-  }
-
-  /* --- Eyebrow (Etiqueta superior) --- */
-  .xp-eyebrow {
-    display: inline-block;
-  }
-  .xp-badge-pill {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-    color: #F7AD19; /* Naranja */
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 8px 16px;
-    border-radius: 50px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-
-  /* --- Tipografía --- */
-  .xp-hero-title {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: clamp(2.8rem, 5.5vw, 4.8rem); /* Ligeramente más grande */
-    line-height: 1.05;
-    letter-spacing: -1.5px;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  }
-  
-  .text-highlight {
-    color: #F7AD19;
-    position: relative;
-    white-space: nowrap; /* Evita que se rompa la frase clave */
-    z-index: 1;
-  }
-  
-  /* Subrayado decorativo creativo */
-  .text-highlight::after {
-    content: '';
-    position: absolute;
-    bottom: 12px;
-    left: -5px;
-    width: 105%;
-    height: 18px;
-    background: rgba(247, 173, 25, 0.25);
-    z-index: -1;
-    transform: skewX(-15deg) rotate(-1deg);
-    border-radius: 2px;
-    box-shadow: 0 0 15px rgba(247, 173, 25, 0.2);
-  }
-
-  .xp-hero-lead {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
-    max-width: 650px;
-    line-height: 1.7;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    color: rgba(255, 255, 255, 0.9) !important; /* Más brillante */
-  }
-  .xp-hero-lead strong {
-    font-weight: 600;
-    color: #fff;
-  }
-
-  /* --- BOTÓN PRINCIPAL (Descargar) --- */
-  .xp-btn-primary {
-    background: linear-gradient(135deg, #FFB82E 0%, #F7AD19 100%);
-    color: #053F5C;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    border: none;
-    padding: 18px 45px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    overflow: hidden;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 30px rgba(247, 173, 25, 0.35);
-    z-index: 1;
-  }
-  
-  /* Animación de latido suave */
-  .xp-btn-primary {
-    animation: pulse-btn 3s infinite;
-  }
-  
-  @keyframes pulse-btn {
-    0% { box-shadow: 0 0 0 0 rgba(247, 173, 25, 0.6); }
-    70% { box-shadow: 0 0 0 15px rgba(247, 173, 25, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(247, 173, 25, 0); }
-  }
-
-  .xp-btn-primary:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(247, 173, 25, 0.5);
-    color: #053F5C;
-  }
-
-  .btn-content {
-    display: flex; align-items: center; gap: 12px; font-size: 1.1rem;
-  }
-  
-  .btn-icon-anim {
-    display: inline-block;
-    transition: transform 0.3s ease;
-  }
-  
-  .xp-btn-primary:hover .btn-icon-anim {
-    transform: translateY(3px); /* La flecha baja al hacer hover */
-  }
-
-  /* Resplandor interno al hover */
-  .xp-btn-glow {
-    position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 60%);
-    transform: scale(0); transition: transform 0.5s; pointer-events: none;
-  }
-  .xp-btn-primary:hover .xp-btn-glow { transform: scale(1); }
-
-
-  /* --- BOTÓN SECUNDARIO (Glass) --- */
-  .xp-btn-glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 18px 40px;
-    transition: all 0.3s ease;
-    display: inline-flex; align-items: center; gap: 10px;
-  }
-  
-  .xp-btn-glass .arrow-icon {
-    transition: transform 0.3s ease;
-  }
-  
-  .xp-btn-glass:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: #ffffff;
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  }
-  
-  .xp-btn-glass:hover .arrow-icon {
-    transform: translateX(4px);
-  }
-
-  /* --- FONDO Y OVERLAY --- */
-  .xp-bg-image {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background-size: cover; background-position: center; z-index: 1;
-    /* Animación de paneo suave (Ken Burns effect) */
-    animation: panSlow 30s infinite alternate ease-in-out;
-    filter: saturate(1.1); /* Un poco más vibrante */
-  }
-
-  @keyframes panSlow {
-    0% { transform: scale(1) translate(0, 0); }
-    100% { transform: scale(1.15) translate(-2%, -1%); }
-  }
-
-  .xp-hero-overlay {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    /* Gradiente radial para enfocar el centro/izquierda donde está el texto */
-    background: radial-gradient(circle at 30% 50%, rgba(5,63,92,0.85) 0%, rgba(5,63,92,0.95) 100%);
-    z-index: 2;
-  }
-
-  .z-3 { z-index: 3; }
-
-  /* --- INDICADOR DE SCROLL --- */
-  .xp-scroll-indicator {
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-    z-index: 10;
-  }
-  .xp-scroll-indicator:hover { opacity: 1; }
-
-  .mouse {
-    width: 26px; height: 42px;
-    border: 2px solid #fff;
-    border-radius: 20px;
-    position: relative;
-    margin-bottom: 6px;
-  }
-  .wheel {
-    width: 4px; height: 6px; background: #F7AD19;
-    position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
-    border-radius: 2px;
-    animation: scrollWheel 1.5s infinite;
-  }
-  
-  @keyframes scrollWheel {
-    0% { opacity: 1; top: 8px; }
-    100% { opacity: 0; top: 24px; }
-  }
-  
-  /* Flechitas abajo (opcional, para reforzar) */
-  .arrow-scroll span {
-    display: block; width: 10px; height: 10px;
-    border-bottom: 2px solid #fff; border-right: 2px solid #fff;
-    transform: rotate(45deg);
-    margin: -4px auto;
-    animation: arrowScroll 2s infinite;
-  }
-  .arrow-scroll span:nth-child(2) { animation-delay: -0.2s; }
-  .arrow-scroll span:nth-child(3) { animation-delay: -0.4s; }
-  
-  @keyframes arrowScroll {
-    0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); }
-    50% { opacity: 1; }
-    100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); }
-  }
-  
-  /* Ajuste responsive para móviles */
-  @media (max-width: 768px) {
-     .xp-hero-title { font-size: 2.8rem; }
-     .xp-immersive-hero { text-align: center; }
-     .xp-immersive-hero .row { justify-content: center; }
-     .xp-eyebrow { margin-bottom: 20px; }
-     .d-flex { justify-content: center; }
-     .xp-btn-primary, .xp-btn-glass { width: 100%; justify-content: center; }
-     .xp-scroll-indicator { display: none; /* Ocultar en móviles muy pequeños si estorba */ }
-  }
-</style>
 
     <!-- Partners Slider -->
 <section class="section">
