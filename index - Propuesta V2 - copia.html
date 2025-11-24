@@ -1026,8 +1026,8 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
     :root {
         --primary-color: #2563EB; /* Azul Royal Tech */
         --accent-color: #7C3AED;  /* Púrpura Profundo */
-        --text-dark: #1E293B;     /* Gris Oscuro (Mejor que negro puro) */
-        --text-gray: #64748B;     /* Gris medio para descripciones */
+        --text-dark: #1E293B;     /* Gris Oscuro */
+        --text-gray: #64748B;     /* Gris medio */
         --bg-card: #FFFFFF;
         --line-color: #E2E8F0;
         --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
@@ -1039,7 +1039,7 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
     /* --- SECTION LAYOUT --- */
     .xp-premium-timeline {
         padding: 100px 20px;
-        background: #F8FAFC; /* Fondo muy sutil para resaltar las tarjetas blancas */
+        background: #F8FAFC;
         font-family: var(--font-main);
         overflow-x: hidden;
     }
@@ -1050,10 +1050,47 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         position: relative;
     }
 
+    /* --- NUEVO: CABECERA DE SECCIÓN (HEADER) --- */
+    .xp-section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 80px auto; /* Separación con la línea de tiempo */
+        padding: 0 10px;
+    }
+
+    .xp-eyebrow {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 16px;
+        background: rgba(124, 58, 237, 0.08);
+        padding: 6px 14px;
+        border-radius: 50px;
+    }
+
+    .xp-main-heading {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin: 0 0 20px 0;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+    }
+
+    .xp-sub-heading {
+        font-size: 1.125rem;
+        color: var(--text-gray);
+        line-height: 1.6;
+        margin: 0;
+    }
+
     /* --- THE TRACK (LÍNEA BASE) --- */
     .xp-track-line {
         position: absolute;
-        top: 100px; /* Alineado con los iconos */
+        top: 100px;
         left: 50px;
         right: 50px;
         height: 3px;
@@ -1062,7 +1099,6 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         border-radius: 10px;
     }
 
-    /* Gradiente de progreso visual */
     .xp-track-line::after {
         content: '';
         position: absolute;
@@ -1091,7 +1127,7 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    /* --- ICON NODE (EL PUNTO DE ANCLAJE) --- */
+    /* --- ICON NODE --- */
     .xp-icon-halo {
         width: 80px;
         height: 80px;
@@ -1100,12 +1136,11 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 30px; /* Espacio hacia la tarjeta */
+        margin-bottom: 30px;
         position: relative;
-        /* Doble sombra para efecto flotante 3D */
         box-shadow: 
-            0 0 0 4px var(--bg-card), /* Borde blanco falso */
-            0 0 0 6px var(--line-color), /* Borde gris externo */
+            0 0 0 4px var(--bg-card), 
+            0 0 0 6px var(--line-color), 
             0 10px 20px rgba(0,0,0,0.05);
         z-index: 2;
         transition: all 0.3s ease;
@@ -1115,7 +1150,7 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         transform: scale(1.1);
         box-shadow: 
             0 0 0 4px var(--bg-card),
-            0 0 0 6px var(--primary-color), /* Se enciende al hover */
+            0 0 0 6px var(--primary-color),
             0 15px 30px rgba(37, 99, 235, 0.2);
     }
 
@@ -1129,7 +1164,7 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
     
     .xp-step-col:hover .xp-icon-halo svg { stroke: var(--primary-color); }
 
-    /* --- INFO CARD (MINIMALISTA) --- */
+    /* --- INFO CARD --- */
     .xp-card-ui {
         background: var(--bg-card);
         padding: 25px;
@@ -1137,13 +1172,11 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         width: 100%;
         max-width: 300px;
         position: relative;
-        /* Borde sutil en lugar de sombra pesada */
         border: 1px solid rgba(0,0,0,0.05);
         box-shadow: var(--shadow-soft);
         transition: all 0.3s ease;
     }
 
-    /* Triangulito indicador (Tooltip style) */
     .xp-card-ui::before {
         content: '';
         position: absolute;
@@ -1191,19 +1224,23 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
     /* --- RESPONSIVE / MOBILE OPTIMIZATION --- */
     @media (max-width: 800px) {
         .xp-premium-timeline { padding: 60px 20px; }
+        
+        /* Ajustes Cabecera Móvil */
+        .xp-section-header { margin-bottom: 50px; text-align: left; padding: 0; }
+        .xp-main-heading { font-size: 2rem; }
+
         .xp-steps-grid { flex-direction: column; }
         
-        /* Convertir línea horizontal a vertical izquierda */
         .xp-track-line {
             width: 3px;
             height: 100%;
-            left: 40px; /* Centrado con el icono */
+            left: 40px;
             top: 0;
             right: auto;
             background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
             opacity: 0.3;
         }
-        .xp-track-line::after { display: none; } /* Reset gradiente horizontal */
+        .xp-track-line::after { display: none; }
 
         .xp-step-col {
             flex-direction: row;
@@ -1214,11 +1251,11 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         }
 
         .xp-icon-halo {
-            width: 60px; height: 60px; /* Más pequeño en móvil */
+            width: 60px; height: 60px;
             margin-right: 20px;
             margin-bottom: 0;
             flex-shrink: 0;
-            left: 10px; /* Ajuste visual sobre la línea */
+            left: 10px;
             box-shadow: 0 0 0 4px var(--bg-card), 0 5px 15px rgba(0,0,0,0.05);
         }
         .xp-icon-halo svg { width: 24px; height: 24px; }
@@ -1226,10 +1263,9 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
         .xp-card-ui {
             width: 100%;
             max-width: 100%;
-            margin-top: 5px; /* Alinear con el icono */
+            margin-top: 5px;
         }
         .xp-card-ui::before { 
-            /* Mover triangulo a la izquierda */
             top: 25px; left: -8px; 
             transform: rotate(-45deg);
             border-left: 1px solid rgba(0,0,0,0.05); border-top: 1px solid rgba(0,0,0,0.05);
@@ -1242,7 +1278,111 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
 <section class="xp-premium-timeline">
     <div class="xp-container-ui">
         
-        <div class="xp-track-line"></div>
+        <style>
+    /* --- HEADER MEJORADO UX/UI --- */
+    .xp-section-header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 70px auto;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    /* 1. Categoría: Minimalista y Técnica */
+    .xp-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: var(--accent-color); /* Púrpura */
+        background: rgba(124, 58, 237, 0.06);
+        border: 1px solid rgba(124, 58, 237, 0.15);
+        padding: 6px 16px;
+        border-radius: 100px;
+        margin-bottom: 24px;
+        transition: all 0.3s ease;
+    }
+
+    .xp-eyebrow:hover {
+        background: rgba(124, 58, 237, 0.1);
+        transform: translateY(-2px);
+    }
+
+    /* Pequeño punto decorativo en el eyebrow */
+    .xp-eyebrow::before {
+        content: '';
+        width: 6px; height: 6px;
+        background-color: var(--accent-color);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--accent-color);
+    }
+
+    /* 2. Título: Impacto Visual con Gradiente (Text Mask) */
+    .xp-main-heading {
+        font-family: var(--font-main);
+        font-size: 3rem; /* Más grande para autoridad */
+        font-weight: 800;
+        letter-spacing: -0.03em; /* Kerning apretado moderno */
+        line-height: 1.1;
+        margin: 0 0 24px 0;
+        color: var(--text-dark); /* Fallback */
+    }
+
+    /* El efecto "Wow": Gradiente solo en el texto */
+    .xp-text-gradient {
+        background: linear-gradient(135deg, var(--text-dark) 30%, var(--primary-color) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    /* 3. Subtítulo: Optimizado para lectura rápida */
+    .xp-sub-heading {
+        font-size: 1.125rem;
+        color: var(--text-gray);
+        line-height: 1.7; /* Mayor altura de línea para elegancia */
+        margin: 0 auto;
+        max-width: 600px; /* Ancho controlado para evitar fatiga ocular */
+        font-weight: 400;
+    }
+
+    /* Decoración sutil de fondo (Luz ambiental) */
+    .xp-section-header::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, rgba(255,255,255,0) 70%);
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .xp-section-header { text-align: left; margin-bottom: 50px; }
+        .xp-main-heading { font-size: 2.25rem; }
+        .xp-sub-heading { font-size: 1rem; margin: 0; }
+        .xp-section-header::after { display: none; } /* Limpieza en móvil */
+    }
+</style>
+
+<div class="xp-section-header">
+    <span class="xp-eyebrow">Ecosistema Seguro</span>
+    
+    <h2 class="xp-main-heading">
+        <span class="xp-text-gradient">Confianza Digital</span>
+    </h2>
+    
+    <p class="xp-sub-heading">
+        Transformamos la incertidumbre en seguridad. Un sistema diseñado para convertir interacciones simples en acuerdos sólidos, verificados y con validez legal.
+    </p>
+</div>
 
         <div class="xp-steps-grid">
             
