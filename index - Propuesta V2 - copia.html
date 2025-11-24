@@ -1021,63 +1021,267 @@ Xpressate te da una plataforma para publicar tus experiencias (públicas o anón
   }
 </style>
 
-<section id="proceso-confianza" class="xp-deep-dive-section">
-    <div class="xp-container">
+<style>
+    /* --- SYSTEM DESIGN TOKENS --- */
+    :root {
+        --primary-color: #2563EB; /* Azul Royal Tech */
+        --accent-color: #7C3AED;  /* Púrpura Profundo */
+        --text-dark: #1E293B;     /* Gris Oscuro (Mejor que negro puro) */
+        --text-gray: #64748B;     /* Gris medio para descripciones */
+        --bg-card: #FFFFFF;
+        --line-color: #E2E8F0;
+        --shadow-soft: 0 10px 40px -10px rgba(0,0,0,0.08);
+        --shadow-hover: 0 20px 40px -5px rgba(37, 99, 235, 0.15);
+        --radius-lg: 16px;
+        --font-main: 'Inter', system-ui, sans-serif;
+    }
+
+    /* --- SECTION LAYOUT --- */
+    .xp-premium-timeline {
+        padding: 100px 20px;
+        background: #F8FAFC; /* Fondo muy sutil para resaltar las tarjetas blancas */
+        font-family: var(--font-main);
+        overflow-x: hidden;
+    }
+
+    .xp-container-ui {
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    /* --- THE TRACK (LÍNEA BASE) --- */
+    .xp-track-line {
+        position: absolute;
+        top: 100px; /* Alineado con los iconos */
+        left: 50px;
+        right: 50px;
+        height: 3px;
+        background: var(--line-color);
+        z-index: 0;
+        border-radius: 10px;
+    }
+
+    /* Gradiente de progreso visual */
+    .xp-track-line::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: 100%;
+        background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        opacity: 0.2;
+    }
+
+    /* --- STEPS WRAPPER --- */
+    .xp-steps-grid {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* --- INDIVIDUAL STEP --- */
+    .xp-step-col {
+        flex: 1;
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* --- ICON NODE (EL PUNTO DE ANCLAJE) --- */
+    .xp-icon-halo {
+        width: 80px;
+        height: 80px;
+        background: var(--bg-card);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px; /* Espacio hacia la tarjeta */
+        position: relative;
+        /* Doble sombra para efecto flotante 3D */
+        box-shadow: 
+            0 0 0 4px var(--bg-card), /* Borde blanco falso */
+            0 0 0 6px var(--line-color), /* Borde gris externo */
+            0 10px 20px rgba(0,0,0,0.05);
+        z-index: 2;
+        transition: all 0.3s ease;
+    }
+
+    .xp-step-col:hover .xp-icon-halo {
+        transform: scale(1.1);
+        box-shadow: 
+            0 0 0 4px var(--bg-card),
+            0 0 0 6px var(--primary-color), /* Se enciende al hover */
+            0 15px 30px rgba(37, 99, 235, 0.2);
+    }
+
+    .xp-icon-halo svg {
+        width: 32px;
+        height: 32px;
+        stroke: var(--text-dark);
+        stroke-width: 1.5;
+        transition: stroke 0.3s;
+    }
+    
+    .xp-step-col:hover .xp-icon-halo svg { stroke: var(--primary-color); }
+
+    /* --- INFO CARD (MINIMALISTA) --- */
+    .xp-card-ui {
+        background: var(--bg-card);
+        padding: 25px;
+        border-radius: var(--radius-lg);
+        width: 100%;
+        max-width: 300px;
+        position: relative;
+        /* Borde sutil en lugar de sombra pesada */
+        border: 1px solid rgba(0,0,0,0.05);
+        box-shadow: var(--shadow-soft);
+        transition: all 0.3s ease;
+    }
+
+    /* Triangulito indicador (Tooltip style) */
+    .xp-card-ui::before {
+        content: '';
+        position: absolute;
+        top: -8px; left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 16px; height: 16px;
+        background: var(--bg-card);
+        border-left: 1px solid rgba(0,0,0,0.05);
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .xp-step-col:hover .xp-card-ui {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+        border-color: rgba(37, 99, 235, 0.1);
+    }
+
+    /* --- TYPOGRAPHY --- */
+    .xp-num-badge {
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        display: block;
+        opacity: 0.8;
+    }
+
+    .xp-title-ui {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin: 0 0 10px 0;
+        line-height: 1.3;
+    }
+
+    .xp-desc-ui {
+        font-size: 0.875rem;
+        color: var(--text-gray);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* --- RESPONSIVE / MOBILE OPTIMIZATION --- */
+    @media (max-width: 800px) {
+        .xp-premium-timeline { padding: 60px 20px; }
+        .xp-steps-grid { flex-direction: column; }
         
-        <div class="xp-row-block" data-aos="fade-up">
-            <div class="xp-text-col">
-                <span class="xp-subtitle-tag">Confianza & Transparencia</span>
-                <h3 class="xp-block-title">Intermediario Tecnológico: Diálogo Seguro y Neutral.</h3>
-                <p class="xp-block-desc">
-                Xpressate actúa como intermediario tecnológico, no crea ni edita el contenido; solo modera de acuerdo con normas de seguridad.
-            </div>
+        /* Convertir línea horizontal a vertical izquierda */
+        .xp-track-line {
+            width: 3px;
+            height: 100%;
+            left: 40px; /* Centrado con el icono */
+            top: 0;
+            right: auto;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            opacity: 0.3;
+        }
+        .xp-track-line::after { display: none; } /* Reset gradiente horizontal */
 
-            <div class="xp-img-col">
-                <div class="xp-img-frame">
-                    <img src="img/seguridad.png" alt="Interfaz de Chat Xpressate">
+        .xp-step-col {
+            flex-direction: row;
+            text-align: left;
+            margin-bottom: 40px;
+            padding: 0;
+            align-items: flex-start;
+        }
+
+        .xp-icon-halo {
+            width: 60px; height: 60px; /* Más pequeño en móvil */
+            margin-right: 20px;
+            margin-bottom: 0;
+            flex-shrink: 0;
+            left: 10px; /* Ajuste visual sobre la línea */
+            box-shadow: 0 0 0 4px var(--bg-card), 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .xp-icon-halo svg { width: 24px; height: 24px; }
+
+        .xp-card-ui {
+            width: 100%;
+            max-width: 100%;
+            margin-top: 5px; /* Alinear con el icono */
+        }
+        .xp-card-ui::before { 
+            /* Mover triangulo a la izquierda */
+            top: 25px; left: -8px; 
+            transform: rotate(-45deg);
+            border-left: 1px solid rgba(0,0,0,0.05); border-top: 1px solid rgba(0,0,0,0.05);
+        }
+    }
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<section class="xp-premium-timeline">
+    <div class="xp-container-ui">
+        
+        <div class="xp-track-line"></div>
+
+        <div class="xp-steps-grid">
+            
+            <div class="xp-step-col">
+                <div class="xp-icon-halo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div class="xp-card-ui">
+                    <span class="xp-num-badge">Paso 01</span>
+                    <h3 class="xp-title-ui">Intermediario Neutral</h3>
+                    <p class="xp-desc-ui">Moderación sin edición. Garantizamos un diálogo seguro respetando tu contenido.</p>
                 </div>
             </div>
-        </div>
 
-        <div class="xp-row-block reverse" data-aos="fade-up">
-            <div class="xp-text-col">
-                <span class="xp-subtitle-tag" style="color:#FFF; background:rgba(255,193,7,0.4);">Acuerdos Formales</span>
-                <h3 class="xp-block-title">Negociación Formal: Solución Mutua con Respaldo Digital.</h3>
-                <p class="xp-block-desc">
-                    La resolución se formaliza a través de un proceso de acuerdos en el chat. Esto garantiza que las soluciones sean consensuadas y registradas para una trazabilidad legal.
-                </p>
-                <a href="#unirme" class="xp-btn-line">Ver Casos →</a>
-            </div>
-
-            <div class="xp-img-col">
-                <div class="xp-img-bg" style="background:rgba(255,193,7,0.2);"></div>
-                <div class="xp-img-frame">
-                    <img src="img/prop.png" alt="Proceso de Acuerdo Xpressate">
+            <div class="xp-step-col">
+                <div class="xp-icon-halo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                </div>
+                <div class="xp-card-ui">
+                    <span class="xp-num-badge">Paso 02</span>
+                    <h3 class="xp-title-ui">Acuerdos Formales</h3>
+                    <p class="xp-desc-ui">Registramos cada resolución en el chat para asegurar trazabilidad legal.</p>
                 </div>
             </div>
-        </div>
 
-        <div class="xp-row-block" data-aos="fade-up">
-            <div class="xp-text-col">
-                <span class="xp-subtitle-tag" style="color:#FFF; background:rgba(40,167,69,0.4);">Calidad del Contenido</span>
-                <h3 class="xp-block-title">Contenido Auténtico, Interacciones Validadas.</h3>
-                <p class="xp-block-desc">
-                    Mantenemos un entorno limpio y respetuoso. La moderación automática garantiza que las conversaciones sean productivas y que las interacciones reflejen el sentir real de la comunidad.
-                </p>
-                
-                
-            </div>
-
-            <div class="xp-img-col">
-                <div class="xp-img-bg" style="background:rgba(40,167,69,0.2);"></div>
-                <div class="xp-img-frame">
-                    <img src="img/CENS.png" alt="Moderación de Contenido Xpressate">
+            <div class="xp-step-col">
+                <div class="xp-icon-halo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                </div>
+                <div class="xp-card-ui">
+                    <span class="xp-num-badge">Paso 03</span>
+                    <h3 class="xp-title-ui">Calidad Validada</h3>
+                    <p class="xp-desc-ui">Entorno limpio. Moderación automática para interacciones auténticas.</p>
                 </div>
             </div>
-        </div>
 
+        </div>
     </div>
-</section>
+
 </section>
     <!-- fin de Beneficios -->
     <!-- tESTIMONIOS -->
